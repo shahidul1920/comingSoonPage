@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Redmun Digitech</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #13131a;
+            --accent-red: #e63946;
+            --accent-red-dark: #c62e3a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b8;
+            --text-muted: #6b6b75;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a0a0f 50%, #0a0a0f 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated background particles */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(230, 57, 70, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(230, 57, 70, 0.05) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.7; }
+        }
+
+        .container {
+            background: var(--bg-card);
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 1px rgba(230, 57, 70, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            text-align: center;
+            max-width: 700px;
+            width: 100%;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(230, 57, 70, 0.1);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 40px;
+            filter: drop-shadow(0 4px 20px rgba(230, 57, 70, 0.3));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-red) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+            animation: slideIn 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            line-height: 1.6;
+            animation: slideIn 0.8s ease-out 0.4s both;
+        }
+
+        .location {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            padding: 12px 24px;
+            background: rgba(230, 57, 70, 0.1);
+            border-radius: 30px;
+            border: 1px solid rgba(230, 57, 70, 0.2);
+            animation: slideIn 0.8s ease-out 0.6s both;
+        }
+
+        .location::before {
+            content: '📍';
+            font-size: 1.2rem;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-red-dark) 100%);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            box-shadow: 
+                0 10px 30px rgba(230, 57, 70, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            animation: slideIn 0.8s ease-out 0.8s both;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .status-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(230, 57, 70, 0.4);
+        }
+
+        .status-badge::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .construction {
+            margin-top: 50px;
+            opacity: 0.6;
+            animation: slideIn 0.8s ease-out 1s both;
+        }
+
+        .construction img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        .social-links {
+            margin-top: 40px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            animation: slideIn 0.8s ease-out 1.2s both;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(230, 57, 70, 0.1);
+            border: 1px solid rgba(230, 57, 70, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: var(--accent-red);
+            color: white;
+            transform: translateY(-3px);
+            border-color: var(--accent-red);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 30px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .logo {
+                max-width: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./Redmun digitech final-01.png" alt="Redmun Digitech Logo" class="logo">
+        <h1>Coming Soon</h1>
+        <div class="subtitle">Redmun Digitech is launching soon. Stay tuned for something amazing!</div>
+        <div class="location">Based in San Francisco, CA</div>
+        <div class="status-badge">
+            <span>Under Development</span>
+        </div>
+        <div class="construction">
+            <img src="construction.png" alt="Under Construction" style="max-width: 100%; height: auto;">
+        </div>
+        <div class="social-links">
+            <a href="#" class="social-link" title="Facebook">📘</a>
+            <a href="#" class="social-link" title="Twitter">🐦</a>
+            <a href="#" class="social-link" title="LinkedIn">💼</a>
+            <a href="#" class="social-link" title="Instagram">📷</a>
+        </div>
+    </div>
+</body>
+</html>
