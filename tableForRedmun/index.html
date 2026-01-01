@@ -299,7 +299,7 @@
     let blogPrice = 0;
 
     function selectTablePkg(pkgId, price) {
-        // Reset Styles
+        // Visual Logic
         document.querySelectorAll('.col-selected').forEach(el => el.classList.remove('col-selected'));
         document.querySelectorAll('.th-selected').forEach(el => el.classList.remove('th-selected'));
         document.querySelectorAll('.select-btn').forEach(btn => {
@@ -307,18 +307,16 @@
             btn.innerText = "Select";
         });
 
-        // Highlight New
         document.getElementById(`head-pkg-${pkgId}`).classList.add('th-selected');
         document.querySelectorAll(`.col-pkg-${pkgId}`).forEach(el => el.classList.add('col-selected'));
         let clickedBtn = document.querySelectorAll(`.col-pkg-${pkgId} .select-btn`)[0];
         clickedBtn.classList.add('active-btn');
         clickedBtn.innerText = "Selected";
 
-        // Update Data
+        // Data Logic
         currentPkg = `Package ${pkgId}`;
         pkgPrice = price;
         
-        // Show Blog Section
         document.getElementById('blog-section').style.display = 'block';
         document.getElementById('blog-section').scrollIntoView({behavior: "smooth"});
         document.getElementById('total-cost-bar').style.display = 'block';
@@ -347,9 +345,17 @@
         }
         finalString += ` | Total: $${total}`;
 
-        let formField = document.getElementById("final_result");
+        // --- FIXED CONNECTION FOR YOUR FORM ---
+        // We are now looking for the input with name="input_text"
+        let formField = document.querySelector("input[name='input_text']");
+        
         if(formField) {
             formField.value = finalString;
+            // Tell Fluent Forms the value changed
+            formField.dispatchEvent(new Event('change')); 
+            formField.dispatchEvent(new Event('input'));
+        } else {
+            console.error("STILL NOT FOUND: Could not find input[name='input_text']");
         }
     }
 </script>
