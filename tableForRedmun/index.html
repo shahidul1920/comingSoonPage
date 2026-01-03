@@ -2,6 +2,14 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
     /* --- TABLE STYLES --- */
+    /* FORCE HIDE THE FORM FIELD */
+.fluentform .hide-me-please {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
     .pricing-table-container {
         font-family: 'Poppins', sans-serif;
         overflow-x: auto;
@@ -303,7 +311,7 @@
     <div style="font-size: 14px; color: #666;">Frequency: 1000-1500 Words/Blog</div>
 
     <div class="blog-pill-container">
-        <a href="#restForm">
+        <!-- <a href="#restForm">
             <div class="blog-pill" onclick="selectBlogOption(2, 200, this)">Weekly 2 (+$200)</div>
         </a>
         <a href="#restForm">
@@ -311,7 +319,10 @@
         </a>
         <a href="#restForm">
             <div class="blog-pill" onclick="selectBlogOption(7, 700, this)">Weekly 7 (+$700)</div>
-        </a>
+        </a> -->
+        <div class="blog-pill" onclick="selectBlogOption(2, 200, this)">Weekly 2 (+$200)</div>
+        <div class="blog-pill" onclick="selectBlogOption(4, 400, this)">Weekly 4 (+$400)</div>
+         <div class="blog-pill" onclick="selectBlogOption(7, 700, this)">Weekly 7 (+$700)</div>
     </div>
 
     <div id="total-cost-bar">
