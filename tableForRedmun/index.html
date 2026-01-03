@@ -1,15 +1,19 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-    /* --- TABLE STYLES --- */
-    /* FORCE HIDE THE FORM FIELD */
-.fluentform .hide-me-please {
-    display: none !important;
-    visibility: hidden !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
+    /* --- GLOBAL HELPERS --- */
+    /* Force hide form fields */
+    .fluentform .hide-me-please {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* --- TABLE CONTAINER STYLES --- */
     .pricing-table-container {
         font-family: 'Poppins', sans-serif;
         overflow-x: auto;
@@ -28,6 +32,7 @@
         background: #fff;
     }
 
+    /* --- HEADERS --- */
     .pricing-table th {
         background-color: #f9f9f9;
         color: #222;
@@ -40,19 +45,17 @@
         letter-spacing: 0.5px;
     }
 
-    /* --- CHANGE: First Column Header (Off-Red Top) --- */
+    /* First Column Header (Service Name) - Off-Red */
     .pricing-table th:first-child {
         text-align: left;
         width: 25%;
         background-color: #ffebee;
-        /* Whitish/Off-Red Background */
         font-weight: 800;
         color: #b71c1c;
-        /* Darker red text for contrast */
         border-right: 1px solid #eee;
-        /* Ensure border is present */
     }
 
+    /* --- CELLS --- */
     .pricing-table td {
         padding: 18px 20px;
         border-bottom: 1px solid #f0f0f0;
@@ -64,26 +67,22 @@
         line-height: 1.6;
     }
 
-    /* --- CHANGE: First Column Body Cells --- */
+    /* First Column Cells (Labels) */
     .pricing-table td:first-child {
         text-align: left;
         font-weight: 600;
         color: #333;
         background-color: #fff;
-        /* Back to white to let header pop */
-        border-right: 1px solid #f5f5f5;
-        /* Ensure border is present */
-    }
-
-    /* Vertical Dividers for Packages */
-    .pricing-table td:nth-child(2),
-    .pricing-table th:nth-child(2),
-    .pricing-table td:nth-child(3),
-    .pricing-table th:nth-child(3) {
         border-right: 1px solid #f5f5f5;
     }
 
-    /* Price Row Styles */
+    /* Vertical Dividers */
+    .pricing-table td:nth-child(2), .pricing-table th:nth-child(2),
+    .pricing-table td:nth-child(3), .pricing-table th:nth-child(3) {
+        border-right: 1px solid #f5f5f5;
+    }
+
+    /* Price Row */
     .price-row td {
         font-size: 22px;
         font-weight: 700;
@@ -106,6 +105,7 @@
         border-bottom-color: #d32f2f !important;
     }
 
+    /* --- BUTTONS --- */
     .select-btn {
         background-color: #222;
         color: #fff !important;
@@ -131,69 +131,36 @@
         box-shadow: 0 5px 15px rgba(211, 47, 47, 0.4);
     }
 
-    /* --- BLOG SECTION --- */
-    #blog-section {
-        display: none;
-        max-width: 800px;
-        margin: 40px auto;
-        padding: 35px;
-        background: #fff;
-        border: 2px dashed #ddd;
-        border-radius: 12px;
+    /* --- BLOG SECTION TITLE --- */
+    .blog-section-title-box {
         text-align: center;
+        margin: 50px 0 20px 0;
     }
-
-    .blog-section-title {
-        font-size: 20px;
+    
+    .blog-main-title {
+        font-size: 24px;
         font-weight: 700;
-        color: #222;
+        color: #d32f2f;
         margin-bottom: 5px;
     }
-
-    .blog-pill-container {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 25px;
-        flex-wrap: wrap;
-    }
-
-    .blog-pill {
-        padding: 12px 25px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: 500;
+    
+    .blog-sub-title {
         font-size: 14px;
-        background: #f9f9f9;
-        color: #333 !important;
-        transition: all 0.2s;
-    }
-
-    .blog-pill:hover {
-        border-color: #d32f2f;
-        color: #d32f2f !important;
-    }
-
-    .blog-pill.active {
-        background-color: #d32f2f;
-        color: #fff !important;
-        border-color: #d32f2f;
-        box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3);
+        color: #666;
     }
 
     /* --- TOTAL COST BAR --- */
     #total-cost-bar {
-        display: none;
+        display: none; /* Shows only after selection */
         margin-top: 20px;
         padding: 20px;
-        /* background: #222;
-        color: #fff; */
         color: #222;
         border-radius: 8px;
         text-align: center;
         font-size: 18px;
         animation: fadeIn 0.5s;
+        border: 2px solid #eee;
+        background: #f9f9f9;
     }
 
     .total-price-text {
@@ -202,23 +169,17 @@
         color: #ff3366;
         margin-left: 10px;
     }
-    a{ text-decoration: none; color: inherit;}
-    .reqHead{
+    
+    .reqHead {
         margin-top: 10px;
         font-size: 16px;
         font-weight: 500;
         color: #555;
     }
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
 
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 </style>
 
@@ -237,8 +198,7 @@
                 <td>Content Design</td>
                 <td class="col-pkg-1">12 Static Creative<br>2 Motion Graphics<br>1 Info Graphic</td>
                 <td class="col-pkg-2">20 Static Creative<br>3 Motion Graphics<br>2 Info Graphics</td>
-                <td class="col-pkg-3">30 Static Creative<br>5 Motion Graphics<br>4 Info Graphics<br><strong>2 Short
-                        Video Editing</strong></td>
+                <td class="col-pkg-3">30 Static Creative<br>5 Motion Graphics<br>4 Info Graphics<br><strong>2 Short Video Editing</strong></td>
             </tr>
             <tr>
                 <td>Platform</td>
@@ -307,22 +267,56 @@
 </div>
 
 <div id="blog-section">
-    <div class="blog-section-title">Add Blog Writing Service?</div>
-    <div style="font-size: 14px; color: #666;">Frequency: 1000-1500 Words/Blog</div>
+    <div class="blog-section-title-box">
+        <div class="blog-main-title">Add Blog Writing Service?</div>
+        <div class="blog-sub-title">Frequency: 1000-1500 Words/Blog</div>
+    </div>
 
-    <div class="blog-pill-container">
-        <!-- <a href="#restForm">
-            <div class="blog-pill" onclick="selectBlogOption(2, 200, this)">Weekly 2 (+$200)</div>
-        </a>
-        <a href="#restForm">
-            <div class="blog-pill" onclick="selectBlogOption(4, 400, this)">Weekly 4 (+$400)</div>
-        </a>
-        <a href="#restForm">
-            <div class="blog-pill" onclick="selectBlogOption(7, 700, this)">Weekly 7 (+$700)</div>
-        </a> -->
-        <div class="blog-pill" onclick="selectBlogOption(2, 200, this)">Weekly 2 (+$200)</div>
-        <div class="blog-pill" onclick="selectBlogOption(4, 400, this)">Weekly 4 (+$400)</div>
-         <div class="blog-pill" onclick="selectBlogOption(7, 700, this)">Weekly 7 (+$700)</div>
+    <div class="pricing-table-container">
+        <table class="pricing-table" id="blog-pricing-table">
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th id="head-blog-2">Weekly 2</th>
+                    <th id="head-blog-4">Weekly 4</th>
+                    <th id="head-blog-7">Weekly 7</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Size</td>
+                    <td class="col-blog-2">1000-1500 Word</td>
+                    <td class="col-blog-4">1000-1500 Word</td>
+                    <td class="col-blog-7">1000-1500 Word</td>
+                </tr>
+                <tr>
+                    <td>Review</td>
+                    <td class="col-blog-2">3 per Blog</td>
+                    <td class="col-blog-4">3 per Blog</td>
+                    <td class="col-blog-7">3 per Blog</td>
+                </tr>
+                
+                <tr class="price-row">
+                    <td>Price</td>
+                    <td class="col-blog-2">+$200</td>
+                    <td class="col-blog-4">+$400</td>
+                    <td class="col-blog-7">+$700</td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td class="col-blog-2">
+                        <button class="select-btn" onclick="selectBlogOption(2, 200)">Add</button>
+                    </td>
+                    <td class="col-blog-4">
+                        <button class="select-btn" onclick="selectBlogOption(4, 400)">Add</button>
+                    </td>
+                    <td class="col-blog-7">
+                        <button class="select-btn" onclick="selectBlogOption(7, 700)">Add</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <div id="total-cost-bar">
@@ -338,17 +332,24 @@
     let currentBlog = "";
     let blogPrice = 0;
 
+    // --- 1. PACKAGE SELECTION LOGIC ---
     function selectTablePkg(pkgId, price) {
-        // Visual Logic
-        document.querySelectorAll('.col-selected').forEach(el => el.classList.remove('col-selected'));
-        document.querySelectorAll('.th-selected').forEach(el => el.classList.remove('th-selected'));
-        document.querySelectorAll('.select-btn').forEach(btn => {
+        // Visual Logic (Clear existing package highlights)
+        // Note: We scope this to the 'main-pricing-table' to avoid clearing blog highlights
+        let mainTable = document.getElementById('main-pricing-table');
+        
+        mainTable.querySelectorAll('.col-selected').forEach(el => el.classList.remove('col-selected'));
+        mainTable.querySelectorAll('.th-selected').forEach(el => el.classList.remove('th-selected'));
+        mainTable.querySelectorAll('.select-btn').forEach(btn => {
             btn.classList.remove('active-btn');
             btn.innerText = "Select";
         });
 
+        // Add Highlight
         document.getElementById(`head-pkg-${pkgId}`).classList.add('th-selected');
         document.querySelectorAll(`.col-pkg-${pkgId}`).forEach(el => el.classList.add('col-selected'));
+        
+        // Button State
         let clickedBtn = document.querySelectorAll(`.col-pkg-${pkgId} .select-btn`)[0];
         clickedBtn.classList.add('active-btn');
         clickedBtn.innerText = "Selected";
@@ -357,41 +358,74 @@
         currentPkg = `Package ${pkgId}`;
         pkgPrice = price;
 
-        document.getElementById('blog-section').style.display = 'block';
-        document.getElementById('blog-section').scrollIntoView({ behavior: "smooth" });
+        // Show Footer
         document.getElementById('total-cost-bar').style.display = 'block';
 
         calculateAndSave();
+        // Removed scrollIntoView() as requested
     }
 
-    function selectBlogOption(freq, price, element) {
-        document.querySelectorAll('.blog-pill').forEach(p => p.classList.remove('active'));
-        element.classList.add('active');
 
+    // --- 2. BLOG SELECTION LOGIC (UPDATED FOR TABLE) ---
+    function selectBlogOption(freq, price) {
+        // Visual Logic (Clear existing blog highlights)
+        let blogTable = document.getElementById('blog-pricing-table');
+        
+        blogTable.querySelectorAll('.col-selected').forEach(el => el.classList.remove('col-selected'));
+        blogTable.querySelectorAll('.th-selected').forEach(el => el.classList.remove('th-selected'));
+        blogTable.querySelectorAll('.select-btn').forEach(btn => {
+            btn.classList.remove('active-btn');
+            btn.innerText = "Add";
+        });
+
+        // Add Highlight
+        document.getElementById(`head-blog-${freq}`).classList.add('th-selected');
+        document.querySelectorAll(`.col-blog-${freq}`).forEach(el => el.classList.add('col-selected'));
+
+        // Button State
+        let clickedBtn = document.querySelectorAll(`.col-blog-${freq} .select-btn`)[0];
+        clickedBtn.classList.add('active-btn');
+        clickedBtn.innerText = "Added";
+
+        // Data Logic
         currentBlog = ` + Blog Writing (Weekly ${freq})`;
         blogPrice = price;
 
+        // Show Footer
+        document.getElementById('total-cost-bar').style.display = 'block';
+        
         calculateAndSave();
     }
 
+
+    // --- 3. CALCULATION & FORM UPDATE ---
     function calculateAndSave() {
         let total = pkgPrice + blogPrice;
 
+        // Visual Update
         document.getElementById('display-total').innerText = "$" + total;
 
-        let finalString = `${currentPkg} ($${pkgPrice})`;
+        // String Construction for Form
+        let finalString = "";
+        
+        if (currentPkg) {
+             finalString += `${currentPkg} ($${pkgPrice})`;
+        }
+        
         if (currentBlog) {
             finalString += `${currentBlog} (+$${blogPrice})`;
         }
-        finalString += ` | Total: $${total}`;
+        
+        if (total > 0) {
+            finalString += ` | Total: $${total}`;
+        }
 
-        // --- FIXED CONNECTION FOR YOUR FORM ---
-        // We are now looking for the input with name="input_text"
+        // Send to Fluent Form
         let formField = document.querySelector("input[name='input_text']");
 
         if (formField) {
             formField.value = finalString;
-            // Tell Fluent Forms the value changed
+            // Trigger events for Fluent Forms
             formField.dispatchEvent(new Event('change'));
             formField.dispatchEvent(new Event('input'));
         } else {
