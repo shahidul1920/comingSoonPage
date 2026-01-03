@@ -4,7 +4,7 @@
         position: fixed;
         width: 30px;   /* Width of circle */
         height: 30px;  /* Height of circle */
-        background-color: rgba(211, 47, 47, 0.6); /* Brand Red with transparency */
+        background-color: rgba(226, 27, 27, 0.6); /* Brand Red with transparency */
         border-radius: 50%; /* Makes it round */
         pointer-events: none; /* CRITICAL: Allows you to click links BEHIND the circle */
         z-index: 9999; /* Ensures it floats on top of everything */
@@ -12,7 +12,12 @@
         transition: transform 0.2s ease-out, opacity 0.2s; /* Adds that smooth "lag" feel */
         transition-delay: 0.2s;
         opacity: 0; /* Hidden by default until mouse moves */
-        box-shadow: 0 0 10px rgba(211, 47, 47, 0.4); /* Nice red glow */
+        box-shadow: 0 0 10px rgba(230, 36, 36, 0.4); /* Nice red glow */
+        
+        /* Black & White Filter Effect */
+        backdrop-filter: grayscale(100%) contrast(120%);
+        -webkit-backdrop-filter: grayscale(100%) contrast(120%); /* Safari support */
+        mix-blend-mode: difference; /* Creates inversion effect */
     }
 </style>
 
