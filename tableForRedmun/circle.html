@@ -1,0 +1,81 @@
+<style>
+    /* The Circle Style */
+    .mouse-follower {
+        position: fixed;
+        width: 30px;   /* Width of circle */
+        height: 30px;  /* Height of circle */
+        background-color: rgba(211, 47, 47, 0.6); /* Brand Red with transparency */
+        border-radius: 50%; /* Makes it round */
+        pointer-events: none; /* CRITICAL: Allows you to click links BEHIND the circle */
+        z-index: 9999; /* Ensures it floats on top of everything */
+        transform: translate(-50%, -50%); /* Centers circle on mouse tip */
+        transition: transform 0.2s ease-out, opacity 0.2s; /* Adds that smooth "lag" feel */
+        transition-delay: 0.2s;
+        opacity: 0; /* Hidden by default until mouse moves */
+        box-shadow: 0 0 10px rgba(211, 47, 47, 0.4); /* Nice red glow */
+    }
+</style>
+
+<div class="mouse-follower" id="red-cursor"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const circle = document.getElementById('red-cursor');
+        let mouseX = 0;
+        let mouseY = 0;
+        let circleX = 0;
+        let circleY = 0;
+        
+        // Physics: Lower value = more lag/smoothness (0.1-0.3 recommended)
+        const easing = 0.15;
+
+        // 1. Listen for Mouse Movement
+        document.addEventListener('mousemove', function(e) {
+            // Update target coordinates
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Make visible
+            circle.style.opacity = '1';
+        });
+
+        // 2. Animation loop for smooth physics
+        function animate() {
+            // Calculate the distance between current position and target
+            const dx = mouseX - circleX;
+            const dy = mouseY - circleY;
+            
+            // Move circle closer to target (lerp/easing)
+            circleX += dx * easing;
+            circleY += dy * easing;
+            
+            // Apply position
+            circle.style.left = circleX + 'px';
+            circle.style.top = circleY + 'px';
+            
+            // Keep animating
+            requestAnimationFrame(animate);
+        }
+        
+        // Start animation loop
+        animate();
+
+        // 3. Hide when mouse leaves the browser window
+        document.addEventListener('mouseout', function() {
+            circle.style.opacity = '0';
+        });
+        
+        // 4. Show when mouse comes back
+        document.addEventListener('mouseover', function() {
+            circle.style.opacity = '1';
+        });
+        
+        // 5. (Optional) Click Effect - Circle shrinks when clicking
+        document.addEventListener('mousedown', function() {
+            circle.style.transform = "translate(-50%, -50%) scale(0.8)";
+        });
+        document.addEventListener('mouseup', function() {
+            circle.style.transform = "translate(-50%, -50%) scale(1)";
+        });
+    });
+</script>

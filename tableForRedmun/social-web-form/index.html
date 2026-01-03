@@ -1,0 +1,416 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    /* --- GLOBAL STYLES --- */
+    /* Hide form field helper */
+    .fluentform .hide-me-please {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* --- TABLE CONTAINER --- */
+    .pricing-table-container {
+        font-family: 'Poppins', sans-serif;
+        overflow-x: auto;
+        margin-bottom: 50px; /* Space between tables */
+        border: 1px solid #eee;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        background: #fff;
+    }
+
+    .pricing-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        min-width: 600px; /* Slightly smaller min-width for 2 cols */
+        background: #fff;
+    }
+
+    /* --- HEADERS --- */
+    .pricing-table th {
+        background-color: #f9f9f9;
+        color: #222;
+        font-weight: 700;
+        padding: 25px 20px;
+        text-align: center;
+        border-bottom: 2px solid #eee;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Service Column Header (Red Theme) */
+    .pricing-table th:first-child {
+        text-align: left;
+        width: 30%; /* Wider label column */
+        background-color: #ffebee;
+        font-weight: 800;
+        color: #b71c1c;
+        border-right: 1px solid #eee;
+    }
+
+    /* --- CELLS --- */
+    .pricing-table td {
+        padding: 18px 20px;
+        border-bottom: 1px solid #f0f0f0;
+        color: #555;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.6;
+    }
+
+    /* First Column (Labels) */
+    .pricing-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #333;
+        background-color: #fff;
+        border-right: 1px solid #f5f5f5;
+    }
+
+    /* Vertical Dividers */
+    .pricing-table td:nth-child(2), .pricing-table th:nth-child(2),
+    .pricing-table td:nth-child(3), .pricing-table th:nth-child(3) {
+        border-right: 1px solid #f5f5f5;
+    }
+
+    /* Price Row */
+    .price-row td {
+        font-size: 22px;
+        font-weight: 700;
+        color: #000;
+        padding-top: 30px;
+        padding-bottom: 15px;
+        border-bottom: none;
+    }
+
+    /* --- SECTION TITLES --- */
+    .table-section-title {
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 15px;
+        padding-left: 5px;
+        border-left: 5px solid #d32f2f;
+        padding-left: 15px;
+    }
+
+    /* --- HIGHLIGHT STYLES --- */
+    .col-selected {
+        background-color: #fff0f0 !important;
+        color: #d6d1d1 !important;
+        font-weight: 500;
+    }
+
+    .th-selected {
+        background-color: #d32f2f !important;
+        color: #fff !important;
+        border-bottom-color: #d32f2f !important;
+    }
+
+    /* --- BUTTONS --- */
+    .select-btn {
+        background-color: #222;
+        color: #fff !important;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 13px;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .select-btn:hover {
+        background-color: #d32f2f;
+        transform: translateY(-2px);
+    }
+
+    .select-btn.active-btn {
+        background-color: #d32f2f;
+        box-shadow: 0 5px 15px rgba(211, 47, 47, 0.4);
+    }
+
+    /* --- TOTAL COST BAR --- */
+    #total-cost-bar {
+        display: none;
+        margin-top: 20px;
+        padding: 20px;
+        color: #222;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 18px;
+        animation: fadeIn 0.5s;
+        border: 2px solid #eee;
+        background: #f9f9f9;
+        margin-bottom: 40px;
+    }
+
+    .total-price-text {
+        font-size: 24px;
+        font-weight: 700;
+        color: #ff3366;
+        margin-left: 10px;
+    }
+    
+    .reqHead {
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #555;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="table-section-title">Social Media Management</div>
+<div class="pricing-table-container">
+    <table class="pricing-table" id="social-pricing-table">
+        <thead>
+            <tr>
+                <th>Service</th>
+                <th id="head-social-reg">Regular</th>
+                <th id="head-social-std">Standard</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Platforms</td>
+                <td class="col-social-reg">2</td>
+                <td class="col-social-std">4</td>
+            </tr>
+            <tr>
+                <td>Static Display Creative</td>
+                <td class="col-social-reg">12</td>
+                <td class="col-social-std">24</td>
+            </tr>
+            <tr>
+                <td>Motion Graphics</td>
+                <td class="col-social-reg">2</td>
+                <td class="col-social-std">4</td>
+            </tr>
+            <tr>
+                <td>Info Graphics</td>
+                <td class="col-social-reg">1</td>
+                <td class="col-social-std">2</td>
+            </tr>
+            <tr>
+                <td>Total Post</td>
+                <td class="col-social-reg">15</td>
+                <td class="col-social-std">30</td>
+            </tr>
+            <tr>
+                <td>Stories</td>
+                <td class="col-social-reg">15</td>
+                <td class="col-social-std">30</td>
+            </tr>
+            <tr>
+                <td>Caption Writing</td>
+                <td class="col-social-reg">15</td>
+                <td class="col-social-std">30</td>
+            </tr>
+            <tr>
+                <td>Hashtag Research</td>
+                <td class="col-social-reg">5</td>
+                <td class="col-social-std">10</td>
+            </tr>
+            <tr>
+                <td>Content Calendar</td>
+                <td class="col-social-reg">Monthly</td>
+                <td class="col-social-std">Biweekly</td>
+            </tr>
+            <tr>
+                <td>Reporting</td>
+                <td class="col-social-reg">Monthly</td>
+                <td class="col-social-std">Biweekly</td>
+            </tr>
+
+            <tr class="price-row">
+                <td>Price</td>
+                <td class="col-social-reg">$60</td>
+                <td class="col-social-std">$120</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td class="col-social-reg">
+                    <button class="select-btn" onclick="selectSocial('reg', 60)">Select</button>
+                </td>
+                <td class="col-social-std">
+                    <button class="select-btn" onclick="selectSocial('std', 120)">Select</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="table-section-title">Website Content</div>
+<div class="pricing-table-container">
+    <table class="pricing-table" id="web-pricing-table">
+        <thead>
+            <tr>
+                <th>Service</th>
+                <th id="head-web-reg">Regular</th>
+                <th id="head-web-std">Standard</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Blog Post</td>
+                <td class="col-web-reg">10 / Month</td>
+                <td class="col-web-std">20 / Month</td>
+            </tr>
+            <tr>
+                <td>Blog Size</td>
+                <td class="col-web-reg">1000-1500 Words</td>
+                <td class="col-web-std">1000-1500 Words</td>
+            </tr>
+            <tr>
+                <td>Static Display Creative</td>
+                <td class="col-web-reg">3 / Blog</td>
+                <td class="col-web-std">3 / Blog</td>
+            </tr>
+            <tr>
+                <td>Keyword Research</td>
+                <td class="col-web-reg">5</td>
+                <td class="col-web-std">10</td>
+            </tr>
+            <tr>
+                <td>Content Calendar</td>
+                <td class="col-web-reg">Monthly</td>
+                <td class="col-web-std">Biweekly</td>
+            </tr>
+            <tr>
+                <td>Content Publishing</td>
+                <td class="col-web-reg">As per calendar</td>
+                <td class="col-web-std">As per calendar</td>
+            </tr>
+             <tr>
+                <td>Reporting</td>
+                <td class="col-web-reg">Monthly</td>
+                <td class="col-web-std">Biweekly</td>
+            </tr>
+
+            <tr class="price-row">
+                <td>Price</td>
+                <td class="col-web-reg">$30</td>
+                <td class="col-web-std">$60</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td class="col-web-reg">
+                    <button class="select-btn" onclick="selectWeb('reg', 30)">Select</button>
+                </td>
+                <td class="col-web-std">
+                    <button class="select-btn" onclick="selectWeb('std', 60)">Select</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="total-cost-bar">
+    Estimated Total: <span class="total-price-text" id="display-total">$0</span>
+    <h3 class="reqHead">Please proceed to the form below to complete your selection.</h3>
+</div>
+
+<script>
+    // State to hold one selection from each table (optional stacking)
+    let socialSel = null; 
+    let socialPrice = 0;
+    
+    let webSel = null;
+    let webPrice = 0;
+
+    // --- 1. SOCIAL MEDIA SELECTION ---
+    function selectSocial(type, price) {
+        // Visual Cleanup (Social Table Only)
+        let table = document.getElementById('social-pricing-table');
+        table.querySelectorAll('.col-selected').forEach(el => el.classList.remove('col-selected'));
+        table.querySelectorAll('.th-selected').forEach(el => el.classList.remove('th-selected'));
+        table.querySelectorAll('.select-btn').forEach(btn => {
+            btn.classList.remove('active-btn');
+            btn.innerText = "Select";
+        });
+
+        // Add Highlight
+        document.getElementById(`head-social-${type}`).classList.add('th-selected');
+        document.querySelectorAll(`.col-social-${type}`).forEach(el => el.classList.add('col-selected'));
+        
+        let btn = document.querySelectorAll(`.col-social-${type} .select-btn`)[0];
+        btn.classList.add('active-btn');
+        btn.innerText = "Selected";
+
+        // Save Data
+        let nameMap = { 'reg': 'Social Media (Regular)', 'std': 'Social Media (Standard)' };
+        socialSel = nameMap[type];
+        socialPrice = price;
+
+        updateForm();
+    }
+
+    // --- 2. WEBSITE CONTENT SELECTION ---
+    function selectWeb(type, price) {
+        // Visual Cleanup (Web Table Only)
+        let table = document.getElementById('web-pricing-table');
+        table.querySelectorAll('.col-selected').forEach(el => el.classList.remove('col-selected'));
+        table.querySelectorAll('.th-selected').forEach(el => el.classList.remove('th-selected'));
+        table.querySelectorAll('.select-btn').forEach(btn => {
+            btn.classList.remove('active-btn');
+            btn.innerText = "Select";
+        });
+
+        // Add Highlight
+        document.getElementById(`head-web-${type}`).classList.add('th-selected');
+        document.querySelectorAll(`.col-web-${type}`).forEach(el => el.classList.add('col-selected'));
+        
+        let btn = document.querySelectorAll(`.col-web-${type} .select-btn`)[0];
+        btn.classList.add('active-btn');
+        btn.innerText = "Selected";
+
+        // Save Data
+        let nameMap = { 'reg': 'Website Content (Regular)', 'std': 'Website Content (Standard)' };
+        webSel = nameMap[type];
+        webPrice = price;
+
+        updateForm();
+    }
+
+    // --- 3. MASTER UPDATE FUNCTION ---
+    function updateForm() {
+        // Show total bar if anything is selected
+        document.getElementById('total-cost-bar').style.display = 'block';
+
+        let total = socialPrice + webPrice;
+        document.getElementById('display-total').innerText = "$" + total;
+
+        // Construct String
+        let parts = [];
+        if (socialSel) parts.push(`${socialSel} [$${socialPrice}]`);
+        if (webSel) parts.push(`${webSel} [$${webPrice}]`);
+        
+        let finalString = parts.join(" + ") + ` | Total: $${total}`;
+
+        // Send to Fluent Form
+        let formField = document.querySelector("input[name='input_text']");
+        if (formField) {
+            formField.value = finalString;
+            formField.dispatchEvent(new Event('change'));
+            formField.dispatchEvent(new Event('input'));
+        }
+    }
+</script>
