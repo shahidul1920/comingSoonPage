@@ -334,10 +334,33 @@
 
     // --- 1. PACKAGE SELECTION LOGIC ---
     function selectTablePkg(pkgId, price) {
-        // Visual Logic (Clear existing package highlights)
-        // Note: We scope this to the 'main-pricing-table' to avoid clearing blog highlights
         let mainTable = document.getElementById('main-pricing-table');
+        let clickedBtn = document.querySelectorAll(`.col-pkg-${pkgId} .select-btn`)[0];
         
+        // Check if this package is already selected (deselect functionality)
+        if (clickedBtn.classList.contains('active-btn')) {
+            // Deselect - Clear highlights
+            mainTable.querySelectorAll('.col-selected').forEach(el => el.classList.remove('col-selected'));
+            mainTable.querySelectorAll('.th-selected').forEach(el => el.classList.remove('th-selected'));
+            mainTable.querySelectorAll('.select-btn').forEach(btn => {
+                btn.classList.remove('active-btn');
+                btn.innerText = "Select";
+            });
+            
+            // Clear Data
+            currentPkg = "";
+            pkgPrice = 0;
+            
+            // Hide footer if nothing is selected
+            if (currentBlog === "") {
+                document.getElementById('total-cost-bar').style.display = 'none';
+            }
+            
+            calculateAndSave();
+            return;
+        }
+        
+        // Visual Logic (Clear existing package highlights)
         mainTable.querySelectorAll('.col-selected').forEach(el => el.classList.remove('col-selected'));
         mainTable.querySelectorAll('.th-selected').forEach(el => el.classList.remove('th-selected'));
         mainTable.querySelectorAll('.select-btn').forEach(btn => {
@@ -350,7 +373,6 @@
         document.querySelectorAll(`.col-pkg-${pkgId}`).forEach(el => el.classList.add('col-selected'));
         
         // Button State
-        let clickedBtn = document.querySelectorAll(`.col-pkg-${pkgId} .select-btn`)[0];
         clickedBtn.classList.add('active-btn');
         clickedBtn.innerText = "Selected";
 
@@ -362,15 +384,38 @@
         document.getElementById('total-cost-bar').style.display = 'block';
 
         calculateAndSave();
-        // Removed scrollIntoView() as requested
     }
 
 
     // --- 2. BLOG SELECTION LOGIC (UPDATED FOR TABLE) ---
     function selectBlogOption(freq, price) {
-        // Visual Logic (Clear existing blog highlights)
         let blogTable = document.getElementById('blog-pricing-table');
+        let clickedBtn = document.querySelectorAll(`.col-blog-${freq} .select-btn`)[0];
         
+        // Check if this blog option is already selected (deselect functionality)
+        if (clickedBtn.classList.contains('active-btn')) {
+            // Deselect - Clear highlights
+            blogTable.querySelectorAll('.col-selected').forEach(el => el.classList.remove('col-selected'));
+            blogTable.querySelectorAll('.th-selected').forEach(el => el.classList.remove('th-selected'));
+            blogTable.querySelectorAll('.select-btn').forEach(btn => {
+                btn.classList.remove('active-btn');
+                btn.innerText = "Add";
+            });
+            
+            // Clear Data
+            currentBlog = "";
+            blogPrice = 0;
+            
+            // Hide footer if nothing is selected
+            if (currentPkg === "") {
+                document.getElementById('total-cost-bar').style.display = 'none';
+            }
+            
+            calculateAndSave();
+            return;
+        }
+        
+        // Visual Logic (Clear existing blog highlights)
         blogTable.querySelectorAll('.col-selected').forEach(el => el.classList.remove('col-selected'));
         blogTable.querySelectorAll('.th-selected').forEach(el => el.classList.remove('th-selected'));
         blogTable.querySelectorAll('.select-btn').forEach(btn => {
@@ -383,7 +428,6 @@
         document.querySelectorAll(`.col-blog-${freq}`).forEach(el => el.classList.add('col-selected'));
 
         // Button State
-        let clickedBtn = document.querySelectorAll(`.col-blog-${freq} .select-btn`)[0];
         clickedBtn.classList.add('active-btn');
         clickedBtn.innerText = "Added";
 
