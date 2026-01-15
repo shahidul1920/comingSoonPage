@@ -1,0 +1,97 @@
+<div id="particles-js"></div>
+
+<style>
+    /* Position the particles background */
+    #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: transparent;
+        z-index: 0; /* User defined z-index */
+    }
+
+    /* Fix blurry dots on some screens */
+    #particles-js canvas {
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    /* --- CLICK FIX START --- */
+    .elementor-section .elementor-container,
+    .elementor-column-wrap, 
+    .elementor-widget-wrap {
+        pointer-events: none; 
+    }
+
+    .elementor-widget {
+        pointer-events: auto;
+    }
+    /* --- CLICK FIX END --- */
+
+    .elementor-widget-html {
+        position: static;
+    }
+    .elementor-section, .e-con {
+        position: relative;
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 120, /* INCREASED FROM 60 TO 120 FOR HIGHER DENSITY */
+          "density": { "enable": true, "value_area": 800 }
+        },
+        "color": {
+          "value": "#979832" 
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": { "width": 0, "color": "#000000" }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false
+        },
+        "size": {
+          "value": 3,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#979832", 
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas", 
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "onclick": { "enable": true, "mode": "push" },
+          "resize": true
+        },
+        "modes": {
+          "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+</script>
