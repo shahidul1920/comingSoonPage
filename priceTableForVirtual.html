@@ -513,9 +513,9 @@
 
         // Visual Update
         document.getElementById('display-total').innerText = "$" + total;
-
-        // String Construction for Form
-        let finalString = "Submited From:- Virtual Event _";
+        
+        // Prepare Final String
+        let finalString = "Submited From:- Virtual Event & meeting management _";
         
         if (currentPkg) {
              finalString += `${currentPkg} ($${pkgPrice})`;
@@ -529,16 +529,16 @@
             finalString += ` | Total: $${total}`;
         }
 
-        // Send to Fluent Form
+        // Update Hidden Form Field
         let formField = document.querySelector("input[name='input_text']");
 
         if (formField) {
             formField.value = finalString;
-            // Trigger events for Fluent Forms
+
             formField.dispatchEvent(new Event('change'));
             formField.dispatchEvent(new Event('input'));
         } else {
-            console.error("STILL NOT FOUND: Could not find input[name='input_text']");
+            console.error("It shouldn't be happening || STILL NOT FOUND: Could not find input[name='input_text']");
         }
     }
 </script>
