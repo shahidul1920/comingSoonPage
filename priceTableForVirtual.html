@@ -1,0 +1,544 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    /* --- GLOBAL HELPERS --- */
+    /* Force hide form fields */
+    .fluentform .hide-me-please {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* --- TABLE CONTAINER STYLES --- */
+    .pricing-table-container {
+        font-family: 'Poppins', sans-serif;
+        overflow-x: auto;
+        margin-bottom: 40px;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        background: #fff;
+    }
+
+    .pricing-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        min-width: 700px;
+        background: #fff;
+    }
+
+    /* --- HEADERS --- */
+    .pricing-table th {
+        background-color: #f9f9f9;
+        color: #222;
+        font-weight: 700;
+        padding: 25px 20px;
+        text-align: center;
+        border-bottom: 2px solid #eee;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* First Column Header (Service Name) - Off-Red */
+    .pricing-table th:first-child {
+        text-align: left;
+        width: 25%;
+        background-color: #ffebee;
+        font-weight: 800;
+        color: #b71c1c;
+        border-right: 1px solid #eee;
+    }
+
+    /* --- CELLS --- */
+    .pricing-table td {
+        padding: 18px 20px;
+        border-bottom: 1px solid #f0f0f0;
+        color: #555;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.6;
+    }
+
+    /* First Column Cells (Labels) */
+    .pricing-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #333;
+        background-color: #fff;
+        border-right: 1px solid #f5f5f5;
+    }
+
+    /* Vertical Dividers */
+    .pricing-table td:nth-child(2), .pricing-table th:nth-child(2),
+    .pricing-table td:nth-child(3), .pricing-table th:nth-child(3) {
+        border-right: 1px solid #f5f5f5;
+    }
+
+    /* Price Row */
+    .price-row td {
+        font-size: 22px;
+        font-weight: 700;
+        color: #000;
+        padding-top: 30px;
+        padding-bottom: 15px;
+        border-bottom: none;
+    }
+
+    /* --- HIGHLIGHT STYLES --- */
+    .col-selected {
+        background-color: #fff0f0 !important;
+        color: #000 !important;
+        font-weight: 500;
+    }
+
+    .th-selected {
+        background-color: #d32f2f !important;
+        color: #fff !important;
+        border-bottom-color: #d32f2f !important;
+    }
+
+    /* --- BUTTONS --- */
+    .select-btn {
+        background-color: #222;
+        color: #fff !important;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 13px;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .select-btn:hover {
+        background-color: #d32f2f;
+        transform: translateY(-2px);
+    }
+
+    .select-btn.active-btn {
+        background-color: #d32f2f;
+        box-shadow: 0 5px 15px rgba(211, 47, 47, 0.4);
+    }
+
+    /* --- BLOG SECTION TITLE --- */
+    .blog-section-title-box {
+        text-align: center;
+        margin: 50px 0 20px 0;
+    }
+    
+    .blog-main-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #d32f2f;
+        margin-bottom: 5px;
+    }
+    
+    .blog-sub-title {
+        font-size: 14px;
+        color: #666;
+    }
+
+    /* --- TOTAL COST BAR --- */
+    #total-cost-bar {
+        display: none; /* Shows only after selection */
+        margin-top: 20px;
+        padding: 20px;
+        color: #222;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 18px;
+        animation: fadeIn 0.5s;
+        border: 2px solid #eee;
+        background: #f9f9f9;
+    }
+
+    .total-price-text {
+        font-size: 24px;
+        font-weight: 700;
+        color: #ff3366;
+        margin-left: 10px;
+    }
+    
+    .reqHead {
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #555;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="pricing-table-container">
+    <table class="pricing-table" id="main-pricing-table">
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th id="head-pkg-1">Seamless Session</th>
+                <th id="head-pkg-2">Executive Boardroom™</th>
+                <th id="head-pkg-3">Full-Scale Broadcast™</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Designed For</td>
+                <td class="col-pkg-1">Solopreneurs</td>
+                <td class="col-pkg-2">SMEs & Teams</td>
+                <td class="col-pkg-3">Corporates & Conferences</td>
+            </tr>
+            <tr>
+                <td>Meeting Duration</td>
+                <td class="col-pkg-1">Up to 90 min</td>
+                <td class="col-pkg-2">Up to 3 hours</td>
+                <td class="col-pkg-3">Up to 8 hours / multi-session</td>
+            </tr>
+            <tr>
+                <td>Participants</td>
+                <td class="col-pkg-1">Up to 100</td>
+                <td class="col-pkg-2">Up to 300</td>
+                <td class="col-pkg-3">1,000+</td>
+            </tr>
+            <tr>
+                <td>Strategic Planning</td>
+                <td class="col-pkg-1">Basic</td>
+                <td class="col-pkg-2">Advanced</td>
+                <td class="col-pkg-3">Executive-level</td>
+            </tr>
+            <tr>
+                <td>Platform Setup</td>
+                <td class="col-pkg-1">✔</td>
+                <td class="col-pkg-2">✔</td>
+                <td class="col-pkg-3">✔ + Backup Systems</td>
+            </tr>
+            <tr>
+                <td>Cyber-Security & Gatekeeping</td>
+                <td class="col-pkg-1">✔</td>
+                <td class="col-pkg-2">✔ Advanced</td>
+                <td class="col-pkg-3">✔ Enterprise-grade</td>
+            </tr>
+            <tr>
+                <td>Live Polls & Q&A</td>
+                <td class="col-pkg-1">✔ (Limited)</td>
+                <td class="col-pkg-2">✔</td>
+                <td class="col-pkg-3">✔</td>
+            </tr>
+            <tr>
+                <td>Breakout Rooms</td>
+                <td class="col-pkg-1">❌</td>
+                <td class="col-pkg-2">✔</td>
+                <td class="col-pkg-3">✔ With Facilitators</td>
+            </tr>
+            <tr>
+                <td>Branded Slides</td>
+                <td class="col-pkg-1">Up to 10</td>
+                <td class="col-pkg-2">Up to 25</td>
+                <td class="col-pkg-3">Fully Custom</td>
+            </tr>
+            <tr>
+                <td>Digital Workbooks</td>
+                <td class="col-pkg-1">❌</td>
+                <td class="col-pkg-2">✔</td>
+                <td class="col-pkg-3">✔ Premium</td>
+            </tr>
+            <tr>
+                <td>Speaker Green Room</td>
+                <td class="col-pkg-1">1 Speaker</td>
+                <td class="col-pkg-2">Up to 3</td>
+                <td class="col-pkg-3">Up to 6</td>
+            </tr>
+            <tr>
+                <td>Dry Runs</td>
+                <td class="col-pkg-1">❌</td>
+                <td class="col-pkg-2">✔</td>
+                <td class="col-pkg-3">✔ Multiple</td>
+            </tr>
+            <tr>
+                <td>Live Streaming</td>
+                <td class="col-pkg-1">❌</td>
+                <td class="col-pkg-2">❌</td>
+                <td class="col-pkg-3">✔ Multi-Platform</td>
+            </tr>
+            <tr>
+                <td>Multi-Camera Switching</td>
+                <td class="col-pkg-1">❌</td>
+                <td class="col-pkg-2">❌</td>
+                <td class="col-pkg-3">✔</td>
+            </tr>
+            <tr>
+                <td>Edited Recordings</td>
+                <td class="col-pkg-1">❌</td>
+                <td class="col-pkg-2">✔</td>
+                <td class="col-pkg-3">✔ Advanced</td>
+            </tr>
+            <tr>
+                <td>Transcription & Summary</td>
+                <td class="col-pkg-1">❌</td>
+                <td class="col-pkg-2">❌</td>
+                <td class="col-pkg-3">✔</td>
+            </tr>
+            <tr>
+                <td>Post-Event Analytics</td>
+                <td class="col-pkg-1">❌</td>
+                <td class="col-pkg-2">✔</td>
+                <td class="col-pkg-3">✔ Executive Report</td>
+            </tr>
+            <tr>
+                <td>Dedicated Attendee Support</td>
+                <td class="col-pkg-1">✔</td>
+                <td class="col-pkg-2">✔</td>
+                <td class="col-pkg-3">✔ Help Desk</td>
+            </tr>
+
+            <tr class="price-row">
+                <td>Price</td>
+                <td class="col-pkg-1">$199</td>
+                <td class="col-pkg-2">$399</td>
+                <td class="col-pkg-3">$1,999</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td class="col-pkg-1">
+                    <button class="select-btn" onclick="selectTablePkg(1, 199)">Select</button>
+                </td>
+                <td class="col-pkg-2">
+                    <button class="select-btn" onclick="selectTablePkg(2, 399)">Select</button>
+                </td>
+                <td class="col-pkg-3">
+                    <button class="select-btn" onclick="selectTablePkg(3, 1999)">Select</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="blog-section">
+    <div class="blog-section-title-box">
+        <div class="blog-main-title">Add Blog Writing Service?</div>
+        <div class="blog-sub-title">Frequency: 1000-1500 Words/Blog</div>
+    </div>
+
+    <div class="pricing-table-container">
+        <table class="pricing-table" id="blog-pricing-table">
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th id="head-blog-2">Weekly 2</th>
+                    <th id="head-blog-4">Weekly 4</th>
+                    <th id="head-blog-7">Weekly 7</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Size</td>
+                    <td class="col-blog-2">1000-1500 Word</td>
+                    <td class="col-blog-4">1000-1500 Word</td>
+                    <td class="col-blog-7">1000-1500 Word</td>
+                </tr>
+                <tr>
+                    <td>Review</td>
+                    <td class="col-blog-2">3 per Blog</td>
+                    <td class="col-blog-4">3 per Blog</td>
+                    <td class="col-blog-7">3 per Blog</td>
+                </tr>
+                
+                <tr class="price-row">
+                    <td>Price</td>
+                    <td class="col-blog-2">+$200</td>
+                    <td class="col-blog-4">+$400</td>
+                    <td class="col-blog-7">+$700</td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td class="col-blog-2">
+                        <button class="select-btn" onclick="selectBlogOption(2, 200)">Add</button>
+                    </td>
+                    <td class="col-blog-4">
+                        <button class="select-btn" onclick="selectBlogOption(4, 400)">Add</button>
+                    </td>
+                    <td class="col-blog-7">
+                        <button class="select-btn" onclick="selectBlogOption(7, 700)">Add</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="total-cost-bar">
+        Estimated Total: <span class="total-price-text" id="display-total">$0</span>
+        <h3 class="reqHead">Please proceed to the form below to complete your selection.</h3>
+    </div>
+</div>
+
+<script>
+    let currentPkg = "";
+    let pkgPrice = 0;
+
+    let currentBlog = "";
+    let blogPrice = 0;
+
+    // --- 1. PACKAGE SELECTION LOGIC ---
+    function selectTablePkg(pkgId, price) {
+        let mainTable = document.getElementById('main-pricing-table');
+        let clickedBtn = document.querySelectorAll(`.col-pkg-${pkgId} .select-btn`)[0];
+        
+        // Check if this package is already selected (deselect functionality)
+        if (clickedBtn.classList.contains('active-btn')) {
+            // Deselect - Clear highlights
+            mainTable.querySelectorAll('.col-selected').forEach(el => el.classList.remove('col-selected'));
+            mainTable.querySelectorAll('.th-selected').forEach(el => el.classList.remove('th-selected'));
+            mainTable.querySelectorAll('.select-btn').forEach(btn => {
+                btn.classList.remove('active-btn');
+                btn.innerText = "Select";
+            });
+            
+            // Clear Data
+            currentPkg = "";
+            pkgPrice = 0;
+            
+            // Hide footer if nothing is selected
+            if (currentBlog === "") {
+                document.getElementById('total-cost-bar').style.display = 'none';
+            }
+            
+            calculateAndSave();
+            return;
+        }
+        
+        // Visual Logic (Clear existing package highlights)
+        mainTable.querySelectorAll('.col-selected').forEach(el => el.classList.remove('col-selected'));
+        mainTable.querySelectorAll('.th-selected').forEach(el => el.classList.remove('th-selected'));
+        mainTable.querySelectorAll('.select-btn').forEach(btn => {
+            btn.classList.remove('active-btn');
+            btn.innerText = "Select";
+        });
+
+        // Add Highlight
+        document.getElementById(`head-pkg-${pkgId}`).classList.add('th-selected');
+        document.querySelectorAll(`.col-pkg-${pkgId}`).forEach(el => el.classList.add('col-selected'));
+        
+        // Button State
+        clickedBtn.classList.add('active-btn');
+        clickedBtn.innerText = "Selected";
+
+        // Data Logic
+        let pkgName = "";
+        if(pkgId == 1) pkgName = "Seamless Session";
+        else if(pkgId == 2) pkgName = "Executive Boardroom™";
+        else if(pkgId == 3) pkgName = "Full-Scale Broadcast™";
+        
+        currentPkg = pkgName;
+        pkgPrice = price;
+
+        // Show Footer
+        document.getElementById('total-cost-bar').style.display = 'block';
+
+        calculateAndSave();
+    }
+
+
+    // --- 2. BLOG SELECTION LOGIC (UPDATED FOR TABLE) ---
+    function selectBlogOption(freq, price) {
+        let blogTable = document.getElementById('blog-pricing-table');
+        let clickedBtn = document.querySelectorAll(`.col-blog-${freq} .select-btn`)[0];
+        
+        // Check if this blog option is already selected (deselect functionality)
+        if (clickedBtn.classList.contains('active-btn')) {
+            // Deselect - Clear highlights
+            blogTable.querySelectorAll('.col-selected').forEach(el => el.classList.remove('col-selected'));
+            blogTable.querySelectorAll('.th-selected').forEach(el => el.classList.remove('th-selected'));
+            blogTable.querySelectorAll('.select-btn').forEach(btn => {
+                btn.classList.remove('active-btn');
+                btn.innerText = "Add";
+            });
+            
+            // Clear Data
+            currentBlog = "";
+            blogPrice = 0;
+            
+            // Hide footer if nothing is selected
+            if (currentPkg === "") {
+                document.getElementById('total-cost-bar').style.display = 'none';
+            }
+            
+            calculateAndSave();
+            return;
+        }
+        
+        // Visual Logic (Clear existing blog highlights)
+        blogTable.querySelectorAll('.col-selected').forEach(el => el.classList.remove('col-selected'));
+        blogTable.querySelectorAll('.th-selected').forEach(el => el.classList.remove('th-selected'));
+        blogTable.querySelectorAll('.select-btn').forEach(btn => {
+            btn.classList.remove('active-btn');
+            btn.innerText = "Add";
+        });
+
+        // Add Highlight
+        document.getElementById(`head-blog-${freq}`).classList.add('th-selected');
+        document.querySelectorAll(`.col-blog-${freq}`).forEach(el => el.classList.add('col-selected'));
+
+        // Button State
+        clickedBtn.classList.add('active-btn');
+        clickedBtn.innerText = "Added";
+
+        // Data Logic
+        currentBlog = ` + Blog Writing (Weekly ${freq})`;
+        blogPrice = price;
+
+        // Show Footer
+        document.getElementById('total-cost-bar').style.display = 'block';
+        
+        calculateAndSave();
+    }
+
+
+    // --- 3. CALCULATION & FORM UPDATE ---
+    function calculateAndSave() {
+        let total = pkgPrice + blogPrice;
+
+        // Visual Update
+        document.getElementById('display-total').innerText = "$" + total;
+
+        // String Construction for Form
+        let finalString = "Submited From:- Virtual Event _";
+        
+        if (currentPkg) {
+             finalString += `${currentPkg} ($${pkgPrice})`;
+        }
+        
+        if (currentBlog) {
+            finalString += `${currentBlog} (+$${blogPrice})`;
+        }
+        
+        if (total > 0) {
+            finalString += ` | Total: $${total}`;
+        }
+
+        // Send to Fluent Form
+        let formField = document.querySelector("input[name='input_text']");
+
+        if (formField) {
+            formField.value = finalString;
+            // Trigger events for Fluent Forms
+            formField.dispatchEvent(new Event('change'));
+            formField.dispatchEvent(new Event('input'));
+        } else {
+            console.error("STILL NOT FOUND: Could not find input[name='input_text']");
+        }
+    }
+</script>
