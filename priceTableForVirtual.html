@@ -324,73 +324,14 @@
             </tr>
         </tbody>
     </table>
-</div>
-
-<div id="blog-section">
-    <div class="blog-section-title-box">
-        <div class="blog-main-title">Add Blog Writing Service?</div>
-        <div class="blog-sub-title">Frequency: 1000-1500 Words/Blog</div>
-    </div>
-
-    <div class="pricing-table-container">
-        <table class="pricing-table" id="blog-pricing-table">
-            <thead>
-                <tr>
-                    <th>Service</th>
-                    <th id="head-blog-2">Weekly 2</th>
-                    <th id="head-blog-4">Weekly 4</th>
-                    <th id="head-blog-7">Weekly 7</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Size</td>
-                    <td class="col-blog-2">1000-1500 Word</td>
-                    <td class="col-blog-4">1000-1500 Word</td>
-                    <td class="col-blog-7">1000-1500 Word</td>
-                </tr>
-                <tr>
-                    <td>Review</td>
-                    <td class="col-blog-2">3 per Blog</td>
-                    <td class="col-blog-4">3 per Blog</td>
-                    <td class="col-blog-7">3 per Blog</td>
-                </tr>
-                
-                <tr class="price-row">
-                    <td>Price</td>
-                    <td class="col-blog-2">+$200</td>
-                    <td class="col-blog-4">+$400</td>
-                    <td class="col-blog-7">+$700</td>
-                </tr>
-
-                <tr>
-                    <td></td>
-                    <td class="col-blog-2">
-                        <button class="select-btn" onclick="selectBlogOption(2, 200)">Add</button>
-                    </td>
-                    <td class="col-blog-4">
-                        <button class="select-btn" onclick="selectBlogOption(4, 400)">Add</button>
-                    </td>
-                    <td class="col-blog-7">
-                        <button class="select-btn" onclick="selectBlogOption(7, 700)">Add</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
     <div id="total-cost-bar">
         Estimated Total: <span class="total-price-text" id="display-total">$0</span>
         <h3 class="reqHead">Please proceed to the form below to complete your selection.</h3>
     </div>
-</div>
 
 <script>
     let currentPkg = "";
     let pkgPrice = 0;
-
-    let currentBlog = "";
-    let blogPrice = 0;
 
     // --- 1. PACKAGE SELECTION LOGIC ---
     function selectTablePkg(pkgId, price) {
@@ -412,9 +353,7 @@
             pkgPrice = 0;
             
             // Hide footer if nothing is selected
-            if (currentBlog === "") {
-                document.getElementById('total-cost-bar').style.display = 'none';
-            }
+            document.getElementById('total-cost-bar').style.display = 'none';
             
             calculateAndSave();
             return;
@@ -452,77 +391,19 @@
     }
 
 
-    // --- 2. BLOG SELECTION LOGIC (UPDATED FOR TABLE) ---
-    function selectBlogOption(freq, price) {
-        let blogTable = document.getElementById('blog-pricing-table');
-        let clickedBtn = document.querySelectorAll(`.col-blog-${freq} .select-btn`)[0];
-        
-        // Check if this blog option is already selected (deselect functionality)
-        if (clickedBtn.classList.contains('active-btn')) {
-            // Deselect - Clear highlights
-            blogTable.querySelectorAll('.col-selected').forEach(el => el.classList.remove('col-selected'));
-            blogTable.querySelectorAll('.th-selected').forEach(el => el.classList.remove('th-selected'));
-            blogTable.querySelectorAll('.select-btn').forEach(btn => {
-                btn.classList.remove('active-btn');
-                btn.innerText = "Add";
-            });
-            
-            // Clear Data
-            currentBlog = "";
-            blogPrice = 0;
-            
-            // Hide footer if nothing is selected
-            if (currentPkg === "") {
-                document.getElementById('total-cost-bar').style.display = 'none';
-            }
-            
-            calculateAndSave();
-            return;
-        }
-        
-        // Visual Logic (Clear existing blog highlights)
-        blogTable.querySelectorAll('.col-selected').forEach(el => el.classList.remove('col-selected'));
-        blogTable.querySelectorAll('.th-selected').forEach(el => el.classList.remove('th-selected'));
-        blogTable.querySelectorAll('.select-btn').forEach(btn => {
-            btn.classList.remove('active-btn');
-            btn.innerText = "Add";
-        });
 
-        // Add Highlight
-        document.getElementById(`head-blog-${freq}`).classList.add('th-selected');
-        document.querySelectorAll(`.col-blog-${freq}`).forEach(el => el.classList.add('col-selected'));
-
-        // Button State
-        clickedBtn.classList.add('active-btn');
-        clickedBtn.innerText = "Added";
-
-        // Data Logic
-        currentBlog = ` + Blog Writing (Weekly ${freq})`;
-        blogPrice = price;
-
-        // Show Footer
-        document.getElementById('total-cost-bar').style.display = 'block';
-        
-        calculateAndSave();
-    }
-
-
-    // --- 3. CALCULATION & FORM UPDATE ---
+    // --- 2. CALCULATION & FORM UPDATE ---
     function calculateAndSave() {
-        let total = pkgPrice + blogPrice;
+        let total = pkgPrice;
 
         // Visual Update
         document.getElementById('display-total').innerText = "$" + total;
-        
+
         // Prepare Final String
         let finalString = "Submited From:- Virtual Event & meeting management _";
         
         if (currentPkg) {
              finalString += `${currentPkg} ($${pkgPrice})`;
-        }
-        
-        if (currentBlog) {
-            finalString += `${currentBlog} (+$${blogPrice})`;
         }
         
         if (total > 0) {
