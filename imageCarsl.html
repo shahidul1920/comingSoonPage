@@ -1,0 +1,162 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<style>
+/* --- CONFIGURATION --- */
+:root {
+    --gsap-icon-size: 60px;   /* Icon Height */
+    --gsap-gap: 50px;         /* Space between icons */
+}
+
+.gsap-marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 100vw;
+    opacity: 0; /* Hidden until GSAP loads to prevent flash of unstyled content */
+    visibility: hidden;
+}
+
+.gsap-track {
+    display: flex;
+    gap: var(--gsap-gap);
+    width: max-content; /* Shrinks to fit content */
+    will-change: transform;
+}
+
+.gsap-track img {
+    height: var(--gsap-icon-size);
+    width: auto;
+    display: block;
+    user-select: none;
+    flex-shrink: 0;
+}
+</style>
+
+<div class="gsap-marquee-wrapper" id="gsapMarquee">
+
+    <div class="gsap-track track-right">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Adobe-Photoshop-CC-Rounded.png" alt="Photoshop">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Adobe-Illustrator-CC-Icon-1.png" alt="Illustrator">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/after-effect.png" alt="After Effects">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Adobe-Premiere-Pro.png" alt="Premiere Pro">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/da-vinci-r.png" alt="DaVinci Resolve">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/CapCut-01.png" alt="CapCut">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Jasper-Ai.png" alt="Jasper AI">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Facebook-Meta-scaled.png" alt="Meta">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Webex.png" alt="Webex">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Google-Meet-Icon.png" alt="Google Meet">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/OBS-Open-Broadcaster-Software.png" alt="OBS">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Google-Calendar-scaled.png" alt="Google Calendar">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/New-Google-Drive.png" alt="Google Drive">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/onedrive.png" alt="OneDrive">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Laravel-Icon-3D-scaled.png" alt="Laravel">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/PHP-01-scaled.png" alt="PHP">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Node-JS-scaled.png" alt="NodeJS">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Visual-Studio-Code-scaled.png" alt="VS Code">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Elementor.png" alt="Elementor">
+    </div>
+
+    <div class="gsap-track track-left">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Wordpress-Icon.png" alt="WordPress">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Python-Icon.png" alt="Python">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/r.png" alt="R Language">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Jupyter-scaled.png" alt="Jupyter">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Power-Bi.png" alt="PowerBI">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/tableau.png" alt="Tableau">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Figma-Icon-scaled.png" alt="Figma">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/ChatGPT-scaled.png" alt="ChatGPT">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Gemini-New-2025.png" alt="Gemini">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/StreamYard-.png" alt="StreamYard">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Microsoft-Teams.png" alt="Teams">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Zoom-App.png" alt="Zoom">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Notion-N-Icon.png" alt="Notion">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/google-doc.png" alt="Google Docs">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Google-Analytics-New-scaled.png" alt="Analytics">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Google-Search-Console-scaled.png" alt="Search Console">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Moz_idi0dsBgPS_1.png" alt="Moz">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/google-trands-scaled.png" alt="Google Trends">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Intuit-Mailchimp-Mascot-Freddie.png" alt="Mailchimp">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Google-Ads-scaled.png" alt="Google Ads">
+        <img src="https://www.redmun.com/wp-content/uploads/2026/01/SEMRush.png" alt="SEMRush">
+    </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // 1. SETUP & CLONING
+    const wrapper = document.getElementById('gsapMarquee');
+    const tracks = document.querySelectorAll('.gsap-track');
+    
+    // We store our tweens here so we can pause/play them later
+    let animations = []; 
+
+    tracks.forEach(track => {
+        const originalHTML = track.innerHTML;
+        // Clone 3 times (Total 4 sets) -> Ensures row is wider than any screen
+        track.innerHTML = originalHTML + originalHTML + originalHTML + originalHTML;
+    });
+
+    // Reveal the marquee now that setup is done
+    gsap.set(wrapper, { autoAlpha: 1 });
+
+
+    // 2. CREATE ANIMATIONS
+    // Row 1: Moves RIGHT (Start at -25%, Move to 0%)
+    const trackRight = document.querySelector('.track-right');
+    const animRight = gsap.fromTo(trackRight, 
+        { xPercent: -25 }, 
+        { 
+            xPercent: 0, 
+            duration: 40, // CHANGE SPEED HERE
+            ease: "none", 
+            repeat: -1 
+        }
+    );
+    animations.push(animRight);
+
+    // Row 2: Moves LEFT (Start at 0%, Move to -25%)
+    const trackLeft = document.querySelector('.track-left');
+    const animLeft = gsap.fromTo(trackLeft, 
+        { xPercent: 0 }, 
+        { 
+            xPercent: -25, 
+            duration: 40, // CHANGE SPEED HERE
+            ease: "none", 
+            repeat: -1 
+        }
+    );
+    animations.push(animLeft);
+
+
+    // 3. HOVER EFFECT (Smooth Pause)
+    wrapper.addEventListener('mouseenter', () => {
+        animations.forEach(anim => anim.timeScale(0)); // Smooth stop
+        // alternate: anim.pause() for instant stop
+    });
+    
+    wrapper.addEventListener('mouseleave', () => {
+        gsap.to(animations, { timeScale: 1, duration: 0.5 }); // Smooth resume
+    });
+
+
+    // 4. PERFORMANCE OPTIMIZER (Intersection Observer)
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Resume
+                animations.forEach(anim => anim.play());
+            } else {
+                // Pause when off screen to save battery
+                animations.forEach(anim => anim.pause());
+            }
+        });
+    }, { rootMargin: "100px" });
+
+    observer.observe(wrapper);
+});
+</script>
