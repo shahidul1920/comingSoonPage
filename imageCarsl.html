@@ -3,8 +3,8 @@
 <style>
 /* --- CONFIGURATION --- */
 :root {
-    --gsap-icon-size: 60px;   /* Icon Height */
-    --gsap-gap: 50px;         /* Space between icons */
+    --gsap-icon-size: 40px;   /* Icon Height */
+    --gsap-gap: 30px;         /* Space between icons */
 }
 
 .gsap-marquee-wrapper {
@@ -13,7 +13,7 @@
     padding: 20px 0;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: var(--gsap-gap);
     max-width: 100vw;
     opacity: 0; /* Hidden until GSAP loads to prevent flash of unstyled content */
     visibility: hidden;
@@ -24,14 +24,20 @@
     gap: var(--gsap-gap);
     width: max-content; /* Shrinks to fit content */
     will-change: transform;
+    justify-content: center;
+    align-items: center;
 }
 
 .gsap-track img {
     height: var(--gsap-icon-size);
-    width: auto;
+    width: 60px;
+    object-fit: contain;
     display: block;
     user-select: none;
     flex-shrink: 0;
+}
+.Jupyter {
+    scale: 1.3;
 }
 </style>
 
@@ -51,7 +57,7 @@
         <img src="https://www.redmun.com/wp-content/uploads/2026/01/OBS-Open-Broadcaster-Software.png" alt="OBS">
         <img src="https://www.redmun.com/wp-content/uploads/2026/01/Google-Calendar-scaled.png" alt="Google Calendar">
         <img src="https://www.redmun.com/wp-content/uploads/2026/01/New-Google-Drive.png" alt="Google Drive">
-        <img src="https://www.redmun.com/wp-content/uploads/2026/01/onedrive.png" alt="OneDrive">
+        <img class="onedrive" src="https://www.redmun.com/wp-content/uploads/2026/01/onedrive.png" alt="OneDrive">
         <img src="https://www.redmun.com/wp-content/uploads/2026/01/Laravel-Icon-3D-scaled.png" alt="Laravel">
         <img src="https://www.redmun.com/wp-content/uploads/2026/01/PHP-01-scaled.png" alt="PHP">
         <img src="https://www.redmun.com/wp-content/uploads/2026/01/Node-JS-scaled.png" alt="NodeJS">
@@ -63,7 +69,7 @@
         <img src="https://www.redmun.com/wp-content/uploads/2026/01/Wordpress-Icon.png" alt="WordPress">
         <img src="https://www.redmun.com/wp-content/uploads/2026/01/Python-Icon.png" alt="Python">
         <img src="https://www.redmun.com/wp-content/uploads/2026/01/r.png" alt="R Language">
-        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Jupyter-scaled.png" alt="Jupyter">
+        <img class="Jupyter" src="https://www.redmun.com/wp-content/uploads/2026/01/Jupyter-scaled.png" alt="Jupyter">
         <img src="https://www.redmun.com/wp-content/uploads/2026/01/Power-Bi.png" alt="PowerBI">
         <img src="https://www.redmun.com/wp-content/uploads/2026/01/tableau.png" alt="Tableau">
         <img src="https://www.redmun.com/wp-content/uploads/2026/01/Figma-Icon-scaled.png" alt="Figma">
