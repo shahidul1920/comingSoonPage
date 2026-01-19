@@ -59,11 +59,25 @@
         box-shadow: 0 10px 25px rgba(211, 47, 47, 0.1);
     }
 
+    /* Active State Header */
+    .pkg-card.active-card .pkg-header {
+        background-color: #d32f2f !important;
+        border-bottom-color: #b71c1c;
+    }
+    
+    .pkg-card.active-card .pkg-title,
+    .pkg-card.active-card .pkg-price,
+    .pkg-card.active-card .pkg-tagline, 
+    .pkg-card.active-card .pkg-target,
+    .pkg-card.active-card .pkg-price span {
+        color: #fff !important;
+    }
+
     /* Header */
     .pkg-header {
         background: #fdfdfd;
         padding: 25px 20px;
-        border-bottom: 1px solid #f0f0f0;
+        /* border-bottom: 1px solid #f0f0f0; */
         text-align: center;
     }
     
@@ -107,18 +121,21 @@
 
     /* --- ADD ONS SECTION --- */
     .addons-section { 
-        margin-top: 40px; 
-        padding: 10px; 
+        margin-top: 0; 
+        padding: 20px; 
         background: #f9f9f9; 
         border-radius: 12px; 
-        border: 1px dashed #ccc; 
+        border: 1px dashed #ccc;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
     }
     .addons-title { text-align: center; font-size: 22px; margin-bottom: 25px; color: #333; }
     
     /* Grid Layout for Equal Height Add-ons */
     .addons-grid { 
         display: grid; 
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+        grid-template-columns: 1fr; 
         gap: 10px; 
         align-items: stretch; 
     }
@@ -164,6 +181,27 @@
         to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Package Image */
+    .pkg-image {
+        width: 95%;
+        margin: 0 auto;
+        margin-top: 0.6rem;
+        height: 300px;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid #ccc;
+    }
+    .pkg-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+    /* .pkg-card:hover .pkg-image img {
+        transform: scale(1.05);
+    } */
+
 </style>
 
 <div class="packages-wrapper">
@@ -176,6 +214,9 @@
                 <span class="pkg-tagline">Stop losing money without knowing where it’s going</span>
                 <div class="pkg-price">$199 <span>/ month</span></div>
                 <span class="pkg-target">Best for micro & early-stage SMEs</span>
+            </div>
+            <div class="pkg-image">
+                <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg" alt="Package Preview">
             </div>
             <div class="pkg-body">
                 <span class="section-head">🛠 Solving the Mess</span>
@@ -225,6 +266,9 @@
                 <div class="pkg-price">$399 <span>/ month</span></div>
                 <span class="pkg-target">Ideal for growing SMEs</span>
             </div>
+            <div class="pkg-image">
+                <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg" alt="Package Preview">
+            </div>
             <div class="pkg-body">
                 <span class="section-head">🛠 Solving the Mess</span>
                 <ul>
@@ -270,6 +314,9 @@
                 <span class="pkg-tagline">Know exactly what’s selling, why it’s selling, and what will sell next</span>
                 <div class="pkg-price">$699 <span>/ month</span></div>
                 <span class="pkg-target">For data-driven SMEs aiming to scale profitably</span>
+            </div>
+            <div class="pkg-image">
+                <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg" alt="Package Preview">
             </div>
             <div class="pkg-body">
                 <span class="section-head">🛠 Solving the Mess</span>
@@ -317,6 +364,9 @@
                 <div class="pkg-price">$1,199 <span>/ month</span></div>
                 <span class="pkg-target">For mature SMEs preparing for expansion</span>
             </div>
+            <div class="pkg-image">
+                <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg" alt="Package Preview">
+            </div>
             <div class="pkg-body">
                 <span class="section-head">🛠 Solving the Mess</span>
                 <ul>
@@ -355,13 +405,16 @@
                 <button class="pkg-btn" onclick="togglePackage(4, 'The Customer Retention Shield', 1199)">Select Plan</button>
             </div>
         </div>
-
+<!-- hh = style="background: #222; color: #fff; -->
         <div class="pkg-card" id="card-5" style="border-color: #333;">
-            <div class="pkg-header" style="background: #222; color: #fff;">
-                <h3 class="pkg-title" style="color:#fff;">The Owner’s One-Page Command Center</h3>
-                <span class="pkg-tagline" style="color:#ccc;">Everything you need to know without drowning in reports</span>
-                <div class="pkg-price" style="color:#fff;">$2,500 <span>/ month</span></div>
-                <span class="pkg-target" style="color:#aaa;">For leadership teams who want data-backed decisions at every level</span>
+            <div class="pkg-header hh">
+                <h3 class="pkg-title">The Owner’s One-Page Command Center</h3>
+                <span class="pkg-tagline">Everything you need to know without drowning in reports</span>
+                <div class="pkg-price">$2,500 <span>/ month</span></div>
+                <span class="pkg-target">For leadership teams who want data-backed decisions at every level</span>
+            </div>
+            <div class="pkg-image">
+                <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg" alt="Package Preview">
             </div>
             <div class="pkg-body">
                 <span class="section-head">🛠 Solving the Mess</span>
@@ -401,8 +454,6 @@
                 <button class="pkg-btn" onclick="togglePackage(5, 'The Owner’s One-Page Command Center', 2500)">Select Plan</button>
             </div>
         </div>
-
-    </div>
 
     <div id="opt" class="addons-section">
         <h3 class="addons-title">Optional Add-Ons</h3>
@@ -449,6 +500,8 @@
             <span class="total-hint">Please proceed to the form below to complete your selection. ↓</span>
         </div>
 
+    </div>
+    
     </div>
 
 </div>
