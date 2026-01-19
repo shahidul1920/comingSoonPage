@@ -2,9 +2,16 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
     :root {
-        --pkg-body-font-size: 13px;
+        --pkg-body-font-size: 16px;
         --pkg-line-height: 1.5;
         --pkg-color: #555;
+        --pkg-title-font-size: 20px;
+        --pkg-price-font-size: 28px;
+        --pkg-tagline-font-size: 18px;
+        --pkg-header-padding: 25px 20px;
+        --section-head-font-size: 18px;
+        --addon-name-font-size: 18px;
+        --addon-price-font-size: 18px;
     }
 
     html {
@@ -85,13 +92,13 @@
     /* Header */
     .pkg-header {
         background: #fdfdfd;
-        padding: 25px 20px;
+        padding: var(--pkg-header-padding);
         /* border-bottom: 1px solid #f0f0f0; */
         text-align: center;
     }
 
     .pkg-title {
-        font-size: 20px;
+        font-size: var(--pkg-title-font-size);
         font-weight: 700;
         color: #222;
         margin: 0 0 8px 0;
@@ -99,7 +106,7 @@
     }
 
     .pkg-tagline {
-        font-size: 13px;
+        font-size: var(--pkg-tagline-font-size);
         color: #666;
         font-style: italic;
         margin-bottom: 12px;
@@ -108,7 +115,7 @@
     }
 
     .pkg-price {
-        font-size: 28px;
+        font-size: var(--pkg-price-font-size);
         font-weight: 700;
         color: #d32f2f;
         margin: 10px 0 5px 0;
@@ -139,7 +146,7 @@
     }
 
     .section-head {
-        font-size: 12px;
+        font-size: var(--section-head-font-size);
         font-weight: 700;
         text-transform: uppercase;
         color: #222;
@@ -182,7 +189,7 @@
         color: #444;
         padding: 2px 8px;
         border-radius: 4px;
-        font-size: 11px;
+        font-size: 14px;
     }
 
     .outcome-box {
@@ -191,7 +198,7 @@
         border-radius: 6px;
         margin-top: 20px;
         border-left: 3px solid #d32f2f;
-        font-size: 13px;
+        font-size: 14px;
         color: #b71c1c;
     }
 
@@ -295,14 +302,14 @@
 
     .addon-name {
         font-weight: 700;
-        font-size: 14px;
+        font-size: var(--addon-name-font-size);
         color: #222;
     }
 
     .addon-price {
         color: #d32f2f;
         font-weight: 700;
-        font-size: 15px;
+        font-size: var(--addon-price-font-size);
     }
 
     .addon-desc {
@@ -385,7 +392,7 @@
 
     .addon-image {
         width: 100%;
-        height: 130px;
+        height: 150px;
     }
 
     .addon-image {
@@ -406,6 +413,37 @@
     .addon-desc,
     .addon-image {
         flex: 1;
+    }
+
+    .addon-footer {
+        width: 100%;
+        margin-top: 5px;
+        text-align: center;
+    }
+
+    .addon-btn {
+        background-color: #222;
+        color: #fff;
+        border: none;
+        padding: 5px 0;
+        border-radius: 4px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        transition: all 0.2s;
+    }
+
+    .addon-item:hover .addon-btn {
+        background-color: #444;
+    }
+
+    .addon-item.active-addon .addon-btn {
+        background-color: #d32f2f;
+    }
+
+    .addon-item.active-addon .addon-btn::before {
+        content: "✔ ";
     }
 </style>
 
@@ -688,8 +726,12 @@
                             <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg"
                                 alt="Addon Preview">
                         </div>
-                        <div class="addon-desc">Comprehensive review of your data integrity and sources to identify gaps
-                            before starting.</div>
+                        <div class="addon-desc">
+                            Comprehensive review of your data integrity and sources to identify gaps before starting.
+                            <div class="addon-footer">
+                                <button class="addon-btn">Add to Plan</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -703,8 +745,12 @@
                             <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg"
                                 alt="Addon Preview">
                         </div>
-                        <div class="addon-desc">Comprehensive review of your data integrity and sources to identify gaps
-                            before starting.</div>
+                        <div class="addon-desc">
+                            Comprehensive review of your data integrity and sources to identify gaps before starting.
+                            <div class="addon-footer">
+                                <button class="addon-btn">Add to Plan</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -718,9 +764,13 @@
                             <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg"
                                 alt="Addon Preview">
                         </div>
-                        <div class="addon-desc">Modernize your existing ugly or broken reports into clean, interactive
-                        visuals.</div>
-                </div>
+                        <div class="addon-desc">
+                            Modernize your existing ugly or broken reports into clean, interactive visuals.
+                            <div class="addon-footer">
+                                <button class="addon-btn">Add to Plan</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="addon-item" id="addon-3" onclick="toggleAddon(3, 'Custom Forecasting', 300)">
@@ -733,9 +783,13 @@
                             <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg"
                                 alt="Addon Preview">
                         </div>
-                        <div class="addon-desc">Specialized models for complex scenarios like inventory planning or seasonal
-                        demand.</div>
-                </div>
+                        <div class="addon-desc">
+                            Specialized models for complex scenarios like inventory planning or seasonal demand.
+                            <div class="addon-footer">
+                                <button class="addon-btn">Add to Plan</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="addon-item" id="addon-4" onclick="toggleAddon(4, 'Team Training', 200)">
@@ -748,22 +802,34 @@
                             <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg"
                                 alt="Addon Preview">
                         </div>
-                        <div class="addon-desc">A dedicated session to train your team on how to read, use, and act on the
-                            new data.</div>
+                        <div class="addon-desc">
+                            A dedicated session to train your team on how to read, use, and act on the new data.
+                            <div class="addon-footer">
+                                <button class="addon-btn">Add to Plan</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="total-inline-bar" id="inlineTotalBar">
+            <!-- <div class="total-inline-bar" id="inlineTotalBar">
                 <div class="total-info">
                     <span class="total-label">Estimated Total</span>
                     <span class="total-amount" id="displayTotal">$0</span>
                 </div>
                 <span class="total-hint">Please proceed to the form below to complete your selection. ↓</span>
-            </div>
+            </div> -->
 
         </div>
 
+    </div>
+
+    <div class="total-inline-bar" id="inlineTotalBar">
+        <div class="total-info">
+            <span class="total-label">Estimated Total</span>
+            <span class="total-amount" id="displayTotal">$0</span>
+        </div>
+        <span class="total-hint">Please proceed to the form below to complete your selection. ↓</span>
     </div>
 
 </div>
@@ -801,16 +867,21 @@
 
     function toggleAddon(id, name, price) {
         const item = document.getElementById(`addon-${id}`);
+        // Safely try to find a button, if it exists
+        const btn = item ? item.querySelector('.addon-btn') : null;
+
         const index = selectedAddons.findIndex(a => a.id === id);
 
         if (index > -1) {
             // It exists, so REMOVE it (Deselect)
             selectedAddons.splice(index, 1);
             item.classList.remove('active-addon');
+            if (btn) btn.innerText = "Add to Plan";
         } else {
             // Add it
             selectedAddons.push({ id, name, price });
             item.classList.add('active-addon');
+            if (btn) btn.innerText = "Added";
         }
 
         updateTotalAndForm();
