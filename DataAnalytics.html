@@ -7,9 +7,10 @@
         --pkg-color: #555;
     }
 
-    html{
+    html {
         scroll-behavior: smooth;
     }
+
     /* --- LAYOUT CONFIG --- */
     .fluentform .hide-me-please {
         display: none !important;
@@ -18,16 +19,18 @@
         margin: 0 !important;
         padding: 0 !important;
     }
+
     .packages-wrapper {
         font-family: 'Poppins', sans-serif;
-        max-width: 100%; 
+        max-width: 100%;
         margin: 0 auto;
         box-sizing: border-box;
     }
 
     .packages-grid {
         display: grid;
-        grid-template-columns: 1fr; /* Mobile: 1 Col */
+        grid-template-columns: 1fr;
+        /* Mobile: 1 Col */
         gap: 30px;
         margin-bottom: 50px;
         align-items: stretch;
@@ -54,7 +57,7 @@
 
     .pkg-card:hover {
         transform: translateY(-3px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
         border-color: #d32f2f;
     }
 
@@ -70,10 +73,10 @@
         background-color: #d32f2f !important;
         border-bottom-color: #b71c1c;
     }
-    
+
     .pkg-card.active-card .pkg-title,
     .pkg-card.active-card .pkg-price,
-    .pkg-card.active-card .pkg-tagline, 
+    .pkg-card.active-card .pkg-tagline,
     .pkg-card.active-card .pkg-target,
     .pkg-card.active-card .pkg-price span {
         color: #fff !important;
@@ -86,87 +89,229 @@
         /* border-bottom: 1px solid #f0f0f0; */
         text-align: center;
     }
-    
-    .pkg-title { font-size: 20px; font-weight: 700; color: #222; margin: 0 0 8px 0; line-height: 1.3; }
-    .pkg-tagline { font-size: 13px; color: #666; font-style: italic; margin-bottom: 12px; display: block; line-height: 1.4; }
-    .pkg-price { font-size: 28px; font-weight: 700; color: #d32f2f; margin: 10px 0 5px 0; }
-    .pkg-price span { font-size: 13px; color: #888; font-weight: 400; }
-    .pkg-target { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #888; margin-top: 5px; font-weight: 600; }
 
-    /* Body */
-    .pkg-body { padding: 25px 20px; font-size: var(--pkg-body-font-size); color: var(--pkg-color); line-height: var(--pkg-line-height); }
-
-    .section-head { 
-        font-size: 12px; font-weight: 700; text-transform: uppercase; color: #222; 
-        margin-top: 18px; margin-bottom: 8px; border-bottom: 1px solid #eee; padding-bottom: 3px; display: inline-block;
+    .pkg-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: #222;
+        margin: 0 0 8px 0;
+        line-height: 1.3;
     }
 
-    .pkg-body ul { list-style: none; padding: 0; margin: 0; }
-    .pkg-body ul li { margin-bottom: 6px; padding-left: 15px; position: relative; }
-    .pkg-body ul li::before { content: "•"; color: #d32f2f; font-weight: bold; position: absolute; left: 0; top: 0px; }
-    
-    .tools-list { display: flex; flex-wrap: wrap; gap: 5px; }
-    .tool-badge { background: #f0f0f0; color: #444; padding: 2px 8px; border-radius: 4px; font-size: 11px; }
+    .pkg-tagline {
+        font-size: 13px;
+        color: #666;
+        font-style: italic;
+        margin-bottom: 12px;
+        display: block;
+        line-height: 1.4;
+    }
+
+    .pkg-price {
+        font-size: 28px;
+        font-weight: 700;
+        color: #d32f2f;
+        margin: 10px 0 5px 0;
+    }
+
+    .pkg-price span {
+        font-size: 13px;
+        color: #888;
+        font-weight: 400;
+    }
+
+    .pkg-target {
+        display: block;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #888;
+        margin-top: 5px;
+        font-weight: 600;
+    }
+
+    /* Body */
+    .pkg-body {
+        padding: 25px 20px;
+        font-size: var(--pkg-body-font-size);
+        color: var(--pkg-color);
+        line-height: var(--pkg-line-height);
+    }
+
+    .section-head {
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #222;
+        margin-top: 18px;
+        margin-bottom: 8px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 3px;
+        display: inline-block;
+    }
+
+    .pkg-body ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .pkg-body ul li {
+        margin-bottom: 6px;
+        padding-left: 15px;
+        position: relative;
+    }
+
+    .pkg-body ul li::before {
+        content: "•";
+        color: #d32f2f;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+        top: 0px;
+    }
+
+    .tools-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .tool-badge {
+        background: #f0f0f0;
+        color: #444;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 11px;
+    }
 
     .outcome-box {
-        background: #fff5f5; padding: 12px; border-radius: 6px; margin-top: 20px;
-        border-left: 3px solid #d32f2f; font-size: 13px; color: #b71c1c;
+        background: #fff5f5;
+        padding: 12px;
+        border-radius: 6px;
+        margin-top: 20px;
+        border-left: 3px solid #d32f2f;
+        font-size: 13px;
+        color: #b71c1c;
     }
 
     /* Footer */
-    .pkg-footer { padding: 20px; text-align: center; background: #fff; border-top: 1px solid #f9f9f9; margin-top: auto; }
-    
-    .pkg-btn {
-        background-color: #222; color: #fff; border: none; padding: 12px 20px;
-        border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer;
-        width: 100%; transition: all 0.2s;
+    .pkg-footer {
+        padding: 20px;
+        text-align: center;
+        background: #fff;
+        border-top: 1px solid #f9f9f9;
+        margin-top: auto;
     }
-    .pkg-btn:hover { background-color: #444; }
-    .pkg-btn.selected-btn { background-color: #d32f2f; box-shadow: inset 0 0 5px rgba(0,0,0,0.2); }
-    .pkg-btn.selected-btn::before { content: "✔ "; } 
+
+    .pkg-btn {
+        background-color: #222;
+        color: #fff;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        transition: all 0.2s;
+    }
+
+    .pkg-btn:hover {
+        background-color: #444;
+    }
+
+    .pkg-btn.selected-btn {
+        background-color: #d32f2f;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .pkg-btn.selected-btn::before {
+        content: "✔ ";
+    }
 
     /* --- ADD ONS SECTION --- */
-    .addons-section { 
-        margin-top: 0; 
-        padding: 20px; 
-        background: #f9f9f9; 
-        border-radius: 12px; 
+    .addons-section {
+        margin-top: 0;
+        padding: 20px;
+        background: #f9f9f9;
+        border-radius: 12px;
         border: 1px dashed #ccc;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
     }
-    .addons-title { text-align: center; font-size: 22px; margin-bottom: 25px; color: #333; margin-top: 0;}
-    
+
+    .addons-title {
+        text-align: center;
+        font-size: 22px;
+        margin-bottom: 25px;
+        color: #333;
+        margin-top: 0;
+    }
+
     /* Grid Layout for Equal Height Add-ons */
-    .addons-grid { 
-        display: grid; 
-        grid-template-columns: 1fr; 
-        gap: 10px; 
-        align-items: stretch; 
+    .addons-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        align-items: stretch;
     }
 
     .addon-item {
         box-sizing: border-box;
-        background: #fff; 
-        padding: 10px; 
-        border-radius: 8px; 
+        background: #fff;
+        padding: 10px;
+        border-radius: 8px;
         border: 1px solid #eee;
-        cursor: pointer; 
-        transition: 0.2s; 
-        display: flex; 
+        cursor: pointer;
+        transition: 0.2s;
+        display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
         flex-grow: 1;
     }
-    .addon-item:hover { border-color: #d32f2f; transform: translateY(-2px); }
-    .addon-item.active-addon { border: 2px solid #d32f2f; background: #fffbfb; }
 
-    .addon-header {width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px solid #f5f5f5; padding-bottom: 8px;}
-    .addon-name { font-weight: 700; font-size: 14px; color: #222; }
-    .addon-price { color: #d32f2f; font-weight: 700; font-size: 15px; }
-    .addon-desc { font-size: var(--pkg-body-font-size); color: var(--pkg-color); line-height: var(--pkg-line-height); max-width: 250px; text-align: center;}
+    .addon-item:hover {
+        border-color: #d32f2f;
+        transform: translateY(-2px);
+    }
+
+    .addon-item.active-addon {
+        border: 2px solid #d32f2f;
+        background: #fffbfb;
+    }
+
+    .addon-header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #f5f5f5;
+        padding-bottom: 8px;
+    }
+
+    .addon-name {
+        font-weight: 700;
+        font-size: 14px;
+        color: #222;
+    }
+
+    .addon-price {
+        color: #d32f2f;
+        font-weight: 700;
+        font-size: 15px;
+    }
+
+    .addon-desc {
+        font-size: var(--pkg-body-font-size);
+        color: var(--pkg-color);
+        line-height: var(--pkg-line-height);
+        max-width: 250px;
+        text-align: left;
+    }
 
     /* --- INLINE TOTAL BAR (Inside Add-ons) --- */
     .total-inline-bar {
@@ -179,23 +324,46 @@
         justify-content: space-between;
         align-items: center;
         /* Hidden by default until selection */
-        display: none; 
+        display: none;
         animation: fadeIn 0.4s ease forwards;
     }
 
-    .total-inline-bar.show-bar { display: flex; }
+    .total-inline-bar.show-bar {
+        display: flex;
+    }
 
-    .total-label { font-size: 14px; color: #ccc; margin-right: 10px; }
-    .total-amount { font-size: 24px; font-weight: 700; color: #fff; }
-    .total-hint { font-size: 12px; color: #888; }
+    .total-label {
+        font-size: 14px;
+        color: #ccc;
+        margin-right: 10px;
+    }
+
+    .total-amount {
+        font-size: 24px;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .total-hint {
+        font-size: 12px;
+        color: #888;
+    }
 
     @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     /* Package Image */
-    .pkg-image, .addon-image {
+    .pkg-image,
+    .addon-image {
         width: 95%;
         margin: 0 auto;
         margin-top: 0.6rem;
@@ -205,30 +373,46 @@
         border: 1px solid #ccc;
         flex-shrink: 0;
     }
-    .pkg-image img, .addon-image img {
+
+    .pkg-image img,
+    .addon-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         display: block;
         transition: transform 0.3s ease;
     }
+
     .addon-image {
         width: 100%;
         height: 130px;
     }
+
     .addon-image {
         margin-bottom: 15px;
     }
+
     /* .pkg-card:hover .pkg-image img {
         transform: scale(1.05);
     } */
+    .imageNdetails {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+    }
 
+    .addon-desc,
+    .addon-image {
+        flex: 1;
+    }
 </style>
 
 <div class="packages-wrapper">
 
     <div class="packages-grid">
-        
+
         <div class="pkg-card" id="card-1">
             <div class="pkg-header">
                 <h3 class="pkg-title">The Profit Leak Detector</h3>
@@ -237,7 +421,8 @@
                 <span class="pkg-target">Best for micro & early-stage SMEs</span>
             </div>
             <div class="pkg-image">
-                <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg" alt="Package Preview">
+                <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg"
+                    alt="Package Preview">
             </div>
             <div class="pkg-body">
                 <span class="section-head">🛠 Solving the Mess</span>
@@ -270,11 +455,13 @@
                     <span class="tool-badge">SQL</span>
                     <span class="tool-badge">Accounting Integrations</span>
                 </div>
-                <div class="outcome-box"><strong>Outcome:</strong> Identify and plug 10–20% hidden profit leaks within 60–90 days. Clear visibility into what actually makes money and what doesn’t.</div>
+                <div class="outcome-box"><strong>Outcome:</strong> Identify and plug 10–20% hidden profit leaks within
+                    60–90 days. Clear visibility into what actually makes money and what doesn’t.</div>
             </div>
             <div class="pkg-footer">
                 <a href="#opt">
-                    <button class="pkg-btn" onclick="togglePackage(1, 'The Profit Leak Detector', 199)">Select Plan</button>
+                    <button class="pkg-btn" onclick="togglePackage(1, 'The Profit Leak Detector', 199)">Select
+                        Plan</button>
 
                 </a>
             </div>
@@ -288,7 +475,8 @@
                 <span class="pkg-target">Ideal for growing SMEs</span>
             </div>
             <div class="pkg-image">
-                <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg" alt="Package Preview">
+                <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg"
+                    alt="Package Preview">
             </div>
             <div class="pkg-body">
                 <span class="section-head">🛠 Solving the Mess</span>
@@ -322,10 +510,12 @@
                     <span class="tool-badge">Excel-based models</span>
                     <span class="tool-badge">CRM & POS integration</span>
                 </div>
-                <div class="outcome-box"><strong>Outcome:</strong> Reduce cash-flow surprises by up to 40%. Make confident decisions without panic borrowing.</div>
+                <div class="outcome-box"><strong>Outcome:</strong> Reduce cash-flow surprises by up to 40%. Make
+                    confident decisions without panic borrowing.</div>
             </div>
             <div class="pkg-footer">
-                <button class="pkg-btn" onclick="togglePackage(2, 'The Cash-Flow Stress Killer', 399)">Select Plan</button>
+                <button class="pkg-btn" onclick="togglePackage(2, 'The Cash-Flow Stress Killer', 399)">Select
+                    Plan</button>
             </div>
         </div>
 
@@ -337,7 +527,8 @@
                 <span class="pkg-target">For data-driven SMEs aiming to scale profitably</span>
             </div>
             <div class="pkg-image">
-                <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg" alt="Package Preview">
+                <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg"
+                    alt="Package Preview">
             </div>
             <div class="pkg-body">
                 <span class="section-head">🛠 Solving the Mess</span>
@@ -371,7 +562,8 @@
                     <span class="tool-badge">CRM analytics</span>
                     <span class="tool-badge">Cohort & segmentation</span>
                 </div>
-                <div class="outcome-box"><strong>Outcome:</strong> Increase focused sales effort efficiency by 20–30%. Stop guessing double down on what actually works.</div>
+                <div class="outcome-box"><strong>Outcome:</strong> Increase focused sales effort efficiency by 20–30%.
+                    Stop guessing double down on what actually works.</div>
             </div>
             <div class="pkg-footer">
                 <button class="pkg-btn" onclick="togglePackage(3, 'The Sales Clarity Engine', 699)">Select Plan</button>
@@ -386,7 +578,8 @@
                 <span class="pkg-target">For mature SMEs preparing for expansion</span>
             </div>
             <div class="pkg-image">
-                <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg" alt="Package Preview">
+                <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg"
+                    alt="Package Preview">
             </div>
             <div class="pkg-body">
                 <span class="section-head">🛠 Solving the Mess</span>
@@ -420,13 +613,15 @@
                     <span class="tool-badge">SQL / Cloud DW</span>
                     <span class="tool-badge">Automated alerting</span>
                 </div>
-                <div class="outcome-box"><strong>Outcome:</strong> Reduce customer churn by 15–25%. Grow revenue without increasing ad spend.</div>
+                <div class="outcome-box"><strong>Outcome:</strong> Reduce customer churn by 15–25%. Grow revenue without
+                    increasing ad spend.</div>
             </div>
             <div class="pkg-footer">
-                <button class="pkg-btn" onclick="togglePackage(4, 'The Customer Retention Shield', 1199)">Select Plan</button>
+                <button class="pkg-btn" onclick="togglePackage(4, 'The Customer Retention Shield', 1199)">Select
+                    Plan</button>
             </div>
         </div>
-<!-- hh = style="background: #222; color: #fff; -->
+        <!-- hh = style="background: #222; color: #fff; -->
         <div class="pkg-card" id="card-5" style="border-color: #333;">
             <div class="pkg-header hh">
                 <h3 class="pkg-title">The Owner’s One-Page Command Center</h3>
@@ -435,7 +630,8 @@
                 <span class="pkg-target">For leadership teams who want data-backed decisions at every level</span>
             </div>
             <div class="pkg-image">
-                <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg" alt="Package Preview">
+                <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg"
+                    alt="Package Preview">
             </div>
             <div class="pkg-body">
                 <span class="section-head">🛠 Solving the Mess</span>
@@ -469,80 +665,92 @@
                     <span class="tool-badge">Cloud data infrastructure</span>
                     <span class="tool-badge">CRM, ERP & Accounting integrations</span>
                 </div>
-                <div class="outcome-box"><strong>Outcome:</strong> Save 5–10 hours per week in decision-making time. Run the business proactively not reactively.</div>
+                <div class="outcome-box"><strong>Outcome:</strong> Save 5–10 hours per week in decision-making time. Run
+                    the business proactively not reactively.</div>
             </div>
             <div class="pkg-footer">
-                <button class="pkg-btn" onclick="togglePackage(5, 'The Owner’s One-Page Command Center', 2500)">Select Plan</button>
+                <button class="pkg-btn" onclick="togglePackage(5, 'The Owner’s One-Page Command Center', 2500)">Select
+                    Plan</button>
             </div>
         </div>
 
-    <div id="opt" class="addons-section">
-        <h3 class="addons-title">Optional Add-Ons</h3>
-        <div class="addons-grid">
-            
-            <div class="addon-item" id="addon-1" onclick="toggleAddon(1, 'One-time Data Audit', 250)">
-                <div class="addon-header">
-                    <span class="addon-name">One-time Data Audit</span>
-                    <span class="addon-price">$250</span>
+        <div id="opt" class="addons-section">
+            <h3 class="addons-title">Optional Add-Ons</h3>
+            <div class="addons-grid">
+
+                <div class="addon-item" id="addon-1" onclick="toggleAddon(1, 'One-time Data Audit', 250)">
+                    <div class="addon-header">
+                        <span class="addon-name">One-time Data Audit</span>
+                        <span class="addon-price">$250</span>
+                    </div>
+                    <div class="imageNdetails">
+                        <div class="addon-image">
+                            <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg"
+                                alt="Addon Preview">
+                        </div>
+                        <div class="addon-desc">Comprehensive review of your data integrity and sources to identify gaps
+                            before starting.</div>
+                    </div>
                 </div>
-                <div class="addon-image">
-                        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg" alt="Addon Preview">
+
+                <div class="addon-item" id="addon-2" onclick="toggleAddon(2, 'Dashboard Redesign', 150)">
+                    <div class="addon-header">
+                        <span class="addon-name">Dashboard Redesign</span>
+                        <span class="addon-price">$150</span>
+                    </div>
+                    <div class="addon-image">
+                        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg"
+                            alt="Addon Preview">
+                    </div>
+                    <div class="addon-desc">Modernize your existing ugly or broken reports into clean, interactive
+                        visuals.</div>
                 </div>
-                <div class="addon-desc">Comprehensive review of your data integrity and sources to identify gaps before starting.</div>
+
+                <div class="addon-item" id="addon-3" onclick="toggleAddon(3, 'Custom Forecasting', 300)">
+                    <div class="addon-header">
+                        <span class="addon-name">Custom Forecasting Model</span>
+                        <span class="addon-price">$300</span>
+                    </div>
+                    <div class="addon-image">
+                        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg"
+                            alt="Addon Preview">
+                    </div>
+                    <div class="addon-desc">Specialized models for complex scenarios like inventory planning or seasonal
+                        demand.</div>
+                </div>
+
+                <div class="addon-item" id="addon-4" onclick="toggleAddon(4, 'Team Training', 200)">
+                    <div class="addon-header">
+                        <span class="addon-name">Team Training Session</span>
+                        <span class="addon-price">$200</span>
+                    </div>
+                    <div class="addon-image">
+                        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg"
+                            alt="Addon Preview">
+                    </div>
+                    <div class="addon-desc">A dedicated session to train your team on how to read, use, and act on the
+                        new data.</div>
+                </div>
             </div>
 
-            <div class="addon-item" id="addon-2" onclick="toggleAddon(2, 'Dashboard Redesign', 150)">
-                <div class="addon-header">
-                    <span class="addon-name">Dashboard Redesign</span>
-                    <span class="addon-price">$150</span>
+            <div class="total-inline-bar" id="inlineTotalBar">
+                <div class="total-info">
+                    <span class="total-label">Estimated Total</span>
+                    <span class="total-amount" id="displayTotal">$0</span>
                 </div>
-                <div class="addon-image">
-                        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg" alt="Addon Preview">
-                </div>
-                <div class="addon-desc">Modernize your existing ugly or broken reports into clean, interactive visuals.</div>
+                <span class="total-hint">Please proceed to the form below to complete your selection. ↓</span>
             </div>
 
-            <div class="addon-item" id="addon-3" onclick="toggleAddon(3, 'Custom Forecasting', 300)">
-                <div class="addon-header">
-                    <span class="addon-name">Custom Forecasting Model</span>
-                    <span class="addon-price">$300</span>
-                </div>
-                <div class="addon-image">
-                        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg" alt="Addon Preview">
-                </div>
-                <div class="addon-desc">Specialized models for complex scenarios like inventory planning or seasonal demand.</div>
-            </div>
-
-            <div class="addon-item" id="addon-4" onclick="toggleAddon(4, 'Team Training', 200)">
-                <div class="addon-header">
-                    <span class="addon-name">Team Training Session</span>
-                    <span class="addon-price">$200</span>
-                </div>
-                <div class="addon-image">
-                        <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg" alt="Addon Preview">
-                </div>
-                <div class="addon-desc">A dedicated session to train your team on how to read, use, and act on the new data.</div>
-            </div>
         </div>
 
-        <div class="total-inline-bar" id="inlineTotalBar">
-            <div class="total-info">
-                <span class="total-label">Estimated Total</span>
-                <span class="total-amount" id="displayTotal">$0</span>
-            </div>
-            <span class="total-hint">Please proceed to the form below to complete your selection. ↓</span>
-        </div>
-
-    </div>
-    
     </div>
 
 </div>
 
 <script>
     // State Variables
-    let selectedPkg = null;     
-    let selectedAddons = [];    
+    let selectedPkg = null;
+    let selectedAddons = [];
 
     function togglePackage(id, name, price) {
         const card = document.getElementById(`card-${id}`);
@@ -600,14 +808,14 @@
         if (selectedAddons.length > 0) {
             total += selectedAddons.reduce((sum, item) => sum + item.price, 0);
             const addonNames = selectedAddons.map(a => a.name).join(', ');
-            if (summaryText) summaryText += " | "; 
+            if (summaryText) summaryText += " | ";
             summaryText += `Add-ons: ${addonNames}`;
         }
 
         // B. Update Inline Bar
         const inlineBar = document.getElementById('inlineTotalBar');
         const displayTotal = document.getElementById('displayTotal');
-        
+
         displayTotal.innerText = "$" + total.toLocaleString();
 
         // Show/Hide bar
@@ -621,7 +829,7 @@
 
         // C. Update Hidden Form Field
         const formField = document.querySelector("input[name='input_text']");
-        
+
         if (formField) {
             formField.value = summaryText;
             formField.dispatchEvent(new Event('change', { bubbles: true }));
