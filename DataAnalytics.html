@@ -1,12 +1,21 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+    html{
+        scroll-behavior: smooth;
+    }
     /* --- LAYOUT CONFIG --- */
+    .fluentform .hide-me-please {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
     .packages-wrapper {
         font-family: 'Poppins', sans-serif;
-        max-width: 1100px; 
+        max-width: 100%; 
         margin: 0 auto;
-        padding: 20px;
         box-sizing: border-box;
     }
 
@@ -99,7 +108,7 @@
     /* --- ADD ONS SECTION --- */
     .addons-section { 
         margin-top: 40px; 
-        padding: 30px; 
+        padding: 10px; 
         background: #f9f9f9; 
         border-radius: 12px; 
         border: 1px dashed #ccc; 
@@ -110,7 +119,7 @@
     .addons-grid { 
         display: grid; 
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-        gap: 20px; 
+        gap: 10px; 
         align-items: stretch; 
     }
 
@@ -202,7 +211,10 @@
                 <div class="outcome-box"><strong>Outcome:</strong> Identify and plug 10–20% hidden profit leaks within 60–90 days. Clear visibility into what actually makes money and what doesn’t.</div>
             </div>
             <div class="pkg-footer">
-                <button class="pkg-btn" onclick="togglePackage(1, 'The Profit Leak Detector', 199)">Select Plan</button>
+                <a href="#opt">
+                    <button class="pkg-btn" onclick="togglePackage(1, 'The Profit Leak Detector', 199)">Select Plan</button>
+
+                </a>
             </div>
         </div>
 
@@ -392,7 +404,7 @@
 
     </div>
 
-    <div class="addons-section">
+    <div id="opt" class="addons-section">
         <h3 class="addons-title">Optional Add-Ons</h3>
         <div class="addons-grid">
             
@@ -434,7 +446,7 @@
                 <span class="total-label">Estimated Total</span>
                 <span class="total-amount" id="displayTotal">$0</span>
             </div>
-            <span class="total-hint">Details will be auto-filled in the form below ↓</span>
+            <span class="total-hint">Please proceed to the form below to complete your selection. ↓</span>
         </div>
 
     </div>
