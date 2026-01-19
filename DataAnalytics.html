@@ -392,7 +392,7 @@
 
     .addon-image {
         width: 100%;
-        height: 150px;
+        height: 210px;
     }
 
     .addon-image {
@@ -415,6 +415,17 @@
         flex: 1;
     }
 
+    .addon-features {
+        margin: 10px 0;
+        padding-left: 20px;
+        font-size: 13px;
+        color: #666;
+    }
+    .addon-features li {
+        margin-bottom: 4px;
+        list-style-type: disc;
+    }
+
     .addon-footer {
         width: 100%;
         margin-top: 5px;
@@ -432,6 +443,13 @@
         cursor: pointer;
         width: 100%;
         transition: all 0.2s;
+    }
+
+    /* Fix to prevent white background on focus/deselect */
+    .addon-btn:focus, .pkg-btn:focus {
+        background-color: #222;
+        color: #fff;
+        outline: none;
     }
 
     .addon-item:hover .addon-btn {
@@ -728,6 +746,11 @@
                         </div>
                         <div class="addon-desc">
                             Comprehensive review of your data integrity and sources to identify gaps before starting.
+                            <ul class="addon-features">
+                                <li>Source verification</li>
+                                <li>Data quality check</li>
+                                <li>Gap analysis</li>
+                            </ul>
                             <div class="addon-footer">
                                 <button class="addon-btn">Add to Plan</button>
                             </div>
@@ -735,24 +758,7 @@
                     </div>
                 </div>
 
-                <div class="addon-item" id="addon-2" onclick="toggleAddon(2, 'Dashboard Redesign', 150)">
-                    <div class="addon-header">
-                        <span class="addon-name">Dashboard Redesign</span>
-                        <span class="addon-price">$150</span>
-                    </div>
-                    <div class="imageNdetails">
-                        <div class="addon-image">
-                            <img src="https://www.redmun.com/wp-content/uploads/2026/01/Group-181-scaled-1.jpg"
-                                alt="Addon Preview">
-                        </div>
-                        <div class="addon-desc">
-                            Comprehensive review of your data integrity and sources to identify gaps before starting.
-                            <div class="addon-footer">
-                                <button class="addon-btn">Add to Plan</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
 
                 <div class="addon-item" id="addon-2" onclick="toggleAddon(2, 'Dashboard Redesign', 150)">
                     <div class="addon-header">
@@ -766,6 +772,11 @@
                         </div>
                         <div class="addon-desc">
                             Modernize your existing ugly or broken reports into clean, interactive visuals.
+                            <ul class="addon-features">
+                                <li>UX/UI overhaul</li>
+                                <li>Mobile responsiveness</li>
+                                <li>Interactive charts</li>
+                            </ul>
                             <div class="addon-footer">
                                 <button class="addon-btn">Add to Plan</button>
                             </div>
@@ -785,6 +796,11 @@
                         </div>
                         <div class="addon-desc">
                             Specialized models for complex scenarios like inventory planning or seasonal demand.
+                            <ul class="addon-features">
+                                <li>Trend alignment</li>
+                                <li>Seasonality adjustments</li>
+                                <li>Scenario testing</li>
+                            </ul>
                             <div class="addon-footer">
                                 <button class="addon-btn">Add to Plan</button>
                             </div>
@@ -804,6 +820,11 @@
                         </div>
                         <div class="addon-desc">
                             A dedicated session to train your team on how to read, use, and act on the new data.
+                            <ul class="addon-features">
+                                <li>Hands-on workshop</li>
+                                <li>Q&A session</li>
+                                <li>Recorded for later use</li>
+                            </ul>
                             <div class="addon-footer">
                                 <button class="addon-btn">Add to Plan</button>
                             </div>
