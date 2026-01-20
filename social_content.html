@@ -1,0 +1,781 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    .content-packages-wrapper {
+        font-family: 'Poppins', sans-serif;
+        color: #4a4a4a;
+        line-height: 1.7;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        background-color: #fafafa;
+    }
+
+    /* Typography */
+    .content-packages-wrapper h1, 
+    .content-packages-wrapper h2, 
+    .content-packages-wrapper h3 {
+        color: #2d2d2d;
+        line-height: 1.3;
+    }
+
+    .content-packages-wrapper h1 {
+        font-size: 36px;
+        font-weight: 700;
+        text-align: center;
+        color: #b71c1c;
+        margin-bottom: 10px;
+    }
+
+    .content-packages-wrapper h2 {
+        font-size: 20px;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 40px;
+        color: #666;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .section-title {
+        font-size: 26px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 15px;
+        position: relative;
+        display: inline-block;
+    }
+    
+    .section-title::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: #d32f2f;
+        margin: 10px auto 0;
+        border-radius: 2px;
+    }
+
+    /* Content Cards */
+    .content-card {
+        background: #fff;
+        border-radius: 16px;
+        padding: 40px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        margin-bottom: 40px;
+        border: 1px solid #f0f0f0;
+    }
+
+    /* Lists */
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 25px;
+    }
+
+    .check-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .check-list li {
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+        font-size: 15px;
+    }
+
+    .check-list li::before {
+        content: "✓";
+        color: #116b15;
+        font-weight: 700;
+        position: absolute;
+        left: 0;
+        top: 0px;
+    }
+    
+    .cross-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .cross-list li {
+         margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+        font-size: 15px;
+        color: #777;
+    }
+    
+    .cross-list li::before {
+        content: "✕";
+        color: #d32f2f;
+        font-weight: 700;
+        position: absolute;
+        left: 0;
+        top: 0px;
+    }
+
+    /* Package Grid */
+    .package-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        margin: 40px 0 60px;
+        /* align-items: stretch; ensures equal height */
+    }
+
+    @media (max-width: 900px) {
+        .package-grid {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .package-card {
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        border-radius: 16px;
+        padding: 30px;
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .package-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        border-color: #d32f2f;
+    }
+
+    .highlight-card {
+        border: 2px solid #d32f2f;
+        background: #fffafa;
+        transform: scale(1.05);
+        z-index: 2;
+        box-shadow: 0 10px 40px rgba(211, 47, 47, 0.1);
+    }
+    
+    .highlight-card:hover {
+        transform: scale(1.05) translateY(-8px);
+    }
+
+    .popular-badge {
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #d32f2f;
+        color: #fff;
+        padding: 5px 20px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .pkg-name {
+        font-size: 22px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 5px;
+    }
+
+    .pkg-sub {
+        font-size: 14px;
+        color: #b71c1c;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .pkg-desc {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 20px;
+        line-height: 1.5;
+        min-height: 42px; /* Alignment */
+    }
+
+    .pkg-price {
+        font-size: 38px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: baseline;
+    }
+
+    .pkg-price span {
+        font-size: 14px;
+        font-weight: 400;
+        color: #777;
+        margin-left: 5px;
+    }
+
+    .pkg-features {
+        list-style: none;
+        padding: 0;
+        margin: 25px 0;
+        border-top: 1px solid #eee;
+        padding-top: 25px;
+    }
+    
+    .pkg-features li {
+        margin-bottom: 12px;
+        font-size: 14px;
+        color: #555;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .pkg-features li::before {
+        content: "•";
+        color: #d32f2f;
+        font-weight: bold;
+        margin-right: 10px;
+        line-height: 1.5;
+    }
+
+    /* Buttons */
+    .btn-select {
+        width: 100%;
+        padding: 15px;
+        background: #222;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .btn-select:hover {
+        background: #444;
+        transform: translateY(-2px);
+    }
+
+    .highlight-card .btn-select {
+        background: #d32f2f;
+        box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+    }
+
+    .highlight-card .btn-select:hover {
+        background: #b71c1c;
+    }
+
+    .btn-select.active-btn {
+        background: #116b15 !important;
+        box-shadow: none !important;
+    }
+    .btn-select.active-btn::before {
+        content: "✓ ";
+    }
+
+    /* Table */
+    .table-responsive {
+        overflow-x: auto;
+        border-radius: 16px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        background: #fff;
+        border: 1px solid #eee;
+    }
+
+    .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 800px;
+    }
+
+    .comparison-table th {
+        background: #f8f8f8;
+        padding: 20px;
+        text-align: center;
+        font-weight: 700;
+        color: #333;
+        border-bottom: 2px solid #eee;
+    }
+    
+    .comparison-table th:first-child {
+        text-align: left;
+        width: 25%;
+        padding-left: 30px;
+    }
+
+    .comparison-table td {
+        padding: 15px 20px;
+        text-align: center;
+        border-bottom: 1px solid #f4f4f4;
+        font-size: 14px;
+        color: #555;
+    }
+    
+    .comparison-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #333;
+        padding-left: 30px;
+        background: #fff;
+    }
+    
+    .comparison-table tr:last-child td {
+        border-bottom: none;
+        padding-bottom: 25px;
+    }
+
+    /* Process Steps */
+    .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+    }
+    
+    .step-item {
+        text-align: center;
+    }
+    
+    .step-num {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background: #d32f2f;
+        color: #fff;
+        border-radius: 50%;
+        line-height: 40px;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+    
+    .step-text {
+        font-size: 15px;
+        color: #555;
+        font-weight: 500;
+    }
+
+    /* Key Benefits Box */
+    .elite-benefits {
+        background: #222;
+        color: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        margin-top: 40px;
+    }
+    
+    .elite-benefits h3 {
+        color: #fff;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .benefit-item {
+        font-size: 14px;
+        opacity: 0.9;
+    }
+    .benefit-item strong {
+        color: #d32f2f;
+    }
+
+    /* Sticky Total */
+    .sticky-total {
+        position: sticky;
+        bottom: 20px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 5px 30px rgba(0,0,0,0.15);
+        text-align: center;
+        border: 2px solid #d32f2f;
+        margin-top: 30px;
+        display: none;
+        animation: slideUp 0.3s ease-out;
+        z-index: 100;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .total-display {
+        font-size: 28px;
+        font-weight: 700;
+        color: #d32f2f;
+    }
+    
+    @keyframes slideUp {
+        from { transform: translateY(50px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Selection Highlighting */
+    .col-highlight {
+        background-color: #fff5f5 !important;
+        color: #000;
+    }
+    .th-highlight {
+        background-color: #d32f2f !important;
+        color: #fff !important;
+        border-color: #d32f2f !important;
+    }
+</style>
+
+<div class="content-packages-wrapper">
+
+    <!-- HEADER -->
+    <header style="text-align: center; margin-bottom: 60px;">
+        <h1>Strategic Social Media Content Packages</h1>
+        <h2>Designed. Written. Delivered. Ready to Post.</h2>
+        <p style="font-size: 16px; color: #666; max-width: 700px; margin: 0 auto; line-height: 1.6;">
+            Premium, ready-to-use social media creatives for brands that want results without outsourcing account control. 
+            Stop struggling with inconsistent visuals and time-consuming design work.
+        </p>
+    </header>
+
+    <!-- INTRO / PROBLEM SOLUTION -->
+    <div class="content-card">
+        <div class="section-header" style="text-align: left; margin-bottom: 25px;">
+            <h3 style="font-size: 24px; color: #b71c1c;">What This Service Is (And Is Not)</h3>
+            <p>We deliver professionally designed, strategy-backed social media content ready to publish, edit, or schedule on your terms.</p>
+        </div>
+        
+        <div class="feature-grid">
+            <div>
+                <strong style="display:block; margin-bottom:15px; font-size: 18px; color: #116b15;">✔ What You Get</strong>
+                <ul class="check-list">
+                    <li>High-quality social media creatives</li>
+                    <li>SEO-optimized captions</li>
+                    <li>Content calendars & posting guidance</li>
+                    <li>Editable design files (Adobe/Canva)</li>
+                    <li>Strategic insights to publish smarter</li>
+                </ul>
+            </div>
+            <div>
+                <strong style="display:block; margin-bottom:15px; font-size: 18px; color: #d32f2f;">✖ What’s Not Included</strong>
+                <ul class="cross-list">
+                    <li>Posting or scheduling</li>
+                    <li>Account or inbox management</li>
+                    <li>Comment or DM handling</li>
+                    <li>Ad management or analytics tracking</li>
+                </ul>
+                <div style="margin-top: 15px; font-size: 13px; font-style: italic; color: #555;">
+                    👉 Looking for done-for-you management? We offer that separately.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PACKAGES -->
+    <div class="section-header">
+        <div class="section-title">Choose Your Content Delivery System</div>
+    </div>
+    
+    <div class="package-grid">
+        <!-- 1: Essential -->
+        <div class="package-card">
+            <span class="pkg-sub">Essential Package</span>
+            <h3 class="pkg-name">Launch Visual Kit</h3>
+            <div class="pkg-desc">Professional visuals to establish credibility and consistency fast.</div>
+            <div class="pkg-price">$200<span>/month</span></div>
+            
+            <button class="btn-select" onclick="selectContentPkg(1, 200)">Select Plan</button>
+            
+            <ul class="pkg-features">
+                <li><strong>12 Static Creatives</strong></li>
+                <li>2 Simple Motion Creatives</li>
+                <li>2 Lightweight Infographics</li>
+                <li>SEO-Optimized Captions</li>
+                <li>Basic Hashtag Set</li>
+                <li>30-Day Content Calendar</li>
+                <li>Adobe/Editable Files</li>
+            </ul>
+        </div>
+
+        <!-- 2: Growth -->
+        <div class="package-card">
+            <span class="pkg-sub">Growth Package</span>
+            <h3 class="pkg-name">Growth Content System</h3>
+            <div class="pkg-desc">A structured content engine designed to improve engagement and recall.</div>
+            <div class="pkg-price">$350<span>/month</span></div>
+            
+            <button class="btn-select" onclick="selectContentPkg(2, 350)">Select Plan</button>
+            
+            <ul class="pkg-features">
+                <li><strong>20 Static Creatives</strong></li>
+                <li>6 Motion Graphics</li>
+                <li>4 High-Impact Infographics</li>
+                <li>Strategic Content Calendar</li>
+                <li>Platform-Specific Exports</li>
+                <li>Competitor Visual Benchmark</li>
+                <li><strong>Bonus:</strong> Brand Style Audit</li>
+            </ul>
+        </div>
+
+        <!-- 3: Elite -->
+        <div class="package-card highlight-card">
+            <div class="popular-badge">Top Tier</div>
+            <span class="pkg-sub">Elite Package</span>
+            <h3 class="pkg-name">Authority Content Library</h3>
+            <div class="pkg-desc">A premium content library built to position your brand as an industry authority.</div>
+            <div class="pkg-price">$500<span>/month</span></div>
+            
+            <button class="btn-select" onclick="selectContentPkg(3, 500)">Select Plan</button>
+            
+            <ul class="pkg-features">
+                <li><strong>30 Static Creatives</strong></li>
+                <li>10 Advanced Motion Graphics</li>
+                <li>6 Data-Driven Infographics</li>
+                <li>AI-Assisted Trend/Keyword Intel</li>
+                <li>Platform Content Blueprint</li>
+                <li>Reusable Brand Templates</li>
+                <li><strong>Bonus:</strong> Full Brand Visual Playbook</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <div class="section-header">
+        <div class="section-title">Package Comparison</div>
+    </div>
+    
+    <div class="table-responsive">
+        <table class="comparison-table" id="content-pricing-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th id="head-content-1">Essential</th>
+                    <th id="head-content-2">Growth</th>
+                    <th id="head-content-3">Elite</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Static Creatives</td>
+                    <td class="col-content-1">12</td>
+                    <td class="col-content-2">20</td>
+                    <td class="col-content-3">30</td>
+                </tr>
+                <tr>
+                    <td>Motion Graphics</td>
+                    <td class="col-content-1">2</td>
+                    <td class="col-content-2">6</td>
+                    <td class="col-content-3">10</td>
+                </tr>
+                 <tr>
+                    <td>Infographics</td>
+                    <td class="col-content-1">2</td>
+                    <td class="col-content-2">4</td>
+                    <td class="col-content-3">6</td>
+                </tr>
+                <tr>
+                    <td>Captions Included</td>
+                    <td class="col-content-1">✔</td>
+                    <td class="col-content-2">✔</td>
+                    <td class="col-content-3">✔ (Conversion-Focused)</td>
+                </tr>
+                <tr>
+                    <td>Hashtag Research</td>
+                    <td class="col-content-1">Basic</td>
+                    <td class="col-content-2">Advanced</td>
+                    <td class="col-content-3">AI-Driven</td>
+                </tr>
+                <tr>
+                    <td>Content Calendar</td>
+                    <td class="col-content-1">Basic</td>
+                    <td class="col-content-2">Strategic</td>
+                    <td class="col-content-3">Platform Blueprint</td>
+                </tr>
+                <tr>
+                    <td>Competitor Analysis</td>
+                    <td class="col-content-1">—</td>
+                    <td class="col-content-2">✔</td>
+                    <td class="col-content-3">✔ (Gap-Based)</td>
+                </tr>
+                 <tr>
+                    <td>Editable Files</td>
+                    <td class="col-content-1">✔</td>
+                    <td class="col-content-2">✔</td>
+                    <td class="col-content-3">✔</td>
+                </tr>
+                <tr>
+                    <td>Posting & Management</td>
+                    <td class="col-content-1">❌</td>
+                    <td class="col-content-2">❌</td>
+                    <td class="col-content-3">❌</td>
+                </tr>
+                
+                <!-- Footer Buttons in Table -->
+                <tr>
+                    <td></td>
+                    <td class="col-content-1">
+                        <button class="btn-select" onclick="selectContentPkg(1, 200)">Select</button>
+                    </td>
+                    <td class="col-content-2">
+                        <button class="btn-select" onclick="selectContentPkg(2, 350)">Select</button>
+                    </td>
+                    <td class="col-content-3">
+                        <button class="btn-select" onclick="selectContentPkg(3, 500)">Select</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- WHY ELITE & HOW IT WORKS -->
+    <div class="elite-benefits">
+        <h3>Why Most Brands Choose Elite</h3>
+        <div class="benefits-grid">
+            <div class="benefit-item">✔ <strong>Saves Hiring Cost:</strong> Cheaper than an in-house designer.</div>
+            <div class="benefit-item">✔ <strong>High Volume:</strong> Enough content for daily posting across platforms.</div>
+            <div class="benefit-item">✔ <strong>Authority Built:</strong> Designed to position you as a leader.</div>
+            <div class="benefit-item">✔ <strong>Strategic:</strong> Utilizes AI & Gap Analysis for smarter topics.</div>
+        </div>
+        <p style="text-align: Center; margin-top: 20px; font-weight: 600;">Elite isn’t just more content, it's smarter content.</p>
+    </div>
+
+    <div class="content-card" style="margin-top: 40px; text-align: center;">
+        <h3 style="font-size: 24px; color: #333; margin-bottom: 30px;">How It Works</h3>
+        <div class="process-steps">
+            <div class="step-item">
+                <span class="step-num">1</span>
+                <div class="step-text">We understand your brand & goals</div>
+            </div>
+            <div class="step-item">
+                <span class="step-num">2</span>
+                <div class="step-text">We design, write, and structure content</div>
+            </div>
+             <div class="step-item">
+                <span class="step-num">3</span>
+                <div class="step-text">You receive a ready-to-publish library</div>
+            </div>
+             <div class="step-item">
+                <span class="step-num">4</span>
+                <div class="step-text">You post, schedule, or hand to your team</div>
+            </div>
+        </div>
+        
+        <p style="margin-top: 30px; font-size: 16px; font-weight: 500; color: #666;">
+            Simple. Transparent. Scalable. (Delivered in Monthly Batches)
+        </p>
+    </div>
+
+    <!-- STICKY TOTAL BAR -->
+    <div id="sticky-total-bar" class="sticky-total">
+        <h3>Estimated Monthly Content Investment</h3>
+        <div class="total-display" id="content-display-total">$0</div>
+        
+        <p style="margin: 10px 0; font-size: 13px;">Review your selection above, then proceed to the next step.</p>
+        <button class="btn-select" style="background:#222; max-width: 200px; margin: 0 auto; display: block;" onclick="document.querySelector('#cta-section').scrollIntoView({behavior: 'smooth'})">Continue</button>
+    </div>
+
+    <!-- CTA -->
+    <div id="cta-section" style="text-align: center; margin-top: 60px; padding: 40px; background: #fff; border-radius: 12px; border: 1px dashed #ccc;">
+        <h2 style="color: #b71c1c; margin-bottom: 10px;">Ready to Upgrade Your Content Quality?</h2>
+        <p style="margin-bottom: 25px;">Get in touch today to start your content delivery system.</p>
+        
+        <a href="#" class="btn-select" style="display: inline-block; width: auto; padding: 15px 40px; background: #d32f2f; text-decoration: none;">Book a Strategy Call</a>
+        <br>
+        <div style="margin-top: 20px; font-size: 14px; color: #666;">
+            Questions about formats? We optimize for LinkedIn, Instagram (Reels/Carousels), and TikTok.
+        </div>
+    </div>
+
+</div>
+
+<script>
+    let currentContentPkg = "";
+    let contentPrice = 0;
+
+    function selectContentPkg(pkgId, price) {
+        let table = document.getElementById('content-pricing-table');
+        
+        let alreadyActive = false;
+        let testBtn = document.querySelector(`.col-content-${pkgId} .btn-select`);
+        if (testBtn && testBtn.classList.contains('active-btn')) {
+            alreadyActive = true;
+        }
+
+        // --- RESET UI ---
+        table.querySelectorAll('.col-highlight').forEach(el => el.classList.remove('col-highlight'));
+        table.querySelectorAll('.th-highlight').forEach(el => el.classList.remove('th-highlight'));
+        
+        document.querySelectorAll('.btn-select').forEach(btn => {
+            btn.classList.remove('active-btn');
+            // Reset text logic
+            if(btn.innerText.includes("Selected")) {
+                 // Check if it's card vs table
+                 if(btn.closest('.package-card')) btn.innerText = "Select Plan";
+                 else btn.innerText = "Select";
+            }
+        });
+
+        let stickyBar = document.getElementById('sticky-total-bar');
+        stickyBar.style.display = 'none';
+
+        if (alreadyActive) {
+            currentContentPkg = "";
+            contentPrice = 0;
+            updateContentForm();
+            return;
+        }
+
+        // --- APPLY SELECTION ---
+        let th = document.getElementById(`head-content-${pkgId}`);
+        if(th) th.classList.add('th-highlight');
+        document.querySelectorAll(`.col-content-${pkgId}`).forEach(el => el.classList.add('col-highlight'));
+
+        let btns = document.querySelectorAll(`button[onclick="selectContentPkg(${pkgId}, ${price})"]`);
+        btns.forEach(btn => {
+            btn.classList.add('active-btn');
+            btn.innerText = "Selected";
+        });
+
+        if(pkgId === 1) currentContentPkg = "Launch Visual Kit";
+        else if(pkgId === 2) currentContentPkg = "Growth Content System";
+        else if(pkgId === 3) currentContentPkg = "Authority Content Library";
+        
+        contentPrice = price;
+        
+        stickyBar.style.display = 'block';
+        document.getElementById('content-display-total').innerText = "$" + contentPrice;
+
+        updateContentForm();
+    }
+
+    function updateContentForm() {
+        let finalString = "";
+        if (currentContentPkg) {
+            finalString = `Content Package: ${currentContentPkg} ($${contentPrice})`;
+        }
+        
+        let formField = document.querySelector("input[name='input_text']");
+        if (formField) {
+            formField.value = finalString;
+            formField.dispatchEvent(new Event('input', { bubbles: true }));
+            formField.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+    }
+</script>
