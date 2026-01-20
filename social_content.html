@@ -131,7 +131,7 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 25px;
         margin: 40px 0 60px;
-        /* align-items: stretch; ensures equal height */
+        align-items: flex-start;
     }
 
     @media (max-width: 900px) {
@@ -152,7 +152,6 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         display: flex;
         flex-direction: column;
-        height: 100%;
     }
 
     .package-card:hover {
@@ -162,15 +161,11 @@
     }
 
     .highlight-card {
-        border: 2px solid #d32f2f;
-        background: #fffafa;
-        transform: scale(1.05);
-        z-index: 2;
-        box-shadow: 0 10px 40px rgba(211, 47, 47, 0.1);
+        /* Styles removed to match other cards */
     }
     
     .highlight-card:hover {
-        transform: scale(1.05) translateY(-8px);
+        /* Styles removed */
     }
 
     .popular-badge {
@@ -189,7 +184,7 @@
     }
 
     .pkg-name {
-        font-size: 22px;
+        font-size: 20px;
         font-weight: 700;
         color: #222;
         margin-bottom: 5px;
@@ -205,7 +200,7 @@
     }
 
     .pkg-desc {
-        font-size: 14px;
+        font-size: 13px;
         color: #666;
         margin-bottom: 20px;
         line-height: 1.5;
@@ -275,12 +270,12 @@
     }
 
     .highlight-card .btn-select {
-        background: #d32f2f;
-        box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+        /* background: #d32f2f; Removed to match black button style */
+        /* box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3); */
     }
 
     .highlight-card .btn-select:hover {
-        background: #b71c1c;
+        /* background: #b71c1c; */
     }
 
     .btn-select.active-btn {
@@ -304,6 +299,7 @@
         width: 100%;
         border-collapse: collapse;
         min-width: 800px;
+        table-layout: fixed;
     }
 
     .comparison-table th {
@@ -313,6 +309,7 @@
         font-weight: 700;
         color: #333;
         border-bottom: 2px solid #eee;
+        width: 25%;
     }
     
     .comparison-table th:first-child {
@@ -539,7 +536,7 @@
             <div class="popular-badge">Top Tier</div>
             <span class="pkg-sub">Elite Package</span>
             <h3 class="pkg-name">Authority Content Library</h3>
-            <div class="pkg-desc">A premium content library built to position your brand as an industry authority.</div>
+            <div class="pkg-desc">A premium library built to position your brand as an industry authority.</div>
             <div class="pkg-price">$500<span>/month</span></div>
             
             <button class="btn-select" onclick="selectContentPkg(3, 500)">Select Plan</button>
