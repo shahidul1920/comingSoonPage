@@ -110,15 +110,26 @@
     .tier-outcome { font-size: 13px; background: #f4f4f4; padding: 10px; border-radius: 6px; margin-bottom: 20px; color: #444; border-left: 3px solid #d32f2f; }
     .tier-price { font-size: 32px; font-weight: 700; color: #d32f2f; margin: 20px 0; text-align: center; }
     
-    .tier-features { list-style: none; padding: 0; margin-bottom: 25px; flex-grow: 1; }
+    .tier-features { 
+        list-style: none; 
+        padding: 0 !important; 
+        margin: 0 0 25px 0 !important; 
+        flex-grow: 1;
+        text-align: left; 
+    }
     .tier-features li { 
-        margin-bottom: 10px; font-size: 14px; color: #555; display: flex; align-items: flex-start; 
+        margin-bottom: 10px; 
+        font-size: 14px; 
+        color: #555; 
+        display: flex; 
+        align-items: flex-start; 
     }
     .tier-features li::before {
-        content: "✔";
+        content: "\2714";
         color: #d32f2f;
         margin-right: 10px;
         font-weight: bold;
+        flex-shrink: 0;
     }
 
     .tier-btn {
@@ -229,7 +240,7 @@
                 </ul>
                 
                 <div class="tier-price">$199 / Month</div>
-                <button class="tier-btn" onclick="selectTier('Essentials')">Select Plan</button>
+                <button class="tier-btn featured-btn" onclick="selectTier('Essentials')">Select Plan</button>
             </div>
 
             <!-- Tier 2 -->
@@ -267,7 +278,7 @@
                 </ul>
                 
                 <div class="tier-price">$599 / Month</div>
-                <button class="tier-btn" onclick="selectTier('Enterprise')">Select Plan</button>
+                <button class="tier-btn featured-btn" onclick="selectTier('Enterprise')">Select Plan</button>
             </div>
         </div>
     </div>
@@ -336,9 +347,9 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td><button class="tier-btn" onclick="selectTier('Essentials')">Select Plan</button></td>
+                        <td><button class="tier-btn featured-btn" onclick="selectTier('Essentials')">Select Plan</button></td>
                         <td><button class="tier-btn featured-btn" onclick="selectTier('Professional')">Select Plan</button></td>
-                        <td><button class="tier-btn" onclick="selectTier('Enterprise')">Select Plan</button></td>
+                        <td><button class="tier-btn featured-btn" onclick="selectTier('Enterprise')">Select Plan</button></td>
                     </tr>
                 </tbody>
             </table>
