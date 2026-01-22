@@ -1,0 +1,285 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    /* --- GLOBAL CONTAINER --- */
+    .print-design-wrapper {
+        font-family: 'Poppins', sans-serif;
+        width: 100%;
+        color: #333;
+    }
+.fluentform .hide-me-please {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    /* --- HERO --- */
+    .print-hero {
+        text-align: center;
+        margin-bottom: 60px;
+        padding: 40px 20px;
+    }
+    .print-title { font-size: 36px; font-weight: 700; color: #222; margin-bottom: 10px; }
+    .print-subtitle { font-size: 20px; color: #d32f2f; font-weight: 600; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;}
+    .print-desc { font-size: 16px; color: #555; max-width: 750px; margin: 0 auto 30px auto; line-height: 1.6; }
+
+    .cta-btn-main {
+        background-color: #d32f2f;
+        color: #fff;
+        padding: 10px 25px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 700;
+        font-size: 16px;
+        display: inline-block;
+        transition: 0.3s;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .cta-btn-main:hover { background-color: #b71c1c; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+
+    /* --- INTRO BLOCK --- */
+    .intro-block {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 60px auto;
+        padding: 0 20px;
+        font-style: italic;
+        color: #555;
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    /* --- SERVICES GRID --- */
+    .services-section { margin-bottom: 80px; padding: 0 20px; }
+    .services-header { text-align: center; margin-bottom: 40px; }
+    .services-header h2 { color: #222; margin-bottom: 10px; }
+    
+    .services-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    @media(min-width: 768px) { .services-grid { grid-template-columns: 1fr 1fr; } }
+    
+    .service-card {
+        background: #fdfdfd;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        padding: 30px;
+        transition: 0.3s;
+        display: flex;
+        flex-direction: column;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-color: #d32f2f; }
+    
+    .svc-title { font-size: 20px; font-weight: 700; color: #222; margin-bottom: 10px; border-bottom: 2px solid #d32f2f; display: inline-block; padding-bottom: 5px; align-self: flex-start; }
+    .svc-tagline { font-size: 14px; color: #666; font-style: italic; margin-bottom: 15px; font-weight:600; display: block; }
+    .svc-desc { font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 15px; flex-grow: 1; }
+    .svc-bestfor { font-size: 13px; color: #888; border-top: 1px solid #eee; padding-top: 10px; margin-top: auto; }
+    .svc-bestfor strong { color: #333; }
+
+    /* --- PROCESS STEPS --- */
+    .process-section { background: #f9f9f9; padding: 60px 20px; text-align: center; margin-bottom: 60px; border-radius: 12px; }
+    .process-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 40px;
+    }
+    .process-step {
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        flex: 1 1 300px;
+        max-width: 350px;
+        text-align: left;
+        position: relative;
+        overflow: hidden;
+    }
+    .process-step::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 5px;
+        background: #d32f2f;
+    }
+    .step-num { font-size: 12px; font-weight: 700; color: #d32f2f; text-transform: uppercase; margin-bottom: 10px; display: block; }
+    .step-title { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: #222; }
+    .step-desc { font-size: 14px; color: #666; line-height: 1.5; }
+
+    /* --- INVESTMENT --- */
+    .investment-box {
+        background: #222;
+        color: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        text-align: center;
+        margin: 0 0 60px 0;
+    }
+    .inv-price { font-size: 36px; font-weight: 700; color: #d32f2f; margin: 10px 0; }
+
+    /* --- CONSULTATION BLOCK --- */
+    .consult-section {
+        margin: 0 0 80px 0;
+        text-align: center;
+        padding: 40px;
+        border: 2px dashed #d32f2f;
+        border-radius: 12px;
+        background: #fffbfb;
+    }
+    .consult-list {
+        list-style: none;
+        padding: 0 !important;
+        margin: 30px auto !important;
+        max-width: 600px;
+        text-align: left;
+    }
+    .consult-list li {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: flex-start;
+        color: #444;
+    }
+    .consult-list li span {
+        color: #d32f2f;
+        font-weight: bold;
+        margin-right: 15px;
+        font-size: 18px;
+        line-height: 1;
+    }
+
+</style>
+
+<div class="print-design-wrapper">
+
+    <!-- <div class="print-hero">
+        <h1 class="print-title">Custom Product & Print Design</h1>
+        <div class="print-subtitle">Transforming Brands into Physical Experiences</div>
+        <p class="print-desc">We design production-ready, high-impact physical brand assets that blend aesthetic excellence with technical precision, ensuring what you approve on screen is exactly what gets produced in the real world.</p>
+        <a href="#consultation" class="cta-btn-main">Book Your Strategy Consultation</a>
+    </div> -->
+
+    <div class="intro-block">
+        "Your brand doesn’t live only on screens; it lives in hands, homes, offices, and everyday routines. We help brands move beyond generic merchandise and packaging into thoughtfully designed physical experiences that build trust, recognition, and long-term brand equity."
+    </div>
+
+    <div class="services-section">
+        <div class="services-header">
+            <h2>Our Services</h2>
+            <p>Design That Performs in the Real World, Not Just in Mockups</p>
+        </div>
+        
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="svc-title">Custom Apparel & T-Shirt Design</div>
+                <span class="svc-tagline">Wearable design that people choose to wear, not just receive.</span>
+                <p class="svc-desc">We create apparel as lifestyle products, not promotional items. From typography systems and custom illustrations to print placement and fabric compatibility, every design is engineered for comfort, durability, and visual impact across screen printing, DTG, heat transfer, and embroidery.</p>
+                <div class="svc-bestfor"><strong>Best for:</strong> Brand merchandise, staff uniforms, creator merch, retail apparel, and premium giveaways.</div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="svc-title">Mug & Drinkware Design</div>
+                <span class="svc-tagline">Everyday objects turned into brand touchpoints.</span>
+                <p class="svc-desc">We design for curved surfaces, grip comfort, and visual flow. Your artwork is structured to avoid distortion, awkward seams, and misaligned wraps, ensuring your brand looks intentional from every angle.</p>
+                <div class="svc-bestfor"><strong>Best for:</strong> Corporate gifts, cafés, lifestyle brands, subscription boxes, and event merchandise.</div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="svc-title">Product Label & Packaging Design</div>
+                <span class="svc-tagline">Shelf presence that converts attention into action.</span>
+                <p class="svc-desc">Your packaging is your silent salesperson. We design bold, compliant packaging systems that balance storytelling with technical requirements like barcodes, regulatory spacing, print tolerances, and scalable production formats.</p>
+                <div class="svc-bestfor"><strong>Best for:</strong> Food & beverage, cosmetics, supplements, retail products, and premium consumer goods.</div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card">
+                <div class="svc-title">Corporate & Event Branding Kits</div>
+                <span class="svc-tagline">Cohesive brand experiences for physical spaces and moments.</span>
+                <p class="svc-desc">We create unified visual systems across banners, stage backdrops, signage, staff apparel, stationery, and branded kits — ensuring every physical touchpoint feels intentional, polished, and on-brand.</p>
+                <div class="svc-bestfor"><strong>Best for:</strong> Conferences, galas, product launches, exhibitions, corporate offices, and brand activations.</div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-card" style="grid-column: 1 / -1; border-color: #222; background:#f4f4f4;">
+                <div class="svc-title" style="border-color:#222;">Print-Ready Production Design</div>
+                <span class="svc-tagline">No surprises. No reprints. No production delays.</span>
+                <p class="svc-desc">We specialize in the technical details most designers overlook — bleed, CMYK and Pantone accuracy, vector scalability, dielines, and press-ready layouts. Our files are built to integrate smoothly with printers and manufacturers worldwide.</p>
+                <div class="svc-bestfor"><strong>What you get:</strong> Confidence that what you approve is exactly what gets produced.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="process-section">
+        <h2>Our Strategy-First Process</h2>
+        <p>Because Great Products Start With Clear Thinking, Not Templates</p>
+        
+        <div class="process-grid">
+            <div class="process-step">
+                <span class="step-num">Step 1</span>
+                <div class="step-title">Strategy Consultation</div>
+                <p class="step-desc">We begin with a focused session to understand your brand positioning, audience, production method, materials, compliance needs, timelines, and distribution plans. This ensures every design decision is grounded in real-world execution.</p>
+            </div>
+            
+            <div class="process-step">
+                <span class="step-num">Step 2</span>
+                <div class="step-title">Custom Quotation</div>
+                <p class="step-desc">You receive a transparent, bespoke quote based on project complexity, design scope, number of SKUs, and production volume—not a generic package price.</p>
+            </div>
+            
+            <div class="process-step">
+                <span class="step-num">Step 3</span>
+                <div class="step-title">Creative Execution</div>
+                <p class="step-desc">We transform strategy into high-fidelity, production-ready design systems complete with mockups, technical files, and documentation that makes manufacturing seamless.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="investment-box">
+        <h3 style="color: #fff !important;">Investment Standard</h3>
+        <div class="inv-price">Projects Start from $200</div>
+        <p style="max-width:700px; margin:0 auto; color:#ccc;">We work with brands that value long-term brand equity, professional execution, and premium presentation. Our minimum project value ensures strategic thinking, technical precision, and creative depth—not rushed or template-based design.</p>
+    </div>
+
+    <div class="consult-section" id="consultation">
+        <h2>Book Your Strategy Consultation</h2>
+        <p style="color:#666;">Let’s define your product’s visual strategy before we draw a single line.</p>
+        <p style="color:#666; margin-bottom:20px;">This session is designed to bring clarity, not pressure. You’ll leave with:</p>
+        
+        <ul class="consult-list">
+            <li><span>✔</span> A clear visual direction for your product or brand assets</li>
+            <li><span>✔</span> Guidance on materials, print methods, and production structure</li>
+            <li><span>✔</span> A roadmap for turning your brand into a physical experience</li>
+        </ul>
+
+        <a href="#formCustom" class="cta-btn-main">Book Your Strategy Consultation</a>
+        
+        <div style="margin-top:30px; font-size:12px; color:#999; text-transform:uppercase; letter-spacing:1px;">
+            Production-ready files. Premium design systems. Physical brand experiences built to scale.
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Set the default inquiry subject when the page loads
+    document.addEventListener("DOMContentLoaded", function() {
+        updateForm("Submitted From: Custom Product & Print Design Strategy Consultation");
+    });
+
+    function updateForm(subjectText) {
+        // Update Fluent Form Hidden Field
+        let formField = document.querySelector("input[name='input_text']");
+
+        if (formField) {
+            formField.value = subjectText;
+            formField.dispatchEvent(new Event('change', { bubbles: true }));
+            formField.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+    }
+</script>
