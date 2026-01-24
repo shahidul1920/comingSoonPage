@@ -1,0 +1,181 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    /* --- GLOBAL CONTAINER --- */
+    .about-wrapper {
+        font-family: 'Poppins', sans-serif;
+        width: 100%;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    /* --- SECTIONS --- */
+    .about-section {
+        margin-bottom: 50px;
+    }
+
+    .about-title {
+        font-size: 32px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 15px;
+    }
+    
+    .about-title::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 4px;
+        background-color: #d32f2f;
+    }
+
+    .about-text {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 20px;
+    }
+
+    /* --- FOUNDERS GRID --- */
+    .founders-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    @media(min-width: 768px) {
+        .founders-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .founder-card {
+        background: #f9f9f9;
+        padding: 30px;
+        border-radius: 12px;
+        border-left: 5px solid #d32f2f;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease;
+    }
+
+    .founder-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .founder-name {
+        font-size: 20px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 10px;
+    }
+
+    .founder-role {
+        font-size: 14px;
+        color: #d32f2f;
+        font-weight: 600;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* --- PILLARS --- */
+    .pillars-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 25px;
+    }
+
+    .pillar-item {
+        background-color: #fff;
+        border: 1px solid #eee;
+        color: #444;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-weight: 500;
+        font-size: 14px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        transition: 0.3s;
+    }
+
+    .pillar-item:hover {
+        background-color: #d32f2f;
+        color: #fff;
+        border-color: #d32f2f;
+    }
+
+    /* --- HOW WE DO IT --- */
+    .highlight-box {
+        background: #fdfdfd;
+        border: 1px solid #eee;
+        padding: 30px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+</style>
+
+<div class="about-wrapper">
+
+    <!-- Section: Who We Are -->
+    <div class="about-section">
+        <h2 class="about-title">Who We Are</h2>
+        <p class="about-text">
+            RedMun was born from a shared vision between two friends, Redwanul Haque and Murtaza Kamal Pasha Khan. Both Electrical Engineers, they chose to step away from stable career paths to build something meaningful right here in Dhaka.
+        </p>
+
+        <div class="founders-grid">
+            <!-- Founder 1 -->
+            <div class="founder-card">
+                <div class="founder-name">Redwanul Haque</div>
+                <div class="founder-role">Co-Founder</div>
+                <p class="about-text" style="font-size: 14px; margin-bottom: 0;">
+                    Redwan brings hands-on experience from the fast-paced world of Pathao, where he witnessed firsthand what it takes to help brands scale through high-volume operations. Working closely with the sales and marketing teams, he developed a strong understanding of growth strategy, execution, and customer engagement.
+                </p>
+            </div>
+
+            <!-- Founder 2 -->
+            <div class="founder-card">
+                <div class="founder-name">Murtaza Kamal Pasha Khan</div>
+                <div class="founder-role">Co-Founder</div>
+                <p class="about-text" style="font-size: 14px; margin-bottom: 0;">
+                    After completing his MSc at the University of Minnesota Duluth, Murtaza returned home and later transitioned into Data and Business Intelligence. He specializes in turning complex, unstructured information into clear insights and strategic roadmaps. During the COVID-19 pandemic, he also began facilitating virtual events as a side hustle, an experience that revealed just how essential reliable digital support has become in today’s world.
+                </p>
+            </div>
+        </div>
+
+        <p class="about-text" style="margin-top: 30px;">
+            Today, together with a team of young and visionary minds, RedMun delivers a wide range of IT services tailored to meet diverse needs. As a team, we move forward with deep trust in our vision, believing that with focus, dedication, and heart, meaningful success is always within reach.
+        </p>
+    </div>
+
+    <!-- Section: What We Do -->
+    <div class="about-section">
+        <h2 class="about-title">What We Do</h2>
+        <p class="about-text">
+            Our services are built around six core pillars: <strong>Creative Design, Virtual Event Management, WordPress Development, Business Intelligence, Digital Marketing, and Media Management.</strong> We work with everyone from local startups and national brands to international businesses, corporate speakers, and solopreneurs.
+        </p>
+
+        <p class="about-text">
+            We enjoy turning technical challenges into impactful digital solutions, helping your brand do more than just exist online. As we continue learning and evolving, we make sure our support grows right alongside your business, staying flexible, reliable, and powerful at every stage.
+        </p>
+    </div>
+
+    <!-- Section: How We Do It -->
+    <div class="about-section">
+        <h2 class="about-title">How We Do It</h2>
+        <div class="highlight-box">
+            <p class="about-text">
+                We believe smart work begins with listening. Before diving into execution, we take the time to understand your vision, goals, and expectations. By hiring talented local professionals and continuously training them, we ensure every project is handled with care, meets expectations, and is delivered on time.
+            </p>
+            <p class="about-text" style="margin-bottom: 0;">
+                While we always aim for an excellent first delivery, we fully welcome revisions and refinements, because your satisfaction matters most. We treat every project as a true partnership, working side by side to turn your growth journey into something smooth, meaningful, and rewarding.
+            </p>
+        </div>
+    </div>
+
+</div>

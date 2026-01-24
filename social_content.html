@@ -10,6 +10,13 @@
         padding: 40px 20px;
         background-color: #fafafa;
     }
+        .fluentform .hide-me-please {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
 
     /* Typography */
     .content-packages-wrapper h1, 
@@ -398,10 +405,9 @@
         color: #d32f2f;
     }
 
-    /* Sticky Total */
+    /* Sticky Total - NOW STATIC */
     .sticky-total {
-        position: sticky;
-        bottom: 20px;
+        position: static;
         background: #fff;
         padding: 20px;
         border-radius: 12px;
@@ -410,8 +416,6 @@
         border: 2px solid #d32f2f;
         margin-top: 30px;
         display: none;
-        animation: slideUp 0.3s ease-out;
-        z-index: 100;
         max-width: 600px;
         margin-left: auto;
         margin-right: auto;
@@ -443,14 +447,14 @@
 <div class="content-packages-wrapper">
 
     <!-- HEADER -->
-    <header style="text-align: center; margin-bottom: 60px;">
-        <h1>Strategic Social Media Content Packages</h1>
-        <h2>Designed. Written. Delivered. Ready to Post.</h2>
-        <p style="font-size: 16px; color: #666; max-width: 700px; margin: 0 auto; line-height: 1.6;">
-            Premium, ready-to-use social media creatives for brands that want results without outsourcing account control. 
-            Stop struggling with inconsistent visuals and time-consuming design work.
-        </p>
-    </header>
+    <!--<header style="text-align: center; margin-bottom: 60px;">-->
+    <!--    <h1>Strategic Social Media Content Packages</h1>-->
+    <!--    <h2>Designed. Written. Delivered. Ready to Post.</h2>-->
+    <!--    <p style="font-size: 16px; color: #666; max-width: 700px; margin: 0 auto; line-height: 1.6;">-->
+    <!--        Premium, ready-to-use social media creatives for brands that want results without outsourcing account control. -->
+    <!--        Stop struggling with inconsistent visuals and time-consuming design work.-->
+    <!--    </p>-->
+    <!--</header>-->
 
     <!-- INTRO / PROBLEM SOLUTION -->
     <div class="content-card">
@@ -486,7 +490,7 @@
     </div>
 
     <!-- PACKAGES -->
-    <div class="section-header">
+    <div id="pack" class="section-header">
         <div class="section-title">Choose Your Content Delivery System</div>
     </div>
     
@@ -641,6 +645,15 @@
         </table>
     </div>
 
+    <!-- STICKY TOTAL BAR - NOW STATIC UNDER TABLE -->
+    <div id="sticky-total-bar" class="sticky-total">
+        <h3>Estimated Monthly Content Investment</h3>
+        <div class="total-display" id="content-display-total">$0</div>
+        
+        <p style="margin: 10px 0; font-size: 13px;">Review your selection above, then proceed to the next step.</p>
+        <button class="btn-select" style="background:#222; max-width: 200px; margin: 0 auto; display: block;" onclick="document.querySelector('#cta-section').scrollIntoView({behavior: 'smooth'})">Continue</button>
+    </div>
+
     <!-- WHY ELITE & HOW IT WORKS -->
     <div class="elite-benefits">
         <h3>Why Most Brands Choose Elite</h3>
@@ -677,15 +690,6 @@
         <p style="margin-top: 30px; font-size: 16px; font-weight: 500; color: #666;">
             Simple. Transparent. Scalable. (Delivered in Monthly Batches)
         </p>
-    </div>
-
-    <!-- STICKY TOTAL BAR -->
-    <div id="sticky-total-bar" class="sticky-total">
-        <h3>Estimated Monthly Content Investment</h3>
-        <div class="total-display" id="content-display-total">$0</div>
-        
-        <p style="margin: 10px 0; font-size: 13px;">Review your selection above, then proceed to the next step.</p>
-        <button class="btn-select" style="background:#222; max-width: 200px; margin: 0 auto; display: block;" onclick="document.querySelector('#cta-section').scrollIntoView({behavior: 'smooth'})">Continue</button>
     </div>
 
     <!-- CTA -->
