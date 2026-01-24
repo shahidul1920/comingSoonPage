@@ -135,47 +135,127 @@
     .tier-btn {
         width: 100%;
         padding: 12px;
-        border: 1px solid #ddd;
-        background: transparent;
-        color: #333;
+        border: 1px solid #d32f2f;
+        background: #d32f2f;
+        color: #fff;
         font-weight: 600;
         border-radius: 5px;
         cursor: pointer;
         transition: 0.2s;
     }
-    .tier-btn:hover { background: #222; color: #fff; border-color: #222; }
-    .tier-btn.featured-btn { background: #d32f2f; color: #fff; border-color: #d32f2f; }
-    .tier-btn.featured-btn:hover { background: #b71c1c; }
+
+    .tier-btn:hover {
+        background: #fff;
+        color: #d32f2f;
+        border-color: #d32f2f;
+    }
+
+    .tier-btn.active-btn {
+        background: #222 !important;
+        color: #fff !important;
+        border-color: #222 !important;
+    }
 
 
     /* --- COMPARISON TABLE --- */
-    .comp-table-wrapper { overflow-x: auto; margin-top: 60px; margin-bottom: 80px; border: 1px solid #eee; border-radius: 12px; padding: 0; }
-    .comp-table { width: 100%; border-collapse: collapse; min-width: 700px; table-layout: fixed; }
-    .comp-table th { background: #f9f9f9; padding: 15px; text-align: center; border-bottom: 2px solid #eee; color: #222; font-size: 16px; font-weight: 700; width: 23.33%; }
-    .comp-table th:first-child { text-align: left; background: #fff; padding-left: 25px; width: 30%; }
-    .comp-table td { padding: 15px; text-align: center; border-bottom: 1px solid #eee; color: #555; font-size: 14px; }
-    .comp-table td:first-child { text-align: left; font-weight: 600; color: #333; padding-left: 25px; }
+    .comp-table-wrapper {
+        overflow-x: auto;
+        margin-top: 60px;
+        margin-bottom: 80px;
+        padding-bottom: 20px; 
+    }
+
+    .comp-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        min-width: 700px;
+        table-layout: fixed;
+        border: 1px solid #eee; 
+        border-radius: 12px;
+        background: #fff;
+    }
+
+    .comp-table th {
+        background: #f9f9f9;
+        padding: 15px;
+        text-align: center;
+        border-bottom: 2px solid #eee;
+        border-right: 1px solid #eee;
+        color: #222;
+        font-size: 16px;
+        font-weight: 700;
+        width: 23.33%;
+    }
+
+    /* Handling borders for first and last columns */
+    .comp-table th:first-child {
+        text-align: left;
+        background: #fff;
+        padding-left: 25px;
+        width: 30%;
+        border-top-left-radius: 12px;
+        border-left: none;
+    }
+    
+    .comp-table th:last-child {
+        border-top-right-radius: 12px;
+        border-right: none;
+    }
+
+    .comp-table td {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        border-right: 1px solid #eee;
+        color: #555;
+        font-size: 14px;
+    }
+
+    .comp-table td:last-child {
+        border-right: none;
+    }
+
+    /* Remove bottom border from last row so table border takes over */
+    .comp-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    /* Rounding bottom corners */
+    .comp-table tr:last-child td:first-child {
+        border-bottom-left-radius: 12px;
+    }
+    .comp-table tr:last-child td:last-child {
+        border-bottom-right-radius: 12px;
+    }
+
+    .comp-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #333;
+        padding-left: 25px;
+    }
 
 </style>
 
 <div class="web-content-wrapper">
 
     <!-- HERO -->
-    <!-- <div class="web-hero">
-        <h1 class="web-title">Web Content Development & Management</h1>
-        <div class="web-subtitle">Peace of Mind. A Vibrant Online Presence. Consistently Delivered.</div>
-        <p class="web-desc">
-            Your website should never feel “finished.” It should evolve, engage, and perform every single day. We manage your visuals, content, and technology so your brand stays fresh, professional, and conversion-ready while you focus on growing your business.
-            <span class="web-intro-bold">Visuals, Writing, and Maintenance.</span>
-        </p>
-        <a href="#formCustom" class="cta-btn-main">Book a Free Content Audit</a>
-    </div> -->
+    <!--<div class="web-hero">-->
+    <!--    <h1 class="web-title">Web Content Development & Management</h1>-->
+    <!--    <div class="web-subtitle">Peace of Mind. A Vibrant Online Presence. Consistently Delivered.</div>-->
+    <!--    <p class="web-desc">-->
+    <!--        Your website should never feel “finished.” It should evolve, engage, and perform every single day. We manage your visuals, content, and technology so your brand stays fresh, professional, and conversion-ready while you focus on growing your business.-->
+    <!--        <span class="web-intro-bold">Visuals, Writing, and Maintenance.</span>-->
+    <!--    </p>-->
+    <!--    <a href="#formCustom" class="cta-btn-main">Book a Free Content Audit</a>-->
+    <!--</div>-->
 
     <!-- WHAT YOU GET -->
     <div class="stack-section">
-        <div class="stack-header">
-            <h2 style="color:#222; margin-bottom:10px;">What You Get (Full-Stack Growth System)</h2>
-        </div>
+        <!--<div class="stack-header">-->
+        <!--    <h2 style="color:#222; margin-bottom:10px;">What You Get (Full-Stack Growth System)</h2>-->
+        <!--</div>-->
         
         <div class="stack-grid">
             <div class="stack-card">
@@ -240,7 +320,7 @@
                 </ul>
                 
                 <div class="tier-price">$199 / Month</div>
-                <button class="tier-btn featured-btn" onclick="selectTier('Essentials')">Select Plan</button>
+                <button class="tier-btn" onclick="selectTier('Essentials')">Select Plan</button>
             </div>
 
             <!-- Tier 2 -->
@@ -259,7 +339,7 @@
                 </ul>
                 
                 <div class="tier-price">$385 / Month</div>
-                <button class="tier-btn featured-btn" onclick="selectTier('Professional')">Select Plan</button>
+                <button class="tier-btn" onclick="selectTier('Professional')">Select Plan</button>
             </div>
 
             <!-- Tier 3 -->
@@ -278,7 +358,7 @@
                 </ul>
                 
                 <div class="tier-price">$599 / Month</div>
-                <button class="tier-btn featured-btn" onclick="selectTier('Enterprise')">Select Plan</button>
+                <button class="tier-btn" onclick="selectTier('Enterprise')">Select Plan</button>
             </div>
         </div>
     </div>
@@ -347,9 +427,9 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td><button class="tier-btn featured-btn" onclick="selectTier('Essentials')">Select Plan</button></td>
-                        <td><button class="tier-btn featured-btn" onclick="selectTier('Professional')">Select Plan</button></td>
-                        <td><button class="tier-btn featured-btn" onclick="selectTier('Enterprise')">Select Plan</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Essentials')">Select Plan</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Professional')">Select Plan</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Enterprise')">Select Plan</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -363,19 +443,38 @@
     document.addEventListener("DOMContentLoaded", function() {
         updateForm("Submitted From: Web Content Management _General Inquiry");
     });
+    
+    let currentTier = null;
 
     function selectTier(tierName) {
-        // Visual Feedback (optional if buttons need state)
+        // Toggle Selection
+        const isSelected = currentTier === tierName;
+
+        // Reset All
         document.querySelectorAll('.tier-btn').forEach(btn => {
-            if(!btn.classList.contains('featured-btn')) {
-                btn.style.background = 'transparent';
-                btn.style.color = '#333';
-                btn.innerText = "Select Plan";
-            }
+            btn.classList.remove('active-btn');
+            btn.innerText = "Select Plan";
         });
 
-        // Update Form
-        updateForm(`Submitted From: Web Content Management _Selected Tier: ${tierName}`);
+        if (isSelected) {
+            // Deselect
+            currentTier = null;
+            updateForm("Submitted From: Web Content Management _General Inquiry");
+        } else {
+            // Select
+            currentTier = tierName;
+            updateForm(`Submitted From: Web Content Management _Selected Tier: ${tierName}`);
+
+            // Visual Update
+            const allBtns = document.querySelectorAll('.tier-btn');
+            allBtns.forEach(btn => {
+                const onclickAttr = btn.getAttribute('onclick');
+                if (onclickAttr && onclickAttr.includes("'" + tierName + "'")) {
+                    btn.classList.add('active-btn');
+                    btn.innerText = "Selected";
+                }
+            });
+        }
         
         // Scroll to Form
         const form = document.querySelector('.fluentform');
