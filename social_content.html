@@ -8,6 +8,7 @@
         max-width: 1200px;
         margin: 0 auto;
         padding: 40px 20px;
+        padding-top: 0;
         background-color: #fafafa;
     }
         .fluentform .hide-me-please {
@@ -47,7 +48,7 @@
 
     .section-header {
         text-align: center;
-        margin-bottom: 40px;
+        margin: 20px 0;
     }
 
     .section-title {
@@ -75,7 +76,7 @@
         border-radius: 16px;
         padding: 40px;
         box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-        margin-bottom: 40px;
+        margin-bottom: 0;
         border: 1px solid #f0f0f0;
     }
 
@@ -254,96 +255,109 @@
         line-height: 1.5;
     }
 
-    /* Buttons */
-    .btn-select {
+    /* --- BUTTONS --- */
+    .tier-btn {
         width: 100%;
-        padding: 15px;
+        padding: 12px;
+        border: 1px solid #d32f2f;
+        background: #d32f2f;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.2s;
+        font-family: inherit;
+    }
+
+    .tier-btn:hover {
+        background: #fff;
+        color: #d32f2f;
+        border-color: #d32f2f;
+    }
+
+    .tier-btn.active-btn {
         background: #222 !important;
         color: #fff !important;
-        border: none;
-        border-radius: 8px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s;
-        font-family: 'Poppins', sans-serif;
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
+        border-color: #222 !important;
     }
 
-    .btn-select:hover {
-        background: #444 !important;
-        transform: translateY(-2px);
-    }
-
-    .highlight-card .btn-select {
-        /* background: #d32f2f; Removed to match black button style */
-        /* box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3); */
-    }
-
-    .highlight-card .btn-select:hover {
-        /* background: #b71c1c; */
-    }
-
-    .btn-select.active-btn {
-        background: #116b15 !important;
-        box-shadow: none !important;
-    }
-    .btn-select.active-btn::before {
-        content: "✓ ";
-    }
-
-    /* Table */
-    .table-responsive {
+    /* --- COMPARISON TABLE --- */
+    .comp-table-wrapper {
         overflow-x: auto;
-        border-radius: 16px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        background: #fff;
-        border: 1px solid #eee;
+        margin-top: 10px;
+        margin-bottom: 0px;
+        padding-bottom: 10px; 
     }
 
-    .comparison-table {
+    .comp-table {
         width: 100%;
-        border-collapse: collapse;
-        min-width: 800px;
+        border-collapse: separate;
+        border-spacing: 0;
+        min-width: 700px;
         table-layout: fixed;
+        border: 1px solid #eee; 
+        border-radius: 12px;
+        background: #fff;
     }
 
-    .comparison-table th {
-        background: #f8f8f8;
-        padding: 20px;
+    .comp-table th {
+        background: #f9f9f9;
+        padding: 15px;
         text-align: center;
-        font-weight: 700;
-        color: #333;
         border-bottom: 2px solid #eee;
-        width: 25%;
-    }
-    
-    .comparison-table th:first-child {
-        text-align: left;
-        width: 25%;
-        padding-left: 30px;
+        border-right: 1px solid #eee;
+        color: #222;
+        font-size: 16px;
+        font-weight: 700;
+        width: 23.33%;
     }
 
-    .comparison-table td {
-        padding: 15px 20px;
-        text-align: center;
-        border-bottom: 1px solid #f4f4f4;
-        font-size: 14px;
-        color: #555;
+    /* Handling borders for first and last columns */
+    .comp-table th:first-child {
+        text-align: left;
+        background: #fff;
+        padding-left: 25px;
+        width: 30%;
+        border-top-left-radius: 12px;
+        border-left: none;
     }
     
-    .comparison-table td:first-child {
+    .comp-table th:last-child {
+        border-top-right-radius: 12px;
+        border-right: none;
+    }
+
+    .comp-table td {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        border-right: 1px solid #eee;
+        color: #555;
+        font-size: 14px;
+    }
+
+    .comp-table td:last-child {
+        border-right: none;
+    }
+
+    /* Remove bottom border from last row so table border takes over */
+    .comp-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    /* Rounding bottom corners */
+    .comp-table tr:last-child td:first-child {
+        border-bottom-left-radius: 12px;
+    }
+    .comp-table tr:last-child td:last-child {
+        border-bottom-right-radius: 12px;
+    }
+
+    .comp-table td:first-child {
         text-align: left;
         font-weight: 600;
         color: #333;
-        padding-left: 30px;
-        background: #fff;
-    }
-    
-    .comparison-table tr:last-child td {
-        border-bottom: none;
-        padding-bottom: 25px;
+        padding-left: 25px;
     }
 
     /* Process Steps */
@@ -502,7 +516,7 @@
             <div class="pkg-desc">Professional visuals to establish credibility and consistency fast.</div>
             <div class="pkg-price">$200<span>/month</span></div>
             
-            <button class="btn-select" onclick="selectContentPkg(1, 200)">Select Plan</button>
+            <button class="tier-btn" onclick="selectContentPkg(1, 200)">Select Plan</button>
             
             <ul class="pkg-features">
                 <li><strong>12 Static Creatives</strong></li>
@@ -522,7 +536,7 @@
             <div class="pkg-desc">A structured content engine designed to improve engagement and recall.</div>
             <div class="pkg-price">$350<span>/month</span></div>
             
-            <button class="btn-select" onclick="selectContentPkg(2, 350)">Select Plan</button>
+            <button class="tier-btn" onclick="selectContentPkg(2, 350)">Select Plan</button>
             
             <ul class="pkg-features">
                 <li><strong>20 Static Creatives</strong></li>
@@ -543,7 +557,7 @@
             <div class="pkg-desc">A premium library built to position your brand as an industry authority.</div>
             <div class="pkg-price">$500<span>/month</span></div>
             
-            <button class="btn-select" onclick="selectContentPkg(3, 500)">Select Plan</button>
+            <button class="tier-btn" onclick="selectContentPkg(3, 500)">Select Plan</button>
             
             <ul class="pkg-features">
                 <li><strong>30 Static Creatives</strong></li>
@@ -562,8 +576,8 @@
         <div class="section-title">Package Comparison</div>
     </div>
     
-    <div class="table-responsive">
-        <table class="comparison-table" id="content-pricing-table">
+    <div class="comp-table-wrapper">
+        <table class="comp-table" id="content-pricing-table">
             <thead>
                 <tr>
                     <th>Feature</th>
@@ -632,13 +646,13 @@
                 <tr>
                     <td></td>
                     <td class="col-content-1">
-                        <button class="btn-select" onclick="selectContentPkg(1, 200)">Select</button>
+                        <button class="tier-btn" onclick="selectContentPkg(1, 200)">Select</button>
                     </td>
                     <td class="col-content-2">
-                        <button class="btn-select" onclick="selectContentPkg(2, 350)">Select</button>
+                        <button class="tier-btn" onclick="selectContentPkg(2, 350)">Select</button>
                     </td>
                     <td class="col-content-3">
-                        <button class="btn-select" onclick="selectContentPkg(3, 500)">Select</button>
+                        <button class="tier-btn" onclick="selectContentPkg(3, 500)">Select</button>
                     </td>
                 </tr>
             </tbody>
@@ -651,17 +665,17 @@
         <div class="total-display" id="content-display-total">$0</div>
         
         <p style="margin: 10px 0; font-size: 13px;">Review your selection above, then proceed to the next step.</p>
-        <button class="btn-select" style="background:#222; max-width: 200px; margin: 0 auto; display: block;" onclick="document.querySelector('#cta-section').scrollIntoView({behavior: 'smooth'})">Continue</button>
+        <button class="tier-btn" style="background:#222; max-width: 200px; margin: 0 auto; display: block;" onclick="document.querySelector('#cta-section').scrollIntoView({behavior: 'smooth'})">Continue</button>
     </div>
 
     <!-- WHY ELITE & HOW IT WORKS -->
     <div class="elite-benefits">
         <h3>Why Most Brands Choose Elite</h3>
         <div class="benefits-grid">
-            <div class="benefit-item">✔ <strong>Saves Hiring Cost:</strong> Cheaper than an in-house designer.</div>
-            <div class="benefit-item">✔ <strong>High Volume:</strong> Enough content for daily posting across platforms.</div>
-            <div class="benefit-item">✔ <strong>Authority Built:</strong> Designed to position you as a leader.</div>
-            <div class="benefit-item">✔ <strong>Strategic:</strong> Utilizes AI & Gap Analysis for smarter topics.</div>
+            <div class="benefit-item"><span style="color: #fff !important; text-shadow: 0 0 0 #fff;">&#10003;</span> <strong>Saves Hiring Cost:</strong> Cheaper than an in-house designer.</div>
+            <div class="benefit-item"><span style="color: #fff !important; text-shadow: 0 0 0 #fff;">&#10003;</span> <strong>High Volume:</strong> Enough content for daily posting across platforms.</div>
+            <div class="benefit-item"><span style="color: #fff !important; text-shadow: 0 0 0 #fff;">&#10003;</span> <strong>Authority Built:</strong> Designed to position you as a leader.</div>
+            <div class="benefit-item"><span style="color: #fff !important; text-shadow: 0 0 0 #fff;">&#10003;</span> <strong>Strategic:</strong> Utilizes AI & Gap Analysis for smarter topics.</div>
         </div>
         <p style="text-align: Center; margin-top: 20px; font-weight: 600;">Elite isn’t just more content, it's smarter content.</p>
     </div>
@@ -693,16 +707,16 @@
     </div>
 
     <!-- CTA -->
-    <div id="cta-section" style="text-align: center; margin-top: 60px; padding: 40px; background: #fff; border-radius: 12px; border: 1px dashed #ccc;">
-        <h2 style="color: #b71c1c; margin-bottom: 10px;">Ready to Upgrade Your Content Quality?</h2>
-        <p style="margin-bottom: 25px;">Get in touch today to start your content delivery system.</p>
+    <!--<div id="cta-section" style="text-align: center; margin-top: 60px; padding: 40px; background: #fff; border-radius: 12px; border: 1px dashed #ccc;">-->
+    <!--    <h2 style="color: #b71c1c; margin-bottom: 10px;">Ready to Upgrade Your Content Quality?</h2>-->
+    <!--    <p style="margin-bottom: 25px;">Get in touch today to start your content delivery system.</p>-->
         
-        <a href="#" class="btn-select" style="display: inline-block; width: auto; padding: 15px 40px; background: #d32f2f; text-decoration: none;">Book a Strategy Call</a>
-        <br>
-        <div style="margin-top: 20px; font-size: 14px; color: #666;">
-            Questions about formats? We optimize for LinkedIn, Instagram (Reels/Carousels), and TikTok.
-        </div>
-    </div>
+    <!--    <a href="#" class="tier-btn" style="display: inline-block; width: auto; padding: 15px 40px; background: #d32f2f; text-decoration: none;">Book a Strategy Call</a>-->
+    <!--    <br>-->
+    <!--    <div style="margin-top: 20px; font-size: 14px; color: #666;">-->
+    <!--        Questions about formats? We optimize for LinkedIn, Instagram (Reels/Carousels), and TikTok.-->
+    <!--    </div>-->
+    <!--</div>-->
 
 </div>
 
@@ -714,20 +728,18 @@
         let table = document.getElementById('content-pricing-table');
         
         let alreadyActive = false;
-        let testBtn = document.querySelector(`.col-content-${pkgId} .btn-select`);
+        // Check if any button for this package is active
+        let testBtn = document.querySelector(`.tier-btn[onclick*="selectContentPkg(${pkgId}"]`);
         if (testBtn && testBtn.classList.contains('active-btn')) {
             alreadyActive = true;
         }
 
-        // --- RESET UI ---
-        table.querySelectorAll('.col-highlight').forEach(el => el.classList.remove('col-highlight'));
-        table.querySelectorAll('.th-highlight').forEach(el => el.classList.remove('th-highlight'));
-        
-        document.querySelectorAll('.btn-select').forEach(btn => {
+        // --- RESET UI (Reset all buttons) ---
+        document.querySelectorAll('.tier-btn').forEach(btn => {
             btn.classList.remove('active-btn');
             // Reset text logic
             if(btn.innerText.includes("Selected")) {
-                 // Check if it's card vs table
+                 // Check if it's card vs table by context, or just default to Plan/Select
                  if(btn.closest('.package-card')) btn.innerText = "Select Plan";
                  else btn.innerText = "Select";
             }
@@ -744,10 +756,7 @@
         }
 
         // --- APPLY SELECTION ---
-        let th = document.getElementById(`head-content-${pkgId}`);
-        if(th) th.classList.add('th-highlight');
-        document.querySelectorAll(`.col-content-${pkgId}`).forEach(el => el.classList.add('col-highlight'));
-
+        // Activate buttons for this package
         let btns = document.querySelectorAll(`button[onclick="selectContentPkg(${pkgId}, ${price})"]`);
         btns.forEach(btn => {
             btn.classList.add('active-btn');

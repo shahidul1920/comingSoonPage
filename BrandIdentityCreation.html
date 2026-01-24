@@ -55,22 +55,38 @@
     .process-section { margin-bottom: 40px; text-align: center; }
     .process-steps {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
+        flex-wrap: nowrap; /* Forced one row */
+        justify-content: center; /* Center on large screens */
+        justify-content: flex-start; /* Start on mobile so first item is visible */
+        align-items: center;
+        gap: 15px;
         margin-top: 30px;
+        overflow-x: auto; /* Allow scrolling on mobile */
+        padding-bottom: 10px; /* Space for scrollbar */
+        -webkit-overflow-scrolling: touch;
     }
+    
+    /* Center the flex content if it fits the screen */
+    @media(min-width: 900px) {
+        .process-steps { justify-content: center; }
+    }
+
     .step-item {
         background: #f9f9f9;
-        padding: 15px 25px;
+        padding: 15px;
         border-radius: 8px;
         border: 1px solid #eee;
         font-weight: 600;
         position: relative;
+        white-space: nowrap; /* Keep text on one line if preferred, or remove to wrap text inside card */
+        flex-shrink: 0; /* Don't squash the cards */
+        font-size: 14px;
     }
-    .step-arrow { display: none; }
-    @media(min-width: 900px) {
-        .step-arrow { display: inline-block; margin: 0 10px; color: #ccc; align-self: center; }
+    .step-arrow { 
+        display: inline-block; 
+        color: #ccc; 
+        flex-shrink: 0; 
+        font-size: 18px;
     }
 
     /* --- PACKAGES GRID --- */
@@ -108,29 +124,116 @@
     .pkg-timeline { font-size: 12px; text-transform: uppercase; color: #888; font-weight: 600; margin-bottom: 20px; display: block; }
 
     .pkg-features { flex-grow: 1; margin-bottom: 25px; }
-    .pkg-features ul { padding: 0 !important; margin: 0 !important; list-style: none; }
+    .pkg-features ul { padding: 0; list-style: none; }
     .pkg-features li { 
-        font-size: 13px; color: #555; margin-bottom: 10px; display: flex; align-items: flex-start; text-align: left;
+        font-size: 13px; color: #555; margin-bottom: 10px; padding-left: 18px; position: relative; 
     }
-    .pkg-features li::before { content: "•"; color: #d32f2f; font-weight: bold; margin-right: 8px; font-size: 16px; line-height: 1; }
+    .pkg-features li::before { content: "•"; color: #d32f2f; font-weight: bold; position: absolute; left: 0; }
     .pkg-features strong { color: #222; }
 
-    .pkg-btn {
-        width: 100%; padding: 12px; border: 1px solid #222; background: transparent;
-        color: #222; border-radius: 6px; font-weight: 600; cursor: pointer; transition: 0.2s;
-    }
-    .pkg-btn:hover { background: #222; color: #fff; }
-    .pkg-btn.active-btn { background: #d32f2f; border-color: #d32f2f; color: #fff; }
-
     /* --- COMPARISON TABLE --- */
-    .comp-table-wrapper { overflow-x: auto; margin-top: 60px; border: 1px solid #eee; border-radius: 12px; }
-    .comp-table { width: 100%; border-collapse: collapse; min-width: 600px; }
-    .comp-table th { background: #f9f9f9; padding: 15px; text-align: center; border-bottom: 2px solid #eee; color: #222; }
-    .comp-table th:first-child { text-align: left; background: #fff; }
-    .comp-table td { padding: 12px 15px; text-align: center; border-bottom: 1px solid #eee; color: #555; font-size: 14px; }
-    .comp-table td:first-child { text-align: left; font-weight: 600; color: #333; }
-    .check { color: green; font-weight: bold; }
+    .comp-table-wrapper {
+        overflow-x: auto;
+        margin-top: 60px;
+        margin-bottom: 80px;
+        padding-bottom: 20px; 
+    }
+
+    .comp-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        min-width: 700px;
+        table-layout: fixed;
+        border: 1px solid #eee; 
+        border-radius: 12px;
+        background: #fff;
+    }
+
+    .comp-table th {
+        background: #f9f9f9;
+        padding: 15px;
+        text-align: center;
+        border-bottom: 2px solid #eee;
+        border-right: 1px solid #eee;
+        color: #222;
+        font-size: 16px;
+        font-weight: 700;
+        width: 23.33%;
+    }
+
+    .comp-table th:first-child {
+        text-align: left;
+        background: #fff;
+        padding-left: 25px;
+        width: 30%;
+        border-top-left-radius: 12px;
+        border-left: none;
+    }
+    
+    .comp-table th:last-child {
+        border-top-right-radius: 12px;
+        border-right: none;
+    }
+
+    .comp-table td {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        border-right: 1px solid #eee;
+        color: #555;
+        font-size: 14px;
+    }
+
+    .comp-table td:last-child {
+        border-right: none;
+    }
+
+    .comp-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    .comp-table tr:last-child td:first-child {
+        border-bottom-left-radius: 12px;
+    }
+    .comp-table tr:last-child td:last-child {
+        border-bottom-right-radius: 12px;
+    }
+
+    .comp-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #333;
+        padding-left: 25px;
+    }
+    .check { color: #d32f2f; font-weight: bold; }
     .cross { color: #ccc; }
+
+    /* --- BUTTONS --- */
+    .tier-btn {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #d32f2f;
+        background: #d32f2f;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.2s;
+        font-family: inherit;
+    }
+
+    .tier-btn:hover {
+        background: #fff;
+        color: #d32f2f;
+        border-color: #d32f2f;
+    }
+
+    .tier-btn.active-btn {
+        background: #222 !important;
+        color: #fff !important;
+        border-color: #222 !important;
+    }
 
     /* --- TOTAL BAR --- */
     #brand-total-bar {
@@ -208,7 +311,6 @@
                 <li style="display: flex; align-items: flex-start;"><span style="color:#d32f2f; font-weight:bold; margin-right:8px;">✔</span> Get expert recommendations</li>
             </ul>
         </div>
-        <a href="#brand-contact-form" class="cta-btn-main">Book Free Discovery Call</a>
     </div>
 
     <!-- PROCESS SECTION -->
@@ -257,7 +359,7 @@
                         <li><strong>Favicon:</strong> Branded app/browser icon</li>
                     </ul>
                 </div>
-                <button class="pkg-btn" data-pkg-id="1" onclick="selectBrandPkg(1, 'The Sprint', 200)">Select Plan</button>
+                <button class="tier-btn" data-pkg-id="1" onclick="selectBrandPkg(1, 'The Sprint', 200)">Select Plan</button>
             </div>
 
             <!-- Package 2 -->
@@ -277,7 +379,7 @@
                         <li><strong>Brand Pattern:</strong> Custom background/texture</li>
                     </ul>
                 </div>
-                <button class="pkg-btn" data-pkg-id="2" onclick="selectBrandPkg(2, 'The Identity', 350)">Select Plan</button>
+                <button class="tier-btn" data-pkg-id="2" onclick="selectBrandPkg(2, 'The Identity', 350)">Select Plan</button>
             </div>
 
             <!-- Package 3 -->
@@ -296,7 +398,7 @@
                         <li><strong>Revisions:</strong> Unlimited Rounds</li>
                     </ul>
                 </div>
-                <button class="pkg-btn" data-pkg-id="3" onclick="selectBrandPkg(3, 'The Ecosystem', 500)">Select Plan</button>
+                <button class="tier-btn" data-pkg-id="3" onclick="selectBrandPkg(3, 'The Ecosystem', 500)">Select Plan</button>
             </div>
 
         </div>
@@ -372,9 +474,9 @@
                 <!-- Button Row -->
                 <tr style="border-bottom:none;">
                     <td></td>
-                    <td style="padding:20px;"><button class="pkg-btn" data-pkg-id="1" onclick="selectBrandPkg(1, 'The Sprint', 200)">Select Plan</button></td>
-                    <td style="padding:20px;"><button class="pkg-btn" data-pkg-id="2" onclick="selectBrandPkg(2, 'The Identity', 350)">Select Plan</button></td>
-                    <td style="padding:20px;"><button class="pkg-btn" data-pkg-id="3" onclick="selectBrandPkg(3, 'The Ecosystem', 500)">Select Plan</button></td>
+                    <td style="padding:20px;"><button class="tier-btn" data-pkg-id="1" onclick="selectBrandPkg(1, 'The Sprint', 200)">Select Plan</button></td>
+                    <td style="padding:20px;"><button class="tier-btn" data-pkg-id="2" onclick="selectBrandPkg(2, 'The Identity', 350)">Select Plan</button></td>
+                    <td style="padding:20px;"><button class="tier-btn" data-pkg-id="3" onclick="selectBrandPkg(3, 'The Ecosystem', 500)">Select Plan</button></td>
                 </tr>
             </tbody>
         </table>
@@ -401,7 +503,7 @@
         document.querySelectorAll('.brand-card').forEach(c => c.style.borderColor = '#eee');
         document.querySelectorAll('.featured').forEach(c => c.style.borderColor = '#d32f2f'); 
         
-        document.querySelectorAll('.pkg-btn').forEach(b => {
+        document.querySelectorAll('.tier-btn').forEach(b => {
             b.classList.remove('active-btn');
             b.innerText = "Select Plan";
         });
@@ -418,7 +520,7 @@
             if(card) card.style.borderColor = '#222';
 
             // Highlight All Buttons for this Package
-            document.querySelectorAll(`.pkg-btn[data-pkg-id="${id}"]`).forEach(btn => {
+            document.querySelectorAll(`.tier-btn[data-pkg-id="${id}"]`).forEach(btn => {
                 btn.classList.add('active-btn');
                 btn.innerText = "Selected";
             });

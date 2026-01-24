@@ -253,96 +253,109 @@
         line-height: 1.5;
     }
 
-    /* Buttons */
-    .btn-select {
+    /* --- BUTTONS --- */
+    .tier-btn {
         width: 100%;
-        padding: 15px;
+        padding: 12px;
+        border: 1px solid #d32f2f;
+        background: #d32f2f;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.2s;
+        font-family: inherit;
+    }
+
+    .tier-btn:hover {
+        background: #fff;
+        color: #d32f2f;
+        border-color: #d32f2f;
+    }
+
+    .tier-btn.active-btn {
         background: #222 !important;
         color: #fff !important;
-        border: none;
-        border-radius: 8px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s;
-        font-family: 'Poppins', sans-serif;
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
+        border-color: #222 !important;
     }
 
-    .btn-select:hover {
-        background: #444 !important;
-        transform: translateY(-2px);
-    }
-
-    .highlight-card .btn-select {
-        /* background: #d32f2f; Removed to match black button style */
-        /* box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3); */
-    }
-
-    .highlight-card .btn-select:hover {
-        /* background: #b71c1c; */
-    }
-
-    .btn-select.active-btn {
-        background: #116b15 !important;
-        box-shadow: none !important;
-    }
-    .btn-select.active-btn::before {
-        content: "✓ ";
-    }
-
-    /* Table */
-    .table-responsive {
+    /* --- COMPARISON TABLE --- */
+    .comp-table-wrapper {
         overflow-x: auto;
-        border-radius: 16px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        background: #fff;
-        border: 1px solid #eee;
+        margin-top: 60px;
+        margin-bottom: 80px;
+        padding-bottom: 20px; 
     }
 
-    .comparison-table {
+    .comp-table {
         width: 100%;
-        border-collapse: collapse;
-        min-width: 800px;
+        border-collapse: separate;
+        border-spacing: 0;
+        min-width: 700px;
         table-layout: fixed;
+        border: 1px solid #eee; 
+        border-radius: 12px;
+        background: #fff;
     }
 
-    .comparison-table th {
-        background: #f8f8f8;
-        padding: 20px;
+    .comp-table th {
+        background: #f9f9f9;
+        padding: 15px;
         text-align: center;
-        font-weight: 700;
-        color: #333;
         border-bottom: 2px solid #eee;
-        width: 25%;
-    }
-    
-    .comparison-table th:first-child {
-        text-align: left;
-        width: 25%;
-        padding-left: 30px;
+        border-right: 1px solid #eee;
+        color: #222;
+        font-size: 16px;
+        font-weight: 700;
+        width: 23.33%;
     }
 
-    .comparison-table td {
-        padding: 15px 20px;
-        text-align: center;
-        border-bottom: 1px solid #f4f4f4;
-        font-size: 14px;
-        color: #555;
+    /* Handling borders for first and last columns */
+    .comp-table th:first-child {
+        text-align: left;
+        background: #fff;
+        padding-left: 25px;
+        width: 30%;
+        border-top-left-radius: 12px;
+        border-left: none;
     }
     
-    .comparison-table td:first-child {
+    .comp-table th:last-child {
+        border-top-right-radius: 12px;
+        border-right: none;
+    }
+
+    .comp-table td {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        border-right: 1px solid #eee;
+        color: #555;
+        font-size: 14px;
+    }
+
+    .comp-table td:last-child {
+        border-right: none;
+    }
+
+    /* Remove bottom border from last row so table border takes over */
+    .comp-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    /* Rounding bottom corners */
+    .comp-table tr:last-child td:first-child {
+        border-bottom-left-radius: 12px;
+    }
+    .comp-table tr:last-child td:last-child {
+        border-bottom-right-radius: 12px;
+    }
+
+    .comp-table td:first-child {
         text-align: left;
         font-weight: 600;
         color: #333;
-        padding-left: 30px;
-        background: #fff;
-    }
-    
-    .comparison-table tr:last-child td {
-        border-bottom: none;
-        padding-bottom: 25px;
+        padding-left: 25px;
     }
 
     /* Process Steps */
@@ -447,11 +460,6 @@
 
     <!-- INTRO / POSITIONING -->
     <div class="content-card">
-        <div class="section-header" style="text-align: left; margin-bottom: 25px;">
-            <h3 style="font-size: 24px; color: #b71c1c;">Strategy-Led, Design-Driven</h3>
-            <p>We are not a posting agency. We are a strategy-led, design-driven social media partner focused on long-term growth, clarity, and measurable impact.</p>
-        </div>
-        
         <div style="font-size: 15px; color: #555; line-height: 1.8;">
             <strong style="color: #222;">Who This Is For:</strong> Startups, Professionals, and Brands who need more than just "posts"—they need a system.
             <br><br>
@@ -472,7 +480,7 @@
             <div class="pkg-desc">Professionals, local brands, consultants, and startups who need a credible, consistent, and well-managed presence on one key platform.</div>
             <div class="pkg-price">$250<span>/month</span></div>
             
-            <button class="btn-select" onclick="selectStrategyPkg(1, 250)">Select Plan</button>
+            <button class="tier-btn" onclick="selectStrategyPkg(1, 250)">Select Plan</button>
             
             <ul class="pkg-features">
                 <li><strong>1 Primary Platform</strong> (IG/FB/LI)</li>
@@ -493,7 +501,7 @@
             <div class="pkg-desc">Growing brands and SMEs that need consistent visibility, engagement, and momentum across multiple platforms.</div>
             <div class="pkg-price">$400<span>/month</span></div>
             
-            <button class="btn-select" onclick="selectStrategyPkg(2, 400)">Select Plan</button>
+            <button class="tier-btn" onclick="selectStrategyPkg(2, 400)">Select Plan</button>
             
             <ul class="pkg-features">
                 <li><strong>2 Platforms</strong> (e.g. IG + FB)</li>
@@ -513,7 +521,7 @@
             <div class="pkg-desc">Established brands, funded startups, founders, and agencies that want market leadership and scale—not just presence.</div>
             <div class="pkg-price">$600<span>/month</span></div>
             
-            <button class="btn-select" onclick="selectStrategyPkg(3, 600)">Select Plan</button>
+            <button class="tier-btn" onclick="selectStrategyPkg(3, 600)">Select Plan</button>
             
             <ul class="pkg-features">
                 <li><strong>3 Platforms</strong> (IG+FB+LI/X/TikTok)</li>
@@ -532,8 +540,8 @@
         <div class="section-title">Package Value Ladder</div>
     </div>
     
-    <div class="table-responsive">
-        <table class="comparison-table" id="strategy-pricing-table">
+    <div class="comp-table-wrapper">
+        <table class="comp-table" id="strategy-pricing-table">
             <thead>
                 <tr>
                     <th>Feature</th>
@@ -626,13 +634,13 @@
                 <tr>
                     <td></td>
                     <td class="col-strat-1">
-                        <button class="btn-select" onclick="selectStrategyPkg(1, 250)">Select</button>
+                        <button class="tier-btn" onclick="selectStrategyPkg(1, 250)">Select</button>
                     </td>
                     <td class="col-strat-2">
-                        <button class="btn-select" onclick="selectStrategyPkg(2, 400)">Select</button>
+                        <button class="tier-btn" onclick="selectStrategyPkg(2, 400)">Select</button>
                     </td>
                     <td class="col-strat-3">
-                        <button class="btn-select" onclick="selectStrategyPkg(3, 600)">Select</button>
+                        <button class="tier-btn" onclick="selectStrategyPkg(3, 600)">Select</button>
                     </td>
                 </tr>
             </tbody>
@@ -645,7 +653,7 @@
         <div class="total-display" id="strategy-display-total">$0</div>
         
         <p style="margin: 10px 0; font-size: 13px;">Review your selection above, then proceed.</p>
-        <button class="btn-select" style="background:#222; max-width: 200px; margin: 0 auto; display: block;" onclick="document.querySelector('#cta-section').scrollIntoView({behavior: 'smooth'})">Continue</button>
+        <button class="tier-btn" style="background:#222; border-color:#222; color:#fff; max-width: 200px; margin: 0 auto; display: block;" onclick="document.querySelector('#cta-section').scrollIntoView({behavior: 'smooth'})">Continue</button>
     </div>
 
     <!-- COMPETITIVE EDGE / BENEFITS -->
@@ -665,80 +673,72 @@
         <h2 style="color: #b71c1c; margin-bottom: 10px;">Ready to Start Your Growth System?</h2>
         <p style="margin-bottom: 25px;">Select a package above and book a strategy call to align our goals.</p>
         
-        <a href="#" class="btn-select" style="display: inline-block; width: auto; padding: 15px 40px; background: #d32f2f; text-decoration: none;">Book a Strategy Call</a>
+        <a href="#" class="tier-btn" style="display: inline-block; width: auto; padding: 15px 40px; background: #d32f2f; color: #fff; text-decoration: none;">Book a Strategy Call</a>
     </div>
 
 </div>
 
 <script>
-    let currentStrategyPkg = "";
-    let strategyPrice = 0;
+    let currentTier = null;
 
     function selectStrategyPkg(pkgId, price) {
-        let table = document.getElementById('strategy-pricing-table');
-        
-        let alreadyActive = false;
-        let testBtn = document.querySelector(`.col-strat-${pkgId} .btn-select`);
-        if (testBtn && testBtn.classList.contains('active-btn')) {
-            alreadyActive = true;
-        }
+        // Map ID to Name
+        let tierName = "";
+        if(pkgId === 1) tierName = "Foundation Presence Program";
+        else if(pkgId === 2) tierName = "Momentum Growth System";
+        else if(pkgId === 3) tierName = "Authority & Scale Suite";
 
-        // --- RESET UI ---
-        table.querySelectorAll('.col-highlight').forEach(el => el.classList.remove('col-highlight'));
-        table.querySelectorAll('.th-highlight').forEach(el => el.classList.remove('th-highlight'));
-        
-        document.querySelectorAll('.btn-select').forEach(btn => {
-            btn.classList.remove('active-btn');
-            // Reset text logic
-            if(btn.innerText.includes("Selected")) {
-                 // Check if it's card vs table
-                 if(btn.closest('.package-card')) btn.innerText = "Select Plan";
-                 else btn.innerText = "Select";
+        // Toggle Selection
+        const isSelected = currentTier && currentTier.id === pkgId;
+
+        // Reset All
+        document.querySelectorAll('.tier-btn').forEach(btn => {
+            if (btn.innerText === "Selected") {
+                 // Reset text only if it was selected
+                 // Check if it's card vs table by context or just default to "Select"
+                 // To match WebDev style we just reset.
+                 btn.innerText = "Select"; 
             }
+            btn.classList.remove('active-btn');
         });
 
-        let stickyBar = document.getElementById('sticky-total-bar');
-        stickyBar.style.display = 'none';
+        if (isSelected) {
+            // Deselect
+            currentTier = null;
+            document.getElementById('sticky-total-bar').style.display = 'none';
+            updateContentForm(""); 
+        } else {
+            // Select
+            currentTier = { id: pkgId, name: tierName, price: price };
 
-        if (alreadyActive) {
-            currentStrategyPkg = "";
-            strategyPrice = 0;
-            updateContentForm();
-            return;
+            // Update Total Bar
+            document.getElementById('sticky-total-bar').style.display = 'block';
+            document.getElementById('strategy-display-total').innerText = "USD " + price;
+
+            // Update Form
+            updateContentForm(`Management Package: ${tierName} (USD ${price})`);
+
+            // Visual Update
+            updateButtonVisuals(pkgId, price);
         }
-
-        // --- APPLY SELECTION ---
-        let th = document.getElementById(`head-strat-${pkgId}`);
-        if(th) th.classList.add('th-highlight');
-        document.querySelectorAll(`.col-strat-${pkgId}`).forEach(el => el.classList.add('col-highlight'));
-
-        let btns = document.querySelectorAll(`button[onclick="selectStrategyPkg(${pkgId}, ${price})"]`);
-        btns.forEach(btn => {
-            btn.classList.add('active-btn');
-            btn.innerText = "Selected";
-        });
-
-        if(pkgId === 1) currentStrategyPkg = "Foundation Presence Program";
-        else if(pkgId === 2) currentStrategyPkg = "Momentum Growth System";
-        else if(pkgId === 3) currentStrategyPkg = "Authority & Scale Suite";
-        
-        strategyPrice = price;
-        
-        stickyBar.style.display = 'block';
-        document.getElementById('strategy-display-total').innerText = "USD " + strategyPrice;
-
-        updateContentForm();
     }
 
-    function updateContentForm() {
-        let finalString = "";
-        if (currentStrategyPkg) {
-            finalString = `Management Package: ${currentStrategyPkg} (USD ${strategyPrice})`;
-        }
-        
+    function updateButtonVisuals(pkgId, price) {
+        // Find buttons with matching onclick
+        const allBtns = document.querySelectorAll('.tier-btn');
+        allBtns.forEach(btn => {
+            const onclickAttr = btn.getAttribute('onclick');
+            if (onclickAttr && onclickAttr.includes(`selectStrategyPkg(${pkgId}, ${price})`)) {
+                btn.classList.add('active-btn');
+                btn.innerText = "Selected";
+            }
+        });
+    }
+
+    function updateContentForm(finalString) {
         let formField = document.querySelector("input[name='input_text']");
         if (formField) {
-            formField.value = finalString;
+            formField.value = finalString || "Submitted From: Social Media Strategy Management";
             formField.dispatchEvent(new Event('input', { bubbles: true }));
             formField.dispatchEvent(new Event('change', { bubbles: true }));
         }
