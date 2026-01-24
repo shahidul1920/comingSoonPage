@@ -1,0 +1,746 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    .content-packages-wrapper {
+        font-family: 'Poppins', sans-serif;
+        color: #4a4a4a;
+        line-height: 1.7;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0;
+    }
+        .fluentform .hide-me-please {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Typography */
+    .content-packages-wrapper h1, 
+    .content-packages-wrapper h2, 
+    .content-packages-wrapper h3 {
+        color: #2d2d2d;
+        line-height: 1.3;
+    }
+
+    .content-packages-wrapper h1 {
+        font-size: 36px;
+        font-weight: 700;
+        text-align: center;
+        color: #b71c1c;
+        margin-bottom: 10px;
+    }
+
+    .content-packages-wrapper h2 {
+        font-size: 20px;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 40px;
+        color: #666;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .section-title {
+        font-size: 26px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 15px;
+        position: relative;
+        display: inline-block;
+    }
+    
+    .section-title::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: #d32f2f;
+        margin: 10px auto 0;
+        border-radius: 2px;
+    }
+
+    /* Content Cards */
+    .content-card {
+        background: #fff;
+        border-radius: 16px;
+        padding: 40px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        margin-bottom: 40px;
+        border: 1px solid #f0f0f0;
+    }
+
+    /* Lists */
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 25px;
+    }
+
+    .check-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .check-list li {
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+        font-size: 15px;
+    }
+
+    .check-list li::before {
+        content: "✓";
+        color: #116b15;
+        font-weight: 700;
+        position: absolute;
+        left: 0;
+        top: 0px;
+    }
+    
+    .cross-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .cross-list li {
+         margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+        font-size: 15px;
+        color: #777;
+    }
+    
+    .cross-list li::before {
+        content: "✕";
+        color: #d32f2f;
+        font-weight: 700;
+        position: absolute;
+        left: 0;
+        top: 0px;
+    }
+
+    /* Package Grid */
+    .package-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        margin: 40px 0 60px;
+        align-items: stretch;
+    }
+
+    @media (max-width: 900px) {
+        .package-grid {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .package-card {
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        border-radius: 16px;
+        padding: 30px;
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .package-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        border-color: #d32f2f;
+    }
+
+    .highlight-card {
+        /* Styles removed to match other cards */
+    }
+    
+    .highlight-card:hover {
+        /* Styles removed */
+    }
+
+    .popular-badge {
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #d32f2f;
+        color: #fff;
+        padding: 5px 20px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .pkg-name {
+        font-size: 20px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 5px;
+    }
+
+    .pkg-sub {
+        font-size: 14px;
+        color: #b71c1c;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .pkg-desc {
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 20px;
+        line-height: 1.5;
+        min-height: 60px; /* Increased alignment */
+    }
+
+    .pkg-price {
+        font-size: 38px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: baseline;
+    }
+
+    .pkg-price span {
+        font-size: 14px;
+        font-weight: 400;
+        color: #777;
+        margin-left: 5px;
+    }
+
+    .pkg-features {
+        list-style: none;
+        padding: 0;
+        margin: 25px 0 0 0;
+        border-top: 1px solid #eee;
+        padding-top: 25px;
+    }
+    
+    .pkg-features li {
+        margin-bottom: 12px;
+        font-size: 14px;
+        color: #555;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .pkg-features li::before {
+        content: "•";
+        color: #d32f2f;
+        font-weight: bold;
+        margin-right: 10px;
+        line-height: 1.5;
+    }
+
+    /* Buttons */
+    .btn-select {
+        width: 100%;
+        padding: 15px;
+        background: #222 !important;
+        color: #fff !important;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .btn-select:hover {
+        background: #444 !important;
+        transform: translateY(-2px);
+    }
+
+    .highlight-card .btn-select {
+        /* background: #d32f2f; Removed to match black button style */
+        /* box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3); */
+    }
+
+    .highlight-card .btn-select:hover {
+        /* background: #b71c1c; */
+    }
+
+    .btn-select.active-btn {
+        background: #116b15 !important;
+        box-shadow: none !important;
+    }
+    .btn-select.active-btn::before {
+        content: "✓ ";
+    }
+
+    /* Table */
+    .table-responsive {
+        overflow-x: auto;
+        border-radius: 16px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        background: #fff;
+        border: 1px solid #eee;
+    }
+
+    .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 800px;
+        table-layout: fixed;
+    }
+
+    .comparison-table th {
+        background: #f8f8f8;
+        padding: 20px;
+        text-align: center;
+        font-weight: 700;
+        color: #333;
+        border-bottom: 2px solid #eee;
+        width: 25%;
+    }
+    
+    .comparison-table th:first-child {
+        text-align: left;
+        width: 25%;
+        padding-left: 30px;
+    }
+
+    .comparison-table td {
+        padding: 15px 20px;
+        text-align: center;
+        border-bottom: 1px solid #f4f4f4;
+        font-size: 14px;
+        color: #555;
+    }
+    
+    .comparison-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #333;
+        padding-left: 30px;
+        background: #fff;
+    }
+    
+    .comparison-table tr:last-child td {
+        border-bottom: none;
+        padding-bottom: 25px;
+    }
+
+    /* Process Steps */
+    .process-steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+    }
+    
+    .step-item {
+        text-align: center;
+    }
+    
+    .step-num {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background: #d32f2f;
+        color: #fff;
+        border-radius: 50%;
+        line-height: 40px;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+    
+    .step-text {
+        font-size: 15px;
+        color: #555;
+        font-weight: 500;
+    }
+
+    /* Key Benefits Box */
+    .elite-benefits {
+        background: #222;
+        color: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        margin-top: 40px;
+    }
+    
+    .elite-benefits h3 {
+        color: #fff;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .benefit-item {
+        font-size: 14px;
+        opacity: 0.9;
+    }
+    .benefit-item strong {
+        color: #d32f2f;
+    }
+
+    /* Sticky Total - STATIC UNDER TABLE */
+    .sticky-total {
+        position: static;
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 5px 30px rgba(0,0,0,0.15);
+        text-align: center;
+        border: 2px solid #d32f2f;
+        margin-top: 30px;
+        display: none;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .total-display {
+        font-size: 28px;
+        font-weight: 700;
+        color: #d32f2f;
+    }
+    
+    @keyframes slideUp {
+        from { transform: translateY(50px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Selection Highlighting */
+    .col-highlight {
+        background-color: #fff5f5 !important;
+        color: #000;
+    }
+    .th-highlight {
+        background-color: #d32f2f !important;
+        color: #fff !important;
+        border-color: #d32f2f !important;
+    }
+</style>
+
+<div class="content-packages-wrapper">
+
+    <!-- INTRO / POSITIONING -->
+    <div class="content-card">
+        <div class="section-header" style="text-align: left; margin-bottom: 25px;">
+            <h3 style="font-size: 24px; color: #b71c1c;">Strategy-Led, Design-Driven</h3>
+            <p>We are not a posting agency. We are a strategy-led, design-driven social media partner focused on long-term growth, clarity, and measurable impact.</p>
+        </div>
+        
+        <div style="font-size: 15px; color: #555; line-height: 1.8;">
+            <strong style="color: #222;">Who This Is For:</strong> Startups, Professionals, and Brands who need more than just "posts"—they need a system.
+            <br><br>
+            Our services range from establishing a credible foundation to engineering authority and ROI at scale. Choose the level of management and strategy that fits your growth stage.
+        </div>
+    </div>
+
+    <!-- PACKAGES -->
+    <div id="pack" class="section-header">
+        <div class="section-title">Choose Your Management Tier</div>
+    </div>
+    
+    <div class="package-grid">
+        <!-- 1: Foundation -->
+        <div class="package-card">
+            <span class="pkg-sub">Essential - 1 Platform</span>
+            <h3 class="pkg-name">Foundation Presence</h3>
+            <div class="pkg-desc">Professionals, local brands, consultants, and startups who need a credible, consistent, and well-managed presence on one key platform.</div>
+            <div class="pkg-price">$250<span>/month</span></div>
+            
+            <button class="btn-select" onclick="selectStrategyPkg(1, 250)">Select Plan</button>
+            
+            <ul class="pkg-features">
+                <li><strong>1 Primary Platform</strong> (IG/FB/LI)</li>
+                <li>12 Static Creatives</li>
+                <li>3 Motion Graphics (short animations)</li>
+                <li>2 Infographics</li>
+                <li>Platform-optimized captions</li>
+                <li>Posting, Scheduling & Community Mgmt</li>
+                <li>1x Monthly Strategy Call</li>
+            </ul>
+        </div>
+
+        <!-- 2: Momentum -->
+        <div class="package-card">
+            <div class="popular-badge">Most Popular</div>
+            <span class="pkg-sub">Growth - 2 Platforms</span>
+            <h3 class="pkg-name">Momentum Growth System</h3>
+            <div class="pkg-desc">Growing brands and SMEs that need consistent visibility, engagement, and momentum across multiple platforms.</div>
+            <div class="pkg-price">$400<span>/month</span></div>
+            
+            <button class="btn-select" onclick="selectStrategyPkg(2, 400)">Select Plan</button>
+            
+            <ul class="pkg-features">
+                <li><strong>2 Platforms</strong> (e.g. IG + FB)</li>
+                <li>20 Static Creatives</li>
+                <li>6 Motion Graphics (Reels/Shorts)</li>
+                <li>4 High-Impact Infographics</li>
+                <li>Conversion-focused captions</li>
+                <li>Active Community Mgmt & Optimization</li>
+                <li>2x Strategy & Optimization Calls</li>
+            </ul>
+        </div>
+
+        <!-- 3: Authority -->
+        <div class="package-card highlight-card">
+            <span class="pkg-sub">Elite - 3 Platforms</span>
+            <h3 class="pkg-name">Authority & Scale Suite</h3>
+            <div class="pkg-desc">Established brands, funded startups, founders, and agencies that want market leadership and scale—not just presence.</div>
+            <div class="pkg-price">$600<span>/month</span></div>
+            
+            <button class="btn-select" onclick="selectStrategyPkg(3, 600)">Select Plan</button>
+            
+            <ul class="pkg-features">
+                <li><strong>3 Platforms</strong> (IG+FB+LI/X/TikTok)</li>
+                <li>30 Static Creatives</li>
+                <li>10 Advanced Motion Graphics</li>
+                <li>6 Data-Driven Infographics</li>
+                <li>AI-Assisted Trend & Content Intel</li>
+                <li>Proactive Community Mgmt</li>
+                <li>Weekly Strategy & Performance Calls</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <div class="section-header">
+        <div class="section-title">Package Value Ladder</div>
+    </div>
+    
+    <div class="table-responsive">
+        <table class="comparison-table" id="strategy-pricing-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th id="head-strat-1">Foundation</th>
+                    <th id="head-strat-2">Momentum</th>
+                    <th id="head-strat-3">Authority</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Platforms</td>
+                    <td class="col-strat-1">1</td>
+                    <td class="col-strat-2">2</td>
+                    <td class="col-strat-3">3</td>
+                </tr>
+                <tr>
+                    <td>Static Creatives</td>
+                    <td class="col-strat-1">12</td>
+                    <td class="col-strat-2">20</td>
+                    <td class="col-strat-3">30</td>
+                </tr>
+                <tr>
+                    <td>Motion Graphics</td>
+                    <td class="col-strat-1">3</td>
+                    <td class="col-strat-2">6</td>
+                    <td class="col-strat-3">10</td>
+                </tr>
+                <tr>
+                    <td>Infographics</td>
+                    <td class="col-strat-1">2</td>
+                    <td class="col-strat-2">4</td>
+                    <td class="col-strat-3">6</td>
+                </tr>
+                <tr>
+                    <td>Captions Included</td>
+                    <td class="col-strat-1">✔</td>
+                    <td class="col-strat-2">✔</td>
+                    <td class="col-strat-3">✔ (Conversion-Focused)</td>
+                </tr>
+                <tr>
+                    <td>Hashtag Research</td>
+                    <td class="col-strat-1">Basic</td>
+                    <td class="col-strat-2">Advanced</td>
+                    <td class="col-strat-3">AI-Driven</td>
+                </tr>
+                 <tr>
+                    <td>Posting & Management</td>
+                    <td class="col-strat-1">✔</td>
+                    <td class="col-strat-2">✔</td>
+                    <td class="col-strat-3">✔</td>
+                </tr>
+                <tr>
+                    <td>Community Mgmt</td>
+                    <td class="col-strat-1">Basic</td>
+                    <td class="col-strat-2">Active</td>
+                    <td class="col-strat-3">Proactive</td>
+                </tr>
+                <tr>
+                    <td>Analytics Depth</td>
+                    <td class="col-strat-1">Basic</td>
+                    <td class="col-strat-2">Advanced</td>
+                    <td class="col-strat-3">Enterprise-Level</td>
+                </tr>
+                <tr>
+                    <td>Brand Audit</td>
+                    <td class="col-strat-1">—</td>
+                    <td class="col-strat-2">✔</td>
+                    <td class="col-strat-3">✔</td>
+                </tr>
+                <tr>
+                    <td>Competitor Analysis</td>
+                    <td class="col-strat-1">—</td>
+                    <td class="col-strat-2">✔</td>
+                    <td class="col-strat-3">✔ (Gap-Based)</td>
+                </tr>
+                 <tr>
+                    <td>Strategy Calls</td>
+                    <td class="col-strat-1">Monthly</td>
+                    <td class="col-strat-2">Bi-weekly</td>
+                    <td class="col-strat-3">Weekly</td>
+                </tr>
+                <tr>
+                    <td>Content Calendar</td>
+                    <td class="col-strat-1">Basic</td>
+                    <td class="col-strat-2">Strategic</td>
+                    <td class="col-strat-3">Platform Blueprint</td>
+                </tr>
+                
+                <!-- Footer Buttons in Table -->
+                <tr>
+                    <td></td>
+                    <td class="col-strat-1">
+                        <button class="btn-select" onclick="selectStrategyPkg(1, 250)">Select</button>
+                    </td>
+                    <td class="col-strat-2">
+                        <button class="btn-select" onclick="selectStrategyPkg(2, 400)">Select</button>
+                    </td>
+                    <td class="col-strat-3">
+                        <button class="btn-select" onclick="selectStrategyPkg(3, 600)">Select</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- STICKY TOTAL BAR - STATIC UNDER TABLE -->
+    <div id="sticky-total-bar" class="sticky-total">
+        <h3>Estimated Monthly Investment</h3>
+        <div class="total-display" id="strategy-display-total">$0</div>
+        
+        <p style="margin: 10px 0; font-size: 13px;">Review your selection above, then proceed.</p>
+        <button class="btn-select" style="background:#222; max-width: 200px; margin: 0 auto; display: block;" onclick="document.querySelector('#cta-section').scrollIntoView({behavior: 'smooth'})">Continue</button>
+    </div>
+
+    <!-- COMPETITIVE EDGE / BENEFITS -->
+    <div class="elite-benefits">
+        <h3>Why This Works (Competitive Edge)</h3>
+        <div class="benefits-grid">
+            <div class="benefit-item"><span style="color: #fff;">✔</span> <strong>Foundation:</strong> Creates trust and professionalism fast using a clean design system and disciplined posting—without unnecessary complexity.</div>
+            <div class="benefit-item"><span style="color: #fff;">✔</span> <strong>Momentum:</strong> Balances creative volume + data-driven refinement, ensuring your content doesn’t just look good—it performs and improves every month.</div>
+            <div class="benefit-item"><span style="color: #fff;">✔</span> <strong>Authority:</strong> A complete content + strategy + data ecosystem. We don’t just manage accounts—we engineer authority, visibility, and ROI at scale.</div>
+            <div class="benefit-item"><span style="color: #fff;">✔</span> <strong>Premium:</strong> Includes Enterprise AI stats & high-end motion graphics to ensure content reaches the right audience.</div>
+        </div>
+        <p style="text-align: Center; margin-top: 20px; font-weight: 600;">We don’t just manage accounts—we engineer authority.</p>
+    </div>
+
+    <!-- CTA -->
+    <div id="cta-section" style="text-align: center; margin-top: 60px; padding: 40px; background: #fff; border-radius: 12px; border: 1px dashed #ccc;">
+        <h2 style="color: #b71c1c; margin-bottom: 10px;">Ready to Start Your Growth System?</h2>
+        <p style="margin-bottom: 25px;">Select a package above and book a strategy call to align our goals.</p>
+        
+        <a href="#" class="btn-select" style="display: inline-block; width: auto; padding: 15px 40px; background: #d32f2f; text-decoration: none;">Book a Strategy Call</a>
+    </div>
+
+</div>
+
+<script>
+    let currentStrategyPkg = "";
+    let strategyPrice = 0;
+
+    function selectStrategyPkg(pkgId, price) {
+        let table = document.getElementById('strategy-pricing-table');
+        
+        let alreadyActive = false;
+        let testBtn = document.querySelector(`.col-strat-${pkgId} .btn-select`);
+        if (testBtn && testBtn.classList.contains('active-btn')) {
+            alreadyActive = true;
+        }
+
+        // --- RESET UI ---
+        table.querySelectorAll('.col-highlight').forEach(el => el.classList.remove('col-highlight'));
+        table.querySelectorAll('.th-highlight').forEach(el => el.classList.remove('th-highlight'));
+        
+        document.querySelectorAll('.btn-select').forEach(btn => {
+            btn.classList.remove('active-btn');
+            // Reset text logic
+            if(btn.innerText.includes("Selected")) {
+                 // Check if it's card vs table
+                 if(btn.closest('.package-card')) btn.innerText = "Select Plan";
+                 else btn.innerText = "Select";
+            }
+        });
+
+        let stickyBar = document.getElementById('sticky-total-bar');
+        stickyBar.style.display = 'none';
+
+        if (alreadyActive) {
+            currentStrategyPkg = "";
+            strategyPrice = 0;
+            updateContentForm();
+            return;
+        }
+
+        // --- APPLY SELECTION ---
+        let th = document.getElementById(`head-strat-${pkgId}`);
+        if(th) th.classList.add('th-highlight');
+        document.querySelectorAll(`.col-strat-${pkgId}`).forEach(el => el.classList.add('col-highlight'));
+
+        let btns = document.querySelectorAll(`button[onclick="selectStrategyPkg(${pkgId}, ${price})"]`);
+        btns.forEach(btn => {
+            btn.classList.add('active-btn');
+            btn.innerText = "Selected";
+        });
+
+        if(pkgId === 1) currentStrategyPkg = "Foundation Presence Program";
+        else if(pkgId === 2) currentStrategyPkg = "Momentum Growth System";
+        else if(pkgId === 3) currentStrategyPkg = "Authority & Scale Suite";
+        
+        strategyPrice = price;
+        
+        stickyBar.style.display = 'block';
+        document.getElementById('strategy-display-total').innerText = "USD " + strategyPrice;
+
+        updateContentForm();
+    }
+
+    function updateContentForm() {
+        let finalString = "";
+        if (currentStrategyPkg) {
+            finalString = `Management Package: ${currentStrategyPkg} (USD ${strategyPrice})`;
+        }
+        
+        let formField = document.querySelector("input[name='input_text']");
+        if (formField) {
+            formField.value = finalString;
+            formField.dispatchEvent(new Event('input', { bubbles: true }));
+            formField.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+    }
+</script>
