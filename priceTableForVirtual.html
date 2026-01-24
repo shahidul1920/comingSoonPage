@@ -13,123 +13,108 @@
 
     a { text-decoration: none; color: inherit; }
 
-    /* --- TABLE CONTAINER STYLES --- */
-    .pricing-table-container {
-        font-family: 'Poppins', sans-serif;
+    /* --- TABLE STYLES (MATCHING WebDev.html) --- */
+    .comp-table-wrapper {
         overflow-x: auto;
-        margin-bottom: 40px;
-        border: 1px solid #eee;
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        background: #fff;
+        margin-top: 60px;
+        margin-bottom: 80px;
+        padding-bottom: 20px; 
     }
 
-    .pricing-table {
+    .comp-table {
         width: 100%;
         border-collapse: separate;
         border-spacing: 0;
         min-width: 700px;
+        table-layout: fixed;
+        border: 1px solid #eee; 
+        border-radius: 12px;
         background: #fff;
     }
 
-    /* --- HEADERS --- */
-    .pricing-table th {
-        background-color: #f9f9f9;
-        color: #222;
-        font-weight: 700;
-        padding: 25px 20px;
+    .comp-table th {
+        background: #f9f9f9;
+        padding: 15px;
         text-align: center;
         border-bottom: 2px solid #eee;
-        font-size: 18px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    /* First Column Header (Service Name) - Off-Red */
-    .pricing-table th:first-child {
-        text-align: left;
-        width: 25%;
-        background-color: #ffebee;
-        font-weight: 800;
-        color: #b71c1c;
         border-right: 1px solid #eee;
-    }
-
-    /* --- CELLS --- */
-    .pricing-table td {
-        padding: 18px 20px;
-        border-bottom: 1px solid #f0f0f0;
-        color: #555;
-        text-align: center;
-        vertical-align: middle;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 1.6;
-    }
-
-    /* First Column Cells (Labels) */
-    .pricing-table td:first-child {
-        text-align: left;
-        font-weight: 600;
-        color: #333;
-        background-color: #fff;
-        border-right: 1px solid #f5f5f5;
-    }
-
-    /* Vertical Dividers */
-    .pricing-table td:nth-child(2), .pricing-table th:nth-child(2),
-    .pricing-table td:nth-child(3), .pricing-table th:nth-child(3) {
-        border-right: 1px solid #f5f5f5;
-    }
-
-    /* Price Row */
-    .price-row td {
-        font-size: 22px;
+        color: #222;
+        font-size: 16px;
         font-weight: 700;
-        color: #000;
-        padding-top: 30px;
-        padding-bottom: 15px;
+        width: 23.33%;
+    }
+
+    .comp-table th:first-child {
+        text-align: left;
+        background: #fff;
+        padding-left: 25px;
+        width: 30%;
+        border-top-left-radius: 12px;
+        border-left: none;
+    }
+    
+    .comp-table th:last-child {
+        border-top-right-radius: 12px;
+        border-right: none;
+    }
+
+    .comp-table td {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        border-right: 1px solid #eee;
+        color: #555;
+        font-size: 14px;
+    }
+
+    .comp-table td:last-child {
+        border-right: none;
+    }
+
+    .comp-table tr:last-child td {
         border-bottom: none;
     }
 
-    /* --- HIGHLIGHT STYLES --- */
-    .col-selected {
-        background-color: #fff0f0 !important;
-        color: #000 !important;
-        font-weight: 500;
+    .comp-table tr:last-child td:first-child {
+        border-bottom-left-radius: 12px;
+    }
+    .comp-table tr:last-child td:last-child {
+        border-bottom-right-radius: 12px;
     }
 
-    .th-selected {
-        background-color: #d32f2f !important;
-        color: #fff !important;
-        border-bottom-color: #d32f2f !important;
+    .comp-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #333;
+        padding-left: 25px;
     }
 
     /* --- BUTTONS --- */
-    .select-btn {
-        background-color: #222;
-        color: #fff !important;
-        border: none;
-        padding: 12px 30px;
-        border-radius: 50px;
-        cursor: pointer;
-        font-family: 'Poppins', sans-serif;
+    .tier-btn {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #d32f2f;
+        background: #d32f2f;
+        color: #fff;
         font-weight: 600;
-        font-size: 13px;
-        transition: all 0.3s ease;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.2s;
+        font-family: inherit;
     }
 
-    .select-btn:hover {
-        background-color: #d32f2f;
-        transform: translateY(-2px);
+    .tier-btn:hover {
+        background: #fff;
+        color: #d32f2f;
+        border-color: #d32f2f;
     }
 
-    .select-btn.active-btn {
-        background-color: #d32f2f;
-        box-shadow: 0 5px 15px rgba(211, 47, 47, 0.4);
+    .tier-btn.active-btn {
+        background: #222 !important;
+        color: #fff !important;
+        border-color: #222 !important;
     }
+
 
     /* --- BLOG SECTION TITLE --- */
     .blog-section-title-box {
@@ -183,25 +168,25 @@
     }
 </style>
 
-<div>
-    <div class="extras">
-        <div class="extraSecHead">
-            <div class="blog-section-title-box">
-                <h2 class="blog-main-title">Virtual Event & Meeting Management Packages</h2>
-                <p class="blog-sub-title">Choose the perfect package to elevate your virtual events and meetings.</p>
-            </div>
-        </div>
-    </div>
-</div>
+<!--<div>-->
+<!--    <div class="extras">-->
+<!--        <div class="extraSecHead">-->
+<!--            <div class="blog-section-title-box">-->
+<!--                <h2 class="blog-main-title">Virtual Event & Meeting Management Packages</h2>-->
+<!--                <p class="blog-sub-title">Choose the perfect package to elevate your virtual events and meetings.</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
-<div class="pricing-table-container">
-    <table class="pricing-table" id="main-pricing-table">
+<div class="comp-table-wrapper">
+    <table class="comp-table" id="main-pricing-table">
         <thead>
             <tr>
                 <th>Feature</th>
                 <th id="head-pkg-1">Seamless Session</th>
-                <th id="head-pkg-2">Executive Boardroom™</th>
-                <th id="head-pkg-3">Full-Scale Broadcast™</th>
+                <th id="head-pkg-2">Executive Boardroom</th>
+                <th id="head-pkg-3">Full-Scale Broadcast</th>
             </tr>
         </thead>
         <tbody>
@@ -324,13 +309,13 @@
             <tr>
                 <td></td>
                 <td class="col-pkg-1">
-                    <button class="select-btn" onclick="selectTablePkg(1, 199)">Select</button>
+                    <button class="tier-btn" onclick="selectTablePkg(1, 199)">Select</button>
                 </td>
                 <td class="col-pkg-2">
-                    <button class="select-btn" onclick="selectTablePkg(2, 399)">Select</button>
+                    <button class="tier-btn" onclick="selectTablePkg(2, 399)">Select</button>
                 </td>
                 <td class="col-pkg-3">
-                    <button class="select-btn" onclick="selectTablePkg(3, 1999)">Select</button>
+                    <button class="tier-btn" onclick="selectTablePkg(3, 1999)">Select</button>
                 </td>
             </tr>
         </tbody>
@@ -347,14 +332,12 @@
     // --- 1. PACKAGE SELECTION LOGIC ---
     function selectTablePkg(pkgId, price) {
         let mainTable = document.getElementById('main-pricing-table');
-        let clickedBtn = document.querySelectorAll(`.col-pkg-${pkgId} .select-btn`)[0];
+        let clickedBtn = document.querySelectorAll(`.col-pkg-${pkgId} .tier-btn`)[0];
         
         // Check if this package is already selected (deselect functionality)
         if (clickedBtn.classList.contains('active-btn')) {
-            // Deselect - Clear highlights
-            mainTable.querySelectorAll('.col-selected').forEach(el => el.classList.remove('col-selected'));
-            mainTable.querySelectorAll('.th-selected').forEach(el => el.classList.remove('th-selected'));
-            mainTable.querySelectorAll('.select-btn').forEach(btn => {
+            // Deselect - Reset all buttons
+            mainTable.querySelectorAll('.tier-btn').forEach(btn => {
                 btn.classList.remove('active-btn');
                 btn.innerText = "Select";
             });
@@ -370,18 +353,12 @@
             return;
         }
         
-        // Visual Logic (Clear existing package highlights)
-        mainTable.querySelectorAll('.col-selected').forEach(el => el.classList.remove('col-selected'));
-        mainTable.querySelectorAll('.th-selected').forEach(el => el.classList.remove('th-selected'));
-        mainTable.querySelectorAll('.select-btn').forEach(btn => {
+        // Visual Logic (Reset all buttons first)
+        mainTable.querySelectorAll('.tier-btn').forEach(btn => {
             btn.classList.remove('active-btn');
             btn.innerText = "Select";
         });
 
-        // Add Highlight
-        document.getElementById(`head-pkg-${pkgId}`).classList.add('th-selected');
-        document.querySelectorAll(`.col-pkg-${pkgId}`).forEach(el => el.classList.add('col-selected'));
-        
         // Button State
         clickedBtn.classList.add('active-btn');
         clickedBtn.innerText = "Selected";
