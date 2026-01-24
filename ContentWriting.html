@@ -1,0 +1,552 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    /* --- GLOBAL CONTAINER --- */
+    .motion-content-wrapper {
+        font-family: 'Poppins', sans-serif;
+        width: 100%;
+        color: #333;
+    }
+
+    .fluentform .hide-me-please {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* --- HERO --- */
+    .motion-hero {
+        text-align: center;
+        margin-bottom: 60px;
+        padding: 0;
+    }
+
+    .motion-title {
+        font-size: 36px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 15px;
+    }
+
+    .motion-subtitle {
+        font-size: 20px;
+        color: #d32f2f;
+        font-weight: 600;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .motion-desc {
+        font-size: 16px;
+        color: #555;
+        max-width: 800px;
+        margin: 0 auto 30px auto;
+        line-height: 1.6;
+    }
+
+    /* --- SERVICE TIERS --- */
+    .tiers-section {
+        margin-bottom: 80px;
+        padding: 0;
+    }
+
+    .tiers-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .tier-card {
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        padding: 30px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        transition: 0.3s;
+        position: relative;
+        text-align: left;
+    }
+
+    /* Desktop View: Horizontal Section Style */
+    @media(min-width: 1024px) {
+        .tier-card {
+            grid-template-columns: 1.5fr 2fr 1fr;
+            align-items: center;
+        }
+
+        .tier-header {
+            border-right: 1px solid #eee;
+            padding-right: 20px;
+        }
+        
+        .tier-body {
+            padding: 0 20px;
+        }
+
+        .tier-footer {
+            border-left: 1px solid #eee;
+            padding-left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .tier-price {
+            margin-top: 0 !important;
+        }
+    }
+
+    .tier-card:hover {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transform: translateY(-3px);
+    }
+
+    .tier-card.featured {
+        border: 2px solid #d32f2f;
+        background: #fffbfb;
+    }
+
+    .tier-name {
+        font-size: 24px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 5px;
+    }
+
+    .tier-sub-name {
+        font-size: 14px;
+        color: #d32f2f;
+        font-weight: 600;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .tier-target {
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 0; /* Adjusted for alignment */
+    }
+
+    .tier-price {
+        font-size: 32px;
+        font-weight: 700;
+        color: #d32f2f;
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .tier-features {
+        list-style: none;
+        padding: 0 !important;
+        margin: 0 !important;
+        text-align: left;
+    }
+
+    .tier-features li {
+        margin-bottom: 8px;
+        font-size: 14px;
+        color: #555;
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .tier-features li::before {
+        content: "\2714";
+        color: #d32f2f;
+        margin-right: 10px;
+        font-weight: bold;
+        flex-shrink: 0;
+    }
+
+    .tier-btn {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #d32f2f;
+        background: #d32f2f;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .tier-btn:hover {
+        background: #fff;
+        color: #d32f2f;
+        border-color: #d32f2f;
+    }
+
+    .tier-btn.active-btn {
+        background: #222 !important;
+        color: #fff !important;
+        border-color: #222 !important;
+    }
+
+    /* --- COMPARISON TABLE --- */
+    .comp-table-wrapper {
+        overflow-x: auto;
+        margin-top: 60px;
+        padding-bottom: 0px; 
+    }
+
+    .comp-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        min-width: 700px;
+        table-layout: fixed;
+        border: 1px solid #eee; 
+        border-radius: 12px;
+        background: #fff;
+    }
+
+    .comp-table th {
+        background: #f9f9f9;
+        padding: 15px;
+        text-align: center;
+        border-bottom: 2px solid #eee;
+        border-right: 1px solid #eee;
+        color: #222;
+        font-size: 16px;
+        font-weight: 700;
+        width: 23.33%;
+    }
+
+    /* Handling borders for first and last columns */
+    .comp-table th:first-child {
+        text-align: left;
+        background: #fff;
+        padding-left: 25px;
+        width: 30%;
+        border-top-left-radius: 12px;
+        border-left: none;
+    }
+    
+    .comp-table th:last-child {
+        border-top-right-radius: 12px;
+        border-right: none;
+    }
+
+    .comp-table td {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        border-right: 1px solid #eee;
+        color: #555;
+        font-size: 14px;
+    }
+
+    .comp-table td:last-child {
+        border-right: none;
+    }
+
+    /* Remove bottom border from last row so table border takes over */
+    .comp-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    /* Rounding bottom corners */
+    .comp-table tr:last-child td:first-child {
+        border-bottom-left-radius: 12px;
+    }
+    .comp-table tr:last-child td:last-child {
+        border-bottom-right-radius: 12px;
+    }
+
+    .comp-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #333;
+        padding-left: 25px;
+    }
+
+    /* --- TOTAL BAR --- */
+    #content-total-bar {
+        display: none;
+        margin-top: 10px;
+        padding: 20px;
+        text-align: center;
+        background: #222;
+        color: #fff;
+        border-radius: 8px;
+        width: 100%;
+    }
+    
+    .total-txt {
+        font-size: 24px;
+        color: #d32f2f;
+        font-weight: 700;
+        margin-left: 10px;
+    }
+</style>
+
+<div class="motion-content-wrapper">
+
+    <!-- HERO -->
+    <div class="motion-hero">
+        <h1 class="motion-title">Content Writing Services</h1>
+        <div class="motion-subtitle">SEO-Optimized & Authority Building</div>
+        <p class="motion-desc">
+            Move from "unknown" to "industry resource" with a consistent, SEO-first publishing rhythm.
+        </p>
+    </div>
+
+    <!-- SERVICE TIERS -->
+    <div class="tiers-section">
+
+        <div class="tiers-grid">
+            <!-- Tier 1 -->
+            <div class="tier-card" id="tier-1">
+                <div class="tier-header">
+                    <div class="tier-name">The Launchpad</div>
+                    <div class="tier-sub-name">Best for: Startups and Solopreneurs building their digital footprint.</div>
+                    <div class="tier-target">Establish authority and capture early search intent with foundational, high-intent content.<br><br>Move from "unknown" to "industry resource" with a consistent, SEO-first publishing rhythm.</div>
+                </div>
+
+                <div class="tier-body">
+                    <ul class="tier-features">
+                        <li>2,500 Deep-Research Words / Month</li>
+                        <li>4 SEO-Optimized Authority Blog Posts</li>
+                        <li>5 High-Conversion Social Media Captions (LinkedIn/X)</li>
+                        <li>Semantic Keyword Research & Topic Clustering</li>
+                        <li>AI-Efficiency + Human-Polish Workflow</li>
+                        <li>Professional Plagiarism & AI-Detection Reports</li>
+                        <li>2 Rounds of Revisions per Asset</li>
+                        <li>Standard 5-Business Day Turnaround</li>
+                    </ul>
+                </div>
+
+                <div class="tier-footer">
+                    <div class="tier-price">$400</div>
+                    <button class="tier-btn" onclick="selectTier('The Launchpad', '$400')">Select Package</button>
+                </div>
+            </div>
+
+            <!-- Tier 2 -->
+            <div class="tier-card featured" id="tier-2">
+                <div class="tier-header">
+                    <div class="tier-name">The Market Leader</div>
+                    <div class="tier-sub-name">Best for: SMEs and Scaling Brands looking to dominate their niche.</div>
+                    <div class="tier-target">Outrank competitors and nurture leads with a comprehensive, multi-channel content engine.<br><br>Transform your blog into a lead-generation machine that speaks directly to your customer’s pain points.</div>
+                </div>
+
+                <div class="tier-body">
+                    <ul class="tier-features">
+                        <li>6,000 High-Impact Words / Month</li>
+                        <li>8 SEO-Optimized Articles + 2 Landing Page Refreshes</li>
+                        <li>15 Cross-Platform Social Media Snippets</li>
+                        <li>Advanced Competitor Gap Analysis</li>
+                        <li>Monthly Content Strategy & Editorial Calendar</li>
+                        <li>Dedicated Project Manager</li>
+                        <li>Unlimited Revisions (within scope)</li>
+                        <li>Priority 3-Business Day Turnaround</li>
+                    </ul>
+                </div>
+
+                <div class="tier-footer">
+                    <div class="tier-price">$600</div>
+                    <button class="tier-btn" onclick="selectTier('The Market Leader', '$600')">Select Package</button>
+                </div>
+            </div>
+
+            <!-- Tier 3 -->
+            <div class="tier-card" id="tier-3">
+                <div class="tier-header">
+                    <div class="tier-name">The Authority Titan</div>
+                    <div class="tier-sub-name">Best for: Enterprise-level brands and high-growth VC-backed companies.</div>
+                    <div class="tier-target">Total market saturation through thought leadership and data-driven storytelling.<br><br>Scale your influence globally with a dedicated content newsroom that adapts to real-time market trends.</div>
+                </div>
+
+                <div class="tier-body">
+                    <ul class="tier-features">
+                        <li>15,000 Premium Words / Month</li>
+                        <li>12 Long-Form Guides + 1 Whitepaper or Case Study</li>
+                        <li>Full Social Media Management Copy (30+ Posts)</li>
+                        <li>Quarterly Performance ROI Audits</li>
+                        <li>Direct CMS Upload & Formatting (WordPress/Webflow)</li>
+                        <li>Interlinking & Technical SEO Maintenance</li>
+                        <li>VIP Slack Channel Support</li>
+                        <li>Real-time Content Updates for Market Trends</li>
+                    </ul>
+                </div>
+
+                <div class="tier-footer">
+                    <div class="tier-price">$1,000</div>
+                    <button class="tier-btn" onclick="selectTier('The Authority Titan', '$1,000')">Select Package</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <div id="forma" class="tiers-section" style="margin-bottom: 20px;">
+        <h2 style="text-align:center; color:#222; margin-bottom:20px;">Package Comparison Table</h2>
+        <div class="comp-table-wrapper">
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Launchpad</th>
+                        <th>Market Leader</th>
+                        <th>Authority Titan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monthly Word Count</td>
+                        <td>6,000</td>
+                        <td>8,000</td>
+                        <td>15,000+</td>
+                    </tr>
+                    <tr>
+                        <td>Blog Posts / Mo</td>
+                        <td>4</td>
+                        <td>8</td>
+                        <td>12+</td>
+                    </tr>
+                    <tr>
+                        <td>SEO Optimization</td>
+                        <td>Standard</td>
+                        <td>Advanced</td>
+                        <td>Elite/Technical</td>
+                    </tr>
+                    <tr>
+                        <td>Keyword Research</td>
+                        <td>✔</td>
+                        <td>✔</td>
+                        <td>★ (Deep Audit)</td>
+                    </tr>
+                    <tr>
+                        <td>Revisions</td>
+                        <td>2 Rounds</td>
+                        <td>Unlimited</td>
+                        <td>Unlimited</td>
+                    </tr>
+                    <tr>
+                        <td>Turnaround Time</td>
+                        <td>5 Days</td>
+                        <td>3 Days</td>
+                        <td>48-Hour Priority</td>
+                    </tr>
+                    <tr>
+                        <td>Content Strategy</td>
+                        <td>Basic</td>
+                        <td>Monthly Sync</td>
+                        <td>Weekly Strategy</td>
+                    </tr>
+                    <tr>
+                        <td>CMS Publishing</td>
+                        <td>✖</td>
+                        <td>✖</td>
+                        <td>✔</td>
+                    </tr>
+                    <tr>
+                        <td>Support Level</td>
+                        <td>Email</td>
+                        <td>Dedicated PM</td>
+                        <td>Dedicated PM</td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Price</td>
+                        <td>$400</td>
+                        <td>$600</td>
+                        <td>$1,000</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button class="tier-btn" onclick="selectTier('The Launchpad', '$400')">Select Package</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('The Market Leader', '$600')">Select Package</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('The Authority Titan', '$1,000')">Select Package</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- TOTAL BAR -->
+        <div id="content-total-bar">
+            <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
+            <div id="content-summary-text" style="font-weight:600;"></div>
+            <div style="margin-top:5px;">Estimated Investment: <span class="total-txt" id="content-display-total">$0</span>
+            </div>
+            <div style="font-size:12px; color:#888; margin-top:10px;">Please scroll down to the contact form to proceed.
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    // Initialize
+    document.addEventListener("DOMContentLoaded", function () {
+        updateForm("Submitted From: ContentWriting _General Inquiry");
+    });
+
+    let currentTier = null;
+
+    function selectTier(tierName, priceAttr) {
+        // Toggle Selection
+        const isSelected = currentTier && currentTier.name === tierName;
+
+        // Reset All
+        document.querySelectorAll('.tier-btn').forEach(btn => {
+            btn.classList.remove('active-btn');
+            // Check context to determine original text
+            if(btn.innerText === "Selected") {
+                 btn.innerText = "Select Package";
+            }
+        });
+
+        if (isSelected) {
+            // Deselect
+            currentTier = null;
+            document.getElementById('content-total-bar').style.display = 'none';
+            updateForm("Submitted From: ContentWriting _General Inquiry");
+        } else {
+            // Select
+            currentTier = { name: tierName, price: priceAttr };
+
+            // Update Total Bar
+            document.getElementById('content-total-bar').style.display = 'block';
+            document.getElementById('content-summary-text').innerText = tierName;
+            document.getElementById('content-display-total').innerText = priceAttr;
+
+            // Update Form
+            updateForm(`Submitted From: ContentWriting _Selected Plan: ${tierName} (Approx. ${priceAttr})`);
+
+            // Visual Update
+            updateButtonVisuals(tierName);
+        }
+    }
+
+    function updateButtonVisuals(activeTierName) {
+        if (!activeTierName) return;
+
+        // Find buttons with matching onclick
+        const allBtns = document.querySelectorAll('.tier-btn');
+        allBtns.forEach(btn => {
+            const onclickAttr = btn.getAttribute('onclick');
+            if (onclickAttr && onclickAttr.includes("'" + activeTierName + "'")) {
+                btn.classList.add('active-btn');
+                btn.innerText = "Selected";
+            }
+        });
+    }
+
+    function updateForm(subjectText) {
+        let formField = document.querySelector("input[name='input_text']");
+
+        if (formField) {
+            formField.value = subjectText;
+            formField.dispatchEvent(new Event('change', { bubbles: true }));
+            formField.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+    }
+</script>
