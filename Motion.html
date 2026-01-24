@@ -1,0 +1,500 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    /* --- GLOBAL CONTAINER --- */
+    .motion-content-wrapper {
+        font-family: 'Poppins', sans-serif;
+        width: 100%;
+        color: #333;
+    }
+
+    .fluentform .hide-me-please {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* --- HERO --- */
+    .motion-hero {
+        text-align: center;
+        margin-bottom: 60px;
+        padding: 0;
+    }
+
+    .motion-title {
+        font-size: 36px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 15px;
+    }
+
+    .motion-subtitle {
+        font-size: 20px;
+        color: #d32f2f;
+        font-weight: 600;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .motion-desc {
+        font-size: 16px;
+        color: #555;
+        max-width: 800px;
+        margin: 0 auto 30px auto;
+        line-height: 1.6;
+    }
+
+    /* --- SERVICE TIERS --- */
+    .tiers-section {
+        margin-bottom: 80px;
+        padding: 0;
+    }
+
+    .tiers-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    @media(min-width: 1024px) {
+        .tiers-grid {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
+    .tier-card {
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        transition: 0.3s;
+        position: relative;
+    }
+
+    .tier-card:hover {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transform: translateY(-3px);
+    }
+
+    .tier-card.featured {
+        border: 2px solid #d32f2f;
+        background: #fffbfb;
+    }
+
+    .tier-name {
+        font-size: 24px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 5px;
+    }
+
+    .tier-sub-name {
+        font-size: 14px;
+        color: #d32f2f;
+        font-weight: 600;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        min-height: 42px; /* Alignment fix */
+    }
+
+    .tier-target {
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 15px;
+        min-height: 60px; /* Alignment fix */
+    }
+
+    .tier-price {
+        font-size: 32px;
+        font-weight: 700;
+        color: #d32f2f;
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    .tier-features {
+        list-style: none;
+        padding: 0 !important;
+        margin: 0 0 25px 0 !important;
+        flex-grow: 1;
+        text-align: left;
+    }
+
+    .tier-features li {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #555;
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .tier-features li::before {
+        content: "\2714";
+        color: #d32f2f;
+        margin-right: 10px;
+        font-weight: bold;
+        flex-shrink: 0;
+    }
+
+    .tier-btn {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #d32f2f;
+        background: #d32f2f;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .tier-btn:hover {
+        background: #fff;
+        color: #d32f2f;
+        border-color: #d32f2f;
+    }
+
+    .tier-btn.active-btn {
+        background: #222 !important;
+        color: #fff !important;
+        border-color: #222 !important;
+    }
+
+    /* --- COMPARISON TABLE --- */
+    .comp-table-wrapper {
+        overflow-x: auto;
+        margin-top: 60px;
+        padding-bottom: 0px; 
+    }
+
+    .comp-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        min-width: 700px;
+        table-layout: fixed;
+        border: 1px solid #eee; 
+        border-radius: 12px;
+        background: #fff;
+    }
+
+    .comp-table th {
+        background: #f9f9f9;
+        padding: 15px;
+        text-align: center;
+        border-bottom: 2px solid #eee;
+        border-right: 1px solid #eee;
+        color: #222;
+        font-size: 16px;
+        font-weight: 700;
+        width: 23.33%;
+    }
+
+    /* Handling borders for first and last columns */
+    .comp-table th:first-child {
+        text-align: left;
+        background: #fff;
+        padding-left: 25px;
+        width: 30%;
+        border-top-left-radius: 12px;
+        border-left: none;
+    }
+    
+    .comp-table th:last-child {
+        border-top-right-radius: 12px;
+        border-right: none;
+    }
+
+    .comp-table td {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        border-right: 1px solid #eee;
+        color: #555;
+        font-size: 14px;
+    }
+
+    .comp-table td:last-child {
+        border-right: none;
+    }
+
+    /* Remove bottom border from last row so table border takes over */
+    .comp-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    /* Rounding bottom corners */
+    .comp-table tr:last-child td:first-child {
+        border-bottom-left-radius: 12px;
+    }
+    .comp-table tr:last-child td:last-child {
+        border-bottom-right-radius: 12px;
+    }
+
+    .comp-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #333;
+        padding-left: 25px;
+    }
+
+    /* --- TOTAL BAR --- */
+    #motion-total-bar {
+        display: none;
+        margin-top: 10px;
+        padding: 20px;
+        text-align: center;
+        background: #222;
+        color: #fff;
+        border-radius: 8px;
+        width: 100%;
+    }
+    
+    .total-txt {
+        font-size: 24px;
+        color: #d32f2f;
+        font-weight: 700;
+        margin-left: 10px;
+    }
+</style>
+
+<div class="motion-content-wrapper">
+
+    <!-- HERO -->
+    <div class="motion-hero">
+        <h1 class="motion-title">Motion Graphics & Animation</h1>
+        <div class="motion-subtitle">Thumb-Stopping Visuals & Brand Storytelling</div>
+        <p class="motion-desc">
+            From daily social engagement to high-end campaigns, we create professional animated content that captures attention and drives results.
+        </p>
+    </div>
+
+    <!-- SERVICE TIERS -->
+    <div class="tiers-section">
+        <h2 style="text-align:center; color:#222; margin-bottom:40px;">Pricing Packages</h2>
+
+        <div class="tiers-grid">
+            <!-- Tier 1 -->
+            <div class="tier-card" id="tier-1">
+                <div class="tier-name">Essential</div>
+                <div class="tier-sub-name">Animated Content for Everyday Engagement</div>
+                <div class="tier-target">Ideal for small businesses and creators who need consistent, professional animated content for daily social media posting.</div>
+
+                <ul class="tier-features">
+                    <li>Animated Social Media Posts (IG, FB, TikTok, LinkedIn)</li>
+                    <li>Motion Captions & Text Animations</li>
+                    <li>Logo Sting Animations</li>
+                    <li>Basic Transitions & Effects</li>
+                    <li>Vertical & Square Format Delivery (9:16, 1:1, 4:5)</li>
+                    <li>Up to 2 Revision Rounds</li>
+                    <li>Export in MP4 & WebM</li>
+                    <li>Platform Optimization (Compression & Aspect Ratio Setup)</li>
+                </ul>
+
+                <div class="tier-price">$179</div>
+                <button class="tier-btn" onclick="selectTier('Essential - Everyday Engagement', '$179')">Select Package</button>
+            </div>
+
+            <!-- Tier 2 -->
+            <div class="tier-card featured" id="tier-2">
+                <div class="tier-name">Professional</div>
+                <div class="tier-sub-name">High Impact Motion for Campaigns & Ads</div>
+                <div class="tier-target">Built for brands running paid ads and marketing campaigns that demand thumb-stopping visuals and strong brand storytelling.</div>
+
+                <ul class="tier-features">
+                    <li>Social Media Ad Creatives (Meta, TikTok, YouTube, LinkedIn)</li>
+                    <li>Short-Form Promo Videos (15–60 sec)</li>
+                    <li>Custom Branded Motion Templates</li>
+                    <li>Kinetic Typography & Visual Storytelling</li>
+                    <li>Multi-platform Resizing & Cropping</li>
+                    <li>Up to 4 Revision Rounds</li>
+                    <li>MP4, WebM & High Quality Master Files</li>
+                </ul>
+
+                <div class="tier-price">$350</div>
+                <button class="tier-btn" onclick="selectTier('Professional - High Impact Motion', '$350')">Select Package</button>
+            </div>
+
+            <!-- Tier 3 -->
+            <div class="tier-card" id="tier-3">
+                <div class="tier-name">Enterprise</div>
+                <div class="tier-sub-name">Cinematic Social Motion for Market Leaders</div>
+                <div class="tier-target">A full-scale creative solution for high-volume content, influencer campaigns, and premium brand storytelling across multiple platforms.</div>
+
+                <ul class="tier-features">
+                    <li>High-end Social Video Production (2D/3D Motion Graphics)</li>
+                    <li>Influencer & UGC Ad Motion Packages</li>
+                    <li>Product Launch & Brand Story Videos</li>
+                    <li>Dedicated Creative Director & Motion Lead</li>
+                    <li>Monthly Content Batches (10–50+ Videos)</li>
+                    <li>Unlimited Revisions During Production Cycle</li>
+                    <li>Full Source File Ownership</li>
+                    <li>Custom Brand Motion System & Guidelines</li>
+                    <li>Priority Delivery & Campaign Support</li>
+                </ul>
+
+                <div class="tier-price">$800</div>
+                <button class="tier-btn" onclick="selectTier('Enterprise - Cinematic Social Motion', '$800')">Select Package</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <div id="forma" class="tiers-section" style="margin-bottom: 20px;">
+        <h2 style="text-align:center; color:#222; margin-bottom:20px;">Package Comparison Table</h2>
+        <div class="comp-table-wrapper">
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Essential / Starter</th>
+                        <th>Professional / Growth</th>
+                        <th>Enterprise / Premium</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Content Type</td>
+                        <td>Animated Posts</td>
+                        <td>Ads & Promo Videos</td>
+                        <td>Full Social Video Systems</td>
+                    </tr>
+                    <tr>
+                        <td>Video Length</td>
+                        <td>5–15 sec</td>
+                        <td>15–60 sec</td>
+                        <td>15–120+ sec</td>
+                    </tr>
+                    <tr>
+                        <td>Platforms</td>
+                        <td>IG, FB, TikTok, LinkedIn</td>
+                        <td>Meta, TikTok, YouTube, LinkedIn</td>
+                        <td>All Platforms + Influencers</td>
+                    </tr>
+                    <tr>
+                        <td>Formats</td>
+                        <td>9:16, 1:1, 4:5</td>
+                        <td>9:16, 1:1, 16:9</td>
+                        <td>All Ratios + Custom</td>
+                    </tr>
+                    <tr>
+                        <td>Revisions</td>
+                        <td>2 Rounds</td>
+                        <td>4 Rounds</td>
+                        <td>Unlimited</td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Volume</td>
+                        <td>5+ Videos</td>
+                        <td>10+ Videos</td>
+                        <td>20+ Videos</td>
+                    </tr>
+                    <tr>
+                        <td>Strategy Support</td>
+                        <td>Basic</td>
+                        <td>Campaign-Level</td>
+                        <td>Full Creative Direction</td>
+                    </tr>
+                    <tr>
+                        <td>Investment</td>
+                        <td>$179</td>
+                        <td>$350</td>
+                        <td>$800</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button class="tier-btn" onclick="selectTier('Essential - Everyday Engagement', '$179')">Select Package</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Professional - High Impact Motion', '$350')">Select Package</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Enterprise - Cinematic Social Motion', '$800')">Select Package</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- TOTAL BAR -->
+        <div id="motion-total-bar">
+            <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
+            <div id="motion-summary-text" style="font-weight:600;"></div>
+            <div style="margin-top:5px;">Estimated Investment: <span class="total-txt" id="motion-display-total">$0</span>
+            </div>
+            <div style="font-size:12px; color:#888; margin-top:10px;">Please scroll down to the contact form to proceed.
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    // Initialize
+    document.addEventListener("DOMContentLoaded", function () {
+        updateForm("Submitted From: Motion Graphics _General Inquiry");
+    });
+
+    let currentTier = null;
+
+    function selectTier(tierName, priceAttr) {
+        // Toggle Selection
+        const isSelected = currentTier && currentTier.name === tierName;
+
+        // Reset All
+        document.querySelectorAll('.tier-btn').forEach(btn => {
+            btn.classList.remove('active-btn');
+            // Check context to determine original text
+            if(btn.innerText === "Selected") {
+                 btn.innerText = "Select Package";
+            }
+        });
+
+        if (isSelected) {
+            // Deselect
+            currentTier = null;
+            document.getElementById('motion-total-bar').style.display = 'none';
+            updateForm("Submitted From: Motion Graphics _General Inquiry");
+        } else {
+            // Select
+            currentTier = { name: tierName, price: priceAttr };
+
+            // Update Total Bar
+            document.getElementById('motion-total-bar').style.display = 'block';
+            document.getElementById('motion-summary-text').innerText = tierName;
+            document.getElementById('motion-display-total').innerText = priceAttr;
+
+            // Update Form
+            updateForm(`Submitted From: Motion Graphics _Selected Plan: ${tierName} (Approx. ${priceAttr})`);
+
+            // Visual Update
+            updateButtonVisuals(tierName);
+        }
+    }
+
+    function updateButtonVisuals(activeTierName) {
+        if (!activeTierName) return;
+
+        // Find buttons with matching onclick
+        const allBtns = document.querySelectorAll('.tier-btn');
+        allBtns.forEach(btn => {
+            const onclickAttr = btn.getAttribute('onclick');
+            if (onclickAttr && onclickAttr.includes("'" + activeTierName + "'")) {
+                btn.classList.add('active-btn');
+                btn.innerText = "Selected";
+            }
+        });
+    }
+
+    function updateForm(subjectText) {
+        let formField = document.querySelector("input[name='input_text']");
+
+        if (formField) {
+            formField.value = subjectText;
+            formField.dispatchEvent(new Event('change', { bubbles: true }));
+            formField.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+    }
+</script>
