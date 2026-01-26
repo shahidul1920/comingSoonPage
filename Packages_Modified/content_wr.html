@@ -54,63 +54,39 @@
     }
 
     .tiers-grid {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr;
         gap: 30px;
+        align-items: stretch;
     }
 
-    .tier-card {
+    @media(min-width: 1024px) {
+        .tiers-grid {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
+    .package-card {
         background: #fff;
         border: 1px solid #eee;
         border-radius: 12px;
         padding: 30px;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
+        display: flex;
+        flex-direction: column;
         transition: 0.3s;
         position: relative;
         text-align: left;
     }
 
-    /* Desktop View: Horizontal Section Style */
-    @media(min-width: 1024px) {
-        .tier-card {
-            grid-template-columns: 1.5fr 2fr 1fr;
-            align-items: center;
-        }
-
-        .tier-header {
-            border-right: 1px solid #eee;
-            padding-right: 20px;
-        }
-        
-        .tier-body {
-            padding: 0 20px;
-        }
-
-        .tier-footer {
-            border-left: 1px solid #eee;
-            padding-left: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        .tier-price {
-            margin-top: 0 !important;
-        }
-    }
-
-    .tier-card:hover {
+    .package-card:hover {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         transform: translateY(-3px);
     }
 
-    .tier-card.featured {
+    /* .package-card.featured {
         border: 2px solid #d32f2f;
         background: #fffbfb;
-    }
+    } */
 
     .tier-name {
         font-size: 24px;
@@ -135,18 +111,27 @@
     }
 
     .tier-price {
-        font-size: 32px;
+        font-size: 38px;
         font-weight: 700;
-        color: #d32f2f;
-        margin: 20px 0;
-        text-align: center;
+        color: #222;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: baseline;
+    }
+
+    .tier-price span {
+        font-size: 14px;
+        font-weight: 400;
+        color: #777;
+        margin-left: 5px;
     }
 
     .tier-features {
         list-style: none;
-        padding: 0 !important;
-        margin: 0 !important;
+        padding: 25px 0 0 0 !important;
+        margin: 25px 0 0 0 !important;
         text-align: left;
+        border-top: 1px solid #eee;
     }
 
     .tier-features li {
@@ -158,7 +143,7 @@
     }
 
     .tier-features li::before {
-        content: "\2714";
+        content: "•";
         color: #d32f2f;
         margin-right: 10px;
         font-weight: bold;
@@ -303,81 +288,63 @@
 
         <div class="tiers-grid">
             <!-- Tier 1 -->
-            <div class="tier-card" id="tier-1">
-                <div class="tier-header">
-                    <div class="tier-name">Launch</div>
-                    <div class="tier-target">Establish authority and capture early search intent with foundational, high-intent content.<br><br>Move from "unknown" to "industry resource" with a consistent, SEO-first publishing rhythm.</div>
-                </div>
+            <div class="package-card" id="pkg-card-1">
+                <div class="tier-name">Launch</div>
+                <div class="tier-target">Establish authority and capture early search intent with foundational, high-intent content.</div>
 
-                <div class="tier-body">
-                    <ul class="tier-features">
-                        <li>2,500 Deep-Research Words / Month</li>
-                        <li>4 SEO-Optimized Authority Blog Posts</li>
-                        <li>5 High-Conversion Social Media Captions (LinkedIn/X)</li>
-                        <li>Semantic Keyword Research & Topic Clustering</li>
-                        <li>AI-Efficiency + Human-Polish Workflow</li>
-                        <li>Professional Plagiarism & AI-Detection Reports</li>
-                        <li>2 Rounds of Revisions per Asset</li>
-                        <li>Standard 5-Business Day Turnaround</li>
-                    </ul>
-                </div>
+                <div class="tier-price">$400<span>/month</span></div>
+                <button class="tier-btn" data-pkg-id="1" onclick="selectTier(1, 'Launch', 400)">Select Package</button>
 
-                <div class="tier-footer">
-                    <div class="tier-price">$400</div>
-                    <button class="tier-btn" onclick="selectTier('Launch', '$400')">Select Package</button>
-                </div>
+                <ul class="tier-features">
+                    <li>2,500 Deep-Research Words / Month</li>
+                    <li>4 SEO-Optimized Authority Blog Posts</li>
+                    <li>5 High-Conversion Social Media Captions (LinkedIn/X)</li>
+                    <li>Semantic Keyword Research & Topic Clustering</li>
+                    <li>AI-Efficiency + Human-Polish Workflow</li>
+                    <li>Professional Plagiarism & AI-Detection Reports</li>
+                    <li>2 Rounds of Revisions per Asset</li>
+                    <li>Standard 5-Business Day Turnaround</li>
+                </ul>
             </div>
 
             <!-- Tier 2 -->
-            <div class="tier-card" id="tier-2">
-                <div class="tier-header">
-                    <div class="tier-name">Growth</div>
-                    <div class="tier-target">Outrank competitors and nurture leads with a comprehensive, multi-channel content engine.<br><br>Transform your blog into a lead-generation machine that speaks directly to your customer’s pain points.</div>
-                </div>
+            <div class="package-card" id="pkg-card-2">
+                <div class="tier-name">Growth</div>
+                <div class="tier-target">Outrank competitors and nurture leads with a comprehensive, multi-channel content engine.</div>
 
-                <div class="tier-body">
-                    <ul class="tier-features">
-                        <li>6,000 High-Impact Words / Month</li>
-                        <li>8 SEO-Optimized Articles + 2 Landing Page Refreshes</li>
-                        <li>15 Cross-Platform Social Media Snippets</li>
-                        <li>Advanced Competitor Gap Analysis</li>
-                        <li>Monthly Content Strategy & Editorial Calendar</li>
-                        <li>Dedicated Project Manager</li>
-                        <li>Unlimited Revisions (within scope)</li>
-                        <li>Priority 3-Business Day Turnaround</li>
-                    </ul>
-                </div>
+                <div class="tier-price">$600<span>/month</span></div>
+                <button class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 600)">Select Package</button>
 
-                <div class="tier-footer">
-                    <div class="tier-price">$600</div>
-                    <button class="tier-btn" onclick="selectTier('Growth', '$600')">Select Package</button>
-                </div>
+                <ul class="tier-features">
+                    <li>6,000 High-Impact Words / Month</li>
+                    <li>8 SEO-Optimized Articles + 2 Landing Page Refreshes</li>
+                    <li>15 Cross-Platform Social Media Snippets</li>
+                    <li>Advanced Competitor Gap Analysis</li>
+                    <li>Monthly Content Strategy & Editorial Calendar</li>
+                    <li>Dedicated Project Manager</li>
+                    <li>Unlimited Revisions (within scope)</li>
+                    <li>Priority 3-Business Day Turnaround</li>
+                </ul>
             </div>
 
             <!-- Tier 3 -->
-            <div class="tier-card" id="tier-3">
-                <div class="tier-header">
-                    <div class="tier-name">Enterprise</div>
-                    <div class="tier-target">Total market saturation through thought leadership and data-driven storytelling.<br><br>Scale your influence globally with a dedicated content newsroom that adapts to real-time market trends.</div>
-                </div>
+            <div class="package-card" id="pkg-card-3">
+                <div class="tier-name">Enterprise</div>
+                <div class="tier-target">Total market saturation through thought leadership and data-driven storytelling.</div>
 
-                <div class="tier-body">
-                    <ul class="tier-features">
-                        <li>15,000 Premium Words / Month</li>
-                        <li>12 Long-Form Guides + 1 Whitepaper or Case Study</li>
-                        <li>Full Social Media Management Copy (30+ Posts)</li>
-                        <li>Quarterly Performance ROI Audits</li>
-                        <li>Direct CMS Upload & Formatting (WordPress/Webflow)</li>
-                        <li>Interlinking & Technical SEO Maintenance</li>
-                        <li>VIP Slack Channel Support</li>
-                        <li>Real-time Content Updates for Market Trends</li>
-                    </ul>
-                </div>
-
-                <div class="tier-footer">
-                    <div class="tier-price">$1,000</div>
-                    <button class="tier-btn" onclick="selectTier('Enterprise', '$1,000')">Select Package</button>
-                </div>
+                <div class="tier-price">$1,000<span>/month</span></div>
+                <button class="tier-btn" data-pkg-id="3" onclick="selectTier(3, 'Enterprise', 1000)">Select Package</button>
+                
+                <ul class="tier-features">
+                    <li>15,000 Premium Words / Month</li>
+                    <li>12 Long-Form Guides + 1 Whitepaper or Case Study</li>
+                    <li>Full Social Media Management Copy (30+ Posts)</li>
+                    <li>Quarterly Performance ROI Audits</li>
+                    <li>Direct CMS Upload & Formatting (WordPress/Webflow)</li>
+                    <li>Interlinking & Technical SEO Maintenance</li>
+                    <li>VIP Slack Channel Support</li>
+                    <li>Real-time Content Updates for Market Trends</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -416,8 +383,8 @@
                     </tr>
                     <tr>
                         <td>Keyword Research</td>
-                        <td>✔</td>
-                        <td>✔</td>
+                        <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                        <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
                         <td>★ (Deep Audit)</td>
                     </tr>
                     <tr>
@@ -440,9 +407,9 @@
                     </tr>
                     <tr>
                         <td>CMS Publishing</td>
-                        <td>✖</td>
-                        <td>✖</td>
-                        <td>✔</td>
+                        <td><span style="color: #d32f2f; font-weight: 900;">&#10005;</span></td>
+                        <td><span style="color: #d32f2f; font-weight: 900;">&#10005;</span></td>
+                        <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
                     </tr>
                     <tr>
                         <td>Support Level</td>
@@ -451,16 +418,10 @@
                         <td>Dedicated PM</td>
                     </tr>
                     <tr>
-                        <td>Monthly Price</td>
-                        <td>$400</td>
-                        <td>$600</td>
-                        <td>$1,000</td>
-                    </tr>
-                    <tr>
                         <td></td>
-                        <td><button class="tier-btn" onclick="selectTier('Launch', '$400')">Select Package</button></td>
-                        <td><button class="tier-btn" onclick="selectTier('Growth', '$600')">Select Package</button></td>
-                        <td><button class="tier-btn" onclick="selectTier('Enterprise', '$1,000')">Select Package</button></td>
+                        <td><button class="tier-btn" data-pkg-id="1" onclick="selectTier(1, 'Launch', 400)">Select Package</button></td>
+                        <td><button class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 600)">Select Package</button></td>
+                        <td><button class="tier-btn" data-pkg-id="3" onclick="selectTier(3, 'Enterprise', 1000)">Select Package</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -488,11 +449,14 @@
 
     let currentTier = null;
 
-    function selectTier(tierName, priceAttr) {
+    function selectTier(id, tierName, price) {
         // Toggle Selection
-        const isSelected = currentTier && currentTier.name === tierName;
+        const isSelected = currentTier && currentTier.id === id;
+        const card = document.getElementById(`pkg-card-${id}`);
 
-        // Reset All
+        // Reset All Cards & Buttons
+        document.querySelectorAll('.package-card').forEach(c => c.style.borderColor = '#eee');
+        
         document.querySelectorAll('.tier-btn').forEach(btn => {
             btn.classList.remove('active-btn');
             // Check context to determine original text
@@ -508,33 +472,25 @@
             updateForm("Submitted From: ContentWriting _General Inquiry");
         } else {
             // Select
-            currentTier = { name: tierName, price: priceAttr };
+            currentTier = { id, name: tierName, price: price };
+
+            // Highlight Card
+            if(card) card.style.borderColor = '#222';
+
+             // Highlight All Buttons for this Package
+            document.querySelectorAll(`.tier-btn[data-pkg-id="${id}"]`).forEach(btn => {
+                btn.classList.add('active-btn');
+                btn.innerText = "Selected";
+            });
 
             // Update Total Bar
             document.getElementById('content-total-bar').style.display = 'block';
             document.getElementById('content-summary-text').innerText = tierName;
-            document.getElementById('content-display-total').innerText = priceAttr;
+            document.getElementById('content-display-total').innerText = "$" + price;
 
             // Update Form
-            updateForm(`Submitted From: ContentWriting _Selected Plan: ${tierName} (Approx. ${priceAttr})`);
-
-            // Visual Update
-            updateButtonVisuals(tierName);
+            updateForm(`Submitted From: ContentWriting _Selected Plan: ${tierName} ($${price})`);
         }
-    }
-
-    function updateButtonVisuals(activeTierName) {
-        if (!activeTierName) return;
-
-        // Find buttons with matching onclick
-        const allBtns = document.querySelectorAll('.tier-btn');
-        allBtns.forEach(btn => {
-            const onclickAttr = btn.getAttribute('onclick');
-            if (onclickAttr && onclickAttr.includes("'" + activeTierName + "'")) {
-                btn.classList.add('active-btn');
-                btn.innerText = "Selected";
-            }
-        });
     }
 
     function updateForm(subjectText) {
