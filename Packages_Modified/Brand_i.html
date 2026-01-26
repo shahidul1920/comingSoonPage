@@ -1,0 +1,603 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    /* --- GLOBAL CONTAINER --- */
+    .brand-identity-wrapper {
+        font-family: 'Poppins', sans-serif;
+        width: 100%;
+        color: #333;
+    }
+    .fluentform .hide-me-please {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* --- HERO & INTRO --- */
+    .brand-hero {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .brand-title { font-size: 32px; font-weight: 700; color: #222; margin-bottom: 15px; }
+    .brand-subtitle { font-size: 16px; color: #666; max-width: 700px; margin: 0 auto 30px auto; line-height: 1.6; }
+    
+    .cta-btn-main {
+        background-color: #222;
+        color: #fff;
+        padding: 15px 35px;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-block;
+        transition: 0.3s;
+    }
+    .cta-btn-main:hover { background-color: #d32f2f; color: #fff; transform: translateY(-2px); }
+
+    /* --- EDUCATIONAL GRID --- */
+    .edu-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+    @media(min-width: 768px) { .edu-grid { grid-template-columns: 1fr 1fr; } }
+
+    .edu-box h3 { font-size: 35px; color: #d32f2f; margin-bottom: 15px; }
+    .edu-box ul { list-style: none; padding: 0 !important; margin: 15px 0 0 0 !important; text-align: left; }
+    .edu-box ul li { margin-bottom: 10px; color: #555; display: flex; align-items: flex-start; }
+    .edu-box ul li span { margin-right: 10px; line-height: 1.6; }
+
+    /* --- PROCESS STEPS --- */
+    .process-section { margin-bottom: 40px; text-align: center; }
+    .process-steps {
+        display: flex;
+        flex-wrap: nowrap; /* Forced one row */
+        justify-content: center; /* Center on large screens */
+        justify-content: flex-start; /* Start on mobile so first item is visible */
+        align-items: center;
+        gap: 15px;
+        margin-top: 30px;
+        overflow-x: auto; /* Allow scrolling on mobile */
+        padding-bottom: 10px; /* Space for scrollbar */
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Center the flex content if it fits the screen */
+    @media(min-width: 900px) {
+        .process-steps { justify-content: center; }
+    }
+
+    .step-item {
+        background: #f9f9f9;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #eee;
+        font-weight: 600;
+        position: relative;
+        white-space: nowrap; /* Keep text on one line if preferred, or remove to wrap text inside card */
+        flex-shrink: 0; /* Don't squash the cards */
+        font-size: 14px;
+    }
+    .step-arrow { 
+        display: inline-block; 
+        color: #ccc; 
+        flex-shrink: 0; 
+        font-size: 18px;
+    }
+
+    /* --- PACKAGES GRID --- */
+    .package-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        margin: 40px 0 60px;
+        align-items: stretch;
+    }
+
+    @media (max-width: 900px) {
+        .package-grid {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    .package-card {
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        border-radius: 16px;
+        padding: 30px;
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .package-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        border-color: #d32f2f;
+    }
+
+    .highlight-card {
+        /* Styles removed */
+    }
+    
+    .highlight-card:hover {
+        /* Styles removed */
+    }
+
+    .popular-badge {
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #d32f2f;
+        color: #fff;
+        padding: 5px 20px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .pkg-name {
+        font-size: 20px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 5px;
+    }
+
+    .pkg-sub {
+        font-size: 20px;
+        font-weight: 700;
+        color: #b71c1c;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        display: block;
+    }
+
+    .pkg-desc {
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 20px;
+        line-height: 1.5;
+        min-height: 42px; /* Alignment */
+    }
+
+    .pkg-cost { /* Keeping pkg-cost for backward compatibility but using pkg-price styles */
+        font-size: 38px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: baseline;
+    }
+
+    .pkg-cost span {
+        font-size: 14px;
+        font-weight: 400;
+        color: #777;
+        margin-left: 5px;
+    }
+
+    .pkg-timeline {
+        /* Adjusted to fit new style if needed, or keeping plain */
+        font-size: 12px; 
+        text-transform: uppercase; 
+        color: #888; 
+        font-weight: 600; 
+        margin-bottom: 20px; 
+        display: block;
+    }
+
+    .pkg-features {
+        list-style: none;
+        padding: 0;
+        margin: 25px 0;
+        border-top: 1px solid #eee;
+        padding-top: 25px;
+    }
+    
+    .pkg-features li {
+        margin-bottom: 12px;
+        font-size: 14px;
+        color: #555;
+    }
+    
+    .pkg-features li::before {
+        content: "•";
+        color: #d32f2f;
+        font-weight: bold;
+        margin-right: 10px;
+        line-height: 1.5;
+        position: static;
+    }
+    .pkg-features ul { /* Handle nested ul if any */
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    /* --- COMPARISON TABLE --- */
+    .comp-table-wrapper {
+        overflow-x: auto;
+        margin-top: 10px;
+        margin-bottom: 0px;
+        padding-bottom: 10px; 
+    }
+
+    .comp-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        min-width: 700px;
+        table-layout: fixed;
+        border: 1px solid #eee; 
+        border-radius: 12px;
+        background: #fff;
+    }
+
+    .comp-table th {
+        background: #f9f9f9;
+        padding: 15px;
+        text-align: center;
+        border-bottom: 2px solid #eee;
+        border-right: 1px solid #eee;
+        color: #222;
+        font-size: 16px;
+        font-weight: 700;
+        width: 23.33%;
+    }
+
+    /* Handling borders for first and last columns */
+    .comp-table th:first-child {
+        text-align: left;
+        background: #fff;
+        padding-left: 25px;
+        width: 30%;
+        border-top-left-radius: 12px;
+        border-left: none;
+    }
+    
+    .comp-table th:last-child {
+        border-top-right-radius: 12px;
+        border-right: none;
+    }
+
+    .comp-table td {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        border-right: 1px solid #eee;
+        color: #555;
+        font-size: 14px;
+    }
+
+    .comp-table td:last-child {
+        border-right: none;
+    }
+
+    /* Remove bottom border from last row so table border takes over */
+    .comp-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    /* Rounding bottom corners */
+    .comp-table tr:last-child td:first-child {
+        border-bottom-left-radius: 12px;
+    }
+    .comp-table tr:last-child td:last-child {
+        border-bottom-right-radius: 12px;
+    }
+
+    .comp-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #333;
+        padding-left: 25px;
+    }
+    /* .check { color: #d32f2f; font-weight: bold; } */
+    /* .cross { color: #ccc; } */
+
+    /* --- BUTTONS --- */
+    .tier-btn {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #d32f2f;
+        background: #d32f2f;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.2s;
+        font-family: inherit;
+    }
+    
+    /* Selection Highlighting */
+    .col-highlight {
+        background-color: #fff5f5 !important;
+        color: #000;
+    }
+    .th-highlight {
+        background-color: #d32f2f !important;
+        color: #fff !important;
+        border-color: #d32f2f !important;
+    }
+
+    .tier-btn:hover {
+        background: #fff;
+        color: #d32f2f;
+        border-color: #d32f2f;
+    }
+
+    .tier-btn.active-btn {
+        background: #222 !important;
+        color: #fff !important;
+        border-color: #222 !important;
+    }
+
+    /* --- TOTAL BAR --- */
+    #brand-total-bar {
+        display: none;
+        margin-top: 30px;
+        padding: 20px;
+        text-align: center;
+        background: #222;
+        color: #fff;
+        border-radius: 8px;
+        animation: slideUp 0.3s ease-out;
+    }
+    @keyframes slideUp { from { transform: translateY(10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .total-txt { font-size: 18px; font-weight: 700; color: #d32f2f; margin-left: 10px; }
+
+</style>
+
+<div class="brand-identity-wrapper">
+
+    <!-- HERO SECTION -->
+    <!-- <div class="brand-hero">
+        <h1 class="brand-title">Build a Brand That Looks Trustworthy, Consistent & Memorable</h1>
+        <p class="brand-subtitle">Strategic Brand Identity Design for startups, growing businesses & established brands—crafted to communicate clarity, credibility, and confidence.</p>
+        <a href="#consultation-booking" class="cta-btn-main">Book a Brand Consultation</a>
+    </div> -->
+
+    <!-- DELIVERABLES SECTION -->
+    <div style="text-align:left; margin-bottom:60px; padding:30px; border:1px dashed #d32f2f; border-radius:12px; background:#fdfdfd;">
+        <h3 style="margin-bottom:15px; color:#222;">Deliverables & What Clients Receive</h3>
+        <ul style="padding:0; margin:0; list-style:none;">
+             <li style="margin-bottom:8px;">✔ Editable source files</li>
+             <li style="margin-bottom:8px;">✔ Print-ready & web-ready formats</li>
+             <li style="margin-bottom:8px;">✔ Brand guideline document</li>
+             <li style="margin-bottom:8px;">✔ Ownership rights</li>
+             <li>✔ Post-delivery support (optional)</li>
+        </ul>
+    </div>
+
+    <!-- PACKAGES SECTION -->
+    <div id="brand-packages">
+        
+        <div class="package-grid">
+            
+            <!-- Package 1 -->
+            <div class="package-card" id="pkg-card-1">
+                <span class="pkg-sub">Launch Package</span>
+                <div class="pkg-desc">Quick-start identity for rapid launches and MVP brands. Best for startups & solo-preneurs.</div>
+                <div class="pkg-cost">$200</div>
+                <!-- <span class="pkg-timeline">Timeline: 7–10 Business Days</span> -->
+                
+                <button class="tier-btn" data-pkg-id="1" onclick="selectBrandPkg(1, 'Launch', 200)">Select Plan</button>
+                
+                <ul class="pkg-features">
+                    <li><strong>Primary Logo:</strong> 3 Concepts + 2 rounds refinement</li>
+                    <li><strong>Secondary Logos:</strong> Vertical, horizontal & monochrome</li>
+                    <li><strong>Color Palette:</strong> HEX/RGB/CMYK codes</li>
+                    <li><strong>Typography:</strong> Header & Body fonts</li>
+                    <li><strong>Favicon:</strong> Branded app/browser icon</li>
+                </ul>
+            </div>
+
+            <!-- Package 2 -->
+            <div class="package-card highlight-card" id="pkg-card-2">
+                <span class="pkg-sub">Growth Package</span>
+                <div class="pkg-desc">Comprehensive visual system for growing businesses. Reformation or scaling.</div>
+                <div class="pkg-cost">$350</div>
+                <!-- <span class="pkg-timeline">Timeline: 3–4 Weeks</span> -->
+                
+                <button class="tier-btn" data-pkg-id="2" onclick="selectBrandPkg(2, 'Growth', 350)">Select Plan</button>
+                
+                <ul class="pkg-features">
+                    <li><strong>Everything in "Launch"</strong></li>
+                    <li><strong>Brand Book:</strong> 15-page standard guidelines</li>
+                    <li><strong>Social Media Kit:</strong> Avatars, Highlights, 3 Templates</li>
+                    <li><strong>Stationery Suite:</strong> Card, Letterhead, Envelope</li>
+                    <li><strong>Brand Pattern:</strong> Custom background/texture</li>
+                </ul>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="package-card" id="pkg-card-3">
+                <span class="pkg-sub">Enterprise Package</span>
+                <div class="pkg-desc">Full scale identity for established scaling brands requiring deep strategy.</div>
+                <div class="pkg-cost">$500</div>
+                <!-- <span class="pkg-timeline">Timeline: 4+ Weeks</span> -->
+                
+                <button class="tier-btn" data-pkg-id="3" onclick="selectBrandPkg(3, 'Enterprise', 500)">Select Plan</button>
+                
+                <ul class="pkg-features">
+                     <li><strong>Everything in "Growth"</strong></li>
+                    <li><strong>Master Guidelines:</strong> 40+ Pages detailed</li>
+                    <li><strong>Deep Strategy:</strong> Brand Voice & Audit</li>
+                    <li><strong>Packaging / UI Kit:</strong> Custom Add-ons</li>
+                    <li><strong>Revisions:</strong> Unlimited Rounds</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <h3 style="text-align:center; margin-bottom:20px;">Feature Comparison</h3>
+    <div class="comp-table-wrapper">
+        <table class="comp-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Launch</th>
+                    <th>Growth</th>
+                    <th>Enterprise</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Primary & Secondary Logos</td>
+                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                </tr>
+                <tr>
+                    <td>Color & Typography</td>
+                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                </tr>
+                <tr>
+                    <td>Favicon / App Icon</td>
+                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                </tr>
+                <tr>
+                    <td>Brand Guidelines</td>
+                    <td><span class="cross">❌</span></td>
+                    <td>Standard (15p)</td>
+                    <td>Master (40p+)</td>
+                </tr>
+                <tr>
+                    <td>Social Media Kit</td>
+                    <td><span class="cross">❌</span></td>
+                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span> (Priority)</td>
+                </tr>
+                <tr>
+                    <td>Print Stationery</td>
+                    <td><span class="cross">❌</span></td>
+                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                </tr>
+                <tr>
+                    <td>Brand Voice & Strategy</td>
+                    <td><span class="cross">❌</span></td>
+                    <td><span class="cross">❌</span></td>
+                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span> (Deep)</td>
+                </tr>
+                <tr>
+                    <td>Packaging & UI Kit</td>
+                    <td><span class="cross">❌</span></td>
+                    <td><span class="cross">❌</span></td>
+                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                </tr>
+                <tr>
+                    <td>Revisions</td>
+                    <td>2 Rounds</td>
+                    <td>3 Rounds</td>
+                    <td>Unlimited</td>
+                </tr>
+                <!-- Button Row -->
+                <tr style="border-bottom:none;">
+                    <td></td>
+                    <td style="padding:20px;"><button class="tier-btn" data-pkg-id="1" onclick="selectBrandPkg(1, 'Launch', 200)">Select Plan</button></td>
+                    <td style="padding:20px;"><button class="tier-btn" data-pkg-id="2" onclick="selectBrandPkg(2, 'Growth', 350)">Select Plan</button></td>
+                    <td style="padding:20px;"><button class="tier-btn" data-pkg-id="3" onclick="selectBrandPkg(3, 'Enterprise', 500)">Select Plan</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PROCESS SECTION -->
+    <div class="process-section">
+        <h3 style="color:#222; margin-bottom:20px;">How the Process Works</h3>
+        <div class="process-steps">
+            <div class="step-item">Discovery & Consultation</div> <span class="step-arrow">→</span>
+            <div class="step-item">Strategy & Direction</div> <span class="step-arrow">→</span>
+            <div class="step-item">Design Development</div> <span class="step-arrow">→</span>
+            <div class="step-item">Feedback & Refinement</div> <span class="step-arrow">→</span>
+            <div class="step-item">Final Delivery</div>
+        </div>
+    </div>
+
+    <!-- TOTAL BAR -->
+    <div id="brand-total-bar">
+        <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
+        <div id="brand-summary-text" style="font-weight:600;"></div>
+        <div style="margin-top:5px;">Total Investment: <span class="total-txt" id="brand-display-total">$0</span></div>
+        <div style="font-size:12px; color:#888; margin-top:10px;">Please scroll down to the contact form to proceed.</div>
+    </div>
+
+</div>
+
+<script>
+    let currentBrandPkg = null;
+
+    function selectBrandPkg(id, name, price) {
+        const isSelected = currentBrandPkg && currentBrandPkg.id === id;
+        const card = document.getElementById(`pkg-card-${id}`);
+
+        // Reset All Cards & Buttons
+        document.querySelectorAll('.brand-card').forEach(c => c.style.borderColor = '#eee');
+        document.querySelectorAll('.featured').forEach(c => c.style.borderColor = '#d32f2f'); 
+        
+        document.querySelectorAll('.tier-btn').forEach(b => {
+            b.classList.remove('active-btn');
+            b.innerText = "Select Plan";
+        });
+
+        if (isSelected) {
+            // Deselect
+            currentBrandPkg = null;
+            document.getElementById('brand-total-bar').style.display = 'none';
+        } else {
+            // Select
+            currentBrandPkg = { id, name, price };
+            
+            // Highlight Card
+            if(card) card.style.borderColor = '#222';
+
+            // Highlight All Buttons for this Package
+            document.querySelectorAll(`.tier-btn[data-pkg-id="${id}"]`).forEach(btn => {
+                btn.classList.add('active-btn');
+                btn.innerText = "Selected";
+            });
+
+            // Update Total Bar
+            document.getElementById('brand-total-bar').style.display = 'block';
+            document.getElementById('brand-summary-text').innerText = name;
+            document.getElementById('brand-display-total').innerText = "$" + price;
+        }
+
+        updateBrandForm();
+    }
+
+    function updateBrandForm() {
+        let finalString = "";
+        
+        if (currentBrandPkg) {
+            finalString = `Submitted From: Brand Identity _${currentBrandPkg.name} ($${currentBrandPkg.price})`;
+        }
+        
+        // Update Fluent Form Hidden Field
+        let formField = document.querySelector("input[name='input_text']");
+
+        if (formField) {
+            formField.value = finalString;
+            formField.dispatchEvent(new Event('change', { bubbles: true }));
+            formField.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+    }
+</script>
