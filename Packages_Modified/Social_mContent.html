@@ -419,32 +419,19 @@
         color: #d32f2f;
     }
 
-    /* Sticky Total - NOW STATIC */
-    .sticky-total {
-        position: static;
-        background: #fff;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 5px 30px rgba(0,0,0,0.15);
-        text-align: center;
-        border: 2px solid #d32f2f;
-        margin-top: 30px;
+    /* --- TOTAL BAR --- */
+    #social-total-bar {
         display: none;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
+        margin-top: 30px;
+        padding: 20px;
+        text-align: center;
+        background: #222;
+        color: #fff;
+        border-radius: 8px;
+        animation: slideUp 0.3s ease-out;
     }
-
-    .total-display {
-        font-size: 28px;
-        font-weight: 700;
-        color: #d32f2f;
-    }
-    
-    @keyframes slideUp {
-        from { transform: translateY(50px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-    }
+    @keyframes slideUp { from { transform: translateY(10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .total-txt { font-size: 18px; font-weight: 700; color: #d32f2f; margin-left: 10px; }
 
     /* Selection Highlighting */
     .col-highlight {
@@ -480,13 +467,13 @@
     
     <div class="package-grid">
         <!-- 1: Launch -->
-        <div class="package-card">
+        <div class="package-card" id="pkg-card-1">
             <span class="pkg-sub">Launch Package</span>
             <h3 class="pkg-name">Launch Visual Kit</h3>
             <div class="pkg-desc">Professional visuals to establish credibility and consistency fast.</div>
             <div class="pkg-price">$200<span>/month</span></div>
             
-            <button class="tier-btn" onclick="selectContentPkg(1, 200)">Select Plan</button>
+            <button class="tier-btn" data-pkg-id="1" onclick="selectTier(1, 'Launch', 200)">Select Plan</button>
             
             <ul class="pkg-features">
                 <li><strong>12 Static Creatives</strong></li>
@@ -500,13 +487,13 @@
         </div>
 
         <!-- 2: Growth -->
-        <div class="package-card">
+        <div class="package-card" id="pkg-card-2">
             <span class="pkg-sub">Growth Package</span>
             <h3 class="pkg-name">Growth Content System</h3>
             <div class="pkg-desc">A structured content engine designed to improve engagement and recall.</div>
             <div class="pkg-price">$350<span>/month</span></div>
             
-            <button class="tier-btn" onclick="selectContentPkg(2, 350)">Select Plan</button>
+            <button class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 350)">Select Plan</button>
             
             <ul class="pkg-features">
                 <li><strong>20 Static Creatives</strong></li>
@@ -520,13 +507,13 @@
         </div>
 
         <!-- 3: Enterprise -->
-        <div class="package-card highlight-card">
+        <div class="package-card" id="pkg-card-3">
             <span class="pkg-sub">Enterprise Package</span>
             <h3 class="pkg-name">Authority Content Library</h3>
             <div class="pkg-desc">A premium library built to position your brand as an industry authority.</div>
             <div class="pkg-price">$500<span>/month</span></div>
             
-            <button class="tier-btn" onclick="selectContentPkg(3, 500)">Select Plan</button>
+            <button class="tier-btn" data-pkg-id="3" onclick="selectTier(3, 'Enterprise', 500)">Select Plan</button>
             
             <ul class="pkg-features">
                 <li><strong>30 Static Creatives</strong></li>
@@ -615,26 +602,27 @@
                 <tr>
                     <td></td>
                     <td class="col-content-1">
-                        <button class="tier-btn" onclick="selectContentPkg(1, 200)">Select</button>
+                        <button class="tier-btn" data-pkg-id="1" onclick="selectTier(1, 'Launch', 200)">Select</button>
                     </td>
                     <td class="col-content-2">
-                        <button class="tier-btn" onclick="selectContentPkg(2, 350)">Select</button>
+                        <button class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 350)">Select</button>
                     </td>
                     <td class="col-content-3">
-                        <button class="tier-btn" onclick="selectContentPkg(3, 500)">Select</button>
+                        <button class="tier-btn" data-pkg-id="3" onclick="selectTier(3, 'Enterprise', 500)">Select</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-    <!-- STICKY TOTAL BAR - NOW STATIC UNDER TABLE -->
-    <div id="sticky-total-bar" class="sticky-total">
-        <h3>Estimated Monthly Content Investment</h3>
-        <div class="total-display" id="content-display-total">$0</div>
-        
-        <p style="margin: 10px 0; font-size: 13px;">Review your selection above, then proceed to the next step.</p>
-        <button class="tier-btn" style="background:#222; max-width: 200px; margin: 0 auto; display: block;" onclick="document.querySelector('#cta-section').scrollIntoView({behavior: 'smooth'})">Continue</button>
+    <!-- TOTAL BAR -->
+    <div id="social-total-bar">
+        <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
+        <div id="social-summary-text" style="font-weight:600;"></div>
+        <div style="margin-top:5px;">Total Investment: <span class="total-txt" id="social-display-total">$0</span>
+        </div>
+        <div style="font-size:12px; color:#888; margin-top:10px;">Please scroll down to the contact form to proceed.
+        </div>
     </div>
 
     <!-- WHY ELITE & HOW IT WORKS -->
@@ -690,71 +678,66 @@
 </div>
 
 <script>
-    let currentContentPkg = "";
-    let contentPrice = 0;
+    let currentTier = null;
 
-    function selectContentPkg(pkgId, price) {
-        let table = document.getElementById('content-pricing-table');
+    function selectTier(id, tierName, price) {
+        // Toggle Selection
+        const isSelected = currentTier && currentTier.id === id;
+        const card = document.getElementById(`pkg-card-${id}`);
+
+        // Reset All Cards & Buttons
+        document.querySelectorAll('.package-card').forEach(c => c.style.borderColor = '#eee');
+        // document.querySelectorAll('.highlight-card').forEach(c => c.style.borderColor = '#d32f2f'); 
         
-        let alreadyActive = false;
-        // Check if any button for this package is active
-        let testBtn = document.querySelector(`.tier-btn[onclick*="selectContentPkg(${pkgId}"]`);
-        if (testBtn && testBtn.classList.contains('active-btn')) {
-            alreadyActive = true;
-        }
-
-        // --- RESET UI (Reset all buttons) ---
         document.querySelectorAll('.tier-btn').forEach(btn => {
             btn.classList.remove('active-btn');
-            // Reset text logic
-            if(btn.innerText.includes("Selected")) {
-                 // Check if it's card vs table by context, or just default to Plan/Select
-                 if(btn.closest('.package-card')) btn.innerText = "Select Plan";
-                 else btn.innerText = "Select";
+            // Check context to determine original text
+            if(btn.closest('table')) {
+                btn.innerText = "Select";
+            } else {
+                 btn.innerText = "Select Plan";
             }
         });
 
-        let stickyBar = document.getElementById('sticky-total-bar');
-        stickyBar.style.display = 'none';
+        if (isSelected) {
+            // Deselect
+            currentTier = null;
+            document.getElementById('social-total-bar').style.display = 'none';
+        } else {
+            // Select
+            currentTier = { id, name: tierName, price: price };
 
-        if (alreadyActive) {
-            currentContentPkg = "";
-            contentPrice = 0;
-            updateContentForm();
-            return;
+            // Highlight Card
+            if(card) card.style.borderColor = '#222';
+
+             // Highlight All Buttons for this Package
+            document.querySelectorAll(`.tier-btn[data-pkg-id="${id}"]`).forEach(btn => {
+                btn.classList.add('active-btn');
+                btn.innerText = "Selected";
+            });
+
+            // Update Total Bar
+            document.getElementById('social-total-bar').style.display = 'block';
+            document.getElementById('social-summary-text').innerText = tierName;
+            document.getElementById('social-display-total').innerText = "$" + price;
         }
 
-        // --- APPLY SELECTION ---
-        // Activate buttons for this package
-        let btns = document.querySelectorAll(`button[onclick="selectContentPkg(${pkgId}, ${price})"]`);
-        btns.forEach(btn => {
-            btn.classList.add('active-btn');
-            btn.innerText = "Selected";
-        });
-
-        if(pkgId === 1) currentContentPkg = "Launch Visual Kit";
-        else if(pkgId === 2) currentContentPkg = "Growth Content System";
-        else if(pkgId === 3) currentContentPkg = "Authority Content Library";
-        
-        contentPrice = price;
-        
-        stickyBar.style.display = 'block';
-        document.getElementById('content-display-total').innerText = "$" + contentPrice;
-
-        updateContentForm();
+        updateForm();
     }
 
-    function updateContentForm() {
-        let finalString = "";
-        if (currentContentPkg) {
-            finalString = `Content Package: ${currentContentPkg} ($${contentPrice})`;
-        }
+    function updateForm() {
+        let finalString = "Submitted From: Social Content _General Inquiry";
         
+        if (currentTier) {
+            finalString = `Submitted From: Social Content _${currentTier.name} ($${currentTier.price})`;
+        }
+
         let formField = document.querySelector("input[name='input_text']");
+
         if (formField) {
             formField.value = finalString;
-            formField.dispatchEvent(new Event('input', { bubbles: true }));
             formField.dispatchEvent(new Event('change', { bubbles: true }));
+            formField.dispatchEvent(new Event('input', { bubbles: true }));
         }
     }
 </script>

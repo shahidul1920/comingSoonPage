@@ -66,7 +66,7 @@
         }
     }
 
-    .tier-card {
+    .package-card {
         background: #fff;
         border: 1px solid #eee;
         border-radius: 12px;
@@ -77,12 +77,12 @@
         position: relative;
     }
 
-    .tier-card:hover {
+    .package-card:hover {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         transform: translateY(-3px);
     }
 
-    .tier-card.featured {
+    .package-card.featured {
         border: 2px solid #d32f2f;
         background: #fffbfb;
     }
@@ -293,12 +293,12 @@
 
         <div class="tiers-grid">
             <!-- Tier 1 -->
-            <div class="tier-card" id="tier-1">
+            <div class="package-card" id="pkg-card-1">
                 <div class="tier-name">Launch</div>
                 <div class="tier-target">Ideal for social posts, blogs, and simple brand storytelling. Fast delivery with a clean design that keeps your message clear and on-brand.</div>
 
                 <div class="tier-price">$120<span>/month</span></div>
-                <button class="tier-btn" onclick="selectTier('Launch', '$120')">Select Package</button>
+                <button class="tier-btn" data-pkg-id="1" onclick="selectTier(1, 'Launch', 120)">Select Package</button>
 
                 <ul class="tier-features">
                     <li>1 Custom infographic (vertical or square)</li>
@@ -312,12 +312,12 @@
             </div>
 
             <!-- Tier 2 -->
-            <div class="tier-card" id="tier-2">
+            <div class="package-card" id="pkg-card-2">
                 <div class="tier-name">Growth</div>
                 <div class="tier-target">Designed for lead generation, marketing campaigns, and premium content. Combines strong visuals with structured storytelling to boost engagement and conversions.</div>
 
                 <div class="tier-price">$200<span>/month</span></div>
-                <button class="tier-btn" onclick="selectTier('Growth', '$200')">Select Package</button>
+                <button class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 200)">Select Package</button>
 
                 <ul class="tier-features">
                     <li>1 Advanced custom infographic</li>
@@ -331,12 +331,12 @@
             </div>
 
             <!-- Tier 3 -->
-            <div class="tier-card" id="tier-3">
+            <div class="package-card" id="pkg-card-3">
                 <div class="tier-name">Enterprise</div>
                 <div class="tier-target">Built for corporate communication, reports, and high-stakes presentations. A complete visual system that ensures consistency, clarity, and premium brand presence.</div>
 
                 <div class="tier-price">$350<span>/month</span></div>
-                <button class="tier-btn" onclick="selectTier('Enterprise', '$350')">Select Package</button>
+                <button class="tier-btn" data-pkg-id="3" onclick="selectTier(3, 'Enterprise', 350)">Select Package</button>
 
                 <ul class="tier-features">
                     <li>Full infographic system (main + micro-visuals)</li>
@@ -420,16 +420,10 @@
                         <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
                     </tr>
                     <tr>
-                        <td>Price (USD)</td>
-                        <td>$120</td>
-                        <td>$200</td>
-                        <td>$350</td>
-                    </tr>
-                    <tr>
                         <td></td>
-                        <td><button class="tier-btn" onclick="selectTier('Launch', '$120')">Select Package</button></td>
-                        <td><button class="tier-btn" onclick="selectTier('Growth', '$200')">Select Package</button></td>
-                        <td><button class="tier-btn" onclick="selectTier('Enterprise', '$350')">Select Package</button></td>
+                        <td><button class="tier-btn" data-pkg-id="1" onclick="selectTier(1, 'Launch', 120)">Select Package</button></td>
+                        <td><button class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 200)">Select Package</button></td>
+                        <td><button class="tier-btn" data-pkg-id="3" onclick="selectTier(3, 'Enterprise', 350)">Select Package</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -439,7 +433,7 @@
         <div id="infographic-total-bar">
             <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
             <div id="infographic-summary-text" style="font-weight:600;"></div>
-            <div style="margin-top:5px;">Estimated Investment: <span class="total-txt" id="infographic-display-total">$0</span>
+            <div style="margin-top:5px;">Total Investment: <span class="total-txt" id="infographic-display-total">$0</span>
             </div>
             <div style="font-size:12px; color:#888; margin-top:10px;">Please scroll down to the contact form to proceed.
             </div>
@@ -457,60 +451,57 @@
 
     let currentTier = null;
 
-    function selectTier(tierName, priceAttr) {
+    function selectTier(id, tierName, price) {
         // Toggle Selection
-        const isSelected = currentTier && currentTier.name === tierName;
+        const isSelected = currentTier && currentTier.id === id;
+        const card = document.getElementById(`pkg-card-${id}`);
 
-        // Reset All
+        // Reset All Cards & Buttons
+        document.querySelectorAll('.package-card').forEach(c => c.style.borderColor = '#eee');
+        // document.querySelectorAll('.highlight-card').forEach(c => c.style.borderColor = '#d32f2f'); 
+        
         document.querySelectorAll('.tier-btn').forEach(btn => {
             btn.classList.remove('active-btn');
-            // Check context to determine original text
-            if(btn.innerText === "Selected") {
-                 btn.innerText = "Select Package";
-            }
+            btn.innerText = "Select Package";
         });
 
         if (isSelected) {
             // Deselect
             currentTier = null;
             document.getElementById('infographic-total-bar').style.display = 'none';
-            updateForm("Submitted From: Infographics _General Inquiry");
         } else {
             // Select
-            currentTier = { name: tierName, price: priceAttr };
+            currentTier = { id, name: tierName, price: price };
+
+            // Highlight Card
+            if(card) card.style.borderColor = '#222';
+
+             // Highlight All Buttons for this Package
+            document.querySelectorAll(`.tier-btn[data-pkg-id="${id}"]`).forEach(btn => {
+                btn.classList.add('active-btn');
+                btn.innerText = "Selected";
+            });
 
             // Update Total Bar
             document.getElementById('infographic-total-bar').style.display = 'block';
             document.getElementById('infographic-summary-text').innerText = tierName;
-            document.getElementById('infographic-display-total').innerText = priceAttr;
-
-            // Update Form
-            updateForm(`Submitted From: Infographics _Selected Plan: ${tierName} (Approx. ${priceAttr})`);
-
-            // Visual Update
-            updateButtonVisuals(tierName);
+            document.getElementById('infographic-display-total').innerText = "$" + price;
         }
+
+        updateForm();
     }
 
-    function updateButtonVisuals(activeTierName) {
-        if (!activeTierName) return;
+    function updateForm() {
+        let finalString = "Submitted From: Infographics _General Inquiry";
+        
+        if (currentTier) {
+            finalString = `Submitted From: Infographics _${currentTier.name} ($${currentTier.price})`;
+        }
 
-        // Find buttons with matching onclick
-        const allBtns = document.querySelectorAll('.tier-btn');
-        allBtns.forEach(btn => {
-            const onclickAttr = btn.getAttribute('onclick');
-            if (onclickAttr && onclickAttr.includes("'" + activeTierName + "'")) {
-                btn.classList.add('active-btn');
-                btn.innerText = "Selected";
-            }
-        });
-    }
-
-    function updateForm(subjectText) {
         let formField = document.querySelector("input[name='input_text']");
 
         if (formField) {
-            formField.value = subjectText;
+            formField.value = finalString;
             formField.dispatchEvent(new Event('change', { bubbles: true }));
             formField.dispatchEvent(new Event('input', { bubbles: true }));
         }

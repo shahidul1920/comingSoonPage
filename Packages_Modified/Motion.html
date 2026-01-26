@@ -66,7 +66,7 @@
         }
     }
 
-    .tier-card {
+    .package-card {
         background: #fff;
         border: 1px solid #eee;
         border-radius: 12px;
@@ -77,12 +77,12 @@
         position: relative;
     }
 
-    .tier-card:hover {
+    .package-card:hover {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         transform: translateY(-3px);
     }
 
-    .tier-card.featured {
+    .package-card.featured {
         border: 2px solid #d32f2f;
         background: #fffbfb;
     }
@@ -293,12 +293,12 @@
 
         <div class="tiers-grid">
             <!-- Tier 1 -->
-            <div class="tier-card" id="tier-1">
+            <div class="package-card" id="pkg-card-1">
                 <div class="tier-name">Launch</div>
                 <div class="tier-target">Ideal for small businesses and creators who need consistent, professional animated content for daily social media posting.</div>
 
                 <div class="tier-price">$179<span>/month</span></div>
-                <button class="tier-btn" onclick="selectTier('Launch', '$179')">Select Package</button>
+                <button class="tier-btn" data-pkg-id="1" onclick="selectTier(1, 'Launch', 179)">Select Package</button>
                 
                 <ul class="tier-features">
                     <li>Animated Social Media Posts (IG, FB, TikTok, LinkedIn)</li>
@@ -313,12 +313,12 @@
             </div>
 
             <!-- Tier 2 -->
-            <div class="tier-card" id="tier-2">
+            <div class="package-card" id="pkg-card-2">
                 <div class="tier-name">Growth</div>
                 <div class="tier-target">Built for brands running paid ads and marketing campaigns that demand thumb-stopping visuals and strong brand storytelling.</div>
 
                 <div class="tier-price">$350<span>/month</span></div>
-                <button class="tier-btn" onclick="selectTier('Growth', '$350')">Select Package</button>
+                <button class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 350)">Select Package</button>
                 
                 <ul class="tier-features">
                     <li>Social Media Ad Creatives (Meta, TikTok, YouTube, LinkedIn)</li>
@@ -332,12 +332,12 @@
             </div>
 
             <!-- Tier 3 -->
-            <div class="tier-card" id="tier-3">
+            <div class="package-card" id="pkg-card-3">
                 <div class="tier-name">Enterprise</div>
                 <div class="tier-target">A full-scale creative solution for high-volume content, influencer campaigns, and premium brand storytelling across multiple platforms.</div>
 
                 <div class="tier-price">$800<span>/month</span></div>
-                <button class="tier-btn" onclick="selectTier('Enterprise', '$800')">Select Package</button>
+                <button class="tier-btn" data-pkg-id="3" onclick="selectTier(3, 'Enterprise', 800)">Select Package</button>
                 
                 <ul class="tier-features">
                     <li>High-end Social Video Production (2D/3D Motion Graphics)</li>
@@ -411,16 +411,10 @@
                         <td>Full Creative Direction</td>
                     </tr>
                     <tr>
-                        <td>Investment</td>
-                        <td>$179</td>
-                        <td>$350</td>
-                        <td>$800</td>
-                    </tr>
-                    <tr>
                         <td></td>
-                        <td><button class="tier-btn" onclick="selectTier('Launch', '$179')">Select Package</button></td>
-                        <td><button class="tier-btn" onclick="selectTier('Growth', '$350')">Select Package</button></td>
-                        <td><button class="tier-btn" onclick="selectTier('Enterprise', '$800')">Select Package</button></td>
+                        <td><button class="tier-btn" data-pkg-id="1" onclick="selectTier(1, 'Launch', 179)">Select Package</button></td>
+                        <td><button class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 350)">Select Package</button></td>
+                        <td><button class="tier-btn" data-pkg-id="3" onclick="selectTier(3, 'Enterprise', 800)">Select Package</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -430,7 +424,7 @@
         <div id="motion-total-bar">
             <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
             <div id="motion-summary-text" style="font-weight:600;"></div>
-            <div style="margin-top:5px;">Estimated Investment: <span class="total-txt" id="motion-display-total">$0</span>
+            <div style="margin-top:5px;">Total Investment: <span class="total-txt" id="motion-display-total">$0</span>
             </div>
             <div style="font-size:12px; color:#888; margin-top:10px;">Please scroll down to the contact form to proceed.
             </div>
@@ -448,60 +442,57 @@
 
     let currentTier = null;
 
-    function selectTier(tierName, priceAttr) {
+    function selectTier(id, tierName, price) {
         // Toggle Selection
-        const isSelected = currentTier && currentTier.name === tierName;
+        const isSelected = currentTier && currentTier.id === id;
+        const card = document.getElementById(`pkg-card-${id}`);
 
-        // Reset All
+        // Reset All Cards & Buttons
+        document.querySelectorAll('.package-card').forEach(c => c.style.borderColor = '#eee');
+        // document.querySelectorAll('.highlight-card').forEach(c => c.style.borderColor = '#d32f2f'); 
+        
         document.querySelectorAll('.tier-btn').forEach(btn => {
             btn.classList.remove('active-btn');
-            // Check context to determine original text
-            if(btn.innerText === "Selected") {
-                 btn.innerText = "Select Package";
-            }
+            btn.innerText = "Select Package";
         });
 
         if (isSelected) {
             // Deselect
             currentTier = null;
             document.getElementById('motion-total-bar').style.display = 'none';
-            updateForm("Submitted From: Motion Graphics _General Inquiry");
         } else {
             // Select
-            currentTier = { name: tierName, price: priceAttr };
+            currentTier = { id, name: tierName, price: price };
+
+            // Highlight Card
+            if(card) card.style.borderColor = '#222';
+
+             // Highlight All Buttons for this Package
+            document.querySelectorAll(`.tier-btn[data-pkg-id="${id}"]`).forEach(btn => {
+                btn.classList.add('active-btn');
+                btn.innerText = "Selected";
+            });
 
             // Update Total Bar
             document.getElementById('motion-total-bar').style.display = 'block';
             document.getElementById('motion-summary-text').innerText = tierName;
-            document.getElementById('motion-display-total').innerText = priceAttr;
-
-            // Update Form
-            updateForm(`Submitted From: Motion Graphics _Selected Plan: ${tierName} (Approx. ${priceAttr})`);
-
-            // Visual Update
-            updateButtonVisuals(tierName);
+            document.getElementById('motion-display-total').innerText = "$" + price;
         }
+
+        updateForm();
     }
 
-    function updateButtonVisuals(activeTierName) {
-        if (!activeTierName) return;
+    function updateForm() {
+        let finalString = "Submitted From: Motion Graphics _General Inquiry";
+        
+        if (currentTier) {
+            finalString = `Submitted From: Motion Graphics _${currentTier.name} ($${currentTier.price})`;
+        }
 
-        // Find buttons with matching onclick
-        const allBtns = document.querySelectorAll('.tier-btn');
-        allBtns.forEach(btn => {
-            const onclickAttr = btn.getAttribute('onclick');
-            if (onclickAttr && onclickAttr.includes("'" + activeTierName + "'")) {
-                btn.classList.add('active-btn');
-                btn.innerText = "Selected";
-            }
-        });
-    }
-
-    function updateForm(subjectText) {
         let formField = document.querySelector("input[name='input_text']");
 
         if (formField) {
-            formField.value = subjectText;
+            formField.value = finalString;
             formField.dispatchEvent(new Event('change', { bubbles: true }));
             formField.dispatchEvent(new Event('input', { bubbles: true }));
         }
