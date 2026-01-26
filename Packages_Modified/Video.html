@@ -76,6 +76,36 @@
         transition: 0.3s;
         position: relative;
     }
+/*
+    /* Desktop View: Horizontal Section Style */
+    /* @media(min-width: 1024px) {
+        .tier-card {
+            grid-template-columns: 1.5fr 2fr 1fr;
+            align-items: center;
+        }
+
+        .tier-header {
+            border-right: 1px solid #eee;
+            padding-right: 20px;
+        }
+        
+        .tier-body {
+            padding: 0 20px;
+        }
+
+        .tier-footer {
+            border-left: 1px solid #eee;
+            padding-left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .tier-price {
+            margin-top: 0 !important;
+        }
+    } */
 
     .tier-card:hover {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -83,8 +113,8 @@
     }
 
     .tier-card.featured {
-        border: 2px solid #d32f2f;
-        background: #fffbfb;
+       /* border: 2px solid #d32f2f;
+        background: #fffbfb; */
     }
 
     .tier-name {
@@ -101,14 +131,12 @@
         margin-bottom: 10px;
         text-transform: uppercase;
         letter-spacing: 1px;
-        min-height: 42px; /* Alignment fix */
     }
 
     .tier-target {
         font-size: 13px;
         color: #666;
-        margin-bottom: 15px;
-        min-height: 60px; /* Alignment fix */
+        margin-bottom: 15px; /* Adjusted for alignment */
     }
 
     .tier-price {
@@ -138,7 +166,7 @@
     }
 
     .tier-features li {
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         font-size: 14px;
         color: #555;
         display: flex;
@@ -151,7 +179,7 @@
         margin-right: 10px;
         font-weight: bold;
         flex-shrink: 0;
-        line-height: 1.5; /* Match text line height */
+        line-height: 1.5;
     }
 
     .tier-btn {
@@ -257,7 +285,7 @@
     }
 
     /* --- TOTAL BAR --- */
-    #infographic-total-bar {
+    #video-total-bar {
         display: none;
         margin-top: 10px;
         padding: 20px;
@@ -280,10 +308,10 @@
 
     <!-- HERO -->
     <!--<div class="motion-hero">-->
-    <!--    <h1 class="motion-title">Professional Infographics & Data Visualization</h1>-->
-    <!--    <div class="motion-subtitle">Turn Complex Data into Visual Stories</div>-->
+    <!--    <h1 class="motion-title">Video Editing Services</h1>-->
+    <!--    <div class="motion-subtitle">Professional Growth & Elite Content Partner</div>-->
     <!--    <p class="motion-desc">-->
-    <!--        Boost engagement and authority with custom-designed infographics that simplify your message and capture your audience.-->
+    <!--        Scale your brand with professional video editing. From vlogs to high-end productions, we help you launch consistently and look professional.-->
     <!--    </p>-->
     <!--</div>-->
 
@@ -295,57 +323,59 @@
             <!-- Tier 1 -->
             <div class="tier-card" id="tier-1">
                 <div class="tier-name">Launch</div>
-                <div class="tier-target">Ideal for social posts, blogs, and simple brand storytelling. Fast delivery with a clean design that keeps your message clear and on-brand.</div>
+                <div class="tier-target">Designed to help you launch consistently and look professional without the overhead of a full production team.<br><br><strong>Best for:</strong> YouTubers, solo podcasters, and early-stage brands building consistency.</div>
 
-                <div class="tier-price">$120<span>/month</span></div>
-                <button class="tier-btn" onclick="selectTier('Launch', '$120')">Select Package</button>
-
+                <div class="tier-price">$299<span>/month</span></div>
+                <button class="tier-btn" onclick="selectTier('Launch', '$299')">Select Package</button>
+                
                 <ul class="tier-features">
-                    <li>1 Custom infographic (vertical or square)</li>
-                    <li>Up to 2 revision rounds</li>
-                    <li>Social media & web-optimized formats (JPG/PNG)</li>
-                    <li>Basic data visualization (charts, icons, timelines)</li>
-                    <li>Brand colors & typography integration</li>
-                    <li>Source file (AI/PSD)</li>
-                    <li>48-hour delivery</li>
+                    <li>Vlog Editing: Clean pacing, smooth cuts, storytelling flow, and basic color grading</li>
+                    <li>Video Ads / GFX: Branded lower thirds, simple CTAs, and logo animations</li>
+                    <li>Thumbnail Design: 2 custom high-CTR thumbnails per month</li>
+                    <li>Video Editing: Audio cleanup, dead air removal, and multi-cam syncing</li>
+                    <li>Short-Form Content: 6 vertical clips for Reels, TikTok, or YouTube Shorts</li>
+                    <li>Delivery Time: 3–5 business days per project</li>
+                    <li>Support: Email support</li>
                 </ul>
             </div>
 
             <!-- Tier 2 -->
             <div class="tier-card" id="tier-2">
                 <div class="tier-name">Growth</div>
-                <div class="tier-target">Designed for lead generation, marketing campaigns, and premium content. Combines strong visuals with structured storytelling to boost engagement and conversions.</div>
+                <div class="tier-target">Our most popular package — built for creators and businesses who want a content engine, not just editing.<br><br><strong>Best for:</strong> Coaches, agencies, SaaS brands, and content-driven businesses.</div>
 
-                <div class="tier-price">$200<span>/month</span></div>
-                <button class="tier-btn" onclick="selectTier('Growth', '$200')">Select Package</button>
-
+                <div class="tier-price">$799<span>/month</span></div>
+                <button class="tier-btn" onclick="selectTier('Growth', '$799')">Select Package</button>
+                
                 <ul class="tier-features">
-                    <li>1 Advanced custom infographic</li>
-                    <li>Up to 4 revision rounds</li>
-                    <li>Custom illustrations & branded icon setting</li>
-                    <li>Multi-platform exports (Web, Social, Print-ready PDF)</li>
-                    <li>Advanced data visualization (process flows, comparisons, dashboards)</li>
-                    <li>Editable source files (AI/PSD)</li>
-                    <li>24–36 hour delivery</li>
+                    <li>Vlog Editing: Advanced storytelling, cinematic pacing, and brand color grading</li>
+                    <li>Video Ads / GFX: Custom motion graphics, animated CTAs, and branded transitions</li>
+                    <li>Thumbnail Design: 6 conversion-optimized thumbnails/month</li>
+                    <li>Content Editing: Full multi-cam editing, pro audio mastering, show intros/outros (up to 4 episodes/month)</li>
+                    <li>Short-Form Content: 16 viral-optimized vertical clips/month</li>
+                    <li>Content Strategy: Monthly repurposing plan and posting framework</li>
+                    <li>Delivery Time: 2–3 business days per project</li>
+                    <li>Support: Priority email + WhatsApp</li>
                 </ul>
             </div>
 
             <!-- Tier 3 -->
             <div class="tier-card" id="tier-3">
                 <div class="tier-name">Enterprise</div>
-                <div class="tier-target">Built for corporate communication, reports, and high-stakes presentations. A complete visual system that ensures consistency, clarity, and premium brand presence.</div>
+                <div class="tier-target">This is a retainer-based growth partnership — we handle everything so you can focus on creating and selling.<br><br><strong>Best for:</strong> High-ticket brands, influencers, and businesses scaling aggressively.</div>
 
-                <div class="tier-price">$350<span>/month</span></div>
-                <button class="tier-btn" onclick="selectTier('Enterprise', '$350')">Select Package</button>
-
+                <div class="tier-price">$1,999<span>/month</span></div>
+                <button class="tier-btn" onclick="selectTier('Enterprise', '$1,999')">Select Package</button>
+                
                 <ul class="tier-features">
-                    <li>Full infographic system (main + micro-visuals)</li>
-                    <li>Unlimited revisions</li>
-                    <li>Custom illustration pack & visual style guide</li>
-                    <li>Motion-ready design layers (for animation/video teams)</li>
-                    <li>Advanced visual storytelling & UX layout planning</li>
-                    <li>Full source + export kit (Web, Print, Presentation, Video-ready)</li>
-                    <li>Priority delivery (12–24 hours)</li>
+                    <li>Vlog & Brand Video Production: Cinematic editing, advanced storytelling, and premium color grading</li>
+                    <li>High-End Motion Graphics: Custom animated branding, lower thirds, sales CTAs, and ad creatives</li>
+                    <li>Thumbnail System: Unlimited thumbnails with A/B testing frameworks</li>
+                    <li>Content Production: End-to-end production (editing, mastering, formatting, and publishing support)</li>
+                    <li>Short-Form Domination: 40+ viral-ready vertical clips/month</li>
+                    <li>Content Strategy & Analytics: Performance reports, growth consulting, and audience insights</li>
+                    <li>Turnaround Time: 24–48 hours per project</li>
+                    <li>Support: Dedicated account manager + direct communication channel</li>
                 </ul>
             </div>
         </div>
@@ -366,80 +396,80 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Number of Designs</td>
-                        <td>5</td>
-                        <td>10</td>
-                        <td>20</td>
+                        <td>Vlog Editing</td>
+                        <td>Basic</td>
+                        <td>Advanced</td>
+                        <td>Cinematic / Premium</td>
                     </tr>
                     <tr>
-                        <td>Revisions</td>
-                        <td>2</td>
-                        <td>4</td>
+                        <td>Motion Graphics & CTAs</td>
+                        <td>Standard</td>
+                        <td>Custom</td>
+                        <td>High-End / Branded</td>
+                    </tr>
+                    <tr>
+                        <td>Thumbnails</td>
+                        <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                        <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                        <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Video Production</td>
+                        <td>3/month</td>
+                        <td>8/month</td>
+                        <td>15/month</td>
+                    </tr>
+                    <tr>
+                        <td>Video Length</td>
+                        <td>30min/max</td>
+                        <td>30min/max</td>
                         <td>Unlimited</td>
                     </tr>
                     <tr>
-                        <td>Custom Illustrations</td>
-                        <td><span class="cross">❌</span></td>
-                        <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                        <td><span style="color: #116b15; font-weight: 900;">&#10003;</span> (Advanced Pack)</td>
+                        <td>Short-Form Clips</td>
+                        <td>6/month</td>
+                        <td>16/month</td>
+                        <td>40+/month</td>
                     </tr>
                     <tr>
-                        <td>Data Visualization</td>
-                        <td>Basic</td>
-                        <td>Advanced</td>
-                        <td>Enterprise-Level</td>
+                        <td>Strategy & Consulting</td>
+                        <td>—</td>
+                        <td>Monthly Planning</td>
+                        <td>Regular Planning</td>
                     </tr>
                     <tr>
-                        <td>Source Files</td>
-                        <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                        <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                        <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                        <td>Turnaround Time</td>
+                        <td>3–5 Days</td>
+                        <td>2–3 Days</td>
+                        <td>24–48 Hours</td>
                     </tr>
                     <tr>
-                        <td>Motion Graphics Ready</td>
-                        <td><span class="cross">❌</span></td>
-                        <td><span class="cross">❌</span></td>
-                        <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                    </tr>
-                    <tr>
-                        <td>Multi-Format Exports</td>
-                        <td><span class="cross">❌</span></td>
-                        <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                        <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                    </tr>
-                    <tr>
-                        <td>Visual Style Guide</td>
-                        <td><span class="cross">❌</span></td>
-                        <td><span class="cross">❌</span></td>
-                        <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                    </tr>
-                    <tr>
+                        <td>Support Level</td>
+                        <td>Email</td>
                         <td>Priority Support</td>
-                        <td><span class="cross">❌</span></td>
-                        <td><span class="cross">❌</span></td>
-                        <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                        <td>Dedicated Manager</td>
                     </tr>
                     <tr>
-                        <td>Price (USD)</td>
-                        <td>$120</td>
-                        <td>$200</td>
-                        <td>$350</td>
+                        <td>Monthly Price</td>
+                        <td>$497</td>
+                        <td>$997</td>
+                        <td>$2,497</td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td><button class="tier-btn" onclick="selectTier('Launch', '$120')">Select Package</button></td>
-                        <td><button class="tier-btn" onclick="selectTier('Growth', '$200')">Select Package</button></td>
-                        <td><button class="tier-btn" onclick="selectTier('Enterprise', '$350')">Select Package</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Launch', '$497')">Select Package</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Growth', '$997')">Select Package</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Enterprise', '$2,497')">Select Package</button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
         <!-- TOTAL BAR -->
-        <div id="infographic-total-bar">
+        <div id="video-total-bar">
             <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
-            <div id="infographic-summary-text" style="font-weight:600;"></div>
-            <div style="margin-top:5px;">Estimated Investment: <span class="total-txt" id="infographic-display-total">$0</span>
+            <div id="video-summary-text" style="font-weight:600;"></div>
+            <div style="margin-top:5px;">Estimated Investment: <span class="total-txt" id="video-display-total">$0</span>
             </div>
             <div style="font-size:12px; color:#888; margin-top:10px;">Please scroll down to the contact form to proceed.
             </div>
@@ -452,7 +482,7 @@
 <script>
     // Initialize
     document.addEventListener("DOMContentLoaded", function () {
-        updateForm("Submitted From: Infographics _General Inquiry");
+        updateForm("Submitted From: VideoEditing _General Inquiry");
     });
 
     let currentTier = null;
@@ -473,19 +503,19 @@
         if (isSelected) {
             // Deselect
             currentTier = null;
-            document.getElementById('infographic-total-bar').style.display = 'none';
-            updateForm("Submitted From: Infographics _General Inquiry");
+            document.getElementById('video-total-bar').style.display = 'none';
+            updateForm("Submitted From: VideoEditing _General Inquiry");
         } else {
             // Select
             currentTier = { name: tierName, price: priceAttr };
 
             // Update Total Bar
-            document.getElementById('infographic-total-bar').style.display = 'block';
-            document.getElementById('infographic-summary-text').innerText = tierName;
-            document.getElementById('infographic-display-total').innerText = priceAttr;
+            document.getElementById('video-total-bar').style.display = 'block';
+            document.getElementById('video-summary-text').innerText = tierName;
+            document.getElementById('video-display-total').innerText = priceAttr;
 
             // Update Form
-            updateForm(`Submitted From: Infographics _Selected Plan: ${tierName} (Approx. ${priceAttr})`);
+            updateForm(`Submitted From: VideoEditing _Selected Plan: ${tierName} (Approx. ${priceAttr})`);
 
             // Visual Update
             updateButtonVisuals(tierName);
