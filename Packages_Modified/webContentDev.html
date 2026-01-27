@@ -1,0 +1,551 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    /* --- GLOBAL CONTAINER --- */
+    .web-content-wrapper {
+        font-family: 'Poppins', sans-serif;
+        width: 100%;
+        color: #333;
+    }
+
+    .fluentform .hide-me-please {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* --- HERO --- */
+    .web-hero {
+        text-align: center;
+        margin-bottom: 60px;
+        padding: 40px 0px;
+    }
+    .web-title { font-size: 36px; font-weight: 700; color: #222; margin-bottom: 10px; }
+    .web-subtitle { font-size: 20px; color: #d32f2f; font-weight: 600; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;}
+    .web-desc { font-size: 16px; color: #555; max-width: 750px; margin: 0 auto 30px auto; line-height: 1.6; }
+    .web-intro-bold { font-weight: 700; color: #222; margin-top: 10px; display: block; }
+
+    .cta-btn-main {
+        background-color: #d32f2f;
+        color: #fff;
+        padding: 10px 25px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 700;
+        font-size: 16px;
+        display: inline-block;
+        transition: 0.3s;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .cta-btn-main:hover { background-color: #b71c1c; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+
+    /* --- WHAT YOU GET (FULL-STACK) --- */
+    .stack-section { margin-bottom: 30px; padding: 0 20px; }
+    .stack-header { text-align: center; margin-bottom: 40px; }
+    
+    .stack-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    @media(min-width: 768px) { .stack-grid { grid-template-columns: 1fr 1fr; } }
+    
+    .stack-card {
+        background: #fdfdfd;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        padding: 30px;
+        transition: 0.3s;
+        position: relative;
+    }
+    .stack-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-color: #d32f2f; }
+    
+    .stack-title { font-size: 20px; font-weight: 700; color: #222; margin-bottom: 5px; }
+    .stack-sub { font-size: 14px; color: #d32f2f; font-weight: 600; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
+    
+    .stack-list { list-style: none; padding: 0; margin: 0; }
+    .stack-list li { 
+        margin-bottom: 10px; 
+        color: #555; 
+        font-size: 14px; 
+        position: relative;
+        padding-left: 20px;
+    }
+    .stack-list li::before {
+        content: "•";
+        color: #d32f2f;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+        font-size: 18px;
+        line-height: 1;
+    }
+
+    /* --- SERVICE TIERS --- */
+    .tiers-section {
+        margin-bottom: 80px;
+        padding: 0;
+    }
+
+    .tiers-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        align-items: stretch;
+    }
+
+    @media(min-width: 1024px) {
+        .tiers-grid {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
+    .package-card {
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        transition: 0.3s;
+        position: relative;
+    }
+
+    .package-card:hover {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transform: translateY(-3px);
+    }
+
+    .package-card.featured {
+        border: 2px solid #d32f2f;
+        background: #fffbfb;
+    }
+
+    .tier-name {
+        font-size: 24px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 5px;
+    }
+
+    .tier-target {
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 15px;
+        min-height: 60px; /* Alignment fix */
+    }
+    
+    .tier-outcome { 
+        font-size: 13px; 
+        background: #f4f4f4; 
+        padding: 10px; 
+        border-radius: 6px; 
+        margin-bottom: 20px; 
+        color: #444; 
+        border-left: 3px solid #d32f2f; 
+    }
+
+    .tier-price {
+        font-size: 38px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: baseline;
+    }
+
+    .tier-price span {
+        font-size: 14px;
+        font-weight: 400;
+        color: #777;
+        margin-left: 5px;
+    }
+
+    .tier-features {
+        list-style: none;
+        padding: 0;
+        margin: 25px 0;
+        border-top: 1px solid #eee;
+        padding-top: 25px;
+        flex-grow: 1;
+        text-align: left;
+    }
+
+    .tier-features li {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #555;
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .tier-features li::before {
+        content: "\2022";
+        color: #d32f2f;
+        margin-right: 10px;
+        font-weight: bold;
+        flex-shrink: 0;
+        line-height: 1.5;
+    }
+
+    .tier-btn {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #d32f2f;
+        background: #d32f2f;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .tier-btn:hover {
+        background: #fff;
+        color: #d32f2f;
+        border-color: #d32f2f;
+    }
+
+    .tier-btn.active-btn {
+        background: #222 !important;
+        color: #fff !important;
+        border-color: #222 !important;
+    }
+
+    /* --- COMPARISON TABLE --- */
+    .comp-table-wrapper {
+        overflow-x: auto;
+        margin-top: 60px;
+        padding-bottom: 0px; 
+    }
+
+    .comp-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        min-width: 700px;
+        table-layout: fixed;
+        border: 1px solid #eee; 
+        border-radius: 12px;
+        background: #fff;
+    }
+
+    .comp-table th {
+        background: #f9f9f9;
+        padding: 15px;
+        text-align: center;
+        border-bottom: 2px solid #eee;
+        border-right: 1px solid #eee;
+        color: #222;
+        font-size: 16px;
+        font-weight: 700;
+        width: 23.33%;
+    }
+
+    /* Handling borders for first and last columns */
+    .comp-table th:first-child {
+        text-align: left;
+        background: #fff;
+        padding-left: 25px;
+        width: 30%;
+        border-top-left-radius: 12px;
+        border-left: none;
+    }
+    
+    .comp-table th:last-child {
+        border-top-right-radius: 12px;
+        border-right: none;
+    }
+
+    .comp-table td {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        border-right: 1px solid #eee;
+        color: #555;
+        font-size: 14px;
+    }
+
+    .comp-table td:last-child {
+        border-right: none;
+    }
+
+    /* Remove bottom border from last row so table border takes over */
+    .comp-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    /* Rounding bottom corners */
+    .comp-table tr:last-child td:first-child {
+        border-bottom-left-radius: 12px;
+    }
+    .comp-table tr:last-child td:last-child {
+        border-bottom-right-radius: 12px;
+    }
+
+    .comp-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #333;
+        padding-left: 25px;
+    }
+
+</style>
+
+<div class="web-content-wrapper">
+
+    <!-- HERO -->
+    <!--<div class="web-hero">-->
+    <!--    <h1 class="web-title">Web Content Development & Management</h1>-->
+    <!--    <div class="web-subtitle">Peace of Mind. A Vibrant Online Presence. Consistently Delivered.</div>-->
+    <!--    <p class="web-desc">-->
+    <!--        Your website should never feel “finished.” It should evolve, engage, and perform every single day. We manage your visuals, content, and technology so your brand stays fresh, professional, and conversion-ready while you focus on growing your business.-->
+    <!--        <span class="web-intro-bold">Visuals, Writing, and Maintenance.</span>-->
+    <!--    </p>-->
+    <!--    <a href="#formCustom" class="cta-btn-main">Book a Free Content Audit</a>-->
+    <!--</div>-->
+
+    <!-- WHAT YOU GET -->
+    <div class="stack-section">
+        <!--<div class="stack-header">-->
+        <!--    <h2 style="color:#222; margin-bottom:10px;">What You Get (Full-Stack Growth System)</h2>-->
+        <!--</div>-->
+        
+        <div class="stack-grid">
+            <div class="stack-card">
+                <div class="stack-title">Content</div>
+                <div class="stack-sub">Traffic & Authority</div>
+                <ul class="stack-list">
+                    <li>SEO-optimized blog posts and page content</li>
+                    <li>Search intent mapping (informational, commercial, transactional)</li>
+                    <li>Content refreshes to keep rankings and relevance high</li>
+                </ul>
+            </div>
+            
+            <div class="stack-card">
+                <div class="stack-title">Design</div>
+                <div class="stack-sub">Engagement & Trust</div>
+                <ul class="stack-list">
+                    <li>Custom visual assets and branded creatives</li>
+                    <li>High-conversion graphics for blogs, landing pages, and social sharing</li>
+                    <li>Motion and visual direction for a better on-page experience</li>
+                </ul>
+            </div>
+            
+            <div class="stack-card">
+                <div class="stack-title">Tech</div>
+                <div class="stack-sub">Consistency & Reliability</div>
+                <ul class="stack-list">
+                    <li>CMS management and scheduled publishing</li>
+                    <li>Formatting, internal linking, and performance checks</li>
+                    <li>Content updates without breaking site structure or SEO</li>
+                </ul>
+            </div>
+            
+            <div class="stack-card">
+                <div class="stack-title">Data</div>
+                <div class="stack-sub">ROI & Growth Strategy</div>
+                <ul class="stack-list">
+                    <li>GA4 monitoring and trend analysis</li>
+                    <li>Conversion tracking and funnel insights</li>
+                    <li>Strategic recommendations based on performance and competitor gaps</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICE TIERS -->
+    <div class="tiers-section">
+        <h2 style="text-align:center; color:#222; margin-bottom:40px; margin-top: 0;">Service Tiers</h2>
+        
+        <div class="tiers-grid">
+            <!-- Tier 1 -->
+            <div class="package-card" id="tier-1">
+                <div class="tier-name">Launch</div>
+                <div class="tier-target">For businesses that want consistent visibility without hiring a full in-house team.</div>
+                <div class="tier-outcome"><strong>Best Outcome:</strong> Steady traffic growth, professional brand presence, and time saved.</div>
+                
+                <div class="tier-price">$199<span>/ Month</span></div>
+                <button class="tier-btn" onclick="selectTier('Launch')">Select Plan</button>
+
+                <ul class="tier-features">
+                    <li>4 SEO-optimized content pieces/month</li>
+                    <li>Basic branded graphics for each post</li>
+                    <li>Weekly publishing & CMS management</li>
+                    <li>GA4 performance summary report</li>
+                    <li>Foundational keyword & competitor tracking</li>
+                </ul>
+            </div>
+
+            <!-- Tier 2 -->
+            <div class="package-card" id="tier-2">
+                <div class="tier-name">Growth</div>
+                <div class="tier-target">For growth-focused brands that want traffic to turn into leads and sales.</div>
+                <div class="tier-outcome"><strong>Best Outcome:</strong> Higher engagement, improved conversions, and data-driven decisions.</div>
+
+                <div class="tier-price">$385<span>/ Month</span></div>
+                <button class="tier-btn" onclick="selectTier('Growth')">Select Plan</button>
+                
+                <ul class="tier-features">
+                    <li>8–10 SEO-driven content pieces/month</li>
+                    <li>Custom visual assets + short-form video creatives</li>
+                    <li>Bi-weekly optimization and content updates</li>
+                    <li>GA4 conversion tracking & funnel analysis</li>
+                    <li>Monthly performance strategy call</li>
+                    <li>Competitive gap & keyword opportunity reports</li>
+                </ul>
+            </div>
+
+            <!-- Tier 3 -->
+            <div class="package-card" id="tier-3">
+                <div class="tier-name">Enterprise</div>
+                <div class="tier-target">For brands that treat content as a revenue channel, not a marketing expense.</div>
+                <div class="tier-outcome"><strong>Best Outcome:</strong> Market authority, scalable lead generation, and executive insights.</div>
+
+                <div class="tier-price">$599<span>/ Month</span></div>
+                <button class="tier-btn" onclick="selectTier('Enterprise')">Select Plan</button>
+                
+                <ul class="tier-features">
+                    <li>High-volume or unlimited content publishing</li>
+                    <li>White-glove SEO & content strategy</li>
+                    <li>Advanced visual & motion content direction</li>
+                    <li>Real-time GA4 dashboards & attribution modeling</li>
+                    <li>Dedicated content strategist & performance analyst</li>
+                    <li>Quarterly growth roadmap & competitor intelligence</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <div class="tiers-section" style="margin-bottom: 20px;">
+        <h3 style="text-align:center; color:#222; margin-bottom:20px;">Package Comparison</h3>
+        <div class="comp-table-wrapper">
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th>Feature / Benefit</th>
+                        <th>Launch</th>
+                        <th>Growth</th>
+                        <th>Enterprise</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SEO Content Pieces</td>
+                        <td>4 / month</td>
+                        <td>8 / month</td>
+                        <td>15 - 20 / month</td>
+                    </tr>
+                    <tr>
+                        <td>Custom Visual Assets</td>
+                        <td>Basic Graphics</td>
+                        <td>Branded + Video</td>
+                        <td>Advanced + Motion</td>
+                    </tr>
+                    <tr>
+                        <td>CMS & Posting Management</td>
+                        <td>Weekly</td>
+                        <td>Bi-Weekly</td>
+                        <td>Continuous</td>
+                    </tr>
+                    <tr>
+                        <td>GA4 Monitoring</td>
+                        <td>Basic Reports</td>
+                        <td>Conversion Tracking</td>
+                        <td>Real-Time Dashboards</td>
+                    </tr>
+                    <tr>
+                        <td>Strategy & Consulting</td>
+                        <td>—</td>
+                        <td>Monthly Strategy Call</td>
+                        <td>Dedicated Strategist</td>
+                    </tr>
+                    <tr>
+                        <td>Competitor & Gap Analysis</td>
+                        <td>Basic</td>
+                        <td>Advanced</td>
+                        <td>Enterprise-Level</td>
+                    </tr>
+                    <tr>
+                        <td>ROI & Attribution Modeling</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>Full Funnel Analysis</td>
+                    </tr>
+                    <tr>
+                        <td>Growth Roadmap & Planning</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>Quarterly Planning</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button class="tier-btn" onclick="selectTier('Launch')">Select Plan</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Growth')">Select Plan</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Enterprise')">Select Plan</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Initialize with a general subject
+    document.addEventListener("DOMContentLoaded", function() {
+        updateForm("Submitted From: Web Content Management _General Inquiry");
+    });
+    
+    let currentTier = null;
+
+    function selectTier(tierName) {
+        // Toggle Selection
+        const isSelected = currentTier === tierName;
+
+        // Reset All
+        document.querySelectorAll('.tier-btn').forEach(btn => {
+            btn.classList.remove('active-btn');
+            btn.innerText = "Select Plan";
+        });
+
+        if (isSelected) {
+            // Deselect
+            currentTier = null;
+            updateForm("Submitted From: Web Content Management _General Inquiry");
+        } else {
+            // Select
+            currentTier = tierName;
+            updateForm(`Submitted From: Web Content Management _Selected Tier: ${tierName}`);
+
+            // Visual Update
+            const allBtns = document.querySelectorAll('.tier-btn');
+            allBtns.forEach(btn => {
+                const onclickAttr = btn.getAttribute('onclick');
+                if (onclickAttr && onclickAttr.includes("'" + tierName + "'")) {
+                    btn.classList.add('active-btn');
+                    btn.innerText = "Selected";
+                }
+            });
+        }
+        
+        // Scroll to Form
+        const form = document.querySelector('.fluentform');
+        if(form) {
+            form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+
+    function updateForm(subjectText) {
+        let formField = document.querySelector("input[name='input_text']");
+
+        if (formField) {
+            formField.value = subjectText;
+            formField.dispatchEvent(new Event('change', { bubbles: true }));
+            formField.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+    }
+</script>
