@@ -1,0 +1,514 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    /* --- GLOBAL CONTAINER --- */
+    .motion-content-wrapper {
+        font-family: 'Poppins', sans-serif;
+        width: 100%;
+        color: #333;
+    }
+
+    .fluentform .hide-me-please {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* --- HERO --- */
+    .motion-hero {
+        text-align: center;
+        margin-bottom: 60px;
+        padding: 0;
+    }
+
+    .motion-title {
+        font-size: 36px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 15px;
+    }
+
+    .motion-subtitle {
+        font-size: 20px;
+        color: #d32f2f;
+        font-weight: 600;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .motion-desc {
+        font-size: 16px;
+        color: #555;
+        max-width: 800px;
+        margin: 0 auto 30px auto;
+        line-height: 1.6;
+    }
+
+    /* --- SERVICE TIERS --- */
+    .tiers-section {
+        margin-bottom: 80px;
+        padding: 0;
+    }
+
+    .tiers-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        align-items: stretch;
+    }
+
+    @media(min-width: 1024px) {
+        .tiers-grid {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+
+    .package-card {
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        transition: 0.3s;
+        position: relative;
+    }
+
+    .package-card:hover {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transform: translateY(-3px);
+    }
+
+    .package-card.featured {
+        border: 2px solid #d32f2f;
+        background: #fffbfb;
+    }
+
+    .tier-name {
+        font-size: 24px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 5px;
+    }
+
+    .tier-sub-name {
+        font-size: 14px;
+        color: #d32f2f;
+        font-weight: 600;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        min-height: 42px; /* Alignment fix */
+    }
+
+    .tier-target {
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 15px;
+        min-height: 60px; /* Alignment fix */
+    }
+
+    .tier-price {
+        font-size: 38px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: baseline;
+    }
+
+    .tier-price span {
+        font-size: 14px;
+        font-weight: 400;
+        color: #777;
+        margin-left: 5px;
+    }
+
+    .tier-features {
+        list-style: none;
+        padding: 0;
+        margin: 25px 0;
+        border-top: 1px solid #eee;
+        padding-top: 25px;
+        flex-grow: 1;
+        text-align: left;
+    }
+
+    .tier-features li {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #555;
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .tier-features li::before {
+        content: "\2022";
+        color: #d32f2f;
+        margin-right: 10px;
+        font-weight: bold;
+        flex-shrink: 0;
+        line-height: 1.5; /* Match text line height */
+    }
+
+    .tier-btn {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #d32f2f;
+        background: #d32f2f;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .tier-btn:hover {
+        background: #fff;
+        color: #d32f2f;
+        border-color: #d32f2f;
+    }
+
+    .tier-btn.active-btn {
+        background: #222 !important;
+        color: #fff !important;
+        border-color: #222 !important;
+    }
+
+    /* --- COMPARISON TABLE --- */
+    .comp-table-wrapper {
+        overflow-x: auto;
+        margin-top: 60px;
+        padding-bottom: 0px; 
+    }
+
+    .comp-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        min-width: 700px;
+        table-layout: fixed;
+        border: 1px solid #eee; 
+        border-radius: 12px;
+        background: #fff;
+    }
+
+    .comp-table th {
+        background: #f9f9f9;
+        padding: 15px;
+        text-align: center;
+        border-bottom: 2px solid #eee;
+        border-right: 1px solid #eee;
+        color: #222;
+        font-size: 16px;
+        font-weight: 700;
+        width: 23.33%;
+    }
+
+    /* Handling borders for first and last columns */
+    .comp-table th:first-child {
+        text-align: left;
+        background: #fff;
+        padding-left: 25px;
+        width: 30%;
+        border-top-left-radius: 12px;
+        border-left: none;
+    }
+    
+    .comp-table th:last-child {
+        border-top-right-radius: 12px;
+        border-right: none;
+    }
+
+    .comp-table td {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        border-right: 1px solid #eee;
+        color: #555;
+        font-size: 14px;
+    }
+
+    .comp-table td:last-child {
+        border-right: none;
+    }
+
+    /* Remove bottom border from last row so table border takes over */
+    .comp-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    /* Rounding bottom corners */
+    .comp-table tr:last-child td:first-child {
+        border-bottom-left-radius: 12px;
+    }
+    .comp-table tr:last-child td:last-child {
+        border-bottom-right-radius: 12px;
+    }
+
+    .comp-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #333;
+        padding-left: 25px;
+    }
+
+    /* --- TOTAL BAR --- */
+    #motion-total-bar {
+        display: none;
+        margin-top: 10px;
+        padding: 20px;
+        text-align: center;
+        background: #222;
+        color: #fff;
+        border-radius: 8px;
+        width: 100%;
+    }
+    
+    .total-txt {
+        font-size: 24px;
+        color: #d32f2f;
+        font-weight: 700;
+        margin-left: 10px;
+    }
+</style>
+
+<div class="motion-content-wrapper">
+
+    <!-- HERO -->
+    <!--<div class="motion-hero">-->
+    <!--    <h1 class="motion-title">Google Ads Growth Suites</h1>-->
+    <!--    <div class="motion-subtitle">Strategic. Scalable. Performance-Driven</div>-->
+    <!--</div>-->
+
+    <!-- SERVICE TIERS -->
+    <div class="tiers-section">
+        <!--<h2 style="text-align:center; color:#222; margin-bottom:40px;">Pricing Packages</h2>-->
+
+        <div class="tiers-grid">
+            <!-- Tier 1 -->
+            <div class="package-card" id="tier-1">
+                <div class="tier-name">Launch</div>
+                <div class="tier-target">
+                    <strong>Best For:</strong> Local service providers or new brands looking to capture immediate demand and prove ROI.<br><br>
+                    Stop guessing and start growing. We build a bulletproof search presence that puts your brand in front of high-intent customers the moment they’re ready to buy.
+                </div>
+
+                <div class="tier-price">$199<span>/month</span></div>
+                <button class="tier-btn" onclick="selectTier('Launch', '$199')">Select Package</button>
+                
+                <ul class="tier-features">
+                    <li>Precision Search Campaigns: Laser-targeted text ads for your core services.</li>
+                    <li>Local Map Dominance: Optimization for "Near Me" searches and Google Maps visibility.</li>
+                    <li>Competitor Conquesting: Strategic bidding on key competitor terms to steal market share.</li>
+                    <li>GA4 & Conversion Audit: Essential tracking setup to ensure every lead is accounted for.</li>
+                    <li>Monthly Performance Sync: A recorded video walkthrough of your results and next steps.</li>
+                    <li>Landing Page Heatmaps: Visual data on how users interact with your current site.</li>
+                    <li>Negative Keyword Scrubbing: Weekly maintenance to block irrelevant traffic and save budget.</li>
+                </ul>
+            </div>
+
+            <!-- Tier 2 -->
+            <div class="package-card" id="tier-2">
+                <div class="tier-name">Growth</div>
+                <div class="tier-target">
+                    <strong>Best For:</strong> Scaling startups and e-commerce brands ready to dominate their niche and retarget visitors.<br><br>
+                    Turn your website into a high-velocity sales engine. We combine search intent with visual retargeting to ensure your brand is seen, remembered, and chosen.
+                </div>
+
+                <div class="tier-price">$299<span>/month</span></div>
+                <button class="tier-btn" onclick="selectTier('Growth', '$299')">Select Package</button>
+                
+                <ul class="tier-features">
+                    <li>Everything in Launch: Plus advanced scaling strategies.</li>
+                    <li>Dynamic Remarketing: Follow previous visitors across the web with personalized display ads.</li>
+                    <li>Performance Max (PMax) Management: Leveraging Google’s AI for cross-channel reach.</li>
+                    <li>Landing Page Optimization (LPO): Monthly UX recommendations to increase your conversion rate.</li>
+                    <li>A/B Creative Testing: Constant experimentation with ad copy and imagery.</li>
+                    <li>Bi-Weekly Strategy Calls: Direct access to your strategist to pivot based on real-time data.</li>
+                    <li>Custom Looker Studio Dashboard: 24/7 access to your live performance metrics.</li>
+                    <li>Click Fraud Protection: Third-party monitoring to block bot traffic and wasted spend.</li>
+                </ul>
+            </div>
+
+            <!-- Tier 3 -->
+            <div class="package-card" id="tier-3">
+                <div class="tier-name">Enterprise</div>
+                <div class="tier-target">
+                    <strong>Best For:</strong> High-growth enterprises and B2B firms requiring multi-channel saturation and premium attribution.<br><br>
+                    <strong>Value Proposition</strong> Complete market capture. We deploy a full-funnel ecosystem using Video, Search, and AI to establish your brand as the undisputed leader in your industry.
+                </div>
+
+                <div class="tier-price">$399<span>/month</span></div>
+                <button class="tier-btn" onclick="selectTier('Enterprise', '$399')">Select Package</button>
+                
+                <ul class="tier-features">
+                    <li>Everything in Growth: With a focus on high-volume lead gen.</li>
+                    <li>YouTube Brand Awareness: High-quality video ad placements to build top-of-funnel trust.</li>
+                    <li>YouTube for Action: Direct-response video ads designed to drive immediate sales.</li>
+                    <li>Advanced CRM Integration: We sync your Google Ads directly with Salesforce/HubSpot.</li>
+                    <li>Omnichannel Attribution: Advanced modeling to see how YouTube and Search work together.</li>
+                    <li>Competitor Intelligence Reports: Deep-dive monthly audits on what your rivals are spending.</li>
+                    <li>Priority 24/7 Support: Dedicated Slack channel for instant communication.</li>
+                    <li>Creative Asset Direction: Strategic briefs for your design team to ensure high-ad strength.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <div id="forma" class="tiers-section" style="margin-bottom: 20px;">
+        <h2 style="text-align:center; color:#222; margin-bottom:20px;">Package Comparison</h2>
+        <div class="comp-table-wrapper">
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Launch</th>
+                        <th>Growth</th>
+                        <th>Enterprise</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Google Search Ads</td>
+                        <td><span style="color: #28a745 !important; font-weight: bold;">&#10003;</span></td>
+                        <td><span style="color: #28a745 !important; font-weight: bold;">&#10003;</span></td>
+                        <td><span style="color: #28a745 !important; font-weight: bold;">&#10003;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Conversion Tracking</td>
+                        <td>Standard</td>
+                        <td>Advanced</td>
+                        <td>Custom/CRM</td>
+                    </tr>
+                    <tr>
+                        <td>Reporting Frequency</td>
+                        <td>Monthly</td>
+                        <td>Bi-Weekly</td>
+                        <td>Real-Time</td>
+                    </tr>
+                    <tr>
+                        <td>Display/Remarketing</td>
+                        <td>—</td>
+                        <td><span style="color: #28a745 !important; font-weight: bold;">&#10003;</span></td>
+                        <td><span style="color: #28a745 !important; font-weight: bold;">&#10003;</span></td>
+                    </tr>
+                    <tr>
+                        <td>YouTube Advertising</td>
+                        <td>—</td>
+                        <td>Limited</td>
+                        <td>Full Funnel</td>
+                    </tr>
+                    <tr>
+                        <td>LPO Strategy</td>
+                        <td>Basic Audit</td>
+                        <td>Monthly Testing</td>
+                        <td>Deep UX Labs</td>
+                    </tr>
+                    <tr>
+                        <td>Competitor Analysis</td>
+                        <td><span style="color: #28a745 !important; font-weight: bold;">&#10003;</span></td>
+                        <td><span style="color: #28a745 !important; font-weight: bold;">&#10003;</span></td>
+                        <td>Advanced</td>
+                    </tr>
+                    <tr>
+                        <td>Support</td>
+                        <td>Email</td>
+                        <td>Priority Email/Zoom</td>
+                        <td>Priority Email/Zoom</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button class="tier-btn" onclick="selectTier('Launch', '$199')">Select Package</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Growth', '$299')">Select Package</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Enterprise', '$399')">Select Package</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- TOTAL BAR -->
+        <div id="motion-total-bar">
+            <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
+            <div id="motion-summary-text" style="font-weight:600;"></div>
+            <div style="margin-top:5px;">Estimated Investment: <span class="total-txt" id="motion-display-total">$0</span>
+            </div>
+            <div style="font-size:12px; color:#888; margin-top:10px;">Please scroll down to the contact form to proceed.
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    // Initialize
+    document.addEventListener("DOMContentLoaded", function () {
+        updateForm("Submitted From: Google Ads _General Inquiry");
+    });
+
+    let currentTier = null;
+
+    function selectTier(tierName, priceAttr) {
+        // Toggle Selection
+        const isSelected = currentTier && currentTier.name === tierName;
+
+        // Reset All
+        document.querySelectorAll('.tier-btn').forEach(btn => {
+            btn.classList.remove('active-btn');
+            // Check context to determine original text
+            if(btn.innerText === "Selected") {
+                 btn.innerText = "Select Package";
+            }
+        });
+
+        if (isSelected) {
+            // Deselect
+            currentTier = null;
+            document.getElementById('motion-total-bar').style.display = 'none';
+            updateForm("Submitted From: Google Ads _General Inquiry");
+        } else {
+            // Select
+            currentTier = { name: tierName, price: priceAttr };
+
+            // Update Total Bar
+            document.getElementById('motion-total-bar').style.display = 'block';
+            document.getElementById('motion-summary-text').innerText = tierName;
+            document.getElementById('motion-display-total').innerText = priceAttr;
+
+            // Update Form
+            updateForm(`Submitted From: Google Ads _Selected Plan: ${tierName} (Approx. ${priceAttr})`);
+
+            // Visual Update
+            updateButtonVisuals(tierName);
+        }
+    }
+
+    function updateButtonVisuals(activeTierName) {
+        if (!activeTierName) return;
+
+        // Find buttons with matching onclick
+        const allBtns = document.querySelectorAll('.tier-btn');
+        allBtns.forEach(btn => {
+            const onclickAttr = btn.getAttribute('onclick');
+            if (onclickAttr && onclickAttr.includes("'" + activeTierName + "'")) {
+                btn.classList.add('active-btn');
+                btn.innerText = "Selected";
+            }
+        });
+    }
+
+    function updateForm(subjectText) {
+        let formField = document.querySelector("input[name='input_text']");
+
+        if (formField) {
+            formField.value = subjectText;
+            formField.dispatchEvent(new Event('change', { bubbles: true }));
+            formField.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+    }
+</script>
