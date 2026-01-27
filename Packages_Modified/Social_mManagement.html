@@ -382,31 +382,25 @@
         color: #d32f2f;
     }
 
-    /* Sticky Total - STATIC UNDER TABLE */
-    .sticky-total {
-        position: static;
-        background: #fff;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 5px 30px rgba(0,0,0,0.15);
-        text-align: center;
-        border: 2px solid #d32f2f;
-        margin-top: 30px;
+    /* --- TOTAL BAR (Motion Style) --- */
+    #motion-total-bar {
         display: none;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .total-display {
-        font-size: 28px;
-        font-weight: 700;
-        color: #d32f2f;
+        margin-top: 20px;
+        padding: 20px;
+        text-align: center;
+        background: #222;
+        color: #fff;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     
-    @keyframes slideUp {
-        from { transform: translateY(50px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
+    .total-txt {
+        font-size: 24px;
+        color: #d32f2f;
+        font-weight: 700;
+        margin-left: 10px;
     }
 
     /* Selection Highlighting */
@@ -606,13 +600,12 @@
         </table>
     </div>
 
-    <!-- STICKY TOTAL BAR - STATIC UNDER TABLE -->
-    <div id="sticky-total-bar" class="sticky-total">
-        <h3>Estimated Monthly Investment</h3>
-        <div class="total-display" id="strategy-display-total">$0</div>
-        
-        <p style="margin: 10px 0; font-size: 13px;">Review your selection above, then proceed.</p>
-        <button class="tier-btn" style="background:#222; border-color:#222; color:#fff; max-width: 200px; margin: 0 auto; display: block;" onclick="document.querySelector('#cta-section').scrollIntoView({behavior: 'smooth'})">Continue</button>
+    <!-- TOTAL BAR (Motion Style) -->
+    <div id="motion-total-bar">
+        <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
+        <div id="motion-summary-text" style="font-weight:600;"></div>
+        <div style="margin-top:5px;">Estimated Investment: <span class="total-txt" id="motion-display-total">$0</span></div>
+        <div style="font-size:12px; color:#888; margin-top:10px;">Please scroll down to the contact form to proceed.</div>
     </div>
 
     <!-- COMPETITIVE EDGE / BENEFITS -->
@@ -644,46 +637,40 @@
         // Toggle Selection
         const isSelected = currentTier && currentTier.id === id;
 
-        // Reset All
+        // Reset All Buttons
         document.querySelectorAll('.tier-btn').forEach(btn => {
-            if (btn.innerText === "Selected") {
-                 // Check if it's card vs table by context or just default to "Select"
-                 if(btn.closest('table')) {
-                     btn.innerText = "Select"; 
-                 } else {
-                     btn.innerText = "Select Plan";
-                 }
-            }
             btn.classList.remove('active-btn');
+            // Restore original text based on context
+            if(btn.closest('table')) {
+                 btn.innerText = "Select";
+            } else {
+                 btn.innerText = "Select Plan";
+            }
         });
 
         if (isSelected) {
             // Deselect
             currentTier = null;
-            document.getElementById('sticky-total-bar').style.display = 'none';
+            document.getElementById('motion-total-bar').style.display = 'none';
             updateContentForm(""); 
         } else {
             // Select
             currentTier = { id, name: tierName, price: price };
 
             // Update Total Bar
-            document.getElementById('sticky-total-bar').style.display = 'block';
-            document.getElementById('strategy-display-total').innerText = "$" + price;
+            document.getElementById('motion-total-bar').style.display = 'block';
+            document.getElementById('motion-summary-text').innerText = tierName;
+            document.getElementById('motion-display-total').innerText = "$" + price;
 
             // Update Form
             updateContentForm(`Management Package: ${tierName} ($${price})`);
 
-            // Visual Update
-            updateButtonVisuals(id);
+            // Visual Update - Set Active Buttons
+            document.querySelectorAll(`.tier-btn[data-pkg-id="${id}"]`).forEach(btn => {
+                btn.classList.add('active-btn');
+                btn.innerText = "Selected";
+            });
         }
-    }
-
-    function updateButtonVisuals(id) {
-        // Find buttons with matching onclick
-        document.querySelectorAll(`.tier-btn[data-pkg-id="${id}"]`).forEach(btn => {
-            btn.classList.add('active-btn');
-            btn.innerText = "Selected";
-        });
     }
 
     function updateContentForm(finalString) {

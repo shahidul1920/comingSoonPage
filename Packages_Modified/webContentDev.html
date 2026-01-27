@@ -292,6 +292,27 @@
         padding-left: 25px;
     }
 
+    /* --- TOTAL BAR (Motion Style) --- */
+    #web-content-total-bar {
+        display: none;
+        margin-top: 20px;
+        padding: 20px;
+        text-align: center;
+        background: #222;
+        color: #fff;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .total-txt {
+        font-size: 24px;
+        color: #d32f2f;
+        font-weight: 700;
+        margin-left: 10px;
+    }
+
 </style>
 
 <div class="web-content-wrapper">
@@ -368,7 +389,7 @@
                 <div class="tier-outcome"><strong>Best Outcome:</strong> Steady traffic growth, professional brand presence, and time saved.</div>
                 
                 <div class="tier-price">$199<span>/ Month</span></div>
-                <button class="tier-btn" onclick="selectTier('Launch')">Select Plan</button>
+                <button class="tier-btn" onclick="selectTier('Launch', 199)">Select Plan</button>
 
                 <ul class="tier-features">
                     <li>4 SEO-optimized content pieces/month</li>
@@ -386,7 +407,7 @@
                 <div class="tier-outcome"><strong>Best Outcome:</strong> Higher engagement, improved conversions, and data-driven decisions.</div>
 
                 <div class="tier-price">$385<span>/ Month</span></div>
-                <button class="tier-btn" onclick="selectTier('Growth')">Select Plan</button>
+                <button class="tier-btn" onclick="selectTier('Growth', 385)">Select Plan</button>
                 
                 <ul class="tier-features">
                     <li>8–10 SEO-driven content pieces/month</li>
@@ -405,7 +426,7 @@
                 <div class="tier-outcome"><strong>Best Outcome:</strong> Market authority, scalable lead generation, and executive insights.</div>
 
                 <div class="tier-price">$599<span>/ Month</span></div>
-                <button class="tier-btn" onclick="selectTier('Enterprise')">Select Plan</button>
+                <button class="tier-btn" onclick="selectTier('Enterprise', 599)">Select Plan</button>
                 
                 <ul class="tier-features">
                     <li>High-volume or unlimited content publishing</li>
@@ -483,13 +504,22 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td><button class="tier-btn" onclick="selectTier('Launch')">Select Plan</button></td>
-                        <td><button class="tier-btn" onclick="selectTier('Growth')">Select Plan</button></td>
-                        <td><button class="tier-btn" onclick="selectTier('Enterprise')">Select Plan</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Launch', 199)">Select Plan</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Growth', 385)">Select Plan</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Enterprise', 599)">Select Plan</button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
+
+        <!-- TOTAL BAR (Motion Style) -->
+        <div id="web-content-total-bar">
+            <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
+            <div id="web-content-summary-text" style="font-weight:600;"></div>
+            <div style="margin-top:5px;">Estimated Investment: <span class="total-txt" id="web-content-display-total">$0</span></div>
+            <div style="font-size:12px; color:#888; margin-top:10px;">Please scroll down to the contact form to proceed.</div>
+        </div>
+
     </div>
 
 </div>
@@ -502,7 +532,7 @@
     
     let currentTier = null;
 
-    function selectTier(tierName) {
+    function selectTier(tierName, price) {
         // Toggle Selection
         const isSelected = currentTier === tierName;
 
@@ -515,11 +545,19 @@
         if (isSelected) {
             // Deselect
             currentTier = null;
+            document.getElementById('web-content-total-bar').style.display = 'none';
             updateForm("Submitted From: Web Content Management _General Inquiry");
         } else {
             // Select
             currentTier = tierName;
-            updateForm(`Submitted From: Web Content Management _Selected Tier: ${tierName}`);
+            
+            // Update Total Bar
+            document.getElementById('web-content-total-bar').style.display = 'block';
+            document.getElementById('web-content-summary-text').innerText = tierName;
+            document.getElementById('web-content-display-total').innerText = "$" + price;
+
+            // Update Form
+            updateForm(`Submitted From: Web Content Management _Selected Tier: ${tierName} ($${price})`);
 
             // Visual Update
             const allBtns = document.querySelectorAll('.tier-btn');
@@ -530,12 +568,6 @@
                     btn.innerText = "Selected";
                 }
             });
-        }
-        
-        // Scroll to Form
-        const form = document.querySelector('.fluentform');
-        if(form) {
-            form.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     }
 

@@ -224,9 +224,9 @@
     .btn-select {
         width: 100%;
         padding: 15px;
-        background: #222;
+        background: #d32f2f;
         color: #fff;
-        border: none;
+        border: 1px solid #d32f2f;
         border-radius: 8px;
         font-weight: 600;
         cursor: pointer;
@@ -238,21 +238,16 @@
     }
 
     .btn-select:hover {
-        background: #444;
+        background: #fff;
+        color: #d32f2f;
+        border: 1px solid #d32f2f;
         transform: translateY(-2px);
     }
 
-    .popular-card .btn-select {
-        background: #d32f2f;
-        box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
-    }
-
-    .popular-card .btn-select:hover {
-        background: #b71c1c;
-    }
-
     .btn-select.active-btn {
-        background: #116b15 !important; /* Green for selected */
+        background: #000 !important;
+        color: #fff !important;
+        border: 1px solid #000 !important;
         box-shadow: none !important;
     }
     .btn-select.active-btn::before {
