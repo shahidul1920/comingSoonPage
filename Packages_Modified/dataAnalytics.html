@@ -322,7 +322,7 @@
         color: var(--pkg-color);
         line-height: var(--pkg-line-height);
         width: 100%;
-        text-align: center;
+        text-align: left;
     }
 
     /* --- TOTAL BAR (Motion Style) --- */
@@ -396,13 +396,25 @@
     .addon-features {
         margin: 10px 0;
         padding-left: 0;
-        font-size: 13px;
-        color: #666;
-        text-align: center;
+        font-size: var(--pkg-body-font-size);
+        color: var(--pkg-color);
+        text-align: left;
     }
     .addon-features li {
         margin-bottom: 4px;
         list-style-type: none;
+        text-transform: capitalize;
+        padding-left: 15px;
+        position: relative;
+    }
+
+    .addon-features li::before {
+        content: "•";
+        color: #d32f2f;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+        top: 0px;
     }
 
     .addon-footer {
@@ -746,7 +758,7 @@
                     </div>
                     <div class="imageNdetails">
                         <div class="addon-desc">
-                            Unlock the true value of your data with a modern visualization strategy. We streamline messy/outdated reports into dynamic and insightful dashboards that highlight key insights
+                            Unlock the true value of your data with a modern visualization strategy. We streamline messy/outdated reports into dynamic and insightful dashboards that highlight key insights.
                             <ul class="addon-features">
                                 <li>UX/UI overhaul</li>
                                 <li>Mobile responsiveness</li>
@@ -783,7 +795,7 @@
 
                 <div class="addon-item" id="addon-4" onclick="toggleAddon(4, 'Team Training', 250)">
                     <div class="addon-header">
-                        <span class="addon-name">Team Training Season</span>
+                        <span class="addon-name">Team Training Session</span>
                         <span class="addon-price">$250</span>
                     </div>
                     <div class="imageNdetails">
