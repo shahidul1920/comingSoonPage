@@ -212,9 +212,9 @@
     }
 
     .pkg-btn {
-        background-color: #222;
+        background-color: #d32f2f;
         color: #fff;
-        border: none;
+        border: 1px solid #d32f2f;
         padding: 12px 20px;
         border-radius: 6px;
         font-size: 14px;
@@ -225,11 +225,15 @@
     }
 
     .pkg-btn:hover {
-        background-color: #444;
+        background-color: #fff;
+        color: #d32f2f;
+        border: 1px solid #d32f2f;
     }
 
     .pkg-btn.selected-btn {
-        background-color: #d32f2f;
+        background-color: #000;
+        color: #fff;
+        border: 1px solid #000;
         box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
     }
 
@@ -408,10 +412,10 @@
     }
 
     .addon-btn {
-        background-color: #222;
+        background-color: #d32f2f;
         color: #fff;
-        border: none;
-        padding: 5px 0;
+        border: 1px solid #d32f2f;
+        padding: 10px 0;
         border-radius: 4px;
         font-size: 13px;
         font-weight: 600;
@@ -422,17 +426,21 @@
 
     /* Fix to prevent white background on focus/deselect */
     .addon-btn:focus, .pkg-btn:focus {
-        background-color: #222;
+        background-color: #d32f2f;
         color: #fff;
         outline: none;
     }
 
     .addon-item:hover .addon-btn {
-        background-color: #444;
+        background-color: #fff;
+        color: #d32f2f;
+        border: 1px solid #d32f2f;
     }
 
     .addon-item.active-addon .addon-btn {
-        background-color: #d32f2f;
+        background-color: #000;
+        color: #fff;
+        border: 1px solid #000;
     }
 
     .addon-item.active-addon .addon-btn::before {
@@ -705,21 +713,22 @@
         </div>
 
         <div id="opt" class="addons-section">
-            <h3 class="addons-title">Optional Add-Ons</h3>
+            <h3 class="addons-title">Additional Customized Services</h3>
             <div class="addons-grid">
 
-                <div class="addon-item" id="addon-1" onclick="toggleAddon(1, 'One-time Data Audit', 250)">
+                <div class="addon-item" id="addon-1" onclick="toggleAddon(1, 'One-time data audit', 150)">
                     <div class="addon-header">
-                        <span class="addon-name">One-time Data Audit</span>
-                        <span class="addon-price">$250</span>
+                        <span class="addon-name">One-time data audit</span>
+                        <span class="addon-price">$150</span>
                     </div>
                     <div class="imageNdetails">
                         <div class="addon-desc">
-                            Comprehensive review of your data integrity and sources to identify gaps before starting.
+                            Get your data launch-ready with a deep-dive integrity check. We audit your sources to expose hidden gaps and solidify your foundation before starting.
                             <ul class="addon-features">
                                 <li>Source verification</li>
                                 <li>Data quality check</li>
                                 <li>Gap analysis</li>
+                                <li>Schema validation</li>
                             </ul>
                             <div class="addon-footer">
                                 <button class="addon-btn">Add to Plan</button>
@@ -730,18 +739,19 @@
 
 
 
-                <div class="addon-item" id="addon-2" onclick="toggleAddon(2, 'Dashboard Redesign', 150)">
+                <div class="addon-item" id="addon-2" onclick="toggleAddon(2, 'Dashboard Redesign', 250)">
                     <div class="addon-header">
                         <span class="addon-name">Dashboard Redesign</span>
-                        <span class="addon-price">$150</span>
+                        <span class="addon-price">$250</span>
                     </div>
                     <div class="imageNdetails">
                         <div class="addon-desc">
-                            Modernize your existing ugly or broken reports into clean, interactive visuals.
+                            Unlock the true value of your data with a modern visualization strategy. We streamline messy/outdated reports into dynamic and insightful dashboards that highlight key insights
                             <ul class="addon-features">
                                 <li>UX/UI overhaul</li>
                                 <li>Mobile responsiveness</li>
                                 <li>Interactive charts</li>
+                                <li>Automated refreshing</li>
                             </ul>
                             <div class="addon-footer">
                                 <button class="addon-btn">Add to Plan</button>
@@ -757,11 +767,12 @@
                     </div>
                     <div class="imageNdetails">
                         <div class="addon-desc">
-                            Specialized models for complex scenarios like inventory planning or seasonal demand.
+                            Don't let the busy season surprise you. We build models that actually handle your seasonal rushes and inventory needs.
                             <ul class="addon-features">
-                                <li>Trend alignment</li>
+                                <li>Trend Analysis</li>
                                 <li>Seasonality adjustments</li>
                                 <li>Scenario testing</li>
+                                <li>Time Series Forecasting</li>
                             </ul>
                             <div class="addon-footer">
                                 <button class="addon-btn">Add to Plan</button>
@@ -770,18 +781,19 @@
                     </div>
                 </div>
 
-                <div class="addon-item" id="addon-4" onclick="toggleAddon(4, 'Team Training', 200)">
+                <div class="addon-item" id="addon-4" onclick="toggleAddon(4, 'Team Training', 250)">
                     <div class="addon-header">
-                        <span class="addon-name">Team Training Session</span>
-                        <span class="addon-price">$200</span>
+                        <span class="addon-name">Team Training Season</span>
+                        <span class="addon-price">$250</span>
                     </div>
                     <div class="imageNdetails">
                         <div class="addon-desc">
-                            A dedicated session to train your team on how to read, use, and act on the new data.
+                            Customized Hands-on session for your team. We provide on-demand training for teams with hands-on activities.
                             <ul class="addon-features">
                                 <li>Hands-on workshop</li>
                                 <li>Q&A session</li>
                                 <li>Recorded for later use</li>
+                                <li>Tailor-made topics</li>
                             </ul>
                             <div class="addon-footer">
                                 <button class="addon-btn">Add to Plan</button>
