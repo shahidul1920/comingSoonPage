@@ -1,0 +1,233 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Shippori+Antique+B1&display=swap" rel="stylesheet">
+
+<style>
+    /* --- Main Container --- */
+    .hy320-product-container {
+        font-family: 'Poppins', sans-serif;
+        color: #333;
+        line-height: 1.6;
+        max-width: 100%;
+        text-align: center; /* Centered Text Global */
+    }
+
+    /* --- Section Headings --- */
+    .hy320-heading {
+        font-family: 'Shippori Antique B1', serif; /* Font Applied Here */
+        color: #000000; /* Black Heading */
+        font-size: 28px; /* Slightly larger for the font style */
+        margin-bottom: 25px;
+        margin-top: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Optional: Small Red Underline to keep the theme */
+    .hy320-heading::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: #d32f2f;
+        margin: 10px auto 0;
+    }
+
+    /* --- Highlights Section (Grid Layout) --- */
+    .hy320-highlights-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .hy320-highlight-item {
+        background: #fff;
+        border: 1px solid #eee;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+        display: flex;
+        flex-direction: column; /* Stack icon on top for centered look */
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease;
+    }
+
+    .hy320-highlight-item:hover {
+        transform: translateY(-3px);
+        border-color: #d32f2f;
+    }
+
+    .hy320-icon {
+        color: #d32f2f;
+        font-size: 24px;
+        margin-bottom: 10px;
+        margin-right: 0; /* Remove right margin for centered stack */
+    }
+
+    /* --- Specs Table --- */
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .hy320-specs-table {
+        width: 100%;
+        margin: 0 auto; /* Center the table itself */
+        border-collapse: collapse;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        border: 1px solid #eee;
+    }
+
+    .hy320-specs-table th, 
+    .hy320-specs-table td {
+        padding: 16px 24px;
+        /* Keep table text left-aligned for readability, 
+           even if the page is centered. 
+           Change to 'center' below if you strictly want centered table text. */
+        text-align: left; 
+        border-bottom: 1px solid #eee;
+    }
+
+    /* Table Header Column */
+    .hy320-specs-table th {
+        background-color: #f9f9f9;
+        color: #000;
+        font-family: 'Shippori Antique B1', serif; /* Font on table headers too */
+        font-size: 16px;
+        width: 40%;
+        border-right: 1px solid #eee;
+    }
+
+    /* Table Value Column */
+    .hy320-specs-table td {
+        background-color: #fff;
+        color: #333;
+        transition: background-color 0.2s;
+    }
+
+    .hy320-specs-table tr:hover td {
+        background-color: #fafafa;
+    }
+
+    /* Highlight the Model Row */
+    .spec-highlight {
+        color: #d32f2f !important;
+        font-weight: 700 !important;
+    }
+
+    /* Mobile Adjustment */
+    @media (max-width: 600px) {
+        .hy320-specs-table th, .hy320-specs-table td {
+            display: block;
+            width: 100%;
+            text-align: center; /* Force center on mobile */
+            border-right: none;
+        }
+        .hy320-specs-table th {
+            background-color: #d32f2f;
+            color: #fff;
+        }
+    }
+</style>
+
+<div class="hy320-product-container">
+
+    <h3 class="hy320-heading">Key Highlights</h3>
+    <div class="hy320-highlights-grid">
+        <div class="hy320-highlight-item">
+            <span class="hy320-icon">✔</span> 
+            <span>Native Full HD 1080p (4K Decoding)</span>
+        </div>
+        <div class="hy320-highlight-item">
+            <span class="hy320-icon">✔</span> 
+            <span>Massive 150-inch Projection</span>
+        </div>
+        <div class="hy320-highlight-item">
+            <span class="hy320-icon">✔</span> 
+            <span>Dual-Band WiFi (2.4G + 5G)</span>
+        </div>
+        <div class="hy320-highlight-item">
+            <span class="hy320-icon">✔</span> 
+            <span>Built-in Android 11 OS</span>
+        </div>
+        <div class="hy320-highlight-item">
+            <span class="hy320-icon">✔</span> 
+            <span>Auto Keystone Correction</span>
+        </div>
+        <div class="hy320-highlight-item">
+            <span class="hy320-icon">✔</span> 
+            <span>180° Rotatable Projection Angle</span>
+        </div>
+        <div class="hy320-highlight-item">
+            <span class="hy320-icon">✔</span> 
+            <span>Low Noise (&lt;25 dB)</span>
+        </div>
+        <div class="hy320-highlight-item">
+            <span class="hy320-icon">✔</span> 
+            <span>Quad-core ARM Cortex-A53</span>
+        </div>
+    </div>
+
+    <h3 class="hy320-heading">Technical Specifications</h3>
+    <div class="table-responsive">
+        <table class="hy320-specs-table">
+            <tbody>
+                <tr>
+                    <th>Model</th>
+                    <td class="spec-highlight">Magcubic HY320</td>
+                </tr>
+                <tr>
+                    <th>Resolution</th>
+                    <td>Native 1080p (1920×1080) | 4K Supported</td>
+                </tr>
+                <tr>
+                    <th>Brightness & Contrast</th>
+                    <td>390 ANSI Lumens | 1500:1 Contrast Ratio</td>
+                </tr>
+                <tr>
+                    <th>Processor & GPU</th>
+                    <td>Quad-core ARM Cortex-A53 | Mali-G31</td>
+                </tr>
+                <tr>
+                    <th>Memory</th>
+                    <td>2GB RAM | 16GB ROM</td>
+                </tr>
+                <tr>
+                    <th>Wireless</th>
+                    <td>Dual-band WiFi (2.4G/5G) | Bluetooth 5.0</td>
+                </tr>
+                <tr>
+                    <th>Projection Size</th>
+                    <td>Up to 150 inches</td>
+                </tr>
+                <tr>
+                    <th>Lamp Life</th>
+                    <td>Up to 50,000 Hours</td>
+                </tr>
+                <tr>
+                    <th>Sound</th>
+                    <td>Built-in 5W Hi-Fi Speaker</td>
+                </tr>
+                <tr>
+                    <th>Special Features</th>
+                    <td>Auto Keystone, 180° Angle, Screen Mirroring</td>
+                </tr>
+                <tr>
+                    <th>Ports</th>
+                    <td>1x HDMI, 1x USB, 1x Audio Out</td>
+                </tr>
+                <tr>
+                    <th>Noise Level</th>
+                    <td>&lt; 25 dB</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
