@@ -121,18 +121,35 @@
         font-weight: 700 !important;
     }
 
-    /* Mobile Adjustment */
-    @media (max-width: 600px) {
-        .hy320-specs-table th, .hy320-specs-table td {
-            display: block;
-            width: 100%;
-            text-align: center; /* Force center on mobile */
-            border-right: none;
-        }
-        .hy320-specs-table th {
-            background-color: #d32f2f;
-            color: #fff;
-        }
+    /* --- Buy Button --- */
+    .hy320-buy-btn-container {
+        text-align: center;
+        margin-top: -20px;
+        margin-bottom: 40px;
+    }
+    a{
+        text-decoration: none !important;
+    }
+
+    .hy320-buy-btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background: #fc6c24; /* Orange */
+        color: #fff;
+        padding: 8px 25px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(252, 108, 36, 0.3);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .hy320-buy-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(252, 108, 36, 0.4);
+        color: #fff;
     }
 </style>
 
@@ -172,6 +189,13 @@
             <span class="hy320-icon">✔</span> 
             <span>Quad-core ARM Cortex-A53</span>
         </div>
+    </div>
+
+    <!-- Buy Now Button -->
+    <div class="hy320-buy-btn-container">
+        <a href="#buymaan" class="hy320-buy-btn">
+            <span style="font-size: 22px; margin-right: 8px;">♡</span> Buy Now!
+        </a>
     </div>
 
     <h3 class="hy320-heading">Technical Specifications</h3>
