@@ -1,4 +1,4 @@
-<style>
+﻿<style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
     :root {
@@ -65,20 +65,20 @@
     .pkg-card:hover {
         transform: translateY(-3px);
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-        border-color: #d32f2f;
+        border-color: #5C1AEC;
     }
 
     /* Active State */
     .pkg-card.active-card {
-        border: 1px solid #d32f2f !important;
+        border: 1px solid #5C1AEC !important;
         background-color: #fffbfb;
         /* box-shadow: 0 10px 25px rgba(211, 47, 47, 0.1); */
     }
 
     /* Active State Header */
     .pkg-card.active-card .pkg-header {
-        background-color: #d32f2f !important;
-        border-bottom-color: #b71c1c;
+        background-color: #5C1AEC !important;
+        border-bottom-color: #4012A4;
     }
 
     .pkg-card.active-card .pkg-title,
@@ -117,7 +117,7 @@
     .pkg-price {
         font-size: var(--pkg-price-font-size);
         font-weight: 700;
-        color: #d32f2f;
+        color: #5C1AEC;
         margin: 10px 0 5px 0;
     }
 
@@ -171,7 +171,7 @@
 
     .pkg-body ul li::before {
         content: "•";
-        color: #d32f2f;
+        color: #5C1AEC;
         font-weight: bold;
         position: absolute;
         left: 0;
@@ -193,13 +193,13 @@
     }
 
     .outcome-box {
-        background: #fff5f5;
+        background: #F2EEFF;
         padding: 12px;
         border-radius: 6px;
         margin-top: 20px;
-        border-left: 3px solid #d32f2f;
+        border-left: 3px solid #5C1AEC;
         font-size: 14px;
-        color: #b71c1c;
+        color: #4012A4;
     }
 
     /* Footer */
@@ -212,9 +212,9 @@
     }
 
     .pkg-btn {
-        background-color: #d32f2f;
+        background-color: #5C1AEC;
         color: #fff;
-        border: 1px solid #d32f2f;
+        border: 1px solid #5C1AEC;
         padding: 12px 20px;
         border-radius: 6px;
         font-size: 14px;
@@ -226,8 +226,8 @@
 
     .pkg-btn:hover {
         background-color: #fff;
-        color: #d32f2f;
-        border: 1px solid #d32f2f;
+        color: #5C1AEC;
+        border: 1px solid #5C1AEC;
     }
 
     .pkg-btn.selected-btn {
@@ -286,12 +286,12 @@
     }
 
     .addon-item:hover {
-        border-color: #d32f2f;
+        border-color: #5C1AEC;
         transform: translateY(-2px);
     }
 
     .addon-item.active-addon {
-        border: 2px solid #d32f2f;
+        border: 2px solid #5C1AEC;
         background: #fffbfb;
     }
 
@@ -312,7 +312,7 @@
     }
 
     .addon-price {
-        color: #d32f2f;
+        color: #5C1AEC;
         font-weight: 700;
         font-size: var(--addon-price-font-size);
     }
@@ -341,7 +341,7 @@
     
     .total-txt {
         font-size: 24px;
-        color: #d32f2f;
+        color: #5C1AEC;
         font-weight: 700;
         margin-left: 10px;
     }
@@ -410,7 +410,7 @@
 
     .addon-features li::before {
         content: "•";
-        color: #d32f2f;
+        color: #5C1AEC;
         font-weight: bold;
         position: absolute;
         left: 0;
@@ -424,9 +424,9 @@
     }
 
     .addon-btn {
-        background-color: #d32f2f;
+        background-color: #5C1AEC;
         color: #fff;
-        border: 1px solid #d32f2f;
+        border: 1px solid #5C1AEC;
         padding: 10px 0;
         border-radius: 4px;
         font-size: 13px;
@@ -438,15 +438,15 @@
 
     /* Fix to prevent white background on focus/deselect */
     .addon-btn:focus, .pkg-btn:focus {
-        background-color: #d32f2f;
+        background-color: #5C1AEC;
         color: #fff;
         outline: none;
     }
 
     .addon-item:hover .addon-btn {
         background-color: #fff;
-        color: #d32f2f;
-        border: 1px solid #d32f2f;
+        color: #5C1AEC;
+        border: 1px solid #5C1AEC;
     }
 
     .addon-item.active-addon .addon-btn {
@@ -468,7 +468,7 @@
             <div class="pkg-header">
                 <h3 class="pkg-title">The Profit Leak Detector</h3>
                 <span class="pkg-tagline">Stop losing money without knowing where it’s going</span>
-                <div class="pkg-price">$199 <span>/ month</span></div>
+                <div class="pkg-price">BDT 199 <span>/ month</span></div>
                 <span class="pkg-target">Best for micro & early-stage SMEs</span>
             </div>
             <div class="pkg-image">
@@ -522,7 +522,7 @@
             <div class="pkg-header">
                 <h3 class="pkg-title">The Cash-Flow Stress Killer</h3>
                 <span class="pkg-tagline">Sleep better knowing what money is coming and when</span>
-                <div class="pkg-price">$399 <span>/ month</span></div>
+                <div class="pkg-price">BDT 399 <span>/ month</span></div>
                 <span class="pkg-target">Ideal for growing SMEs</span>
             </div>
             <div class="pkg-image">
@@ -574,7 +574,7 @@
             <div class="pkg-header">
                 <h3 class="pkg-title">The Sales Clarity Engine</h3>
                 <span class="pkg-tagline">Know exactly what’s selling, why it’s selling, and what will sell next</span>
-                <div class="pkg-price">$699 <span>/ month</span></div>
+                <div class="pkg-price">BDT 699 <span>/ month</span></div>
                 <span class="pkg-target">For data-driven SMEs aiming to scale profitably</span>
             </div>
             <div class="pkg-image">
@@ -624,7 +624,7 @@
             <div class="pkg-header">
                 <h3 class="pkg-title">The Customer Retention Shield</h3>
                 <span class="pkg-tagline">Keep your best customers from quietly disappearing</span>
-                <div class="pkg-price">$1,199 <span>/ month</span></div>
+                <div class="pkg-price">BDT 1,199 <span>/ month</span></div>
                 <span class="pkg-target">For mature SMEs preparing for expansion</span>
             </div>
             <div class="pkg-image">
@@ -676,7 +676,7 @@
             <div class="pkg-header hh">
                 <h3 class="pkg-title">The Owner’s One-Page Command Center</h3>
                 <span class="pkg-tagline">Everything you need to know without drowning in reports</span>
-                <div class="pkg-price">$2,500 <span>/ month</span></div>
+                <div class="pkg-price">BDT 2,500 <span>/ month</span></div>
                 <span class="pkg-target">For leadership teams who want data-backed decisions at every level</span>
             </div>
             <div class="pkg-image">
@@ -731,7 +731,7 @@
                 <div class="addon-item" id="addon-1" onclick="toggleAddon(1, 'One-time data audit', 150)">
                     <div class="addon-header">
                         <span class="addon-name">One-time data audit</span>
-                        <span class="addon-price">$150</span>
+                        <span class="addon-price">BDT 150</span>
                     </div>
                     <div class="imageNdetails">
                         <div class="addon-desc">
@@ -754,7 +754,7 @@
                 <div class="addon-item" id="addon-2" onclick="toggleAddon(2, 'Dashboard Redesign', 250)">
                     <div class="addon-header">
                         <span class="addon-name">Dashboard Redesign</span>
-                        <span class="addon-price">$250</span>
+                        <span class="addon-price">BDT 250</span>
                     </div>
                     <div class="imageNdetails">
                         <div class="addon-desc">
@@ -775,7 +775,7 @@
                 <div class="addon-item" id="addon-3" onclick="toggleAddon(3, 'Custom Forecasting', 300)">
                     <div class="addon-header">
                         <span class="addon-name">Custom Forecasting Model</span>
-                        <span class="addon-price">$300</span>
+                        <span class="addon-price">BDT 300</span>
                     </div>
                     <div class="imageNdetails">
                         <div class="addon-desc">
@@ -796,7 +796,7 @@
                 <div class="addon-item" id="addon-4" onclick="toggleAddon(4, 'Team Training', 250)">
                     <div class="addon-header">
                         <span class="addon-name">Team Training Session</span>
-                        <span class="addon-price">$250</span>
+                        <span class="addon-price">BDT 250</span>
                     </div>
                     <div class="imageNdetails">
                         <div class="addon-desc">
@@ -818,7 +818,7 @@
             <!-- <div class="total-inline-bar" id="inlineTotalBar">
                 <div class="total-info">
                     <span class="total-label">Estimated Total</span>
-                    <span class="total-amount" id="displayTotal">$0</span>
+                    <span class="total-amount" id="displayTotal">BDT 0</span>
                 </div>
                 <span class="total-hint">Please proceed to the form below to complete your selection. ↓</span>
             </div> -->
@@ -830,7 +830,7 @@
     <div id="motion-total-bar">
         <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
         <div id="motion-summary-text" style="font-weight:600;"></div>
-        <div style="margin-top:5px;">Estimated Investment: <span class="total-txt" id="motion-display-total">$0</span></div>
+        <div style="margin-top:5px;">Estimated Investment: <span class="total-txt" id="motion-display-total">BDT 0</span></div>
         <div style="font-size:12px; color:#888; margin-top:10px;">Please scroll down to the contact form to proceed.</div>
     </div>
 

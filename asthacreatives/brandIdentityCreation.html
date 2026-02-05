@@ -1,4 +1,4 @@
-<style>
+﻿<style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
     /* --- GLOBAL CONTAINER --- */
@@ -35,7 +35,7 @@
         display: inline-block;
         transition: 0.3s;
     }
-    .cta-btn-main:hover { background-color: #d32f2f; color: #fff; transform: translateY(-2px); }
+    .cta-btn-main:hover { background-color: #5C1AEC; color: #fff; transform: translateY(-2px); }
 
     /* --- EDUCATIONAL GRID --- */
     .edu-grid {
@@ -46,7 +46,7 @@
     }
     @media(min-width: 768px) { .edu-grid { grid-template-columns: 1fr 1fr; } }
 
-    .edu-box h3 { font-size: 35px; color: #d32f2f; margin-bottom: 15px; }
+    .edu-box h3 { font-size: 35px; color: #5C1AEC; margin-bottom: 15px; }
     .edu-box ul { list-style: none; padding: 0 !important; margin: 15px 0 0 0 !important; text-align: left; }
     .edu-box ul li { margin-bottom: 10px; color: #555; display: flex; align-items: flex-start; }
     .edu-box ul li span { margin-right: 10px; line-height: 1.6; }
@@ -121,7 +121,7 @@
     .package-card:hover {
         transform: translateY(-8px);
         box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-        border-color: #d32f2f;
+        border-color: #5C1AEC;
     }
 
     .highlight-card {
@@ -137,7 +137,7 @@
         top: -15px;
         left: 50%;
         transform: translateX(-50%);
-        background: #d32f2f;
+        background: #5C1AEC;
         color: #fff;
         padding: 5px 20px;
         border-radius: 20px;
@@ -157,7 +157,7 @@
     .pkg-sub {
         font-size: 20px;
         font-weight: 700;
-        color: #b71c1c;
+        color: #4012A4;
         text-transform: uppercase;
         margin-bottom: 15px;
         display: block;
@@ -213,7 +213,7 @@
     
     .pkg-features li::before {
         content: "•";
-        color: #d32f2f;
+        color: #5C1AEC;
         font-weight: bold;
         margin-right: 10px;
         line-height: 1.5;
@@ -303,15 +303,15 @@
         color: #333;
         padding-left: 25px;
     }
-    /* .check { color: #d32f2f; font-weight: bold; } */
+    /* .check { color: #5C1AEC; font-weight: bold; } */
     /* .cross { color: #ccc; } */
 
     /* --- BUTTONS --- */
     .tier-btn {
         width: 100%;
         padding: 12px;
-        border: 1px solid #d32f2f;
-        background: #d32f2f;
+        border: 1px solid #5C1AEC;
+        background: #5C1AEC;
         color: #fff;
         font-weight: 600;
         border-radius: 5px;
@@ -322,19 +322,19 @@
     
     /* Selection Highlighting */
     .col-highlight {
-        background-color: #fff5f5 !important;
+        background-color: #F2EEFF !important;
         color: #000;
     }
     .th-highlight {
-        background-color: #d32f2f !important;
+        background-color: #5C1AEC !important;
         color: #fff !important;
-        border-color: #d32f2f !important;
+        border-color: #5C1AEC !important;
     }
 
     .tier-btn:hover {
         background: #fff;
-        color: #d32f2f;
-        border-color: #d32f2f;
+        color: #5C1AEC;
+        border-color: #5C1AEC;
     }
 
     .tier-btn.active-btn {
@@ -355,7 +355,7 @@
         animation: slideUp 0.3s ease-out;
     }
     @keyframes slideUp { from { transform: translateY(10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-    .total-txt { font-size: 18px; font-weight: 700; color: #d32f2f; margin-left: 10px; }
+    .total-txt { font-size: 18px; font-weight: 700; color: #5C1AEC; margin-left: 10px; }
 
 </style>
 
@@ -369,7 +369,7 @@
     </div> -->
 
     <!-- DELIVERABLES SECTION -->
-    <div style="text-align:left; margin-bottom:60px; padding:30px; border:1px dashed #d32f2f; border-radius:12px; background:#fdfdfd;">
+    <div style="text-align:left; margin-bottom:60px; padding:30px; border:1px dashed #5C1AEC; border-radius:12px; background:#fdfdfd;">
         <h3 style="margin-bottom:15px; color:#222;">Deliverables & What Clients Receive</h3>
         <ul style="padding:0; margin:0; list-style:none;">
              <li style="margin-bottom:8px;">✔ Editable source files</li>
@@ -389,7 +389,7 @@
             <div class="package-card" id="pkg-card-1">
                 <span class="pkg-sub">Launch Package</span>
                 <div class="pkg-desc">Quick-start identity for rapid launches and MVP brands. Best for startups & solo-preneurs.</div>
-                <div class="pkg-cost">$200</div>
+                <div class="pkg-cost">BDT 200</div>
                 <!-- <span class="pkg-timeline">Timeline: 7–10 Business Days</span> -->
                 
                 <button class="tier-btn" data-pkg-id="1" onclick="selectBrandPkg(1, 'Launch', 200)">Select Plan</button>
@@ -407,7 +407,7 @@
             <div class="package-card" id="pkg-card-2">
                 <span class="pkg-sub">Growth Package</span>
                 <div class="pkg-desc">Comprehensive visual system for growing businesses. Reformation or scaling.</div>
-                <div class="pkg-cost">$350</div>
+                <div class="pkg-cost">BDT 350</div>
                 <!-- <span class="pkg-timeline">Timeline: 3–4 Weeks</span> -->
                 
                 <button class="tier-btn" data-pkg-id="2" onclick="selectBrandPkg(2, 'Growth', 350)">Select Plan</button>
@@ -422,13 +422,13 @@
             </div>
 
             <!-- Package 3 -->
-            <div class="package-card" id="pkg-card-3">
+            <div class="package-card" id="pkg-card-3" style="background-color: #F2EEFF;">
                 <span class="pkg-sub">Enterprise Package</span>
                 <div class="pkg-desc">Full scale identity for established scaling brands requiring deep strategy.</div>
-                <div class="pkg-cost">$500</div>
+                
                 <!-- <span class="pkg-timeline">Timeline: 4+ Weeks</span> -->
                 
-                <button class="tier-btn" data-pkg-id="3" onclick="selectBrandPkg(3, 'Enterprise', 500)">Select Plan</button>
+                <a href="#contact-footer" class="tier-btn" style="text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
                 
                 <ul class="pkg-features">
                      <li><strong>Everything in "Growth"</strong></li>
@@ -457,21 +457,21 @@
             <tbody>
                 <tr>
                     <td>Primary & Secondary Logos</td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
                 </tr>
                 <tr>
                     <td>Color & Typography</td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
                 </tr>
                 <tr>
                     <td>Favicon / App Icon</td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
                 </tr>
                 <tr>
                     <td>Brand Guidelines</td>
@@ -482,26 +482,26 @@
                 <tr>
                     <td>Social Media Kit</td>
                     <td><span class="cross">❌</span></td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span> (Priority)</td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span> (Priority)</td>
                 </tr>
                 <tr>
                     <td>Print Stationery</td>
                     <td><span class="cross">❌</span></td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
                 </tr>
                 <tr>
                     <td>Brand Voice & Strategy</td>
                     <td><span class="cross">❌</span></td>
                     <td><span class="cross">❌</span></td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span> (Deep)</td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span> (Deep)</td>
                 </tr>
                 <tr>
                     <td>Packaging & UI Kit</td>
                     <td><span class="cross">❌</span></td>
                     <td><span class="cross">❌</span></td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
                 </tr>
                 <tr>
                     <td>Revisions</td>
@@ -514,7 +514,7 @@
                     <td></td>
                     <td style="padding:20px;"><button class="tier-btn" data-pkg-id="1" onclick="selectBrandPkg(1, 'Launch', 200)">Select Plan</button></td>
                     <td style="padding:20px;"><button class="tier-btn" data-pkg-id="2" onclick="selectBrandPkg(2, 'Growth', 350)">Select Plan</button></td>
-                    <td style="padding:20px;"><button class="tier-btn" data-pkg-id="3" onclick="selectBrandPkg(3, 'Enterprise', 500)">Select Plan</button></td>
+                    <td style="padding:20px;"><a href="#contact-footer" class="tier-btn" style="text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a></td>
                 </tr>
             </tbody>
         </table>
@@ -536,7 +536,7 @@
     <div id="brand-total-bar">
         <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
         <div id="brand-summary-text" style="font-weight:600;"></div>
-        <div style="margin-top:5px;">Total Investment: <span class="total-txt" id="brand-display-total">$0</span></div>
+        <div style="margin-top:5px;">Total Investment: <span class="total-txt" id="brand-display-total">BDT 0</span></div>
         <div style="font-size:12px; color:#888; margin-top:10px;">Please scroll down to the contact form to proceed.</div>
     </div>
 
@@ -551,7 +551,7 @@
 
         // Reset All Cards & Buttons
         document.querySelectorAll('.brand-card').forEach(c => c.style.borderColor = '#eee');
-        // document.querySelectorAll('.highlight-card').forEach(c => c.style.borderColor = '#d32f2f'); 
+        // document.querySelectorAll('.highlight-card').forEach(c => c.style.borderColor = '#5C1AEC'); 
         
         document.querySelectorAll('.tier-btn').forEach(b => {
             b.classList.remove('active-btn');

@@ -1,4 +1,4 @@
-<style>
+﻿<style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
     .content-packages-wrapper {
@@ -29,7 +29,7 @@
         font-size: 36px;
         font-weight: 700;
         text-align: center;
-        color: #b71c1c;
+        color: #4012A4;
         margin-bottom: 10px;
     }
 
@@ -63,7 +63,7 @@
         display: block;
         width: 60px;
         height: 3px;
-        background: #d32f2f;
+        background: #5C1AEC;
         margin: 10px auto 0;
         border-radius: 2px;
     }
@@ -101,7 +101,7 @@
 
     .check-list li::before {
         content: "✓";
-        color: #116b15;
+        color: #5C1AEC;
         font-weight: 700;
         position: absolute;
         left: 0;
@@ -124,7 +124,7 @@
     
     .cross-list li::before {
         content: "✕";
-        color: #d32f2f;
+        color: #5C1AEC;
         font-weight: 700;
         position: absolute;
         left: 0;
@@ -213,7 +213,7 @@
     
     .pkg-features li::before {
         content: "•";
-        color: #d32f2f;
+        color: #5C1AEC;
         font-weight: bold;
         margin-right: 10px;
         line-height: 1.5;
@@ -223,8 +223,8 @@
     .tier-btn {
         width: 100%;
         padding: 12px;
-        border: 1px solid #d32f2f;
-        background: #d32f2f;
+        border: 1px solid #5C1AEC;
+        background: #5C1AEC;
         color: #fff;
         font-weight: 600;
         border-radius: 5px;
@@ -235,8 +235,8 @@
 
     .tier-btn:hover {
         background: #fff;
-        color: #d32f2f;
-        border-color: #d32f2f;
+        color: #5C1AEC;
+        border-color: #5C1AEC;
     }
 
     .tier-btn.active-btn {
@@ -339,7 +339,7 @@
         display: inline-block;
         width: 40px;
         height: 40px;
-        background: #d32f2f;
+        background: #5C1AEC;
         color: #fff;
         border-radius: 50%;
         line-height: 40px;
@@ -379,7 +379,7 @@
         opacity: 0.9;
     }
     .benefit-item strong {
-        color: #d32f2f;
+        color: #5C1AEC;
     }
 
     /* --- TOTAL BAR (Motion Style) --- */
@@ -398,20 +398,20 @@
     
     .total-txt {
         font-size: 24px;
-        color: #d32f2f;
+        color: #5C1AEC;
         font-weight: 700;
         margin-left: 10px;
     }
 
     /* Selection Highlighting */
     .col-highlight {
-        background-color: #fff5f5 !important;
+        background-color: #F2EEFF !important;
         color: #000;
     }
     .th-highlight {
-        background-color: #d32f2f !important;
+        background-color: #5C1AEC !important;
         color: #fff !important;
-        border-color: #d32f2f !important;
+        border-color: #5C1AEC !important;
     }
 </style>
 
@@ -436,7 +436,7 @@
         <div class="package-card" id="pkg-card-1">
             <h3 class="pkg-name">Launch</h3>
             <div class="tier-target">Professionals, local brands, consultants, and startups who need a credible, consistent, and well-managed presence on one keyplatform.</div>
-            <div class="pkg-price">$250<span>/month</span></div>
+            <div class="pkg-price">BDT 250<span>/month</span></div>
             
             <button class="tier-btn" data-pkg-id="1" onclick="selectStrategyPkg(1, 'Launch', 250)">Select Plan</button>
             
@@ -455,7 +455,7 @@
         <div class="package-card" id="pkg-card-2">
             <h3 class="pkg-name">Growth</h3>
             <div class="tier-target">Growing brands and SMEs that need consistent visibility, engagement, and momentum across multiple platforms.</div>
-            <div class="pkg-price">$400<span>/month</span></div>
+            <div class="pkg-price">BDT 400<span>/month</span></div>
             
             <button class="tier-btn" data-pkg-id="2" onclick="selectStrategyPkg(2, 'Growth', 400)">Select Plan</button>
             
@@ -471,12 +471,12 @@
         </div>
 
         <!-- 3: Authority -->
-        <div class="package-card" id="pkg-card-3">
+        <div class="package-card" id="pkg-card-3" style="background-color: #F2EEFF;">
             <h3 class="pkg-name">Enterprise</h3>
             <div class="tier-target">Established brands, funded startups, founders, and agencies that want market leadership and scale—not just presence.</div>
-            <div class="pkg-price">$600<span>/month</span></div>
+            <div class="pkg-price">BDT 600<span>/month</span></div>
             
-            <button class="tier-btn" data-pkg-id="3" onclick="selectStrategyPkg(3, 'Enterprise', 600)">Select Plan</button>
+            <a href="#contact-footer" class="tier-btn" style="text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
             
             <ul class="pkg-features">
                 <li><strong>3 Platforms</strong> (IG+FB+LI/X/TikTok)</li>
@@ -530,9 +530,9 @@
                 </tr>
                 <tr>
                     <td>Captions Included</td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span> (Conversion-Focused)</td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span> (Conversion-Focused)</td>
                 </tr>
                 <tr>
                     <td>Hashtag Research</td>
@@ -542,9 +542,9 @@
                 </tr>
                  <tr>
                     <td>Posting & Management</td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
                 </tr>
                 <tr>
                     <td>Community Mgmt</td>
@@ -561,14 +561,14 @@
                 <tr>
                     <td>Brand Audit</td>
                     <td>—</td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
                 </tr>
                 <tr>
                     <td>Competitor Analysis</td>
                     <td>—</td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span></td>
-                    <td><span style="color: #116b15; font-weight: 900;">&#10003;</span> (Gap-Based)</td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span> (Gap-Based)</td>
                 </tr>
                  <tr>
                     <td>Strategy Calls</td>
@@ -593,7 +593,7 @@
                         <button class="tier-btn" data-pkg-id="2" onclick="selectStrategyPkg(2, 'Growth', 400)">Select</button>
                     </td>
                     <td class="col-strat-3">
-                        <button class="tier-btn" data-pkg-id="3" onclick="selectStrategyPkg(3, 'Enterprise', 600)">Select</button>
+                        <a href="#contact-footer" class="tier-btn" style="text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
                     </td>
                 </tr>
             </tbody>
@@ -604,7 +604,7 @@
     <div id="motion-total-bar">
         <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
         <div id="motion-summary-text" style="font-weight:600;"></div>
-        <div style="margin-top:5px;">Estimated Investment: <span class="total-txt" id="motion-display-total">$0</span></div>
+        <div style="margin-top:5px;">Estimated Investment: <span class="total-txt" id="motion-display-total">BDT 0</span></div>
         <div style="font-size:12px; color:#888; margin-top:10px;">Please scroll down to the contact form to proceed.</div>
     </div>
 
@@ -622,10 +622,10 @@
 
     <!-- CTA -->
     <!--<div id="cta-section" style="text-align: center; margin-top: 60px; padding: 40px; background: #fff; border-radius: 12px; border: 1px dashed #ccc;">-->
-    <!--    <h2 style="color: #b71c1c; margin-bottom: 10px;">Ready to Start Your Growth System?</h2>-->
+    <!--    <h2 style="color: #4012A4; margin-bottom: 10px;">Ready to Start Your Growth System?</h2>-->
     <!--    <p style="margin-bottom: 25px;">Select a package above and book a strategy call to align our goals.</p>-->
         
-    <!--    <a href="#" class="tier-btn" style="display: inline-block; width: auto; padding: 15px 40px; background: #d32f2f; color: #fff; text-decoration: none;">Book a Strategy Call</a>-->
+    <!--    <a href="#" class="tier-btn" style="display: inline-block; width: auto; padding: 15px 40px; background: #5C1AEC; color: #fff; text-decoration: none;">Book a Strategy Call</a>-->
     <!--</div>-->
 
 </div>
@@ -682,3 +682,4 @@
         }
     }
 </script>
+
