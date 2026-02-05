@@ -142,7 +142,7 @@
         font-size: 14px;
         color: #555;
         display: flex;
-        align-items: flex-start;
+        align-items: stretch;
     }
 
     .tier-features li::before {
@@ -155,6 +155,7 @@
     }
 
     .tier-btn {
+        box-sizing: border-box;
         width: 100%;
         padding: 12px;
         border: 1px solid #5C1AEC;
@@ -290,7 +291,7 @@
                 </div>
 
                 <div class="tier-price">BDT 199<span>/month</span></div>
-                <button class="tier-btn" onclick="selectTier('Launch', 'BDT 199')">Select Package</button>
+                
                 
                 <ul class="tier-features">
                     <li>Platform Setup & Configuration: Complete technical setup (Zoom/Teams/etc.).</li>
@@ -300,6 +301,7 @@
                     <li>Dedicated Attendee Support: Real-time technical help for attendees.</li>
                     <li>Duration: Support for up to 90 minutes.</li>
                 </ul>
+<button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Launch', 'BDT 199')">Select Package</button>
             </div>
 
             <!-- Tier 2 -->
@@ -311,7 +313,7 @@
                 </div>
 
                 <div class="tier-price">BDT 399<span>/month</span></div>
-                <button class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button>
+                
                 
                 <ul class="tier-features">
                     <li>Everything in Launch: Plus advanced management features.</li>
@@ -322,6 +324,7 @@
                     <li>Post-Event Analytics: Detailed attendance and engagement reports.</li>
                     <li>Recording Editing: Professional editing of the session recording.</li>
                 </ul>
+<button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button>
             </div>
 
             <!-- Tier 3 -->
@@ -332,8 +335,6 @@
                     <strong>Value Proposition</strong> Full-scale production with custom branding, multi-camera streaming.
                 </div>
 
-                <div class="tier-price">BDT 1,999<span>/month</span></div>
-                <button class="tier-btn" onclick="selectTier('Enterprise', 'BDT 1,999')">Select Package</button>
                 
                 <ul class="tier-features">
                     <li>Everything in Growth: Plus broadcast-grade production.</li>
@@ -518,3 +519,6 @@
         }
     }
 </script>
+
+
+

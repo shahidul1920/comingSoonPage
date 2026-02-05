@@ -143,7 +143,7 @@
         font-size: 14px;
         color: #555;
         display: flex;
-        align-items: flex-start;
+        align-items: stretch;
     }
 
     .tier-features li::before {
@@ -156,6 +156,7 @@
     }
 
     .tier-btn {
+        box-sizing: border-box;
         width: 100%;
         padding: 12px;
         border: 1px solid #5C1AEC;
@@ -439,7 +440,7 @@
                 </div>
 
                 <div class="tier-price">BDT 250<span>/month</span></div>
-                <button class="tier-btn" onclick="selectTier('Launch', 'BDT 250')">Select Package</button>
+                
                 
                 <ul class="tier-features">
                     <li>Up to 5 responsive pages or 1 landing page</li>
@@ -450,6 +451,7 @@
                     <li>Speed optimization</li>
                     <li>7 days post-launch support</li>
                 </ul>
+<button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Launch', 'BDT 250')">Select Package</button>
             </div>
 
             <!-- Tier 2 -->
@@ -461,7 +463,7 @@
                 </div>
 
                 <div class="tier-price">BDT 399<span>/month</span></div>
-                <button class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button>
+                
                 
                 <ul class="tier-features">
                     <li>Up to 10 custom-designed pages</li>
@@ -473,6 +475,7 @@
                     <li>Speed & performance tuning</li>
                     <li>30 days priority support</li>
                 </ul>
+<button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button>
             </div>
 
             <!-- Tier 3 -->
@@ -483,8 +486,6 @@
                     <strong>Value Proposition</strong> Perfect for high-growth businesses, startups, and enterprises needing powerful digital systems.
                 </div>
 
-                <div class="tier-price">BDT 599<span>/month</span></div>
-                <button class="tier-btn" onclick="selectTier('Enterprise', 'BDT 599')">Select Package</button>
                 
                 <ul class="tier-features">
                     <li>Unlimited custom pages</li>
@@ -686,3 +687,6 @@
         }
     }
 </script>
+
+
+

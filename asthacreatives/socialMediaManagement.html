@@ -208,7 +208,7 @@
         font-size: 14px;
         color: #555;
         display: flex;
-        align-items: flex-start;
+        align-items: stretch;
     }
     
     .pkg-features li::before {
@@ -438,7 +438,7 @@
             <div class="tier-target">Professionals, local brands, consultants, and startups who need a credible, consistent, and well-managed presence on one keyplatform.</div>
             <div class="pkg-price">BDT 250<span>/month</span></div>
             
-            <button class="tier-btn" data-pkg-id="1" onclick="selectStrategyPkg(1, 'Launch', 250)">Select Plan</button>
+            
             
             <ul class="pkg-features">
                 <li><strong>1 Primary Platform</strong> (IG/FB/LI)</li>
@@ -449,6 +449,7 @@
                 <li>Posting, Scheduling & Community Mgmt</li>
                 <li>1x Monthly Strategy Call</li>
             </ul>
+<button style="margin-top: auto;" class="tier-btn" data-pkg-id="1" onclick="selectStrategyPkg(1, 'Launch', 250)">Select Plan</button>
         </div>
 
         <!-- 2: Momentum -->
@@ -457,7 +458,7 @@
             <div class="tier-target">Growing brands and SMEs that need consistent visibility, engagement, and momentum across multiple platforms.</div>
             <div class="pkg-price">BDT 400<span>/month</span></div>
             
-            <button class="tier-btn" data-pkg-id="2" onclick="selectStrategyPkg(2, 'Growth', 400)">Select Plan</button>
+            
             
             <ul class="pkg-features">
                 <li><strong>2 Platforms</strong> (e.g. IG + FB)</li>
@@ -468,15 +469,16 @@
                 <li>Active Community Mgmt & Optimization</li>
                 <li>2x Strategy & Optimization Calls</li>
             </ul>
+<button style="margin-top: auto;" class="tier-btn" data-pkg-id="2" onclick="selectStrategyPkg(2, 'Growth', 400)">Select Plan</button>
         </div>
 
         <!-- 3: Authority -->
         <div class="package-card" id="pkg-card-3" style="background-color: #F2EEFF;">
             <h3 class="pkg-name">Enterprise</h3>
             <div class="tier-target">Established brands, funded startups, founders, and agencies that want market leadership and scale—not just presence.</div>
-            <div class="pkg-price">BDT 600<span>/month</span></div>
             
-            <a href="#contact-footer" class="tier-btn" style="text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
+            <div class="pkg-price" style="visibility:hidden;">BDT 000</div>
+            
             
             <ul class="pkg-features">
                 <li><strong>3 Platforms</strong> (IG+FB+LI/X/TikTok)</li>
@@ -487,6 +489,7 @@
                 <li>Proactive Community Mgmt</li>
                 <li>Weekly Strategy & Performance Calls</li>
             </ul>
+<a href="#contact-footer" class="tier-btn" style="margin-top: auto; text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
         </div>
     </div>
 
@@ -593,6 +596,7 @@
                         <button class="tier-btn" data-pkg-id="2" onclick="selectStrategyPkg(2, 'Growth', 400)">Select</button>
                     </td>
                     <td class="col-strat-3">
+                        <div class="pkg-price" style="visibility:hidden;">BDT 000</div>
                         <a href="#contact-footer" class="tier-btn" style="text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
                     </td>
                 </tr>
@@ -682,4 +686,6 @@
         }
     }
 </script>
+
+
 

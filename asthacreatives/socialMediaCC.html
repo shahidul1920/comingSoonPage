@@ -139,7 +139,7 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 25px;
         margin: 0px 0 60px;
-        align-items: flex-start;
+        align-items: stretch;
     }
 
     @media (max-width: 900px) {
@@ -244,7 +244,7 @@
         font-size: 14px;
         color: #555;
         display: flex;
-        align-items: flex-start;
+        align-items: stretch;
     }
     
     .pkg-features li::before {
@@ -257,6 +257,7 @@
 
     /* --- BUTTONS --- */
     .tier-btn {
+        box-sizing: border-box;
         width: 100%;
         padding: 12px;
         border: 1px solid #5C1AEC;
@@ -472,7 +473,7 @@
             <div class="pkg-desc">Professional visuals to establish credibility and consistency fast.</div>
             <div class="pkg-price">BDT 200<span>/month</span></div>
             
-            <button class="tier-btn" data-pkg-id="1" onclick="selectTier(1, 'Launch', 200)">Select Plan</button>
+            
             
             <ul class="pkg-features">
                 <li><strong>12 Static Creatives</strong></li>
@@ -483,6 +484,7 @@
                 <li>30-Day Content Calendar</li>
                 <li>Adobe/Editable Files</li>
             </ul>
+<button style="margin-top: auto;" class="tier-btn" data-pkg-id="1" onclick="selectTier(1, 'Launch', 200)">Select Plan</button>
         </div>
 
         <!-- 2: Growth -->
@@ -491,7 +493,7 @@
             <div class="pkg-desc">A structured content engine designed to improve engagement and recall.</div>
             <div class="pkg-price">BDT 350<span>/month</span></div>
             
-            <button class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 350)">Select Plan</button>
+            
             
             <ul class="pkg-features">
                 <li><strong>20 Static Creatives</strong></li>
@@ -502,15 +504,16 @@
                 <li>Competitor Visual Benchmark</li>
                 <li><strong>Bonus:</strong> Brand Style Audit</li>
             </ul>
+<button style="margin-top: auto;" class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 350)">Select Plan</button>
         </div>
 
         <!-- 3: Enterprise -->
         <div class="package-card" id="pkg-card-3" style="background-color: #F2EEFF;">
             <h3 class="pkg-name">Enterprise</h3>
             <div class="pkg-desc">A premium library built to position your brand as an industry authority.</div>
-            <div class="pkg-price">BDT 500<span>/month</span></div>
             
-            <a href="#contact-footer" class="tier-btn" style="text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
+            <div class="pkg-price" style="visibility:hidden;">BDT 000</div>
+            
             
             <ul class="pkg-features">
                 <li><strong>30 Static Creatives</strong></li>
@@ -521,6 +524,7 @@
                 <li>Reusable Brand Templates</li>
                 <li><strong>Bonus:</strong> Full Brand Visual Playbook</li>
             </ul>
+<a href="#contact-footer" class="tier-btn" style="margin-top: auto; text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
         </div>
     </div>
 
@@ -605,6 +609,7 @@
                         <button class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 350)">Select</button>
                     </td>
                     <td class="col-content-3">
+                        <div class="pkg-price" style="visibility:hidden;">BDT 000</div>
                         <a href="#contact-footer" class="tier-btn" style="text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
                     </td>
                 </tr>
@@ -738,4 +743,7 @@
         }
     }
 </script>
+
+
+
 

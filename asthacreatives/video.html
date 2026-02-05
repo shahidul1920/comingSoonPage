@@ -170,7 +170,7 @@
         font-size: 14px;
         color: #555;
         display: flex;
-        align-items: flex-start;
+        align-items: stretch;
     }
 
     .tier-features li::before {
@@ -183,6 +183,7 @@
     }
 
     .tier-btn {
+        box-sizing: border-box;
         width: 100%;
         padding: 12px;
         border: 1px solid #5C1AEC;
@@ -326,7 +327,7 @@
                 <div class="tier-target">Designed to help you launch consistently and look professional without the overhead of a full production team.<br><br><strong>Best for:</strong> YouTubers, solo podcasters, and early-stage brands building consistency.</div>
 
                 <div class="tier-price">BDT 299<span>/month</span></div>
-                <button class="tier-btn" data-pkg-id="1" onclick="selectTier(1, 'Launch', 299)">Select Package</button>
+                
                 
                 <ul class="tier-features">
                     <li>Vlog Editing: Clean pacing, smooth cuts, storytelling flow, and basic color grading</li>
@@ -337,6 +338,7 @@
                     <li>Delivery Time: 3–5 business days per project</li>
                     <li>Support: Email support</li>
                 </ul>
+<button style="margin-top: auto;" class="tier-btn" data-pkg-id="1" onclick="selectTier(1, 'Launch', 299)">Select Package</button>
             </div>
 
             <!-- Tier 2 -->
@@ -345,7 +347,7 @@
                 <div class="tier-target">Our most popular package — built for creators and businesses who want a content engine, not just editing.<br><br><strong>Best for:</strong> Coaches, agencies, SaaS brands, and content-driven businesses.</div>
 
                 <div class="tier-price">BDT 799<span>/month</span></div>
-                <button class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 799)">Select Package</button>
+                
                 
                 <ul class="tier-features">
                     <li>Vlog Editing: Advanced storytelling, cinematic pacing, and brand color grading</li>
@@ -357,6 +359,7 @@
                     <li>Delivery Time: 2–3 business days per project</li>
                     <li>Support: Priority email + WhatsApp</li>
                 </ul>
+<button style="margin-top: auto;" class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 799)">Select Package</button>
             </div>
 
             <!-- Tier 3 -->
@@ -364,8 +367,8 @@
                 <div class="tier-name">Enterprise</div>
                 <div class="tier-target">This is a retainer-based growth partnership — we handle everything so you can focus on creating and selling.<br><br><strong>Best for:</strong> High-ticket brands, influencers, and businesses scaling aggressively.</div>
 
-                <div class="tier-price">BDT 1,999<span>/month</span></div>
-                <a href="#contact-footer" class="tier-btn" style="text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
+                <div class="tier-price" style="visibility:hidden;">BDT 000</div>
+                
                 
                 <ul class="tier-features">
                     <li>Vlog & Brand Video Production: Cinematic editing, advanced storytelling, and premium color grading</li>
@@ -377,6 +380,7 @@
                     <li>Turnaround Time: 24–48 hours per project</li>
                     <li>Support: Dedicated account manager + direct communication channel</li>
                 </ul>
+<a href="#contact-footer" class="tier-btn" style="margin-top: auto; text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
             </div>
         </div>
     </div>
@@ -537,4 +541,7 @@
         }
     }
 </script>
+
+
+
 

@@ -48,7 +48,7 @@
 
     .edu-box h3 { font-size: 35px; color: #5C1AEC; margin-bottom: 15px; }
     .edu-box ul { list-style: none; padding: 0 !important; margin: 15px 0 0 0 !important; text-align: left; }
-    .edu-box ul li { margin-bottom: 10px; color: #555; display: flex; align-items: flex-start; }
+    .edu-box ul li { margin-bottom: 10px; color: #555; display: flex; align-items: stretch; }
     .edu-box ul li span { margin-right: 10px; line-height: 1.6; }
 
     /* --- PROCESS STEPS --- */
@@ -308,6 +308,7 @@
 
     /* --- BUTTONS --- */
     .tier-btn {
+        box-sizing: border-box;
         width: 100%;
         padding: 12px;
         border: 1px solid #5C1AEC;
@@ -392,7 +393,7 @@
                 <div class="pkg-cost">BDT 200</div>
                 <!-- <span class="pkg-timeline">Timeline: 7–10 Business Days</span> -->
                 
-                <button class="tier-btn" data-pkg-id="1" onclick="selectBrandPkg(1, 'Launch', 200)">Select Plan</button>
+                
                 
                 <ul class="pkg-features">
                     <li><strong>Primary Logo:</strong> 3 Concepts + 2 rounds refinement</li>
@@ -401,6 +402,7 @@
                     <li><strong>Typography:</strong> Header & Body fonts</li>
                     <li><strong>Favicon:</strong> Branded app/browser icon</li>
                 </ul>
+<button style="margin-top: auto;" class="tier-btn" data-pkg-id="1" onclick="selectBrandPkg(1, 'Launch', 200)">Select Plan</button>
             </div>
 
             <!-- Package 2 -->
@@ -410,7 +412,7 @@
                 <div class="pkg-cost">BDT 350</div>
                 <!-- <span class="pkg-timeline">Timeline: 3–4 Weeks</span> -->
                 
-                <button class="tier-btn" data-pkg-id="2" onclick="selectBrandPkg(2, 'Growth', 350)">Select Plan</button>
+                
                 
                 <ul class="pkg-features">
                     <li><strong>Everything in "Launch"</strong></li>
@@ -419,6 +421,7 @@
                     <li><strong>Stationery Suite:</strong> Card, Letterhead, Envelope</li>
                     <li><strong>Brand Pattern:</strong> Custom background/texture</li>
                 </ul>
+<button style="margin-top: auto;" class="tier-btn" data-pkg-id="2" onclick="selectBrandPkg(2, 'Growth', 350)">Select Plan</button>
             </div>
 
             <!-- Package 3 -->
@@ -428,7 +431,8 @@
                 
                 <!-- <span class="pkg-timeline">Timeline: 4+ Weeks</span> -->
                 
-                <a href="#contact-footer" class="tier-btn" style="text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
+                <div class="pkg-cost" style="visibility:hidden;">BDT 000</div>
+                
                 
                 <ul class="pkg-features">
                      <li><strong>Everything in "Growth"</strong></li>
@@ -437,6 +441,7 @@
                     <li><strong>Packaging / UI Kit:</strong> Custom Add-ons</li>
                     <li><strong>Revisions:</strong> Unlimited Rounds</li>
                 </ul>
+<a href="#contact-footer" class="tier-btn" style="margin-top: auto; text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
             </div>
 
         </div>
@@ -601,3 +606,6 @@
         }
     }
 </script>
+
+
+
