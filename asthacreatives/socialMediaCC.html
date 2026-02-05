@@ -126,7 +126,7 @@
     
     .cross-list li::before {
         content: "✕";
-        color: #5C1AEC;
+        color: #d32f2f;
         font-weight: 700;
         position: absolute;
         left: 0;
@@ -609,7 +609,6 @@
                         <button class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 350)">Select</button>
                     </td>
                     <td class="col-content-3">
-                        <div class="pkg-price" style="visibility:hidden;">BDT 000</div>
                         <a href="#contact-footer" class="tier-btn" style="text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
                     </td>
                 </tr>
@@ -721,7 +720,7 @@
             // Update Total Bar
             document.getElementById('social-total-bar').style.display = 'block';
             document.getElementById('social-summary-text').innerText = tierName;
-            document.getElementById('social-display-total').innerText = "$" + price;
+            document.getElementById('social-display-total').innerText = "BDT " + price;
         }
 
         updateForm();
@@ -731,7 +730,7 @@
         let finalString = "Submitted From: Social Content _General Inquiry";
         
         if (currentTier) {
-            finalString = `Submitted From: Social Content _${currentTier.name} ($${currentTier.price})`;
+            finalString = `Submitted From: Social Content _${currentTier.name} (BDT ${currentTier.price})`;
         }
 
         let formField = document.querySelector("input[name='input_text']");
@@ -743,6 +742,7 @@
         }
     }
 </script>
+
 
 
 

@@ -95,7 +95,7 @@
 
     .check-list li::before {
         content: "✓";
-        color: #28a745 !important;
+        color: #5C1AEC !important;
         font-weight: 700;
         position: absolute;
         left: 0;
@@ -142,7 +142,7 @@
         background: #fffafa;
         transform: scale(1.05);
         z-index: 2;
-        box-shadow: 0 10px 40px rgba(211, 47, 47, 0.1);
+        box-shadow: 0 10px 40px rgba(92, 26, 236, 0.1);
     }
     
     .popular-card:hover {
@@ -522,12 +522,12 @@
         </div>
 
         <!-- 3: Market Dominator -->
-        <div class="package-card">
+        <div class="package-card" style="background-color: #F2EEFF;">
             <h3 class="pkg-name">Enterprise</h3>
             <div class="pkg-desc">Full-Funnel Social & Paid Advertising at Enterprise Level</div>
-            <div class="pkg-price">BDT 899<span>/month</span></div>
+            <div class="pkg-price" style="visibility:hidden;">BDT 899<span>/month</span></div>
             
-            <button class="btn-select" onclick="selectGrowthPkg(3, 899)">Select Plan</button>
+            <a href="#contact-footer" class="btn-select" style="text-align: center; text-decoration: none;">Contact Us</a>
             
             <ul class="pkg-features">
                 <li><strong>3 Platforms</strong> (Fully Integrated)</li>
@@ -577,9 +577,9 @@
                 </tr>
                 <tr>
                     <td>Captions Included</td>
-                    <td class="col-grow-1"><span style="color: #28a745 !important; font-weight: bold;">&#10003;</span></td>
-                    <td class="col-grow-2"><span style="color: #28a745 !important; font-weight: bold;">&#10003;</span></td>
-                    <td class="col-grow-3"><span style="color: #28a745 !important; font-weight: bold;">&#10003;</span> (Conversion)</td>
+                    <td class="col-grow-1"><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                    <td class="col-grow-2"><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                    <td class="col-grow-3"><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> (Conversion)</td>
                 </tr>
                 <tr>
                     <td>Hashtag Research</td>
@@ -589,9 +589,9 @@
                 </tr>
                 <tr>
                     <td>Posting & Management</td>
-                    <td class="col-grow-1"><span style="color: #28a745 !important; font-weight: bold;">&#10003;</span></td>
-                    <td class="col-grow-2"><span style="color: #28a745 !important; font-weight: bold;">&#10003;</span></td>
-                    <td class="col-grow-3"><span style="color: #28a745 !important; font-weight: bold;">&#10003;</span></td>
+                    <td class="col-grow-1"><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                    <td class="col-grow-2"><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                    <td class="col-grow-3"><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
                 </tr>
                 <tr>
                     <td>Paid Campaigns</td>
@@ -628,7 +628,7 @@
                         <button class="btn-select" onclick="selectGrowthPkg(2, 699)">Select</button>
                     </td>
                     <td class="col-grow-3">
-                        <button class="btn-select" onclick="selectGrowthPkg(3, 899)">Select</button>
+                        <a href="#contact-footer" class="btn-select" style="text-align: center; text-decoration: none; display: block;">Contact</a>
                     </td>
                 </tr>
             </tbody>
@@ -709,7 +709,7 @@
         // 4. Show Total Bar
         totalBar.style.display = 'block';
         document.getElementById('growth-summary-text').innerText = currentGrowthPkg;
-        document.getElementById('growth-display-total').innerText = "$" + growthPrice;
+        document.getElementById('growth-display-total').innerText = "BDT " + growthPrice;
 
         updateGrowthForm();
     }
@@ -717,7 +717,7 @@
     function updateGrowthForm() {
         let finalString = "";
         if (currentGrowthPkg) {
-            finalString = `Social Media Package: ${currentGrowthPkg} ($${growthPrice})`;
+            finalString = `Social Media Package: ${currentGrowthPkg} (BDT ${growthPrice})`;
         }
         
         // Attempt to find a form field to output into
@@ -729,6 +729,7 @@
         }
     }
 </script>
+
 
 
 

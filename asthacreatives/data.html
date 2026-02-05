@@ -72,7 +72,7 @@
     .pkg-card.active-card {
         border: 1px solid #5C1AEC !important;
         background-color: #fffbfb;
-        /* box-shadow: 0 10px 25px rgba(211, 47, 47, 0.1); */
+        /* box-shadow: 0 10px 25px rgba(92, 26, 236, 0.1); */
     }
 
     /* Active State Header */
@@ -898,7 +898,7 @@
 
         if (selectedPkg) {
             total += selectedPkg.price;
-            summaryText += `Main Package: ${selectedPkg.name} ($${selectedPkg.price})`;
+            summaryText += `Main Package: ${selectedPkg.name} (BDT ${selectedPkg.price})`;
             displaySummary += selectedPkg.name;
         }
 
@@ -918,7 +918,7 @@
         const summaryTextEl = document.getElementById('motion-summary-text');
         const displayTotalEl = document.getElementById('motion-display-total');
 
-        if (displayTotalEl) displayTotalEl.innerText = "$" + total.toLocaleString();
+        if (displayTotalEl) displayTotalEl.innerText = "BDT " + total.toLocaleString();
         if (summaryTextEl) summaryTextEl.innerText = displaySummary || "None";
 
         // Show/Hide bar
@@ -940,5 +940,6 @@
         }
     }
 </script>
+
 
 

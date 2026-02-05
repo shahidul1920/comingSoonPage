@@ -583,7 +583,7 @@
             // Update Total Bar
             document.getElementById('brand-total-bar').style.display = 'block';
             document.getElementById('brand-summary-text').innerText = name;
-            document.getElementById('brand-display-total').innerText = "$" + price;
+            document.getElementById('brand-display-total').innerText = "BDT " + price;
         }
 
         updateBrandForm();
@@ -593,7 +593,7 @@
         let finalString = "";
         
         if (currentBrandPkg) {
-            finalString = `Submitted From: Brand Identity _${currentBrandPkg.name} ($${currentBrandPkg.price})`;
+            finalString = `Submitted From: Brand Identity _${currentBrandPkg.name} (BDT ${currentBrandPkg.price})`;
         }
         
         // Update Fluent Form Hidden Field
@@ -606,6 +606,7 @@
         }
     }
 </script>
+
 
 
 

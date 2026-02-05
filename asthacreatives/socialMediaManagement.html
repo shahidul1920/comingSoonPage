@@ -124,7 +124,7 @@
     
     .cross-list li::before {
         content: "✕";
-        color: #5C1AEC;
+        color: #d32f2f;
         font-weight: 700;
         position: absolute;
         left: 0;
@@ -597,7 +597,6 @@
                         <button class="tier-btn" data-pkg-id="2" onclick="selectStrategyPkg(2, 'Growth', 400)">Select</button>
                     </td>
                     <td class="col-strat-3">
-                        <div class="pkg-price" style="visibility:hidden;">BDT 000</div>
                         <a href="#contact-footer" class="tier-btn" style="text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
                     </td>
                 </tr>
@@ -665,10 +664,10 @@
             // Update Total Bar
             document.getElementById('motion-total-bar').style.display = 'block';
             document.getElementById('motion-summary-text').innerText = tierName;
-            document.getElementById('motion-display-total').innerText = "$" + price;
+            document.getElementById('motion-display-total').innerText = "BDT " + price;
 
             // Update Form
-            updateContentForm(`Management Package: ${tierName} ($${price})`);
+            updateContentForm(`Management Package: ${tierName} (BDT ${price})`);
 
             // Visual Update - Set Active Buttons
             document.querySelectorAll(`.tier-btn[data-pkg-id="${id}"]`).forEach(btn => {
@@ -687,6 +686,7 @@
         }
     }
 </script>
+
 
 
 

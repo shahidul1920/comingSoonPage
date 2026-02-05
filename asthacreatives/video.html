@@ -519,7 +519,7 @@
             // Update Total Bar
             document.getElementById('video-total-bar').style.display = 'block';
             document.getElementById('video-summary-text').innerText = tierName;
-            document.getElementById('video-display-total').innerText = "$" + price;
+            document.getElementById('video-display-total').innerText = "BDT " + price;
         }
 
         updateForm();
@@ -529,7 +529,7 @@
         let finalString = "Submitted From: VideoEditing _General Inquiry";
         
         if (currentTier) {
-            finalString = `Submitted From: VideoEditing _${currentTier.name} ($${currentTier.price})`;
+            finalString = `Submitted From: VideoEditing _${currentTier.name} (BDT ${currentTier.price})`;
         }
 
         let formField = document.querySelector("input[name='input_text']");
@@ -541,6 +541,7 @@
         }
     }
 </script>
+
 
 
 
