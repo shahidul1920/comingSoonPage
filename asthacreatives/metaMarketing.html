@@ -1,122 +1,69 @@
 ﻿<style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-    .growth-marketing-wrapper {
+    /* --- GLOBAL CONTAINER --- */
+    .motion-content-wrapper {
         font-family: 'Poppins', sans-serif;
-        color: #4a4a4a;
-        line-height: 1.7;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 10px 0px;
-        background-color: #fafafa;
+        width: 100%;
+        color: #333;
     }
 
-    /* Typography */
-    .growth-marketing-wrapper h1, 
-    .growth-marketing-wrapper h2, 
-    .growth-marketing-wrapper h3 {
-        color: #2d2d2d;
-        line-height: 1.3;
+    /* --- HIDE AUTO-FILL FIELD (SUREFORMS) --- */
+    .package-auto-fill {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
-    .growth-marketing-wrapper h1 {
+    /* --- HERO --- */
+    .motion-hero {
+        text-align: center;
+        margin-bottom: 60px;
+        padding: 0;
+    }
+
+    .motion-title {
         font-size: 36px;
-        font-weight: 700;
-        text-align: center;
-        color: #4012A4;
-        margin-bottom: 10px;
-    }
-
-    .growth-marketing-wrapper h2 {
-        font-size: 20px;
-        font-weight: 500;
-        text-align: center;
-        margin-bottom: 40px;
-        color: #666;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .section-header {
-        text-align: center;
-        margin-bottom: 0px;
-    }
-
-    .section-title {
-        font-size: 26px;
         font-weight: 700;
         color: #222;
         margin-bottom: 15px;
-        position: relative;
-        display: inline-block;
-    }
-    
-    .section-title::after {
-        content: '';
-        display: block;
-        width: 60px;
-        height: 3px;
-        background: #5C1AEC;
-        margin: 10px auto 0;
-        border-radius: 2px;
     }
 
-    /* Content Cards */
-    .content-card {
-        background: #fff;
-        border-radius: 16px;
-        padding: 40px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-        margin-bottom: 40px;
-        border: 1px solid #f0f0f0;
+    .motion-subtitle {
+        font-size: 20px;
+        color: #5C1AEC;
+        font-weight: 600;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
-    /* Lists */
-    .feature-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-        margin-top: 25px;
+    .motion-desc {
+        font-size: 16px;
+        color: #555;
+        max-width: 800px;
+        margin: 0 auto 30px auto;
+        line-height: 1.6;
     }
 
-    .check-list {
-        list-style: none;
+    /* --- SERVICE TIERS --- */
+    .tiers-section {
+        margin-bottom: 80px;
         padding: 0;
-        margin: 0;
     }
 
-    .check-list li {
-        margin-bottom: 15px;
-        padding-left: 30px;
-        position: relative;
-        font-size: 15px;
-    }
-
-    .check-list li::before {
-        content: "✓";
-        color: #5C1AEC !important;
-        font-weight: 700;
-        position: absolute;
-        left: 0;
-        top: 0px;
-    }
-
-    /* Package Grid */
-    .package-grid {
+    .tiers-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-        margin: 0px 0 60px;
+        grid-template-columns: 1fr;
+        gap: 30px;
         align-items: stretch;
     }
 
-    @media (max-width: 900px) {
-        .package-grid {
-            grid-template-columns: 1fr;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
+    @media(min-width: 1024px) {
+        .tiers-grid {
+            grid-template-columns: 1fr 1fr 1fr;
         }
     }
 
@@ -134,131 +81,109 @@
     .package-card:hover {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         transform: translateY(-3px);
-        border-color: #222;
     }
 
-    .popular-card {
+    .package-card.featured {
         border: 2px solid #5C1AEC;
-        background: #fffafa;
-        transform: scale(1.05);
-        z-index: 2;
-        box-shadow: 0 10px 40px rgba(92, 26, 236, 0.1);
-    }
-    
-    .popular-card:hover {
-        transform: scale(1.05) translateY(-8px);
+        background: #fffbfb;
     }
 
-    .popular-badge {
-        position: absolute;
-        top: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #5C1AEC;
-        color: #fff;
-        padding: 5px 20px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .pkg-name {
-        font-size: 22px;
+    .tier-name {
+        font-size: 24px;
         font-weight: 700;
         color: #222;
         margin-bottom: 5px;
     }
 
-    .pkg-desc {
+    .tier-sub-name {
         font-size: 14px;
-        color: #666;
-        margin-bottom: 20px;
-        line-height: 1.5;
-        min-height: 42px; /* Alignment */
+        color: #5C1AEC;
+        font-weight: 600;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        min-height: 42px; /* Alignment fix */
     }
 
-    .pkg-price {
+    .tier-target {
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 15px;
+        min-height: 60px; /* Alignment fix */
+    }
+
+    .tier-price {
         font-size: 38px;
         font-weight: 700;
-        color: #000;
+        color: #222;
         margin-bottom: 25px;
         display: flex;
         align-items: baseline;
     }
 
-    .pkg-price span {
+    .tier-price span {
         font-size: 14px;
         font-weight: 400;
         color: #777;
         margin-left: 5px;
     }
 
-    .pkg-features {
+    .tier-features {
         list-style: none;
         padding: 0;
         margin: 25px 0;
         border-top: 1px solid #eee;
         padding-top: 25px;
         flex-grow: 1;
+        text-align: left;
     }
-    
-    .pkg-features li {
-        margin-bottom: 12px;
+
+    .tier-features li {
+        margin-bottom: 10px;
         font-size: 14px;
         color: #555;
         display: flex;
         align-items: stretch;
     }
-    
-    .pkg-features li::before {
-        content: "•";
+
+    .tier-features li::before {
+        content: "\2022";
         color: #5C1AEC;
-        font-weight: bold;
         margin-right: 10px;
-        line-height: 1.5;
+        font-weight: bold;
+        flex-shrink: 0;
+        line-height: 1.5; /* Match text line height */
     }
 
-    /* Buttons */
-    .btn-select {
+    .tier-btn {
         box-sizing: border-box;
         width: 100%;
-        padding: 15px;
+        padding: 12px;
+        border: 1px solid #5C1AEC;
         background: #5C1AEC;
         color: #fff;
-        border: 1px solid #5C1AEC;
-        border-radius: 8px;
         font-weight: 600;
+        border-radius: 5px;
         cursor: pointer;
-        transition: all 0.2s;
-        font-family: 'Poppins', sans-serif;
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
+        transition: 0.2s;
     }
 
-    .btn-select:hover {
+    .tier-btn:hover {
         background: #fff;
         color: #5C1AEC;
-        border: 1px solid #5C1AEC;
-        transform: translateY(-2px);
+        border-color: #5C1AEC;
     }
 
-    .btn-select.active-btn {
-        background: #000 !important;
+    .tier-btn.active-btn {
+        background: #222 !important;
         color: #fff !important;
-        border: 1px solid #000 !important;
-        box-shadow: none !important;
-    }
-    .btn-select.active-btn::before {
-        content: "✓ ";
+        border-color: #222 !important;
     }
 
-    /* Table */
+    /* --- COMPARISON TABLE --- */
     .comp-table-wrapper {
         overflow-x: auto;
-        margin-top: 0px;
+        margin-top: 60px;
         padding-bottom: 0px; 
     }
 
@@ -333,404 +258,271 @@
         padding-left: 25px;
     }
 
-    /* Total Bar - Removed in favor of inline */
-    /* .sticky-total { ... } */
-
-    /* CTA Section */
-    .cta-box {
+    /* --- TOTAL BAR --- */
+    #motion-total-bar {
+        display: none;
+        margin-top: 10px;
+        padding: 20px;
         text-align: center;
-        background: linear-gradient(135deg, #1e1e1e, #333);
+        background: #222;
         color: #fff;
-        padding: 60px 20px;
-        border-radius: 16px;
-        margin-top: 60px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
-    .cta-box h2 {
-        color: #fff;
-        margin-bottom: 15px;
+        border-radius: 8px;
+        width: 100%;
     }
     
-    .cta-box p {
-        opacity: 0.9;
-        margin-bottom: 30px;
-        font-size: 16px;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
+    .total-txt {
+        font-size: 24px;
+        color: #5C1AEC;
+        font-weight: 700;
+        margin-left: 10px;
     }
-
-    .btn-cta {
-        background: #5C1AEC;
-        color: #fff;
-        padding: 15px 35px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        display: inline-block;
-        margin: 10px;
-        transition: transform 0.2s, background 0.2s;
-        border: 2px solid #5C1AEC;
-    }
-    
-    .btn-cta:hover {
-        transform: scale(1.05);
-        background: #4012A4;
-        border-color: #4012A4;
-    }
-    
-    .btn-cta.secondary {
-        background: transparent;
-        border: 2px solid #fff;
-    }
-    
-    .btn-cta.secondary:hover {
-        background: #fff;
-        color: #222;
-        border-color: #fff;
-    }
-    
-    .audience-block {
-        text-align: center;
-        margin-top: 60px;
-        padding: 40px;
-        background: #fff;
-        border-radius: 12px;
-        border: 1px dashed #ddd;
-    }
-    
-    .audience-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        margin-top: 20px;
-        list-style: none;
-        padding: 0;
-    }
-    
-    .audience-list li {
-        background: #f5f5f5;
-        padding: 10px 20px;
-        border-radius: 30px;
-        font-weight: 500;
-        color: #555;
-    }
-
 </style>
 
-<div class="growth-marketing-wrapper">
+<div class="motion-content-wrapper">
 
-    <!-- HEADER -->
-    <!--<header style="text-align: center; margin-bottom: 60px;">-->
-    <!--    <h1>Social Media Business Growth Marketing</h1>-->
-    <!--    <h2>Built for Growth. Optimized for Performance. Priced for Results.</h2>-->
-    <!--    <p style="font-size: 16px; color: #666; max-width: 700px; margin: 0 auto; line-height: 1.6;">-->
-    <!--        We don’t just post content. We build scalable social media systems that attract attention, convert audiences, and generate measurable revenue through organic growth + paid performance marketing.-->
-    <!--    </p>-->
-    <!--</header>-->
+    <div class="tiers-section">
+        <div class="tiers-grid">
+            <div class="package-card" id="tier-1">
+                <div class="tier-name">Launch</div>
+                <div class="tier-target">
+                    <strong>Best For:</strong> Solopreneurs and small teams hosting webinars or workshops (Up to 100 participants).<br><br>
+                    Ensure a seamless, professional event with essential setup, security, and support.
+                </div>
 
-    <!-- INTRO CARDS -->
-    <!-- <div class="content-card">
-        <div class="section-header" style="margin-bottom: 20px; text-align: left;">
-            <h3 style="font-size: 24px; color: #4012A4; margin-bottom: 10px;">How High-Performing Brands Win</h3>
-            <p>Successful brands grow faster when they move beyond just posting content and focus on measurable performance.</p>
-        </div>
-        
-        <div class="feature-grid">
-            <ul class="check-list">
-                <li>Data-backed content strategy</li>
-                <li>Conversion-focused creative</li>
-            </ul>
-             <ul class="check-list">
-                <li>Full-funnel paid advertising</li>
-                <li>Continuous optimization & reporting</li>
-            </ul>
-        </div>
-    </div>
-    
-    <div class="content-card">
-        <div class="section-header" style="text-align: left; margin-bottom: 20px;">
-             <h3 style="font-size: 24px; color: #4012A4; margin-bottom: 10px;">What You Get With Our Marketing</h3>
-            <p>A complete, managed growth engine—designed for modern platforms and real business outcomes.</p>
-        </div>
-        
-        <strong style="display:block; margin-bottom: 15px;">Our Core Capabilities:</strong>
-        <div class="feature-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-            <ul class="check-list">
-                <li>Organic content strategy</li>
-                <li>Paid ads & funnel management</li>
-            </ul>
-            <ul class="check-list">
-                <li>Audience research & targeting</li>
-                <li>Creative & copy testing</li>
-            </ul>
-             <ul class="check-list">
-                <li>Community management</li>
-                <li>Analytics & optimization</li>
-            </ul>
-        </div>
-        <p style="margin-top: 25px; font-weight: 600; color: #5C1AEC; text-align: center; background: #F2EEFF; padding: 10px; border-radius: 8px;">
-            Everything is aligned toward leads, sales, and ROI.
-        </p>
-    </div> -->
-
-    <!-- PACKAGES -->
-    <div class="section-header">
-        <!-- <div class="section-title">Choose Your Growth Level</div> -->
-    </div>
-    
-    <div class="package-grid">
-        <!-- 1: Launch Authority -->
-        <div class="package-card">
-            <h3 class="pkg-name">Launch</h3>
-            <div class="pkg-desc">Professional Social Presence with Measurable Traction</div>
-            <div class="pkg-price">BDT 499<span>/month</span></div>
-            
-            <button class="btn-select" onclick="selectGrowthPkg(1, 499)">Select Plan</button>
-            
-            <ul class="pkg-features">
-                <li><strong>1 Platform</strong> (FB / IG / TikTok / LI)</li>
-                <li>12 Static creatives</li>
-                <li>4 Motion/Video</li>
-                <li>Monthly Content Calendar</li>
-                <li>1 Paid Campaign</li>
-                <li>Basic A/B Testing</li>
-                <li>Monthly Reporting</li>
-            </ul>
-        </div>
-
-        <!-- 2: Growth Engine -->
-        <div class="package-card">
-            
-            <h3 class="pkg-name">Growth</h3>
-            <div class="pkg-desc">Scalable Social Media & Paid Ads for Consistent ROI</div>
-            <div class="pkg-price">BDT 699<span>/month</span></div>
-            
-            <button class="btn-select" onclick="selectGrowthPkg(2, 699)">Select Plan</button>
-            
-            <ul class="pkg-features">
-                <li><strong>2 Platforms</strong> (Strategy per channel)</li>
-                <li>20 Static creatives</li>
-                <li>8 Motion/Video</li>
-                <li>Bi-weekly Content Calendar</li>
-                <li>Up to 3 Active Campaigns</li>
-                <li>Funnel Mapping (Full Funnel)</li>
-                <li>Bi-weekly Reporting & Calls</li>
-            </ul>
-        </div>
-
-        <!-- 3: Market Dominator -->
-        <div class="package-card" style="background-color: #F2EEFF;">
-            <h3 class="pkg-name">Enterprise</h3>
-            <div class="pkg-desc">Full-Funnel Social & Paid Advertising at Enterprise Level</div>
-            <div class="pkg-price" style="visibility:hidden;">BDT 899<span>/month</span></div>
-            
-            <a href="#contact-footer" class="btn-select" style="text-align: center; text-decoration: none;">Contact Us</a>
-            
-            <ul class="pkg-features">
-                <li><strong>3 Platforms</strong> (Fully Integrated)</li>
-                <li>30 Static creatives</li>
-                <li>14 Motion/Video</li>
-                <li>Weekly Content Calendar</li>
-                <li>Unlimited Campaigns</li>
-                <li>Deep Audience Segmentation</li>
-                <li>Weekly Reporting & Calls</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- COMPARISON TABLE -->
-    <div class="section-header">
-        <div class="section-title">Package Comparison</div>
-    </div>
-    
-    <div class="comp-table-wrapper">
-        <table class="comp-table" id="growth-pricing-table">
-            <thead>
-                <tr>
-                    <th>Feature</th>
-                    <th id="head-grow-1">Launch</th>
-                    <th id="head-grow-2">Growth</th>
-                    <th id="head-grow-3">Enterprise</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Static Creatives</td>
-                    <td class="col-grow-1">12</td>
-                    <td class="col-grow-2">20</td>
-                    <td class="col-grow-3">30</td>
-                </tr>
-                <tr>
-                    <td>Motion Graphics</td>
-                    <td class="col-grow-1">2</td>
-                    <td class="col-grow-2">4</td>
-                    <td class="col-grow-3">8</td>
-                </tr>
-                 <tr>
-                    <td>Infographics</td>
-                    <td class="col-grow-1">2</td>
-                    <td class="col-grow-2">4</td>
-                    <td class="col-grow-3">6</td>
-                </tr>
-                <tr>
-                    <td>Captions Included</td>
-                    <td class="col-grow-1"><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                    <td class="col-grow-2"><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                    <td class="col-grow-3"><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> (Conversion)</td>
-                </tr>
-                <tr>
-                    <td>Hashtag Research</td>
-                    <td class="col-grow-1">Basic</td>
-                    <td class="col-grow-2">Advanced</td>
-                    <td class="col-grow-3">AI-Driven</td>
-                </tr>
-                <tr>
-                    <td>Posting & Management</td>
-                    <td class="col-grow-1"><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                    <td class="col-grow-2"><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                    <td class="col-grow-3"><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                </tr>
-                <tr>
-                    <td>Paid Campaigns</td>
-                    <td class="col-grow-1">1</td>
-                    <td class="col-grow-2">Up to 3</td>
-                    <td class="col-grow-3">Unlimited</td>
-                </tr>
-                <tr>
-                    <td>Funnel Strategy</td>
-                    <td class="col-grow-1">Basic</td>
-                    <td class="col-grow-2">Full Funnel</td>
-                    <td class="col-grow-3">Advanced</td>
-                </tr>
-                <tr>
-                    <td>Ad Optimization</td>
-                    <td class="col-grow-1">Monthly</td>
-                    <td class="col-grow-2">Weekly</td>
-                    <td class="col-grow-3">Daily</td>
-                </tr>
-                <tr>
-                    <td>Strategy Calls</td>
-                    <td class="col-grow-1">Monthly</td>
-                    <td class="col-grow-2">Monthly</td>
-                    <td class="col-grow-3">Weekly</td>
-                </tr>
+                <div class="tier-price">BDT 199<span>/month</span></div>
                 
-                <!-- Footer Buttons in Table -->
-                <tr>
-                    <td></td>
-                    <td class="col-grow-1">
-                        <button class="btn-select" onclick="selectGrowthPkg(1, 499)">Select</button>
-                    </td>
-                    <td class="col-grow-2">
-                        <button class="btn-select" onclick="selectGrowthPkg(2, 699)">Select</button>
-                    </td>
-                    <td class="col-grow-3">
-                        <a href="#contact-footer" class="btn-select" style="text-align: center; text-decoration: none; display: block;">Contact</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                <ul class="tier-features">
+                    <li>Platform Setup & Configuration: Complete technical setup (Zoom/Teams/etc.).</li>
+                    <li>Cyber-Security: Basic gatekeeping to prevent unauthorized access.</li>
+                    <li>Live Polls & Q&A: Limited interactive features setup.</li>
+                    <li>Speaker Green Room: Management for 1 speaker.</li>
+                    <li>Dedicated Attendee Support: Real-time technical help for attendees.</li>
+                    <li>Duration: Support for up to 90 minutes.</li>
+                </ul>
+                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Launch', 'BDT 199')">Select Package</button>
+            </div>
+
+            <div class="package-card" id="tier-2">
+                <div class="tier-name">Growth</div>
+                <div class="tier-target">
+                    <strong>Best For:</strong> SMEs and growing teams running professional meetings (Up to 300 participants).<br><br>
+                    Level up your events with breakout rooms, branded materials, and post-event analytics.
+                </div>
+
+                <div class="tier-price">BDT 399<span>/month</span></div>
+                
+                <ul class="tier-features">
+                    <li>Everything in Launch: Plus advanced management features.</li>
+                    <li>Strategic Planning: Advanced planning and run-of-show creation.</li>
+                    <li>Breakout Rooms: Setup and management for targeted discussions.</li>
+                    <li>Branded Slides & Workbooks: Up to 25 branded slides and digital materials.</li>
+                    <li>Dry Runs: Rehearsal session with speakers.</li>
+                    <li>Post-Event Analytics: Detailed attendance and engagement reports.</li>
+                    <li>Recording Editing: Professional editing of the session recording.</li>
+                </ul>
+                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button>
+            </div>
+
+            <div class="package-card" id="tier-3">
+                <div class="tier-name">Enterprise</div>
+                <div class="tier-target">
+                    <strong>Best For:</strong> Corporates and large conferences requiring broadcast-quality production (1,000+ participants).<br><br>
+                    <strong>Value Proposition</strong> Full-scale production with custom branding, multi-camera streaming.
+                </div>
+                
+                <div class="tier-price" style="visibility:hidden;">BDT 000</div>
+                
+                <ul class="tier-features">
+                    <li>Everything in Growth: Plus broadcast-grade production.</li>
+                    <li>Full-Scale Broadcast: Multi-platform streaming with multi-camera switching.</li>
+                    <li>Custom Branding: Fully custom slides, backgrounds, and overlays.</li>
+                    <li>Breakout Facilitators: Dedicated staff for breakout rooms.</li>
+                    <li>Transcription & Summary: Full text records and executive summaries.</li>
+                    <li>Cyber-Security Enterprise: Advanced encryption and backup systems.</li>
+                    <li>Help Desk: Dedicated support line for large audiences.</li>
+                </ul>
+                <a href="#contact-footer" class="tier-btn" style="margin-top: auto; text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4; box-sizing: border-box;">Contact Us</a>
+
+            </div>
+        </div>
     </div>
 
-    <!-- TOTAL BAR -->
-    <div id="growth-total-bar" style="display: none; margin-top: 20px; padding: 20px; text-align: center; background: #222; color: #fff; border-radius: 8px;">
-        <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
-        <div id="growth-summary-text" style="font-weight:600;"></div>
-        <div style="margin-top:5px;">Total Investment: <span style="font-size: 24px; color: #5C1AEC; font-weight: 700; margin-left: 10px;" id="growth-display-total">BDT 0</span></div>
-        <div style="font-size:12px; color:#888; margin-top:10px;">Please scroll down to the contact form to proceed.</div>
+    <div id="forma" class="tiers-section" style="margin-bottom: 20px;">
+        <h2 style="text-align:center; color:#222; margin-bottom:20px;">Package Comparison</h2>
+        <div class="comp-table-wrapper">
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Launch</th>
+                        <th>Growth</th>
+                        <th>Enterprise</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Meeting Duration</td>
+                        <td>Up to 90 min</td>
+                        <td>Up to 3 hours</td>
+                        <td>8 hrs / Multi-session</td>
+                    </tr>
+                    <tr>
+                        <td>Participants</td>
+                        <td>Up to 100</td>
+                        <td>Up to 300</td>
+                        <td>1,000+</td>
+                    </tr>
+                    <tr>
+                        <td>Platform Setup</td>
+                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> + Backup</td>
+                    </tr>
+                    <tr>
+                        <td>Breakout Rooms</td>
+                        <td>—</td>
+                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> + Facilitators</td>
+                    </tr>
+                    <tr>
+                        <td>Branded Slides</td>
+                        <td>Up to 10</td>
+                        <td>Up to 25</td>
+                        <td>Fully Custom</td>
+                    </tr>
+                    <tr>
+                        <td>Digital Workbooks</td>
+                        <td>—</td>
+                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> Premium</td>
+                    </tr>
+                    <tr>
+                        <td>Speaker Green Room</td>
+                        <td>1 Speaker</td>
+                        <td>Up to 3</td>
+                        <td>Up to 6</td>
+                    </tr>
+                    <tr>
+                        <td>Live Streaming</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Edited Recordings</td>
+                        <td>—</td>
+                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> Advanced</td>
+                    </tr>
+                    <tr>
+                        <td>Post-Event Analytics</td>
+                        <td>—</td>
+                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> Executive</td>
+                    </tr>
+                    <tr>
+                        <td>Support</td>
+                        <td>Dedicated</td>
+                        <td>Dedicated</td>
+                        <td>Dedicated + Help Desk</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button class="tier-btn" onclick="selectTier('Launch', 'BDT 199')">Select Package</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button></td>
+                        <td><a href="#contact-footer" class="tier-btn" style="text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4; box-sizing: border-box;">Contact Us</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="motion-total-bar">
+            <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
+            <div id="motion-summary-text" style="font-weight:600;"></div>
+            <div style="margin-top:5px;">Estimated Investment: <span class="total-txt" id="motion-display-total">BDT 0</span>
+            </div>
+            <div style="font-size:12px; color:#888; margin-top:10px;">Please scroll down to the contact form to proceed.
+            </div>
+        </div>
+
     </div>
 
 </div>
 
 <script>
-    let currentGrowthPkg = "";
-    let growthPrice = 0;
+    // Initialize
+    document.addEventListener("DOMContentLoaded", function () {
+        // Wait for SureForms to initialize
+        setTimeout(function() {
+            updateForm("Submitted From: Virtual Event & Meeting Management _General Inquiry");
+        }, 1000);
+    });
 
-    function selectGrowthPkg(pkgId, price) {
-        let table = document.getElementById('growth-pricing-table');
-        
-        // Check if this package is already active to implement toggle off
-        let alreadyActive = false;
-        let testBtn = document.querySelector(`.col-grow-${pkgId} .btn-select`);
-        if (testBtn && testBtn.classList.contains('active-btn')) {
-            alreadyActive = true;
-        }
+    let currentTier = null;
 
-        // --- RESET UI ---
-        // remove table highlights
-        table.querySelectorAll('.col-highlight').forEach(el => el.classList.remove('col-highlight'));
-        table.querySelectorAll('.th-highlight').forEach(el => el.classList.remove('th-highlight'));
-        
-        // remove button states
-        document.querySelectorAll('.btn-select').forEach(btn => {
+    function selectTier(tierName, priceAttr) {
+        // Toggle Selection
+        const isSelected = currentTier && currentTier.name === tierName;
+
+        // Reset All Buttons
+        document.querySelectorAll('.tier-btn').forEach(btn => {
             btn.classList.remove('active-btn');
-            if(btn.innerText.includes("Selected")) {
-                if(btn.parentElement.classList.contains('package-card')) btn.innerText = "Select Plan";
-                else btn.innerText = "Select";
+            // Check if it's a link (Enterprise) or a button
+            if (btn.tagName !== 'A' && btn.innerText === "Selected") {
+                 btn.innerText = "Select Package";
             }
         });
 
-        // hide total bar
-        let totalBar = document.getElementById('growth-total-bar');
-        totalBar.style.display = 'none';
+        if (isSelected) {
+            // Deselect
+            currentTier = null;
+            document.getElementById('motion-total-bar').style.display = 'none';
+            updateForm("Submitted From: Virtual Event & Meeting Management _General Inquiry");
+        } else {
+            // Select
+            currentTier = { name: tierName, price: priceAttr };
 
-        if (alreadyActive) {
-            // Deselecting...
-            currentGrowthPkg = "";
-             growthPrice = 0;
-            updateGrowthForm();
-            return;
+            // Update Total Bar
+            document.getElementById('motion-total-bar').style.display = 'block';
+            document.getElementById('motion-summary-text').innerText = tierName;
+            document.getElementById('motion-display-total').innerText = priceAttr;
+
+            // Update Form
+            updateForm(`Submitted From: Virtual Event & Meeting Management _Selected Plan: ${tierName} (Approx. ${priceAttr})`);
+
+            // Visual Update
+            updateButtonVisuals(tierName);
+            
+            // SMOOTH SCROLL TO FORM
+            const formSection = document.getElementById('contact-footer');
+            if(formSection) {
+                formSection.scrollIntoView({ behavior: 'smooth' });
+            }
         }
-
-        // --- APPLY NEW SELECTION ---
-        
-        // 1. Highlight Table
-        let th = document.getElementById(`head-grow-${pkgId}`);
-        if(th) th.classList.add('th-highlight');
-        document.querySelectorAll(`.col-grow-${pkgId}`).forEach(el => el.classList.add('col-highlight'));
-
-        // 2. Set Button States
-        let btns = document.querySelectorAll(`button[onclick="selectGrowthPkg(${pkgId}, ${price})"]`);
-        btns.forEach(btn => {
-            btn.classList.add('active-btn');
-            btn.innerText = "Selected";
-        });
-
-        // 3. Update Data
-        if(pkgId === 1) currentGrowthPkg = "Launch";
-        else if(pkgId === 2) currentGrowthPkg = "Growth";
-        else if(pkgId === 3) currentGrowthPkg = "Enterprise";
-        
-        growthPrice = price;
-        
-        // 4. Show Total Bar
-        totalBar.style.display = 'block';
-        document.getElementById('growth-summary-text').innerText = currentGrowthPkg;
-        document.getElementById('growth-display-total').innerText = "BDT " + growthPrice;
-
-        updateGrowthForm();
     }
 
-    function updateGrowthForm() {
-        let finalString = "";
-        if (currentGrowthPkg) {
-            finalString = `Social Media Package: ${currentGrowthPkg} (BDT ${growthPrice})`;
-        }
-        
-        // Attempt to find a form field to output into
-        let formField = document.querySelector("input[name='input_text']");
+    function updateButtonVisuals(activeTierName) {
+        if (!activeTierName) return;
+
+        // Find buttons with matching onclick
+        const allBtns = document.querySelectorAll('.tier-btn');
+        allBtns.forEach(btn => {
+            const onclickAttr = btn.getAttribute('onclick');
+            if (onclickAttr && onclickAttr.includes("'" + activeTierName + "'")) {
+                btn.classList.add('active-btn');
+                btn.innerText = "Selected";
+            }
+        });
+    }
+
+    function updateForm(subjectText) {
+        // Look for SureForms input inside the .package-auto-fill container
+        let formField = document.querySelector(".package-auto-fill input");
+
         if (formField) {
-            formField.value = finalString;
-            formField.dispatchEvent(new Event('input', { bubbles: true }));
+            formField.value = subjectText;
             formField.dispatchEvent(new Event('change', { bubbles: true }));
+            formField.dispatchEvent(new Event('input', { bubbles: true }));
         }
     }
 </script>
-
-
-
-
-

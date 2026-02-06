@@ -9,7 +9,10 @@
         margin: 0 auto;
         padding: 0;
     }
-        .fluentform .hide-me-please {
+
+    /* --- HIDE AUTO-FILL FIELD (UPDATED FOR SUREFORMS) --- */
+    /* This hides the input field we named 'package-auto-fill' */
+    .package-auto-fill {
         display: none !important;
         visibility: hidden !important;
         height: 0 !important;
@@ -124,7 +127,7 @@
     
     .cross-list li::before {
         content: "✕";
-        color: #d32f2f;
+        color: #5C1AEC;
         font-weight: 700;
         position: absolute;
         left: 0;
@@ -418,28 +421,11 @@
 
 <div class="content-packages-wrapper">
 
-    <!-- INTRO / POSITIONING -->
-    <!--<div class="content-card">-->
-    <!--    <div style="font-size: 15px; color: #555; line-height: 1.8;">-->
-    <!--        <strong style="color: #222;">Who This Is For:</strong> Startups, Professionals, and Brands who need more than just "posts"—they need a system.-->
-    <!--        <br><br>-->
-    <!--        Our services range from establishing a credible foundation to engineering authority and ROI at scale. Choose the level of management and strategy that fits your growth stage.-->
-    <!--    </div>-->
-    <!--</div>-->
-
-    <!-- PACKAGES -->
-    <!--<div id="pack" class="section-header">-->
-    <!--    <div class="section-title">Choose Your Management Tier</div>-->
-    <!--</div>-->
-    
     <div class="tiers-grid">
-        <!-- 1: Foundation -->
         <div class="package-card" id="pkg-card-1">
             <h3 class="pkg-name">Launch</h3>
-            <div class="tier-target">Professionals, local brands, consultants, and startups who need a credible, consistent, and well-managed presence on one keyplatform.</div>
+            <div class="tier-target">Professionals, local brands, consultants, and startups who need a credible, consistent, and well-managed presence on one key platform.</div>
             <div class="pkg-price">BDT 250<span>/month</span></div>
-            
-            
             
             <ul class="pkg-features">
                 <li><strong>1 Primary Platform</strong> (IG/FB/LI)</li>
@@ -450,16 +436,13 @@
                 <li>Posting, Scheduling & Community Mgmt</li>
                 <li>1x Monthly Strategy Call</li>
             </ul>
-<button style="margin-top: auto;" class="tier-btn" data-pkg-id="1" onclick="selectStrategyPkg(1, 'Launch', 250)">Select Plan</button>
+            <button style="margin-top: auto;" class="tier-btn" data-pkg-id="1" onclick="selectStrategyPkg(1, 'Launch', 250)">Select Plan</button>
         </div>
 
-        <!-- 2: Momentum -->
         <div class="package-card" id="pkg-card-2">
             <h3 class="pkg-name">Growth</h3>
             <div class="tier-target">Growing brands and SMEs that need consistent visibility, engagement, and momentum across multiple platforms.</div>
             <div class="pkg-price">BDT 400<span>/month</span></div>
-            
-            
             
             <ul class="pkg-features">
                 <li><strong>2 Platforms</strong> (e.g. IG + FB)</li>
@@ -470,16 +453,14 @@
                 <li>Active Community Mgmt & Optimization</li>
                 <li>2x Strategy & Optimization Calls</li>
             </ul>
-<button style="margin-top: auto;" class="tier-btn" data-pkg-id="2" onclick="selectStrategyPkg(2, 'Growth', 400)">Select Plan</button>
+            <button style="margin-top: auto;" class="tier-btn" data-pkg-id="2" onclick="selectStrategyPkg(2, 'Growth', 400)">Select Plan</button>
         </div>
 
-        <!-- 3: Authority -->
         <div class="package-card" id="pkg-card-3" style="background-color: #F2EEFF;">
             <h3 class="pkg-name">Enterprise</h3>
             <div class="tier-target">Established brands, funded startups, founders, and agencies that want market leadership and scale—not just presence.</div>
             
             <div class="pkg-price" style="visibility:hidden;">BDT 000</div>
-            
             
             <ul class="pkg-features">
                 <li><strong>3 Platforms</strong> (IG+FB+LI/X/TikTok)</li>
@@ -490,11 +471,10 @@
                 <li>Proactive Community Mgmt</li>
                 <li>Weekly Strategy & Performance Calls</li>
             </ul>
-<a href="#contact-footer" class="tier-btn" style="margin-top: auto; text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
+            <a href="#contact-footer" class="tier-btn" style="margin-top: auto; text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
         </div>
     </div>
 
-    <!-- COMPARISON TABLE -->
     <h2 style="text-align:center; font-weight: 600; color:#222; margin-bottom:30px; margin-top: 50px; font-size: 28px;">Package Comparison</h2>
     
     <div class="comp-table-wrapper">
@@ -587,7 +567,6 @@
                     <td class="col-strat-3">Platform Blueprint</td>
                 </tr>
                 
-                <!-- Footer Buttons in Table -->
                 <tr>
                     <td></td>
                     <td class="col-strat-1">
@@ -604,7 +583,6 @@
         </table>
     </div>
 
-    <!-- TOTAL BAR (Motion Style) -->
     <div id="motion-total-bar">
         <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
         <div id="motion-summary-text" style="font-weight:600;"></div>
@@ -612,34 +590,22 @@
         <div style="font-size:12px; color:#888; margin-top:10px;">Please scroll down to the contact form to proceed.</div>
     </div>
 
-    <!-- COMPETITIVE EDGE / BENEFITS -->
-    <!-- <div class="elite-benefits">
-        <h3>Why This Works (Competitive Edge)</h3>
-        <div class="benefits-grid">
-            <div class="benefit-item"><span style="filter: brightness(0) invert(1);">✔</span> <strong>Foundation:</strong> Creates trust and professionalism fast using a clean design system and disciplined posting—without unnecessary complexity.</div>
-            <div class="benefit-item"><span style="filter: brightness(0) invert(1);">✔</span> <strong>Momentum:</strong> Balances creative volume + data-driven refinement, ensuring your content doesn’t just look good—it performs and improves every month.</div>
-            <div class="benefit-item"><span style="filter: brightness(0) invert(1);">✔</span> <strong>Authority:</strong> A complete content + strategy + data ecosystem. We don’t just manage accounts—we engineer authority, visibility, and ROI at scale.</div>
-            <div class="benefit-item"><span style="filter: brightness(0) invert(1);">✔</span> <strong>Premium:</strong> Includes Enterprise AI stats & high-end motion graphics to ensure content reaches the right audience.</div>
-        </div>
-        <p style="text-align: Center; margin-top: 20px; font-weight: 600;">We don’t just manage accounts—we engineer authority.</p>
-    </div> -->
-
-    <!-- CTA -->
-    <!--<div id="cta-section" style="text-align: center; margin-top: 60px; padding: 40px; background: #fff; border-radius: 12px; border: 1px dashed #ccc;">-->
-    <!--    <h2 style="color: #4012A4; margin-bottom: 10px;">Ready to Start Your Growth System?</h2>-->
-    <!--    <p style="margin-bottom: 25px;">Select a package above and book a strategy call to align our goals.</p>-->
-        
-    <!--    <a href="#" class="tier-btn" style="display: inline-block; width: auto; padding: 15px 40px; background: #5C1AEC; color: #fff; text-decoration: none;">Book a Strategy Call</a>-->
-    <!--</div>-->
-
 </div>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Wait for SureForms to initialize
+        setTimeout(function() {
+            updateContentForm(""); 
+        }, 1000);
+    });
+
     let currentTier = null;
 
     function selectStrategyPkg(id, tierName, price) {
         // Toggle Selection
         const isSelected = currentTier && currentTier.id === id;
+        const card = document.getElementById(`pkg-card-${id}`);
 
         // Reset All Buttons
         document.querySelectorAll('.tier-btn').forEach(btn => {
@@ -647,10 +613,15 @@
             // Restore original text based on context
             if(btn.closest('table')) {
                  btn.innerText = "Select";
+            } else if (btn.tagName === 'A') {
+                 // Do nothing for links
             } else {
                  btn.innerText = "Select Plan";
             }
         });
+        
+        // Reset Card borders
+        document.querySelectorAll('.package-card').forEach(c => c.style.borderColor = '#eee');
 
         if (isSelected) {
             // Deselect
@@ -660,6 +631,9 @@
         } else {
             // Select
             currentTier = { id, name: tierName, price: price };
+
+            // Highlight Card
+            if(card) card.style.borderColor = '#222';
 
             // Update Total Bar
             document.getElementById('motion-total-bar').style.display = 'block';
@@ -674,20 +648,27 @@
                 btn.classList.add('active-btn');
                 btn.innerText = "Selected";
             });
+            
+            // SMOOTH SCROLL TO FORM
+            const formSection = document.getElementById('contact-footer');
+            if(formSection) {
+                formSection.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     }
 
     function updateContentForm(finalString) {
-        let formField = document.querySelector("input[name='input_text']");
+        // Default text if empty
+        let textToSend = finalString || "Submitted From: Social Media Strategy _General Inquiry";
+
+        // --- SUREFORMS SELECTOR ---
+        // Looks for the field with class 'package-auto-fill'
+        let formField = document.querySelector(".package-auto-fill input");
+        
         if (formField) {
-            formField.value = finalString || "Submitted From: Social Media Strategy Management";
+            formField.value = textToSend;
             formField.dispatchEvent(new Event('input', { bubbles: true }));
             formField.dispatchEvent(new Event('change', { bubbles: true }));
         }
     }
 </script>
-
-
-
-
-
