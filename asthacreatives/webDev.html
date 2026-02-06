@@ -1,5 +1,4 @@
-﻿
-<style>
+﻿<style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
     /* --- GLOBAL CONTAINER --- */
@@ -9,7 +8,8 @@
         color: #333;
     }
 
-    .fluentform .hide-me-please {
+    /* --- HIDE AUTO-FILL FIELD (SUREFORMS) --- */
+    .package-auto-fill {
         display: none !important;
         visibility: hidden !important;
         height: 0 !important;
@@ -166,6 +166,9 @@
         border-radius: 5px;
         cursor: pointer;
         transition: 0.2s;
+        display: block;
+        text-align: center;
+        text-decoration: none;
     }
 
     .tier-btn:hover {
@@ -277,7 +280,7 @@
         margin-left: 10px;
     }
 
-    /* --- Extra Styles for Existing Sections if needed --- */
+    /* --- Extra Styles for Existing Sections --- */
     .cta-btn-main {
         background-color: #5C1AEC;
         color: #fff;
@@ -322,54 +325,19 @@
 
 <div class="motion-content-wrapper">
 
-    <!-- HERO -->
-    <!-- <div class="web-hero">
-        <h1 class="web-title">Creative Web Development</h1>
-        <div class="web-subtitle">Build Faster. Rank Higher. Convert Better.</div>
-        <p class="web-desc">
-            We design and develop high-performance, SEO-optimized, and visually powerful websites that help brands dominate their digital space. Using modern technologies like WordPress, React, Node.js, and GSAP animations, we create smooth, lightning-fast, and conversion-focused digital experiences that turn visitors into loyal customers.
-            <span class="web-intro-bold">Your website isn’t just a digital presence — it’s your strongest sales engine. We make sure it performs like one.</span>
-        </p>
-        <a href="#formCustom" class="cta-btn-main">Start Your Project</a>
-    </div> -->
-
-    <!-- INTRO & CORE STRENGTHS -->
     <div class="intro-section">
         <h2 style="color:#222; margin-bottom:10px;" class="heic">SERVICES WE PROVIDE</h2>
-        <p class="web-desc" style="max-width: 900px; margin: 0 auto;">
-
-            Power your business with fast, responsive, and reliable websites tailored to meet the demands of modern
-            users. From high-converting landing pages to robust corporate sites, we build clean, easy-to-manage
-            structures that ensure a seamless experience across all devices. Our development process focuses on
-            flexibility and performance, giving you a professional digital home that grows alongside your brand.
+        <p class="web-desc" style="max-width: 900px; margin: 0 auto; color: #555; line-height: 1.6;">
+            Power your business with fast, responsive, and reliable websites tailored to meet the demands of modern users. From high-converting landing pages to robust corporate sites, we build clean, easy-to-manage structures that ensure a seamless experience across all devices. Our development process focuses on flexibility and performance, giving you a professional digital home that grows alongside your brand.
         </p>
-        <!-- <h3 style="color:#222; margin-top:30px;">Our Core Strengths</h3>
-        <div class="intro-grid">
-            <ul class="check-list">
-                <li>Mobile-first, performance-optimized layouts</li>
-                <li>SEO-friendly structure and clean code</li>
-            </ul>
-            <ul class="check-list">
-                <li>Fast loading times and smooth interactions</li>
-                <li>Brand-aligned UI/UX design</li>
-            </ul>
-        </div> -->
     </div>
 
-    <!-- WHAT YOU GET (SERVICES GRID) -->
     <div class="stack-section">
-        <!-- <div class="stack-header">
-            <h2 style="color:#222; margin-bottom:10px;">Our Development Services</h2>
-        </div> -->
-
         <div class="stack-grid">
-            <!-- 1 -->
             <div class="stack-card">
                 <div class="stack-title">Responsive Website Design</div>
                 <div class="stack-sub">Look Perfect on Every Screen</div>
-                <p class="stack-txt">We create fully responsive websites that deliver a seamless experience across
-                    mobile, tablet, and desktop. Crafted to reflect your brand identity while ensuring speed, usability,
-                    and accessibility.</p>
+                <p class="stack-txt">We create fully responsive websites that deliver a seamless experience across mobile, tablet, and desktop. Crafted to reflect your brand identity while ensuring speed, usability, and accessibility.</p>
                 <ul class="stack-list">
                     <li>Mobile-first design for better SEO & user retention</li>
                     <li>Fast-loading, optimized performance</li>
@@ -378,13 +346,10 @@
                 </ul>
             </div>
 
-            <!-- 2 -->
             <div class="stack-card">
                 <div class="stack-title">Custom Web Applications</div>
                 <div class="stack-sub">Powerful Digital Tools</div>
-                <p class="stack-txt">We develop custom web applications using React and Node.js that automate workflows,
-                    manage data, and enhance customer experiences. From dashboards to booking systems and internal
-                    platforms.</p>
+                <p class="stack-txt">We develop custom web applications using React and Node.js that automate workflows, manage data, and enhance customer experiences. From dashboards to booking systems and internal platforms.</p>
                 <ul class="stack-list">
                     <li>Fully customized business logic</li>
                     <li>Secure and scalable architecture</li>
@@ -393,12 +358,10 @@
                 </ul>
             </div>
 
-            <!-- 3 -->
             <div class="stack-card">
                 <div class="stack-title">Landing Page Design</div>
                 <div class="stack-sub">Convert Traffic into Leads</div>
-                <p class="stack-txt">We design high-impact landing pages backed by UX psychology, strategic content
-                    placement, and performance analytics. Every element is optimized to increase conversions.</p>
+                <p class="stack-txt">We design high-impact landing pages backed by UX psychology, strategic content placement, and performance analytics. Every element is optimized to increase conversions.</p>
                 <ul class="stack-list">
                     <li>Clear call-to-action flow</li>
                     <li>A/B testing-ready layouts</li>
@@ -407,13 +370,10 @@
                 </ul>
             </div>
 
-            <!-- 4 -->
             <div class="stack-card">
                 <div class="stack-title">CMS & Code-Based Dev</div>
                 <div class="stack-sub">WordPress & Custom Code</div>
-                <p class="stack-txt">Control your content without sacrificing performance. We combine the flexibility of
-                    WordPress CMS with the power of custom-coded solutions for easy management and advanced
-                    functionality.</p>
+                <p class="stack-txt">Control your content without sacrificing performance. We combine the flexibility of WordPress CMS with the power of custom-coded solutions for easy management and advanced functionality.</p>
                 <ul class="stack-list">
                     <li>Easy content management</li>
                     <li>Secure and optimized backend</li>
@@ -424,14 +384,8 @@
         </div>
     </div>
 
-    <!-- SERVICE TIERS -->
     <div class="tiers-section">
-        <!-- <h2 style="text-align:center; color:#222; margin-bottom:05px;">Pricing Packages</h2>
-        <p style="text-align:center; color:#666; margin-bottom:10px;">All packages include: Performance optimization,
-            basic security setup, and post-launch technical support.</p> -->
-
         <div class="tiers-grid">
-            <!-- Tier 1 -->
             <div class="package-card" id="tier-1">
                 <div class="tier-name">Launch</div>
                 <div class="tier-target">
@@ -440,7 +394,6 @@
                 </div>
 
                 <div class="tier-price">BDT 250<span>/month</span></div>
-                
                 
                 <ul class="tier-features">
                     <li>Up to 5 responsive pages or 1 landing page</li>
@@ -451,10 +404,9 @@
                     <li>Speed optimization</li>
                     <li>7 days post-launch support</li>
                 </ul>
-<button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Launch', 'BDT 250')">Select Package</button>
+                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Launch', 'BDT 250')">Select Package</button>
             </div>
 
-            <!-- Tier 2 -->
             <div class="package-card" id="tier-2">
                 <div class="tier-name">Growth</div>
                 <div class="tier-target">
@@ -463,7 +415,6 @@
                 </div>
 
                 <div class="tier-price">BDT 399<span>/month</span></div>
-                
                 
                 <ul class="tier-features">
                     <li>Up to 10 custom-designed pages</li>
@@ -475,21 +426,18 @@
                     <li>Speed & performance tuning</li>
                     <li>30 days priority support</li>
                 </ul>
-<button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button>
+                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button>
             </div>
 
-            <!-- Tier 3 -->
             <div class="package-card" id="tier-3">
                 <div class="tier-name">Enterprise</div>
                 <div class="tier-target">
                     <strong>Best For:</strong> Corporations, platforms, and tech-driven brands.<br><br>
                     <strong>Value Proposition</strong> Perfect for high-growth businesses, startups, and enterprises needing powerful digital systems.
                 </div>
-
                 
-                
-            <div class="tier-price" style="visibility:hidden;">BDT 000</div>
-<ul class="tier-features">
+                <div class="tier-price" style="visibility:hidden;">BDT 000</div>
+                <ul class="tier-features">
                     <li>Unlimited custom pages</li>
                     <li>Full-stack React & Node.js development</li>
                     <li>Advanced GSAP motion design</li>
@@ -499,13 +447,12 @@
                     <li>Security hardening & scalability setup</li>
                     <li>Dedicated support & maintenance</li>
                 </ul>
-<a href="#contact-footer" class="tier-btn" style="margin-top: auto; text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4; box-sizing: border-box;">Contact Us</a>
+                <a href="#contact-footer" id="formDown" class="tier-btn" style="margin-top: auto;">Contact Us</a>
 
             </div>
         </div>
     </div>
 
-    <!-- COMPARISON TABLE -->
     <div id="forma" class="tiers-section" style="margin-bottom: 20px;">
         <h2 style="text-align:center; color:#222; margin-bottom:20px;">Package Comparison</h2>
         <div class="comp-table-wrapper">
@@ -565,13 +512,12 @@
                         <td></td>
                         <td><button class="tier-btn" onclick="selectTier('Launch', 'BDT 250')">Select Package</button></td>
                         <td><button class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button></td>
-                        <td><a href="#contact-footer" class="tier-btn" style="text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4; box-sizing: border-box;">Contact Us</a></td>
+                        <td><a href="#contact-footer" class="tier-btn">Contact Us</a></td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <!-- TOTAL BAR -->
         <div id="motion-total-bar">
             <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
             <div id="motion-summary-text" style="font-weight:600;"></div>
@@ -583,51 +529,15 @@
 
     </div>
 
-    <!-- OUR PROCESS -->
-    <!-- <div class="process-section">
-        <h2 style="text-align:center; color:#222; margin-bottom:10px;">Our Process</h2>
-        <div class="process-steps">
-            <div class="step-item">
-                <span class="step-title">Discovery & Strategy</span>
-                <span class="step-desc">We analyze your goals, competitors, and target audience.</span>
-            </div>
-
-            <div class="step-arrow">&rarr;</div>
-
-            <div class="step-item">
-                <span class="step-title">UX & Design</span>
-                <span class="step-desc">We craft wireframes and high-fidelity UI designs.</span>
-            </div>
-
-            <div class="step-arrow">&rarr;</div>
-
-            <div class="step-item">
-                <span class="step-title">Development</span>
-                <span class="step-desc">Clean, scalable, and high-performance coding using modern tech.</span>
-            </div>
-
-            <div class="step-arrow">&rarr;</div>
-
-            <div class="step-item">
-                <span class="step-title">Testing & Optimization</span>
-                <span class="step-desc">Speed, SEO, and cross-device testing before launch.</span>
-            </div>
-
-            <div class="step-arrow">&rarr;</div>
-
-            <div class="step-item">
-                <span class="step-title">Launch & Growth</span>
-                <span class="step-desc">Smooth deployment and post-launch assistance.</span>
-            </div>
-        </div>
-    </div> -->
-
 </div>
 
 <script>
     // Initialize
     document.addEventListener("DOMContentLoaded", function () {
-        updateForm("Submitted From: Web Development _General Inquiry");
+        // Wait for SureForms to initialize
+        setTimeout(function() {
+            updateForm("Submitted From: Web Development _General Inquiry");
+        }, 1000);
     });
 
     let currentTier = null;
@@ -636,11 +546,11 @@
         // Toggle Selection
         const isSelected = currentTier && currentTier.name === tierName;
 
-        // Reset All
+        // Reset All Buttons
         document.querySelectorAll('.tier-btn').forEach(btn => {
             btn.classList.remove('active-btn');
-            // Check context to determine original text
-            if(btn.innerText === "Selected") {
+            // Check if it's a link (Enterprise) or a button
+            if (btn.tagName !== 'A' && btn.innerText === "Selected") {
                  btn.innerText = "Select Package";
             }
         });
@@ -664,6 +574,12 @@
 
             // Visual Update
             updateButtonVisuals(tierName);
+            
+            // SMOOTH SCROLL TO FORM
+            const formSection = document.getElementById('contact-footer');
+            if(formSection) {
+                formSection.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     }
 
@@ -682,7 +598,8 @@
     }
 
     function updateForm(subjectText) {
-        let formField = document.querySelector("input[name='input_text']");
+        // Look for SureForms input inside the .package-auto-fill container
+        let formField = document.querySelector(".package-auto-fill input");
 
         if (formField) {
             formField.value = subjectText;
@@ -691,8 +608,3 @@
         }
     }
 </script>
-
-
-
-
-

@@ -8,7 +8,8 @@
         color: #333;
     }
 
-    .fluentform .hide-me-please {
+    /* --- HIDE AUTO-FILL FIELD (SUREFORMS) --- */
+    .package-auto-fill {
         display: none !important;
         visibility: hidden !important;
         height: 0 !important;
@@ -279,10 +280,8 @@
 
 <div class="motion-content-wrapper">
 
-    <!-- SERVICE TIERS -->
     <div class="tiers-section">
         <div class="tiers-grid">
-            <!-- Tier 1 -->
             <div class="package-card" id="tier-1">
                 <div class="tier-name">Launch</div>
                 <div class="tier-target">
@@ -292,7 +291,6 @@
 
                 <div class="tier-price">BDT 199<span>/month</span></div>
                 
-                
                 <ul class="tier-features">
                     <li>Platform Setup & Configuration: Complete technical setup (Zoom/Teams/etc.).</li>
                     <li>Cyber-Security: Basic gatekeeping to prevent unauthorized access.</li>
@@ -301,10 +299,9 @@
                     <li>Dedicated Attendee Support: Real-time technical help for attendees.</li>
                     <li>Duration: Support for up to 90 minutes.</li>
                 </ul>
-<button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Launch', 'BDT 199')">Select Package</button>
+                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Launch', 'BDT 199')">Select Package</button>
             </div>
 
-            <!-- Tier 2 -->
             <div class="package-card" id="tier-2">
                 <div class="tier-name">Growth</div>
                 <div class="tier-target">
@@ -313,7 +310,6 @@
                 </div>
 
                 <div class="tier-price">BDT 399<span>/month</span></div>
-                
                 
                 <ul class="tier-features">
                     <li>Everything in Launch: Plus advanced management features.</li>
@@ -324,21 +320,19 @@
                     <li>Post-Event Analytics: Detailed attendance and engagement reports.</li>
                     <li>Recording Editing: Professional editing of the session recording.</li>
                 </ul>
-<button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button>
+                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button>
             </div>
 
-            <!-- Tier 3 -->
             <div class="package-card" id="tier-3">
                 <div class="tier-name">Enterprise</div>
                 <div class="tier-target">
                     <strong>Best For:</strong> Corporates and large conferences requiring broadcast-quality production (1,000+ participants).<br><br>
                     <strong>Value Proposition</strong> Full-scale production with custom branding, multi-camera streaming.
                 </div>
-
                 
+                <div class="tier-price" style="visibility:hidden;">BDT 000</div>
                 
-            <div class="tier-price" style="visibility:hidden;">BDT 000</div>
-<ul class="tier-features">
+                <ul class="tier-features">
                     <li>Everything in Growth: Plus broadcast-grade production.</li>
                     <li>Full-Scale Broadcast: Multi-platform streaming with multi-camera switching.</li>
                     <li>Custom Branding: Fully custom slides, backgrounds, and overlays.</li>
@@ -347,13 +341,12 @@
                     <li>Cyber-Security Enterprise: Advanced encryption and backup systems.</li>
                     <li>Help Desk: Dedicated support line for large audiences.</li>
                 </ul>
-<a href="#contact-footer" class="tier-btn" style="margin-top: auto; text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4; box-sizing: border-box;">Contact Us</a>
+                <a href="#contact-footer" class="tier-btn" style="margin-top: auto; text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4; box-sizing: border-box;">Contact Us</a>
 
             </div>
         </div>
     </div>
 
-    <!-- COMPARISON TABLE -->
     <div id="forma" class="tiers-section" style="margin-bottom: 20px;">
         <h2 style="text-align:center; color:#222; margin-bottom:20px;">Package Comparison</h2>
         <div class="comp-table-wrapper">
@@ -443,7 +436,6 @@
             </table>
         </div>
 
-        <!-- TOTAL BAR -->
         <div id="motion-total-bar">
             <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
             <div id="motion-summary-text" style="font-weight:600;"></div>
@@ -460,7 +452,10 @@
 <script>
     // Initialize
     document.addEventListener("DOMContentLoaded", function () {
-        updateForm("Submitted From: Virtual Event & Meeting Management _General Inquiry");
+        // Wait for SureForms to initialize
+        setTimeout(function() {
+            updateForm("Submitted From: Virtual Event & Meeting Management _General Inquiry");
+        }, 1000);
     });
 
     let currentTier = null;
@@ -469,10 +464,11 @@
         // Toggle Selection
         const isSelected = currentTier && currentTier.name === tierName;
 
-        // Reset All
+        // Reset All Buttons
         document.querySelectorAll('.tier-btn').forEach(btn => {
             btn.classList.remove('active-btn');
-             if(btn.innerText === "Selected") {
+            // Check if it's a link (Enterprise) or a button
+            if (btn.tagName !== 'A' && btn.innerText === "Selected") {
                  btn.innerText = "Select Package";
             }
         });
@@ -496,6 +492,12 @@
 
             // Visual Update
             updateButtonVisuals(tierName);
+            
+            // SMOOTH SCROLL TO FORM
+            const formSection = document.getElementById('contact-footer');
+            if(formSection) {
+                formSection.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     }
 
@@ -514,7 +516,8 @@
     }
 
     function updateForm(subjectText) {
-        let formField = document.querySelector("input[name='input_text']");
+        // Look for SureForms input inside the .package-auto-fill container
+        let formField = document.querySelector(".package-auto-fill input");
 
         if (formField) {
             formField.value = subjectText;
@@ -523,8 +526,3 @@
         }
     }
 </script>
-
-
-
-
-

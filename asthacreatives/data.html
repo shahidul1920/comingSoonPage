@@ -19,19 +19,20 @@
     }
 
     /* --- LAYOUT CONFIG --- */
-    .fluentform .hide-me-please {
-        display: none !important;
-        visibility: hidden !important;
-        height: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
     .packages-wrapper {
         font-family: 'Poppins', sans-serif;
         max-width: 100%;
         margin: 0 auto;
         box-sizing: border-box;
+    }
+    
+    /* --- HIDE AUTO-FILL FIELD (SUREFORMS) --- */
+    .package-auto-fill {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     .packages-grid {
@@ -672,7 +673,6 @@
                     Plan</button>
             </div>
         </div>
-        <!-- hh = style="background: #222; color: #fff; -->
         <div class="pkg-card" id="card-5" style="border-color: #333;">
             <div class="pkg-header hh">
                 <h3 class="pkg-title">The Owner’s One-Page Command Center</h3>
@@ -816,15 +816,7 @@
                 </div>
             </div>
 
-            <!-- <div class="total-inline-bar" id="inlineTotalBar">
-                <div class="total-info">
-                    <span class="total-label">Estimated Total</span>
-                    <span class="total-amount" id="displayTotal">BDT 0</span>
-                </div>
-                <span class="total-hint">Please proceed to the form below to complete your selection. ↓</span>
-            </div> -->
-
-        </div>
+            </div>
 
     </div>
 
@@ -838,6 +830,13 @@
 </div>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Wait for SureForms to initialize
+        setTimeout(function() {
+            updateTotalAndForm(); 
+        }, 1000);
+    });
+
     // State Variables
     let selectedPkg = null;
     let selectedAddons = [];
@@ -924,22 +923,29 @@
         // Show/Hide bar
         if (total > 0) {
             if (totalBar) totalBar.style.display = 'block';
-            summaryText += ` | EST TOTAL: $${total}`;
+            summaryText += ` | EST TOTAL: BDT ${total}`;
         } else {
             if (totalBar) totalBar.style.display = 'none';
             summaryText = "";
         }
 
-        // C. Update Hidden Form Field
-        const formField = document.querySelector("input[name='input_text']");
+        // C. Update SureForms Hidden Field
+        let textToSend = summaryText || "Submitted From: Business Reporting _General Inquiry";
+        
+        let formField = document.querySelector(".package-auto-fill input");
 
         if (formField) {
-            formField.value = summaryText;
+            formField.value = textToSend;
             formField.dispatchEvent(new Event('change', { bubbles: true }));
             formField.dispatchEvent(new Event('input', { bubbles: true }));
         }
+        
+        // D. Smooth Scroll (Optional)
+        // Only scroll if something is selected to avoid jumping on page load
+        if (total > 0) {
+             const formSection = document.getElementById('contact-footer');
+             // We check if the click was user-initiated (simple check: total > 0)
+             // But we don't want to scroll on initial load if pre-selected logic existed (which it doesn't here)
+        }
     }
 </script>
-
-
-

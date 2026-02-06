@@ -7,7 +7,9 @@
         width: 100%;
         color: #333;
     }
-    .fluentform .hide-me-please {
+
+    /* --- HIDE AUTO-FILL FIELD (SUREFORMS) --- */
+    .package-auto-fill {
         display: none !important;
         visibility: hidden !important;
         height: 0 !important;
@@ -319,6 +321,9 @@
         cursor: pointer;
         transition: 0.2s;
         font-family: inherit;
+        display: block;
+        text-align: center;
+        text-decoration: none;
     }
     
     /* Selection Highlighting */
@@ -362,14 +367,6 @@
 
 <div class="brand-identity-wrapper">
 
-    <!-- HERO SECTION -->
-    <!-- <div class="brand-hero">
-        <h1 class="brand-title">Build a Brand That Looks Trustworthy, Consistent & Memorable</h1>
-        <p class="brand-subtitle">Strategic Brand Identity Design for startups, growing businesses & established brands—crafted to communicate clarity, credibility, and confidence.</p>
-        <a href="#consultation-booking" class="cta-btn-main">Book a Brand Consultation</a>
-    </div> -->
-
-    <!-- DELIVERABLES SECTION -->
     <div style="text-align:left; margin-bottom:60px; padding:30px; border:1px dashed #5C1AEC; border-radius:12px; background:#fdfdfd;">
         <h3 style="margin-bottom:15px; color:#222;">Deliverables & What Clients Receive</h3>
         <ul style="padding:0; margin:0; list-style:none;">
@@ -381,19 +378,14 @@
         </ul>
     </div>
 
-    <!-- PACKAGES SECTION -->
     <div id="brand-packages">
         
         <div class="package-grid">
             
-            <!-- Package 1 -->
             <div class="package-card" id="pkg-card-1">
                 <span class="pkg-sub">Launch Package</span>
                 <div class="pkg-desc">Quick-start identity for rapid launches and MVP brands. Best for startups & solo-preneurs.</div>
                 <div class="pkg-cost">BDT 200</div>
-                <!-- <span class="pkg-timeline">Timeline: 7–10 Business Days</span> -->
-                
-                
                 
                 <ul class="pkg-features">
                     <li><strong>Primary Logo:</strong> 3 Concepts + 2 rounds refinement</li>
@@ -402,17 +394,13 @@
                     <li><strong>Typography:</strong> Header & Body fonts</li>
                     <li><strong>Favicon:</strong> Branded app/browser icon</li>
                 </ul>
-<button style="margin-top: auto;" class="tier-btn" data-pkg-id="1" onclick="selectBrandPkg(1, 'Launch', 200)">Select Plan</button>
+                <button style="margin-top: auto;" class="tier-btn" data-pkg-id="1" onclick="selectBrandPkg(1, 'Launch', 200)">Select Plan</button>
             </div>
 
-            <!-- Package 2 -->
             <div class="package-card" id="pkg-card-2">
                 <span class="pkg-sub">Growth Package</span>
                 <div class="pkg-desc">Comprehensive visual system for growing businesses. Reformation or scaling.</div>
                 <div class="pkg-cost">BDT 350</div>
-                <!-- <span class="pkg-timeline">Timeline: 3–4 Weeks</span> -->
-                
-                
                 
                 <ul class="pkg-features">
                     <li><strong>Everything in "Launch"</strong></li>
@@ -421,33 +409,28 @@
                     <li><strong>Stationery Suite:</strong> Card, Letterhead, Envelope</li>
                     <li><strong>Brand Pattern:</strong> Custom background/texture</li>
                 </ul>
-<button style="margin-top: auto;" class="tier-btn" data-pkg-id="2" onclick="selectBrandPkg(2, 'Growth', 350)">Select Plan</button>
+                <button style="margin-top: auto;" class="tier-btn" data-pkg-id="2" onclick="selectBrandPkg(2, 'Growth', 350)">Select Plan</button>
             </div>
 
-            <!-- Package 3 -->
             <div class="package-card" id="pkg-card-3" style="background-color: #F2EEFF;">
                 <span class="pkg-sub">Enterprise Package</span>
                 <div class="pkg-desc">Full scale identity for established scaling brands requiring deep strategy.</div>
                 
-                <!-- <span class="pkg-timeline">Timeline: 4+ Weeks</span> -->
-                
                 <div class="pkg-cost" style="visibility:hidden;">BDT 000</div>
                 
-                
                 <ul class="pkg-features">
-                     <li><strong>Everything in "Growth"</strong></li>
+                      <li><strong>Everything in "Growth"</strong></li>
                     <li><strong>Master Guidelines:</strong> 40+ Pages detailed</li>
                     <li><strong>Deep Strategy:</strong> Brand Voice & Audit</li>
                     <li><strong>Packaging / UI Kit:</strong> Custom Add-ons</li>
                     <li><strong>Revisions:</strong> Unlimited Rounds</li>
                 </ul>
-<a href="#contact-footer" class="tier-btn" style="margin-top: auto; text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
+                <a href="#contact-footer" id="formDown" class="tier-btn" style="margin-top: auto;">Contact Us</a>
             </div>
 
         </div>
     </div>
 
-    <!-- COMPARISON TABLE -->
     <h3 style="text-align:center; margin-bottom:20px;">Feature Comparison</h3>
     <div class="comp-table-wrapper">
         <table class="comp-table">
@@ -514,30 +497,16 @@
                     <td>3 Rounds</td>
                     <td>Unlimited</td>
                 </tr>
-                <!-- Button Row -->
                 <tr style="border-bottom:none;">
                     <td></td>
                     <td style="padding:20px;"><button class="tier-btn" data-pkg-id="1" onclick="selectBrandPkg(1, 'Launch', 200)">Select Plan</button></td>
                     <td style="padding:20px;"><button class="tier-btn" data-pkg-id="2" onclick="selectBrandPkg(2, 'Growth', 350)">Select Plan</button></td>
-                    <td style="padding:20px;"><a href="#contact-footer" class="tier-btn" style="text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a></td>
+                    <td style="padding:20px;"><a href="#contact-footer" class="tier-btn">Contact Us</a></td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-    <!-- PROCESS SECTION -->
-    <!--<div class="process-section">-->
-    <!--    <h3 style="color:#222; margin-bottom:20px;">How the Process Works</h3>-->
-    <!--    <div class="process-steps">-->
-    <!--        <div class="step-item">Discovery & Consultation</div> <span class="step-arrow">→</span>-->
-    <!--        <div class="step-item">Strategy & Direction</div> <span class="step-arrow">→</span>-->
-    <!--        <div class="step-item">Design Development</div> <span class="step-arrow">→</span>-->
-    <!--        <div class="step-item">Feedback & Refinement</div> <span class="step-arrow">→</span>-->
-    <!--        <div class="step-item">Final Delivery</div>-->
-    <!--    </div>-->
-    <!--</div>-->
-
-    <!-- TOTAL BAR -->
     <div id="brand-total-bar">
         <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
         <div id="brand-summary-text" style="font-weight:600;"></div>
@@ -548,6 +517,13 @@
 </div>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Wait for SureForms to initialize
+        setTimeout(function() {
+            updateBrandForm("");
+        }, 1000);
+    });
+
     let currentBrandPkg = null;
 
     function selectBrandPkg(id, name, price) {
@@ -555,18 +531,21 @@
         const card = document.getElementById(`pkg-card-${id}`);
 
         // Reset All Cards & Buttons
-        document.querySelectorAll('.brand-card').forEach(c => c.style.borderColor = '#eee');
-        // document.querySelectorAll('.highlight-card').forEach(c => c.style.borderColor = '#5C1AEC'); 
+        document.querySelectorAll('.package-card').forEach(c => c.style.borderColor = '#e0e0e0');
         
         document.querySelectorAll('.tier-btn').forEach(b => {
             b.classList.remove('active-btn');
-            b.innerText = "Select Plan";
+            // If it's a link (Enterprise), don't change text
+            if(b.tagName !== 'A' && b.innerText === "Selected") {
+                 b.innerText = "Select Plan";
+            }
         });
 
         if (isSelected) {
             // Deselect
             currentBrandPkg = null;
             document.getElementById('brand-total-bar').style.display = 'none';
+            updateBrandForm("");
         } else {
             // Select
             currentBrandPkg = { id, name, price };
@@ -584,20 +563,25 @@
             document.getElementById('brand-total-bar').style.display = 'block';
             document.getElementById('brand-summary-text').innerText = name;
             document.getElementById('brand-display-total').innerText = "BDT " + price;
+            
+            // Update Form
+            updateBrandForm(`Submitted From: Brand Identity _${name} (BDT ${price})`);
+            
+            // SMOOTH SCROLL TO FORM
+            const formSection = document.getElementById('contact-footer');
+            if(formSection) {
+                formSection.scrollIntoView({ behavior: 'smooth' });
+            }
         }
-
-        updateBrandForm();
     }
 
-    function updateBrandForm() {
-        let finalString = "";
+    function updateBrandForm(subjectText) {
+        // Default text
+        let finalString = subjectText || "Submitted From: Brand Identity _General Inquiry";
         
-        if (currentBrandPkg) {
-            finalString = `Submitted From: Brand Identity _${currentBrandPkg.name} (BDT ${currentBrandPkg.price})`;
-        }
-        
-        // Update Fluent Form Hidden Field
-        let formField = document.querySelector("input[name='input_text']");
+        // --- SUREFORMS SELECTOR ---
+        // Looks for the field with class 'package-auto-fill'
+        let formField = document.querySelector(".package-auto-fill input");
 
         if (formField) {
             formField.value = finalString;
@@ -606,7 +590,3 @@
         }
     }
 </script>
-
-
-
-

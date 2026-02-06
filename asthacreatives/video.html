@@ -8,7 +8,8 @@
         color: #333;
     }
 
-    .fluentform .hide-me-please {
+    /* --- HIDE AUTO-FILL FIELD (SUREFORMS) --- */
+    .package-auto-fill {
         display: none !important;
         visibility: hidden !important;
         height: 0 !important;
@@ -76,36 +77,6 @@
         transition: 0.3s;
         position: relative;
     }
-/*
-    /* Desktop View: Horizontal Section Style */
-    /* @media(min-width: 1024px) {
-        .package-card {
-            grid-template-columns: 1.5fr 2fr 1fr;
-            align-items: center;
-        }
-
-        .tier-header {
-            border-right: 1px solid #eee;
-            padding-right: 20px;
-        }
-        
-        .tier-body {
-            padding: 0 20px;
-        }
-
-        .tier-footer {
-            border-left: 1px solid #eee;
-            padding-left: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-        .tier-price {
-            margin-top: 0 !important;
-        }
-    } */
 
     .package-card:hover {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -193,6 +164,9 @@
         border-radius: 5px;
         cursor: pointer;
         transition: 0.2s;
+        display: block;
+        text-align: center;
+        text-decoration: none;
     }
 
     .tier-btn:hover {
@@ -307,27 +281,13 @@
 
 <div class="motion-content-wrapper">
 
-    <!-- HERO -->
-    <!--<div class="motion-hero">-->
-    <!--    <h1 class="motion-title">Video Editing Services</h1>-->
-    <!--    <div class="motion-subtitle">Professional Growth & Elite Content Partner</div>-->
-    <!--    <p class="motion-desc">-->
-    <!--        Scale your brand with professional video editing. From vlogs to high-end productions, we help you launch consistently and look professional.-->
-    <!--    </p>-->
-    <!--</div>-->
-
-    <!-- SERVICE TIERS -->
     <div class="tiers-section">
-        <!--<h2 style="text-align:center; color:#222; margin-bottom:40px;">Pricing Packages</h2>-->
-
         <div class="tiers-grid">
-            <!-- Tier 1 -->
             <div class="package-card" id="pkg-card-1">
                 <div class="tier-name">Launch</div>
                 <div class="tier-target">Designed to help you launch consistently and look professional without the overhead of a full production team.<br><br><strong>Best for:</strong> YouTubers, solo podcasters, and early-stage brands building consistency.</div>
 
                 <div class="tier-price">BDT 299<span>/month</span></div>
-                
                 
                 <ul class="tier-features">
                     <li>Vlog Editing: Clean pacing, smooth cuts, storytelling flow, and basic color grading</li>
@@ -338,16 +298,14 @@
                     <li>Delivery Time: 3–5 business days per project</li>
                     <li>Support: Email support</li>
                 </ul>
-<button style="margin-top: auto;" class="tier-btn" data-pkg-id="1" onclick="selectTier(1, 'Launch', 299)">Select Package</button>
+                <button style="margin-top: auto;" class="tier-btn" data-pkg-id="1" onclick="selectTier(1, 'Launch', 299)">Select Package</button>
             </div>
 
-            <!-- Tier 2 -->
             <div class="package-card" id="pkg-card-2">
                 <div class="tier-name">Growth</div>
                 <div class="tier-target">Our most popular package — built for creators and businesses who want a content engine, not just editing.<br><br><strong>Best for:</strong> Coaches, agencies, SaaS brands, and content-driven businesses.</div>
 
                 <div class="tier-price">BDT 799<span>/month</span></div>
-                
                 
                 <ul class="tier-features">
                     <li>Vlog Editing: Advanced storytelling, cinematic pacing, and brand color grading</li>
@@ -359,16 +317,14 @@
                     <li>Delivery Time: 2–3 business days per project</li>
                     <li>Support: Priority email + WhatsApp</li>
                 </ul>
-<button style="margin-top: auto;" class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 799)">Select Package</button>
+                <button style="margin-top: auto;" class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 799)">Select Package</button>
             </div>
 
-            <!-- Tier 3 -->
             <div class="package-card" id="pkg-card-3" style="background-color: #F2EEFF;">
                 <div class="tier-name">Enterprise</div>
                 <div class="tier-target">This is a retainer-based growth partnership — we handle everything so you can focus on creating and selling.<br><br><strong>Best for:</strong> High-ticket brands, influencers, and businesses scaling aggressively.</div>
 
                 <div class="tier-price" style="visibility:hidden;">BDT 000</div>
-                
                 
                 <ul class="tier-features">
                     <li>Vlog & Brand Video Production: Cinematic editing, advanced storytelling, and premium color grading</li>
@@ -380,12 +336,11 @@
                     <li>Turnaround Time: 24–48 hours per project</li>
                     <li>Support: Dedicated account manager + direct communication channel</li>
                 </ul>
-<a href="#contact-footer" class="tier-btn" style="margin-top: auto; text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
+                <a href="#contact-footer" class="tier-btn" style="margin-top: auto; text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
             </div>
         </div>
     </div>
 
-    <!-- COMPARISON TABLE -->
     <div id="forma" class="tiers-section" style="margin-bottom: 20px;">
         <h2 style="text-align:center; color:#222; margin-bottom:20px;">Package Comparison Table</h2>
         <div class="comp-table-wrapper">
@@ -463,7 +418,6 @@
             </table>
         </div>
 
-        <!-- TOTAL BAR -->
         <div id="video-total-bar">
             <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
             <div id="video-summary-text" style="font-weight:600;"></div>
@@ -478,9 +432,11 @@
 </div>
 
 <script>
-    // Initialize
     document.addEventListener("DOMContentLoaded", function () {
-        updateForm("Submitted From: VideoEditing _General Inquiry");
+        // Wait for SureForms to initialize
+        setTimeout(function() {
+            updateForm(""); 
+        }, 1000);
     });
 
     let currentTier = null;
@@ -492,17 +448,25 @@
 
         // Reset All Cards & Buttons
         document.querySelectorAll('.package-card').forEach(c => c.style.borderColor = '#eee');
-        // document.querySelectorAll('.highlight-card').forEach(c => c.style.borderColor = '#5C1AEC'); 
         
         document.querySelectorAll('.tier-btn').forEach(btn => {
             btn.classList.remove('active-btn');
-            btn.innerText = "Select Package";
+            // Restore original text
+            if(btn.closest('table')) {
+                // Keep table buttons generic if needed, or update similarly
+                // btn.innerText = "Select Package"; 
+            } else if (btn.tagName === 'A') {
+                // Do nothing for links
+            } else {
+                 btn.innerText = "Select Package";
+            }
         });
 
         if (isSelected) {
             // Deselect
             currentTier = null;
             document.getElementById('video-total-bar').style.display = 'none';
+            updateForm("");
         } else {
             // Select
             currentTier = { id, name: tierName, price: price };
@@ -520,29 +484,29 @@
             document.getElementById('video-total-bar').style.display = 'block';
             document.getElementById('video-summary-text').innerText = tierName;
             document.getElementById('video-display-total').innerText = "BDT " + price;
+            
+            // Update Form
+            updateForm(`Submitted From: VideoEditing _${tierName} (BDT ${price})`);
+            
+            // SMOOTH SCROLL TO FORM
+            const formSection = document.getElementById('contact-footer');
+            if(formSection) {
+                formSection.scrollIntoView({ behavior: 'smooth' });
+            }
         }
-
-        updateForm();
     }
 
-    function updateForm() {
-        let finalString = "Submitted From: VideoEditing _General Inquiry";
+    function updateForm(subjectText) {
+        let textToSend = subjectText || "Submitted From: VideoEditing _General Inquiry";
         
-        if (currentTier) {
-            finalString = `Submitted From: VideoEditing _${currentTier.name} (BDT ${currentTier.price})`;
-        }
-
-        let formField = document.querySelector("input[name='input_text']");
+        // --- SUREFORMS SELECTOR ---
+        // Looks for the field with class 'package-auto-fill'
+        let formField = document.querySelector(".package-auto-fill input");
 
         if (formField) {
-            formField.value = finalString;
+            formField.value = textToSend;
             formField.dispatchEvent(new Event('change', { bubbles: true }));
             formField.dispatchEvent(new Event('input', { bubbles: true }));
         }
     }
 </script>
-
-
-
-
-

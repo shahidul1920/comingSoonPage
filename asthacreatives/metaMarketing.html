@@ -1,14 +1,17 @@
 ﻿<style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-    /* --- GLOBAL CONTAINER --- */
-    .motion-content-wrapper {
+    .content-packages-wrapper {
         font-family: 'Poppins', sans-serif;
-        width: 100%;
-        color: #333;
+        color: #4a4a4a;
+        line-height: 1.7;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0;
     }
 
-    /* --- HIDE AUTO-FILL FIELD (SUREFORMS) --- */
+    /* --- HIDE AUTO-FILL FIELD (UPDATED FOR SUREFORMS) --- */
+    /* This hides the input field we named 'package-auto-fill' */
     .package-auto-fill {
         display: none !important;
         visibility: hidden !important;
@@ -17,35 +20,118 @@
         padding: 0 !important;
     }
 
-    /* --- HERO --- */
-    .motion-hero {
-        text-align: center;
-        margin-bottom: 60px;
-        padding: 0;
+    /* Typography */
+    .content-packages-wrapper h1, 
+    .content-packages-wrapper h2, 
+    .content-packages-wrapper h3 {
+        color: #2d2d2d;
+        line-height: 1.3;
     }
 
-    .motion-title {
+    .content-packages-wrapper h1 {
         font-size: 36px;
+        font-weight: 700;
+        text-align: center;
+        color: #4012A4;
+        margin-bottom: 10px;
+    }
+
+    .content-packages-wrapper h2 {
+        font-size: 20px;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 40px;
+        color: #666;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .section-title {
+        font-size: 26px;
         font-weight: 700;
         color: #222;
         margin-bottom: 15px;
+        position: relative;
+        display: inline-block;
+    }
+    
+    .section-title::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: #5C1AEC;
+        margin: 10px auto 0;
+        border-radius: 2px;
     }
 
-    .motion-subtitle {
-        font-size: 20px;
+    /* Content Cards */
+    .content-card {
+        background: #fff;
+        border-radius: 16px;
+        padding: 40px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        margin-bottom: 40px;
+        border: 1px solid #f0f0f0;
+    }
+
+    /* Lists */
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 25px;
+    }
+
+    .check-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .check-list li {
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+        font-size: 15px;
+    }
+
+    .check-list li::before {
+        content: "✓";
         color: #5C1AEC;
-        font-weight: 600;
-        margin-bottom: 20px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+        font-weight: 700;
+        position: absolute;
+        left: 0;
+        top: 0px;
     }
-
-    .motion-desc {
-        font-size: 16px;
-        color: #555;
-        max-width: 800px;
-        margin: 0 auto 30px auto;
-        line-height: 1.6;
+    
+    .cross-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .cross-list li {
+         margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+        font-size: 15px;
+        color: #777;
+    }
+    
+    .cross-list li::before {
+        content: "✕";
+        color: #5C1AEC;
+        font-weight: 700;
+        position: absolute;
+        left: 0;
+        top: 0px;
     }
 
     /* --- SERVICE TIERS --- */
@@ -83,36 +169,20 @@
         transform: translateY(-3px);
     }
 
-    .package-card.featured {
-        border: 2px solid #5C1AEC;
-        background: #fffbfb;
-    }
-
-    .tier-name {
+    .pkg-name {
         font-size: 24px;
         font-weight: 700;
         color: #222;
         margin-bottom: 5px;
     }
 
-    .tier-sub-name {
-        font-size: 14px;
-        color: #5C1AEC;
-        font-weight: 600;
-        margin-bottom: 10px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        min-height: 42px; /* Alignment fix */
-    }
-
     .tier-target {
         font-size: 13px;
         color: #666;
-        margin-bottom: 15px;
-        min-height: 60px; /* Alignment fix */
+        margin-bottom: 0px; 
     }
 
-    .tier-price {
+    .pkg-price {
         font-size: 38px;
         font-weight: 700;
         color: #222;
@@ -121,40 +191,38 @@
         align-items: baseline;
     }
 
-    .tier-price span {
+    .pkg-price span {
         font-size: 14px;
         font-weight: 400;
         color: #777;
         margin-left: 5px;
     }
 
-    .tier-features {
+    .pkg-features {
         list-style: none;
         padding: 0;
-        margin: 25px 0;
+        margin: 25px 0 0 0;
         border-top: 1px solid #eee;
         padding-top: 25px;
-        flex-grow: 1;
-        text-align: left;
     }
-
-    .tier-features li {
-        margin-bottom: 10px;
+    
+    .pkg-features li {
+        margin-bottom: 12px;
         font-size: 14px;
         color: #555;
         display: flex;
         align-items: stretch;
     }
-
-    .tier-features li::before {
-        content: "\2022";
+    
+    .pkg-features li::before {
+        content: "•";
         color: #5C1AEC;
-        margin-right: 10px;
         font-weight: bold;
-        flex-shrink: 0;
-        line-height: 1.5; /* Match text line height */
+        margin-right: 10px;
+        line-height: 1.5;
     }
 
+    /* --- BUTTONS --- */
     .tier-btn {
         box-sizing: border-box;
         width: 100%;
@@ -166,6 +234,10 @@
         border-radius: 5px;
         cursor: pointer;
         transition: 0.2s;
+        font-family: inherit;
+        display: block; /* Added for <a> tags */
+        text-align: center; /* Added for <a> tags */
+        text-decoration: none; /* Added for <a> tags */
     }
 
     .tier-btn:hover {
@@ -183,8 +255,8 @@
     /* --- COMPARISON TABLE --- */
     .comp-table-wrapper {
         overflow-x: auto;
-        margin-top: 60px;
-        padding-bottom: 0px; 
+        margin-top: 20px;
+        padding-bottom: 10px; 
     }
 
     .comp-table {
@@ -258,16 +330,18 @@
         padding-left: 25px;
     }
 
-    /* --- TOTAL BAR --- */
+    /* --- TOTAL BAR (Motion Style) --- */
     #motion-total-bar {
         display: none;
-        margin-top: 10px;
+        margin-top: 20px;
         padding: 20px;
         text-align: center;
         background: #222;
         color: #fff;
         border-radius: 8px;
         width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     
     .total-txt {
@@ -276,165 +350,184 @@
         font-weight: 700;
         margin-left: 10px;
     }
+
+    /* Selection Highlighting */
+    .col-highlight {
+        background-color: #F2EEFF !important;
+        color: #000;
+    }
+    .th-highlight {
+        background-color: #5C1AEC !important;
+        color: #fff !important;
+        border-color: #5C1AEC !important;
+    }
 </style>
 
-<div class="motion-content-wrapper">
+<div class="content-packages-wrapper">
 
-    <div class="tiers-section">
-        <div class="tiers-grid">
-            <div class="package-card" id="tier-1">
-                <div class="tier-name">Launch</div>
-                <div class="tier-target">
-                    <strong>Best For:</strong> Solopreneurs and small teams hosting webinars or workshops (Up to 100 participants).<br><br>
-                    Ensure a seamless, professional event with essential setup, security, and support.
-                </div>
+<!-- HERO SECTION -->
+    <h1 style="margin-bottom: 10px;">Virtual Event & Meeting Management</h1>
+    
+    <h2 style="margin-bottom: 20px;">
+        Professional. Secure. Engaging.
+    </h2>
+    
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 40px auto; color: #555; font-size: 16px;">
+        Hosting a high-stakes webinar, virtual conference, or shareholder meeting? Don’t let technical glitches ruin your reputation. We provide end-to-end technical management, security, and production support so you can focus on your message.
+    </p>
 
-                <div class="tier-price">BDT 199<span>/month</span></div>
-                
-                <ul class="tier-features">
-                    <li>Platform Setup & Configuration: Complete technical setup (Zoom/Teams/etc.).</li>
-                    <li>Cyber-Security: Basic gatekeeping to prevent unauthorized access.</li>
-                    <li>Live Polls & Q&A: Limited interactive features setup.</li>
-                    <li>Speaker Green Room: Management for 1 speaker.</li>
-                    <li>Dedicated Attendee Support: Real-time technical help for attendees.</li>
-                    <li>Duration: Support for up to 90 minutes.</li>
-                </ul>
-                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Launch', 'BDT 199')">Select Package</button>
+    <div class="tiers-grid" style="margin-bottom: 80px;">
+        <div class="package-card" id="pkg-card-1">
+            <h3 class="pkg-name">Launch</h3>
+            <div class="tier-target" style="min-height: auto; margin-bottom: 15px;">
+                <strong>Best For:</strong> Solopreneurs and small teams hosting webinars or workshops (Up to 100 participants).<br><br>
+                Ensure a seamless, professional event with essential setup, security, and support.
             </div>
 
-            <div class="package-card" id="tier-2">
-                <div class="tier-name">Growth</div>
-                <div class="tier-target">
-                    <strong>Best For:</strong> SMEs and growing teams running professional meetings (Up to 300 participants).<br><br>
-                    Level up your events with breakout rooms, branded materials, and post-event analytics.
-                </div>
+            <div class="pkg-price">BDT 199<span>/month</span></div>
+            
+            <ul class="pkg-features">
+                <li>Platform Setup & Configuration: Complete technical setup (Zoom/Teams/etc.).</li>
+                <li>Cyber-Security: Basic gatekeeping to prevent unauthorized access.</li>
+                <li>Live Polls & Q&A: Limited interactive features setup.</li>
+                <li>Speaker Green Room: Management for 1 speaker.</li>
+                <li>Dedicated Attendee Support: Real-time technical help for attendees.</li>
+                <li>Duration: Support for up to 90 minutes.</li>
+            </ul>
+            <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Launch', 'BDT 199')">Select Package</button>
+        </div>
 
-                <div class="tier-price">BDT 399<span>/month</span></div>
-                
-                <ul class="tier-features">
-                    <li>Everything in Launch: Plus advanced management features.</li>
-                    <li>Strategic Planning: Advanced planning and run-of-show creation.</li>
-                    <li>Breakout Rooms: Setup and management for targeted discussions.</li>
-                    <li>Branded Slides & Workbooks: Up to 25 branded slides and digital materials.</li>
-                    <li>Dry Runs: Rehearsal session with speakers.</li>
-                    <li>Post-Event Analytics: Detailed attendance and engagement reports.</li>
-                    <li>Recording Editing: Professional editing of the session recording.</li>
-                </ul>
-                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button>
+        <div class="package-card" id="pkg-card-2">
+            <h3 class="pkg-name">Growth</h3>
+            <div class="tier-target" style="min-height: auto; margin-bottom: 15px;">
+                <strong>Best For:</strong> SMEs and growing teams running professional meetings (Up to 300 participants).<br><br>
+                Level up your events with breakout rooms, branded materials, and post-event analytics.
             </div>
 
-            <div class="package-card" id="tier-3">
-                <div class="tier-name">Enterprise</div>
-                <div class="tier-target">
-                    <strong>Best For:</strong> Corporates and large conferences requiring broadcast-quality production (1,000+ participants).<br><br>
-                    <strong>Value Proposition</strong> Full-scale production with custom branding, multi-camera streaming.
-                </div>
-                
-                <div class="tier-price" style="visibility:hidden;">BDT 000</div>
-                
-                <ul class="tier-features">
-                    <li>Everything in Growth: Plus broadcast-grade production.</li>
-                    <li>Full-Scale Broadcast: Multi-platform streaming with multi-camera switching.</li>
-                    <li>Custom Branding: Fully custom slides, backgrounds, and overlays.</li>
-                    <li>Breakout Facilitators: Dedicated staff for breakout rooms.</li>
-                    <li>Transcription & Summary: Full text records and executive summaries.</li>
-                    <li>Cyber-Security Enterprise: Advanced encryption and backup systems.</li>
-                    <li>Help Desk: Dedicated support line for large audiences.</li>
-                </ul>
-                <a href="#contact-footer" class="tier-btn" style="margin-top: auto; text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4; box-sizing: border-box;">Contact Us</a>
+            <div class="pkg-price">BDT 399<span>/month</span></div>
+            
+            <ul class="pkg-features">
+                <li>Everything in Launch: Plus advanced management features.</li>
+                <li>Strategic Planning: Advanced planning and run-of-show creation.</li>
+                <li>Breakout Rooms: Setup and management for targeted discussions.</li>
+                <li>Branded Slides & Workbooks: Up to 25 branded slides and digital materials.</li>
+                <li>Dry Runs: Rehearsal session with speakers.</li>
+                <li>Post-Event Analytics: Detailed attendance and engagement reports.</li>
+                <li>Recording Editing: Professional editing of the session recording.</li>
+            </ul>
+            <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button>
+        </div>
 
+        <div class="package-card" id="pkg-card-3" style="background-color: #F2EEFF;">
+            <h3 class="pkg-name">Enterprise</h3>
+            <div class="tier-target" style="min-height: auto; margin-bottom: 15px;">
+                <strong>Best For:</strong> Corporates and large conferences requiring broadcast-quality production (1,000+ participants).<br><br>
+                <strong>Value Proposition</strong> Full-scale production with custom branding, multi-camera streaming.
             </div>
+            
+            <div class="pkg-price" style="visibility:hidden;">BDT 000</div>
+            
+            <ul class="pkg-features">
+                <li>Everything in Growth: Plus broadcast-grade production.</li>
+                <li>Full-Scale Broadcast: Multi-platform streaming with multi-camera switching.</li>
+                <li>Custom Branding: Fully custom slides, backgrounds, and overlays.</li>
+                <li>Breakout Facilitators: Dedicated staff for breakout rooms.</li>
+                <li>Transcription & Summary: Full text records and executive summaries.</li>
+                <li>Cyber-Security Enterprise: Advanced encryption and backup systems.</li>
+                <li>Help Desk: Dedicated support line for large audiences.</li>
+            </ul>
+            <a href="#contact-footer" id="formDown" class="tier-btn" style="margin-top: auto;">Contact Us</a>
         </div>
     </div>
 
-    <div id="forma" class="tiers-section" style="margin-bottom: 20px;">
-        <h2 style="text-align:center; color:#222; margin-bottom:20px;">Package Comparison</h2>
-        <div class="comp-table-wrapper">
-            <table class="comp-table">
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>Launch</th>
-                        <th>Growth</th>
-                        <th>Enterprise</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Meeting Duration</td>
-                        <td>Up to 90 min</td>
-                        <td>Up to 3 hours</td>
-                        <td>8 hrs / Multi-session</td>
-                    </tr>
-                    <tr>
-                        <td>Participants</td>
-                        <td>Up to 100</td>
-                        <td>Up to 300</td>
-                        <td>1,000+</td>
-                    </tr>
-                    <tr>
-                        <td>Platform Setup</td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> + Backup</td>
-                    </tr>
-                    <tr>
-                        <td>Breakout Rooms</td>
-                        <td>—</td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> + Facilitators</td>
-                    </tr>
-                    <tr>
-                        <td>Branded Slides</td>
-                        <td>Up to 10</td>
-                        <td>Up to 25</td>
-                        <td>Fully Custom</td>
-                    </tr>
-                    <tr>
-                        <td>Digital Workbooks</td>
-                        <td>—</td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> Premium</td>
-                    </tr>
-                    <tr>
-                        <td>Speaker Green Room</td>
-                        <td>1 Speaker</td>
-                        <td>Up to 3</td>
-                        <td>Up to 6</td>
-                    </tr>
-                    <tr>
-                        <td>Live Streaming</td>
-                        <td>—</td>
-                        <td>—</td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                    </tr>
-                    <tr>
-                        <td>Edited Recordings</td>
-                        <td>—</td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> Advanced</td>
-                    </tr>
-                    <tr>
-                        <td>Post-Event Analytics</td>
-                        <td>—</td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> Executive</td>
-                    </tr>
-                    <tr>
-                        <td>Support</td>
-                        <td>Dedicated</td>
-                        <td>Dedicated</td>
-                        <td>Dedicated + Help Desk</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><button class="tier-btn" onclick="selectTier('Launch', 'BDT 199')">Select Package</button></td>
-                        <td><button class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button></td>
-                        <td><a href="#contact-footer" class="tier-btn" style="text-align:center; text-decoration:none; display:block; background-color:#4012A4; border-color:#4012A4; box-sizing: border-box;">Contact Us</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <!-- COMPARISON TABLE -->
+    <h2 style="text-align:center; font-weight: 600; color:#222; margin-bottom:30px; margin-top: 50px; font-size: 28px;">Package Comparison</h2>
+    <div class="comp-table-wrapper">
+        <table class="comp-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Launch</th>
+                    <th>Growth</th>
+                    <th>Enterprise</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Meeting Duration</td>
+                    <td>Up to 90 min</td>
+                    <td>Up to 3 hours</td>
+                    <td>8 hrs / Multi-session</td>
+                </tr>
+                <tr>
+                    <td>Participants</td>
+                    <td>Up to 100</td>
+                    <td>Up to 300</td>
+                    <td>1,000+</td>
+                </tr>
+                <tr>
+                    <td>Platform Setup</td>
+                    <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> + Backup</td>
+                </tr>
+                <tr>
+                    <td>Breakout Rooms</td>
+                    <td>—</td>
+                    <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> + Facilitators</td>
+                </tr>
+                <tr>
+                    <td>Branded Slides</td>
+                    <td>Up to 10</td>
+                    <td>Up to 25</td>
+                    <td>Fully Custom</td>
+                </tr>
+                <tr>
+                    <td>Digital Workbooks</td>
+                    <td>—</td>
+                    <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> Premium</td>
+                </tr>
+                <tr>
+                    <td>Speaker Green Room</td>
+                    <td>1 Speaker</td>
+                    <td>Up to 3</td>
+                    <td>Up to 6</td>
+                </tr>
+                <tr>
+                    <td>Live Streaming</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                </tr>
+                <tr>
+                    <td>Edited Recordings</td>
+                    <td>—</td>
+                    <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> Advanced</td>
+                </tr>
+                <tr>
+                    <td>Post-Event Analytics</td>
+                    <td>—</td>
+                    <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> Executive</td>
+                </tr>
+                <tr>
+                    <td>Support</td>
+                    <td>Dedicated</td>
+                    <td>Dedicated</td>
+                    <td>Dedicated + Help Desk</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button class="tier-btn" onclick="selectPkg('1', 'Launch', 'BDT 199')">Select Package</button></td>
+                    <td><button class="tier-btn" onclick="selectPkg('2', 'Growth', 'BDT 399')">Select Package</button></td>
+                    <td><a href="#contact-footer" class="tier-btn">Contact Us</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
         <div id="motion-total-bar">
             <div style="font-size:14px; color:#ccc; margin-bottom:5px;">Your Selection</div>
@@ -458,42 +551,48 @@
         }, 1000);
     });
 
-    let currentTier = null;
+    let currentSelection = null;
 
-    function selectTier(tierName, priceAttr) {
-        // Toggle Selection
-        const isSelected = currentTier && currentTier.name === tierName;
+    function selectPkg(id, pkgName, price) {
+        // Toggle Logic
+        const isSelected = currentSelection && currentSelection.id === id;
 
-        // Reset All Buttons
-        document.querySelectorAll('.tier-btn').forEach(btn => {
-            btn.classList.remove('active-btn');
-            // Check if it's a link (Enterprise) or a button
-            if (btn.tagName !== 'A' && btn.innerText === "Selected") {
-                 btn.innerText = "Select Package";
-            }
-        });
+        // Reset Visuals
+        resetVisuals();
 
         if (isSelected) {
             // Deselect
-            currentTier = null;
+            currentSelection = null;
             document.getElementById('motion-total-bar').style.display = 'none';
             updateForm("Submitted From: Virtual Event & Meeting Management _General Inquiry");
         } else {
             // Select
-            currentTier = { name: tierName, price: priceAttr };
+            currentSelection = { id, name: pkgName, price };
+            
+            // Highlight Card
+            const card = document.getElementById(`pkg-card-${id}`);
+            if(card) {
+                card.style.borderColor = '#222';
+                // Find button inside card
+                const btn = card.querySelector('.btn');
+                if(btn) {
+                    btn.innerText = 'Selected';
+                    btn.classList.add('active-btn');
+                }
+            }
+
+            // Highlight Table Button
+            highlightTableBtn(pkgName);
 
             // Update Total Bar
             document.getElementById('motion-total-bar').style.display = 'block';
-            document.getElementById('motion-summary-text').innerText = tierName;
-            document.getElementById('motion-display-total').innerText = priceAttr;
+            document.getElementById('motion-summary-text').innerText = pkgName;
+            document.getElementById('motion-display-total').innerText = price;
 
             // Update Form
-            updateForm(`Submitted From: Virtual Event & Meeting Management _Selected Plan: ${tierName} (Approx. ${priceAttr})`);
+            updateForm(`Submitted From: Virtual Event & Meeting Management _Selected Plan: ${pkgName} (${price})`);
 
-            // Visual Update
-            updateButtonVisuals(tierName);
-            
-            // SMOOTH SCROLL TO FORM
+            // Scroll to form
             const formSection = document.getElementById('contact-footer');
             if(formSection) {
                 formSection.scrollIntoView({ behavior: 'smooth' });
@@ -501,16 +600,32 @@
         }
     }
 
-    function updateButtonVisuals(activeTierName) {
-        if (!activeTierName) return;
+    function resetVisuals() {
+        // Reset Cards
+        document.querySelectorAll('.package-card').forEach(card => {
+            card.style.borderColor = '#eee';
+            const btn = card.querySelector('.btn');
+            if(btn) {
+                btn.innerText = 'Select Package';
+                btn.classList.remove('active-btn');
+            }
+        });
 
-        // Find buttons with matching onclick
-        const allBtns = document.querySelectorAll('.tier-btn');
-        allBtns.forEach(btn => {
-            const onclickAttr = btn.getAttribute('onclick');
-            if (onclickAttr && onclickAttr.includes("'" + activeTierName + "'")) {
+        // Reset Table Buttons
+        document.querySelectorAll('.tier-btn').forEach(btn => {
+            if(btn.tagName === 'BUTTON') {
+                btn.innerText = 'Select Package';
+                btn.classList.remove('active-btn');
+            }
+        });
+    }
+
+    function highlightTableBtn(pkgName) {
+         document.querySelectorAll('.tier-btn').forEach(btn => {
+            const onclick = btn.getAttribute('onclick');
+            if(onclick && onclick.includes(pkgName)) {
+                btn.innerText = 'Selected';
                 btn.classList.add('active-btn');
-                btn.innerText = "Selected";
             }
         });
     }
