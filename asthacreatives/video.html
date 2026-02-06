@@ -78,6 +78,25 @@
         position: relative;
     }
 
+    .customize-card {
+        background: rgba(92, 26, 236, 0.08);
+        border-color: #e6ddff;
+        padding: 22px;
+        min-height: 220px;
+        align-self: start;
+    }
+
+    .customize-card .tier-name {
+        font-size: 20px;
+    }
+
+    .customize-note {
+        font-size: 12px;
+        color: #6b6b6b;
+        margin: 6px 0 18px 0;
+        line-height: 1.5;
+    }
+
     .package-card:hover {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         transform: translateY(-3px);
@@ -323,22 +342,9 @@
                 <button style="margin-top: auto;" class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 799)">Select Package</button>
             </div>
 
-            <div class="package-card" id="pkg-card-3" style="background-color: #F2EEFF;">
-                <div class="tier-name">Enterprise</div>
-                <div class="tier-target">This is a retainer-based growth partnership — we handle everything so you can focus on creating and selling.<br><br><strong>Best for:</strong> High-ticket brands, influencers, and businesses scaling aggressively.</div>
-
-                <div class="tier-price" style="visibility:hidden;">BDT 000</div>
-                
-                <ul class="tier-features">
-                    <li>Vlog & Brand Video Production: Cinematic editing, advanced storytelling, and premium color grading</li>
-                    <li>High-End Motion Graphics: Custom animated branding, lower thirds, sales CTAs, and ad creatives</li>
-                    <li>Thumbnail System: Unlimited thumbnails with A/B testing frameworks</li>
-                    <li>Content Production: End-to-end production (editing, mastering, formatting, and publishing support)</li>
-                    <li>Short-Form Domination: 40+ viral-ready vertical clips/month</li>
-                    <li>Content Strategy & Analytics: Performance reports, growth consulting, and audience insights</li>
-                    <li>Turnaround Time: 24–48 hours per project</li>
-                    <li>Support: Dedicated account manager + direct communication channel</li>
-                </ul>
+            <div class="package-card customize-card" id="pkg-card-3">
+                <div class="tier-name">Customize Your Plan</div>
+                <div class="customize-note">Demo: This card is a placeholder for custom pricing and a tailored scope.</div>
                 <a href="#contact-footer" class="tier-btn" style="margin-top: auto; text-align:center; text-decoration:none; display:flex; align-items:center; justify-content:center; line-height:1; background-color:#4012A4; border-color:#4012A4;">Contact Us</a>
             </div>
         </div>
@@ -353,7 +359,7 @@
                         <th>Feature</th>
                         <th>Launch</th>
                         <th>Growth</th>
-                        <th>Enterprise</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -361,17 +367,17 @@
                         <td>Vlog Editing</td>
                         <td>Basic</td>
                         <td>Advanced</td>
-                        <td>Cinematic / Premium</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Motion Graphics & CTAs</td>
                         <td>Standard</td>
                         <td>Custom</td>
-                        <td>High-End / Branded</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Thumbnails</td>
-                        <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                        <td></td>
                         <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
                         <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
                     </tr>
@@ -379,37 +385,37 @@
                         <td>Video Production</td>
                         <td>3/month</td>
                         <td>8/month</td>
-                        <td>15/month</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Video Length</td>
                         <td>30min/max</td>
                         <td>30min/max</td>
-                        <td>Unlimited</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Short-Form Clips</td>
                         <td>6/month</td>
                         <td>16/month</td>
-                        <td>40+/month</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Strategy & Consulting</td>
                         <td>—</td>
                         <td>Monthly Planning</td>
-                        <td>Regular Planning</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Turnaround Time</td>
                         <td>3–5 Days</td>
                         <td>2–3 Days</td>
-                        <td>24–48 Hours</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Support Level</td>
                         <td>Email</td>
                         <td>Priority Support</td>
-                        <td>Dedicated Manager</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td></td>

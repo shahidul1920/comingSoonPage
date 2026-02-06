@@ -164,6 +164,24 @@
         flex-direction: column;
     }
 
+    .customize-card {
+        background: rgba(92, 26, 236, 0.08);
+        border-color: #e6ddff;
+        padding: 22px;
+        min-height: 220px;
+        align-self: start;
+    }
+
+    .customize-card .pkg-name {
+        font-size: 20px;
+    }
+
+    .customize-note {
+        font-size: 12px;
+        color: #6b6b6b;
+        margin: 6px 0 18px 0;
+        line-height: 1.5;
+    }
     .package-card:hover {
         transform: translateY(-8px);
         box-shadow: 0 15px 30px rgba(0,0,0,0.08);
@@ -424,21 +442,9 @@
             <button style="margin-top: auto;" class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 350)">Select Plan</button>
         </div>
 
-        <div class="package-card" id="pkg-card-3" style="background-color: #F2EEFF;">
-            <h3 class="pkg-name">Enterprise</h3>
-            <div class="pkg-desc">A premium library built to position your brand as an industry authority.</div>
-            
-            <div class="pkg-price" style="visibility:hidden;">BDT 000</div>
-            
-            <ul class="pkg-features">
-                <li><strong>30 Static Creatives</strong></li>
-                <li>10 Advanced Motion Graphics</li>
-                <li>6 Data-Driven Infographics</li>
-                <li>AI-Assisted Trend/Keyword Intel</li>
-                <li>Platform Content Blueprint</li>
-                <li>Reusable Brand Templates</li>
-                <li><strong>Bonus:</strong> Full Brand Visual Playbook</li>
-            </ul>
+        <div class="package-card customize-card" id="pkg-card-3">
+            <h3 class="pkg-name">Customize Your Plan</h3>
+            <div class="customize-note">Demo: This card is a placeholder for custom pricing and a tailored scope.</div>
             <a href="#contact-footer" id="formDown" class="tier-btn" style="margin-top: auto;">Contact Us</a>
         </div>
     </div>
@@ -454,7 +460,7 @@
                     <th>Feature</th>
                     <th id="head-content-1">Launch</th>
                     <th id="head-content-2">Growth</th>
-                    <th id="head-content-3">Enterprise</th>
+                    <th id="head-content-3"></th>
                 </tr>
             </thead>
             <tbody>
@@ -462,55 +468,55 @@
                     <td>Static Creatives</td>
                     <td class="col-content-1">12</td>
                     <td class="col-content-2">20</td>
-                    <td class="col-content-3">30</td>
+                    <td class="col-content-3"></td>
                 </tr>
                 <tr>
                     <td>Motion Graphics</td>
                     <td class="col-content-1">2</td>
                     <td class="col-content-2">6</td>
-                    <td class="col-content-3">10</td>
+                    <td class="col-content-3"></td>
                 </tr>
                  <tr>
                     <td>Infographics</td>
                     <td class="col-content-1">2</td>
                     <td class="col-content-2">4</td>
-                    <td class="col-content-3">6</td>
+                    <td class="col-content-3"></td>
                 </tr>
                 <tr>
                     <td>Captions Included</td>
                     <td class="col-content-1"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
                     <td class="col-content-2"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    <td class="col-content-3"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span> (Conversion-Focused)</td>
+                    <td class="col-content-3"></td>
                 </tr>
                 <tr>
                     <td>Hashtag Research</td>
                     <td class="col-content-1">Basic</td>
                     <td class="col-content-2">Advanced</td>
-                    <td class="col-content-3">AI-Driven</td>
+                    <td class="col-content-3"></td>
                 </tr>
                 <tr>
                     <td>Content Calendar</td>
                     <td class="col-content-1">Basic</td>
                     <td class="col-content-2">Strategic</td>
-                    <td class="col-content-3">Platform Blueprint</td>
+                    <td class="col-content-3"></td>
                 </tr>
                 <tr>
                     <td>Competitor Analysis</td>
                     <td class="col-content-1">—</td>
                     <td class="col-content-2"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    <td class="col-content-3"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span> (Gap-Based)</td>
+                    <td class="col-content-3"></td>
                 </tr>
                  <tr>
                     <td>Editable Files</td>
                     <td class="col-content-1"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
                     <td class="col-content-2"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    <td class="col-content-3"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td class="col-content-3"></td>
                 </tr>
                 <tr>
                     <td>Posting & Management</td>
                     <td class="col-content-1">❌</td>
                     <td class="col-content-2">❌</td>
-                    <td class="col-content-3">❌</td>
+                    <td class="col-content-3"></td>
                 </tr>
                 
                 <tr>

@@ -78,6 +78,25 @@
         position: relative;
     }
 
+    .customize-card {
+        background: rgba(92, 26, 236, 0.08);
+        border-color: #e6ddff;
+        padding: 22px;
+        min-height: 220px;
+        align-self: start;
+    }
+
+    .customize-card .tier-name {
+        font-size: 20px;
+    }
+
+    .customize-note {
+        font-size: 12px;
+        color: #6b6b6b;
+        margin: 6px 0 18px 0;
+        line-height: 1.5;
+    }
+
     .package-card:hover {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         transform: translateY(-3px);
@@ -432,24 +451,9 @@
                 <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button>
             </div>
 
-            <div class="package-card" id="tier-3">
-                <div class="tier-name">Enterprise</div>
-                <div class="tier-target">
-                    <strong>Best For:</strong> Corporations, platforms, and tech-driven brands.<br><br>
-                    <strong>Value Proposition</strong> Perfect for high-growth businesses, startups, and enterprises needing powerful digital systems.
-                </div>
-                
-                <div class="tier-price" style="visibility:hidden;">BDT 000</div>
-                <ul class="tier-features">
-                    <li>Unlimited custom pages</li>
-                    <li>Full-stack React & Node.js development</li>
-                    <li>Advanced GSAP motion design</li>
-                    <li>Custom database & API integrations</li>
-                    <li>E-commerce or SaaS platform setup</li>
-                    <li>Enterprise-level SEO & optimization</li>
-                    <li>Security hardening & scalability setup</li>
-                    <li>Dedicated support & maintenance</li>
-                </ul>
+            <div class="package-card customize-card" id="tier-3">
+                <div class="tier-name">Customize Your Plan</div>
+                <div class="customize-note">Demo: This card is a placeholder for custom pricing and a tailored scope.</div>
                 <a href="#contact-footer" id="formDown" class="tier-btn" style="margin-top: auto;">Contact Us</a>
 
             </div>
@@ -465,7 +469,7 @@
                         <th>Feature</th>
                         <th>Launch</th>
                         <th>Growth</th>
-                        <th>Enterprise</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -473,11 +477,11 @@
                         <td>Number of Pages</td>
                         <td>Up to 5</td>
                         <td>Up to 10</td>
-                        <td>Unlimited</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Mobile Responsiveness</td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                        <td></td>
                         <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
                         <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
                     </tr>
@@ -485,31 +489,31 @@
                         <td>GSAP Animations</td>
                         <td>Basic</td>
                         <td>Advanced</td>
-                        <td>Premium Motion</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>SEO Setup</td>
                         <td>Basic On-Page</td>
                         <td>Full (On + Technical)</td>
-                        <td>Enterprise Strategy</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>E-commerce / Database</td>
                         <td>—</td>
                         <td>Optional</td>
-                        <td>Full Integration</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>CMS Access</td>
                         <td>Optional</td>
                         <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                        <td>Custom / Hybrid</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Support & Maintenance</td>
                         <td>7 Days</td>
                         <td>30 Days</td>
-                        <td>Ongoing / Dedicated</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td></td>

@@ -78,6 +78,25 @@
         position: relative;
     }
 
+    .customize-card {
+        background: rgba(92, 26, 236, 0.08);
+        border-color: #e6ddff;
+        padding: 22px;
+        min-height: 220px;
+        align-self: start;
+    }
+
+    .customize-card .tier-name {
+        font-size: 20px;
+    }
+
+    .customize-note {
+        font-size: 12px;
+        color: #6b6b6b;
+        margin: 6px 0 18px 0;
+        line-height: 1.5;
+    }
+
     .package-card:hover {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         transform: translateY(-3px);
@@ -327,24 +346,9 @@
                 <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button>
             </div>
 
-            <div class="package-card" id="tier-3">
-                <div class="tier-name">Enterprise</div>
-                <div class="tier-target">
-                    <strong>Best For:</strong> Corporates and large conferences requiring broadcast-quality production (1,000+ participants).<br><br>
-                    <strong>Value Proposition</strong> Full-scale production with custom branding, multi-camera streaming.
-                </div>
-                
-                <div class="tier-price" style="visibility:hidden;">BDT 000</div>
-                
-                <ul class="tier-features">
-                    <li>Everything in Growth: Plus broadcast-grade production.</li>
-                    <li>Full-Scale Broadcast: Multi-platform streaming with multi-camera switching.</li>
-                    <li>Custom Branding: Fully custom slides, backgrounds, and overlays.</li>
-                    <li>Breakout Facilitators: Dedicated staff for breakout rooms.</li>
-                    <li>Transcription & Summary: Full text records and executive summaries.</li>
-                    <li>Cyber-Security Enterprise: Advanced encryption and backup systems.</li>
-                    <li>Help Desk: Dedicated support line for large audiences.</li>
-                </ul>
+            <div class="package-card customize-card" id="tier-3">
+                <div class="tier-name">Customize Your Plan</div>
+                <div class="customize-note">Demo: This card is a placeholder for custom pricing and a tailored scope.</div>
                 <a href="#contact-footer" class="tier-btn" style="margin-top: auto; text-align:center; text-decoration:none; display:flex; align-items:center; justify-content:center; line-height:1; background-color:#4012A4; border-color:#4012A4; box-sizing: border-box;">Contact Us</a>
 
             </div>
@@ -360,7 +364,7 @@
                         <th>Feature</th>
                         <th>Launch</th>
                         <th>Growth</th>
-                        <th>Enterprise</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -368,67 +372,67 @@
                         <td>Meeting Duration</td>
                         <td>Up to 90 min</td>
                         <td>Up to 3 hours</td>
-                        <td>8 hrs / Multi-session</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Participants</td>
                         <td>Up to 100</td>
                         <td>Up to 300</td>
-                        <td>1,000+</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Platform Setup</td>
                         <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
                         <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> + Backup</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Breakout Rooms</td>
                         <td>—</td>
                         <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> + Facilitators</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Branded Slides</td>
                         <td>Up to 10</td>
                         <td>Up to 25</td>
-                        <td>Fully Custom</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Digital Workbooks</td>
                         <td>—</td>
                         <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> Premium</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Speaker Green Room</td>
                         <td>1 Speaker</td>
                         <td>Up to 3</td>
-                        <td>Up to 6</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Live Streaming</td>
                         <td>—</td>
                         <td>—</td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Edited Recordings</td>
                         <td>—</td>
                         <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> Advanced</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Post-Event Analytics</td>
                         <td>—</td>
                         <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span> Executive</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Support</td>
                         <td>Dedicated</td>
                         <td>Dedicated</td>
-                        <td>Dedicated + Help Desk</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td></td>
