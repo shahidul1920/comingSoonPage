@@ -39,29 +39,27 @@
     }
 
     /* --- CARD STYLES --- */
-    .package-card {
+        .package-card {
         background: #fff;
-        border: 1px solid #e0e0e0;
-        border-radius: 16px;
-        padding: 40px 30px;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        padding: 30px;
         display: flex;
-        flex-direction: column; /* Key for pushing button down */
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        flex-direction: column;
+        transition: 0.3s;
         position: relative;
-        overflow: hidden;
     }
 
-    .package-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-        border-color: #5C1AEC;
+        .package-card:hover {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transform: translateY(-3px);
     }
 
     /* Customize Plan Card Styling */
     .package-card.customize-card {
         background: rgba(92, 26, 236, 0.08);
         border-color: #e6ddff;
-        padding: 30px 22px;
+        padding: 22px;
         min-height: 220px;
         align-self: start;
     }
@@ -142,36 +140,36 @@
     }
 
     /* --- BUTTONS --- */
-    .tier-btn {
+        .tier-btn {
         box-sizing: border-box;
         width: 100%;
-        padding: 15px;
-        border: 2px solid #5C1AEC;
-        background: #fff;
-        color: #5C1AEC;
-        font-weight: 700;
-        border-radius: 8px;
+        padding: 12px;
+        border: 1px solid #0F111D;
+        background: #0F111D;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 5px;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: 0.2s;
+        font-family: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
         text-align: center;
         text-decoration: none;
-        display: block;
-        margin-top: auto; /* CRITICAL: Pushes button to bottom */
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
     }
 
-    .tier-btn:hover {
-        background: #5C1AEC;
+        .tier-btn:hover {
+        background: #5E70DA;
         color: #fff;
-        transform: translateY(-2px);
+        border-color: #5E70DA;
     }
 
-    .tier-btn.active-btn {
-        background: #222 !important;
+        .tier-btn.active-btn {
+        background: #5E70DA !important;
         color: #fff !important;
-        border-color: #222 !important;
+        border-color: #5E70DA !important;
     }
 
  
@@ -347,7 +345,7 @@
                         <th>Feature</th>
                         <th>Launch</th>
                         <th>Growth</th>
-                        <th></th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -355,61 +353,61 @@
                         <td>Vlog Editing</td>
                         <td>Basic</td>
                         <td>Advanced</td>
-                        <td></td>
+                        
                     </tr>
                     <tr>
                         <td>Motion Graphics & CTAs</td>
                         <td>Standard</td>
                         <td>Custom</td>
-                        <td></td>
+                        
                     </tr>
                     <tr>
                         <td>Thumbnails</td>
                         <td></td>
                         <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                        <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                        
                     </tr>
                     <tr>
                         <td>Video Production</td>
                         <td>3/month</td>
                         <td>8/month</td>
-                        <td></td>
+                        
                     </tr>
                     <tr>
                         <td>Video Length</td>
                         <td>30min/max</td>
                         <td>30min/max</td>
-                        <td></td>
+                        
                     </tr>
                     <tr>
                         <td>Short-Form Clips</td>
                         <td>6/month</td>
                         <td>16/month</td>
-                        <td></td>
+                        
                     </tr>
                     <tr>
                         <td>Strategy & Consulting</td>
                         <td>—</td>
                         <td>Monthly Planning</td>
-                        <td></td>
+                        
                     </tr>
                     <tr>
                         <td>Turnaround Time</td>
                         <td>3–5 Days</td>
                         <td>2–3 Days</td>
-                        <td></td>
+                        
                     </tr>
                     <tr>
                         <td>Support Level</td>
                         <td>Email</td>
                         <td>Priority Support</td>
-                        <td></td>
+                        
                     </tr>
                     <tr>
                         <td></td>
                         <td><button class="tier-btn" data-pkg-id="1" onclick="selectTier(1, 'Launch', 299)">Select</button></td>
                         <td><button class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 799)">Select</button></td>
-                        <td><a href="#contact-footer" class="tier-btn">Contact Us</a></td>
+                        
                     </tr>
                 </tbody>
             </table>
@@ -504,3 +502,5 @@
         }
     }
 </script>
+
+

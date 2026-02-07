@@ -67,7 +67,7 @@
         }
     }
 
-    .package-card {
+        .package-card {
         background: #fff;
         border: 1px solid #eee;
         border-radius: 12px;
@@ -78,7 +78,7 @@
         position: relative;
     }
 
-    .customize-card {
+        .customize-card {
         background: rgba(92, 26, 236, 0.08);
         border-color: #e6ddff;
         padding: 22px;
@@ -97,7 +97,7 @@
         line-height: 1.5;
     }
 
-    .package-card:hover {
+        .package-card:hover {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         transform: translateY(-3px);
     }
@@ -174,17 +174,18 @@
         line-height: 1.5; /* Match text line height */
     }
 
-    .tier-btn {
+        .tier-btn {
         box-sizing: border-box;
         width: 100%;
         padding: 12px;
-        border: 1px solid #5C1AEC;
-        background: #5C1AEC;
+        border: 1px solid #0F111D;
+        background: #0F111D;
         color: #fff;
         font-weight: 600;
         border-radius: 5px;
         cursor: pointer;
         transition: 0.2s;
+        font-family: inherit;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -193,16 +194,16 @@
         text-decoration: none;
     }
 
-    .tier-btn:hover {
-        background: #fff;
-        color: #5C1AEC;
-        border-color: #5C1AEC;
+        .tier-btn:hover {
+        background: #5E70DA;
+        color: #fff;
+        border-color: #5E70DA;
     }
 
-    .tier-btn.active-btn {
-        background: #222 !important;
+        .tier-btn.active-btn {
+        background: #5E70DA !important;
         color: #fff !important;
-        border-color: #222 !important;
+        border-color: #5E70DA !important;
     }
 
     /* --- COMPARISON TABLE --- */
@@ -469,7 +470,7 @@
                         <th>Feature</th>
                         <th>Launch</th>
                         <th>Growth</th>
-                        <th></th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -477,49 +478,49 @@
                         <td>Number of Pages</td>
                         <td>Up to 5</td>
                         <td>Up to 10</td>
-                        <td></td>
+                        
                     </tr>
                     <tr>
                         <td>Mobile Responsiveness</td>
                         <td></td>
                         <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                        
                     </tr>
                     <tr>
                         <td>GSAP Animations</td>
                         <td>Basic</td>
                         <td>Advanced</td>
-                        <td></td>
+                        
                     </tr>
                     <tr>
                         <td>SEO Setup</td>
                         <td>Basic On-Page</td>
                         <td>Full (On + Technical)</td>
-                        <td></td>
+                        
                     </tr>
                     <tr>
                         <td>E-commerce / Database</td>
                         <td>—</td>
                         <td>Optional</td>
-                        <td></td>
+                        
                     </tr>
                     <tr>
                         <td>CMS Access</td>
                         <td>Optional</td>
                         <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                        <td></td>
+                        
                     </tr>
                     <tr>
                         <td>Support & Maintenance</td>
                         <td>7 Days</td>
                         <td>30 Days</td>
-                        <td></td>
+                        
                     </tr>
                     <tr>
                         <td></td>
                         <td><button class="tier-btn" onclick="selectTier('Launch', 'BDT 250')">Select Package</button></td>
                         <td><button class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button></td>
-                        <td><a href="#contact-footer" class="tier-btn">Contact Us</a></td>
+                        
                     </tr>
                 </tbody>
             </table>
@@ -615,3 +616,5 @@
         }
     }
 </script>
+
+

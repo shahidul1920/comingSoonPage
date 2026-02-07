@@ -109,18 +109,18 @@
         }
     }
 
-    .package-card {
+        .package-card {
         background: #fff;
-        border: 1px solid #e0e0e0;
-        border-radius: 16px;
+        border: 1px solid #eee;
+        border-radius: 12px;
         padding: 30px;
-        position: relative;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
         display: flex;
         flex-direction: column;
+        transition: 0.3s;
+        position: relative;
     }
 
-    .customize-card {
+        .customize-card {
         background: rgba(92, 26, 236, 0.08);
         border-color: #e6ddff;
         padding: 22px;
@@ -138,10 +138,9 @@
         margin: 6px 0 18px 0;
         line-height: 1.5;
     }
-    .package-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-        border-color: #5C1AEC;
+        .package-card:hover {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transform: translateY(-3px);
     }
 
     .highlight-card {
@@ -327,12 +326,12 @@
     /* .cross { color: #ccc; } */
 
     /* --- BUTTONS --- */
-    .tier-btn {
+        .tier-btn {
         box-sizing: border-box;
         width: 100%;
         padding: 12px;
-        border: 1px solid #5C1AEC;
-        background: #5C1AEC;
+        border: 1px solid #0F111D;
+        background: #0F111D;
         color: #fff;
         font-weight: 600;
         border-radius: 5px;
@@ -358,16 +357,16 @@
         border-color: #5C1AEC !important;
     }
 
-    .tier-btn:hover {
-        background: #fff;
-        color: #5C1AEC;
-        border-color: #5C1AEC;
+        .tier-btn:hover {
+        background: #5E70DA;
+        color: #fff;
+        border-color: #5E70DA;
     }
 
-    .tier-btn.active-btn {
-        background: #222 !important;
+        .tier-btn.active-btn {
+        background: #5E70DA !important;
         color: #fff !important;
-        border-color: #222 !important;
+        border-color: #5E70DA !important;
     }
 
     /* --- TOTAL BAR --- */
@@ -450,7 +449,7 @@
                     <th>Feature</th>
                     <th>Launch</th>
                     <th>Growth</th>
-                    <th></th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -458,61 +457,61 @@
                     <td>Primary & Secondary Logos</td>
                     <td></td>
                     <td></td>
-                    <td></td>
+                    
                 </tr>
                 <tr>
                     <td>Color & Typography</td>
                     <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
                     <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    
                 </tr>
                 <tr>
                     <td>Favicon / App Icon</td>
                     <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
                     <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    
                 </tr>
                 <tr>
                     <td>Brand Guidelines</td>
                     <td><span class="cross">❌</span></td>
                     <td>Standard (15p)</td>
-                    <td></td>
+                    
                 </tr>
                 <tr>
                     <td>Social Media Kit</td>
                     <td><span class="cross">❌</span></td>
                     <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    <td></td>
+                    
                 </tr>
                 <tr>
                     <td>Print Stationery</td>
                     <td><span class="cross">❌</span></td>
                     <td></td>
-                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    
                 </tr>
                 <tr>
                     <td>Brand Voice & Strategy</td>
                     <td><span class="cross">❌</span></td>
                     <td><span class="cross">❌</span></td>
-                    <td></td>
+                    
                 </tr>
                 <tr>
                     <td>Packaging & UI Kit</td>
                     <td><span class="cross">❌</span></td>
                     <td><span class="cross">❌</span></td>
-                    <td></td>
+                    
                 </tr>
                 <tr>
                     <td>Revisions</td>
                     <td>2 Rounds</td>
                     <td>3 Rounds</td>
-                    <td></td>
+                    
                 </tr>
                 <tr style="border-bottom:none;">
                     <td></td>
                     <td style="padding:20px;"><button class="tier-btn" data-pkg-id="1" onclick="selectBrandPkg(1, 'Launch', 200)">Select Plan</button></td>
                     <td style="padding:20px;"><button class="tier-btn" data-pkg-id="2" onclick="selectBrandPkg(2, 'Growth', 350)">Select Plan</button></td>
-                    <td style="padding:20px;"><a href="#contact-footer" class="tier-btn">Contact Us</a></td>
+                    
                 </tr>
             </tbody>
         </table>
@@ -601,3 +600,5 @@
         }
     }
 </script>
+
+
