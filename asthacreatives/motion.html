@@ -1,4 +1,4 @@
-<style>
+﻿<style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
     /* --- GLOBAL CONTAINER --- */
@@ -307,7 +307,7 @@
                 <div class="tier-name">Standard</div>
                 <div class="tier-target">Ideal for small businesses and creators who need consistent, professional animated content for daily social media posting.</div>
 
-                <div class="tier-price">BDT 179<span>/month</span></div>
+                <div class="tier-price">BDT 3,000<span>/month</span></div>
                 
                 <ul class="tier-features">
                     <li>Animated Social Media Posts (IG, FB, TikTok, LinkedIn)</li>
@@ -319,31 +319,49 @@
                     <li>Export in MP4 & WebM</li>
                     <li>Platform Optimization (Compression & Aspect Ratio Setup)</li>
                 </ul>
-                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Standard', 'BDT 179')">Select Package</button>
+                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Standard', 'BDT 3,000')">Select Package</button>
             </div>
 
             <div class="tier-card" id="tier-2">
                 <div class="tier-name">Growth</div>
                 <div class="tier-target">Built for brands running paid ads and marketing campaigns that demand thumb-stopping visuals and strong brand story.</div>
 
-                <div class="tier-price">BDT 350<span>/month</span></div>
+                <div class="tier-price">BDT 7,000<span>/month</span></div>
                 
                 <ul class="tier-features">
                     <li>Social Media Ad Creatives (Meta, TikTok, YouTube, LinkedIn)</li>
-                    <li>Short-Form Promo Videos (15�60 sec)</li>
+                    <li>Short-Form Promo Videos (15–60 sec)</li>
                     <li>Custom Branded Motion Templates</li>
                     <li>Kinetic Typography & Visual Storytelling</li>
                     <li>Multi-platform Resizing & Cropping</li>
                     <li>Up to 4 Revision Rounds</li>
                     <li>MP4, WebM & High Quality Master Files</li>
+                    <li>Platform Optimization (Compression & Aspect Ratio Setup)</li>
                 </ul>
-                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Growth', 'BDT 350')">Select Package</button>
+                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Growth', 'BDT 7,000')">Select Package</button>
             </div>
 
             <div class="tier-card customize-card" id="tier-3">
-                <div class="tier-name">Customize</div>
-                <div class="tier-target">Demo: This card is a placeholder for custom pricing and a tailored scope.</div>
-                <a href="#contact-footer" id="formDown" class="tier-btn" style="margin-top: auto;">Ask for Quotation</a>
+                <div class="tier-name">Authority</div>
+                <div class="tier-target">Creative concept development with high-quality animation for established brands.</div>
+                
+                <ul class="tier-features">
+                    <li>Creative concept development aligned with brand objectives</li>
+                    <li>Script support and visual storytelling direction</li>
+                    <li>Custom-designed motion graphics (2D / kinetic style)</li>
+                    <li>High-quality animation with smooth transitions and timing</li>
+                    <li>Brand-consistent color grading and typography animation</li>
+                    <li>Logo animation or brand intro/outro (if required)</li>
+                    <li>Icon animation and visual effects integration</li>
+                    <li>Sound design support (royalty-free background music option)</li>
+                    <li>Voiceover sync support (client-provided or optional add-on)</li>
+                    <li>Platform-optimized motion formats (social, web, ads, presentations)</li>
+                    <li>Multiple aspect ratio exports (1:1, 4:5, 9:16, 16:9)</li>
+                    <li>Resolution options including Full HD and 4K (package dependent)</li>
+                    <li>Professional post-production and quality control</li>
+                    <li>Defined revision rounds for refinements</li>
+                </ul>
+                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Authority', 'Ask for Quotation')">Ask for Quotation</button>
 
             </div>
         </div>
@@ -358,7 +376,7 @@
                         <th>Feature</th>
                         <th>Standard</th>
                         <th>Growth</th>
-                        
+                        <th>Authority</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -366,55 +384,49 @@
                         <td>Content Type</td>
                         <td>Animated Posts</td>
                         <td>Ads & Promo Videos</td>
-                        
+                        <td>Full Motion Branding</td>
                     </tr>
                     <tr>
                         <td>Video Length</td>
-                        <td>5�15 sec</td>
-                        <td>15�60 sec</td>
-                        
+                        <td>15-30 sec</td>
+                        <td>15-60 sec</td>
+                        <td>Custom / 60s+</td>
                     </tr>
                     <tr>
                         <td>Platforms</td>
                         <td>IG, FB, TikTok, LinkedIn</td>
                         <td>Meta, TikTok, YouTube, LinkedIn</td>
-                        
+                        <td>All (Web, Social, TV)</td>
                     </tr>
                     <tr>
                         <td>Formats</td>
                         <td>9:16, 1:1, 4:5</td>
                         <td>9:16, 1:1, 16:9</td>
-                        
+                        <td>All Formats (4K)</td>
                     </tr>
                     <tr>
                         <td>Revisions</td>
                         <td>2 Rounds</td>
                         <td>4 Rounds</td>
-                        
+                        <td>Project Based</td>
                     </tr>
                     <tr>
                         <td>Monthly Volume</td>
                         <td>5+ Videos</td>
                         <td>10+ Videos</td>
-                        
+                        <td>Custom</td>
                     </tr>
                     <tr>
                         <td>Strategy Support</td>
                         <td>Basic</td>
                         <td>Campaign-Level</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Investment</td>
-                        <td>BDT 179</td>
-                        <td>BDT 350</td>
-                        
+                        <td>Full Creative Direction</td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td><button class="tier-btn" onclick="selectTier('Standard', 'BDT 179')">Select Package</button></td>
-                        <td><button class="tier-btn" onclick="selectTier('Growth', 'BDT 350')">Select Package</button></td>
-                        
+                        <td><button class="tier-btn" onclick="selectTier('Standard', 'BDT 3,000')">Select Package</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Growth', 'BDT 7,000')">Select Package</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Authority', 'Ask for Quotation')">Ask for Quotation</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -453,7 +465,12 @@
             btn.classList.remove('active-btn');
             // Check context to determine original text
             if(btn.tagName !== 'A' && btn.innerText === "Selected") {
-                 btn.innerText = "Select Package";
+                 const onclickAttr = btn.getAttribute('onclick');
+                 if(onclickAttr && onclickAttr.includes("'Authority'")) {
+                     btn.innerText = "Ask for Quotation";
+                 } else {
+                     btn.innerText = "Select Package";
+                 }
             }
         });
 
@@ -511,6 +528,7 @@
         }
     }
 </script>
+
 
 
 

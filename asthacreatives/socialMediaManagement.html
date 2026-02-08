@@ -1,4 +1,4 @@
-<style>
+﻿<style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
     .content-packages-wrapper {
@@ -103,7 +103,7 @@
     }
 
     .check-list li::before {
-        content: "?";
+        content: "\2713";
         color: #5C1AEC;
         font-weight: 700;
         position: absolute;
@@ -126,7 +126,7 @@
     }
     
     .cross-list li::before {
-        content: "?";
+        content: "\2717";
         color: #5C1AEC;
         font-weight: 700;
         position: absolute;
@@ -228,7 +228,7 @@
     }
     
     .pkg-features li::before {
-        content: "�";
+        content: "\2022";
         color: #5C1AEC;
         font-weight: bold;
         margin-right: 10px;
@@ -442,43 +442,77 @@
 
     <div class="tiers-grid">
         <div class="package-card" id="pkg-card-1">
-            <h3 class="pkg-name">Standard</h3>
+            <h3 class="pkg-name">Essential</h3>
             <div class="tier-target">Professionals, local brands, consultants, and startups who need a credible, consistent, and well-managed presence on one key platform.</div>
-            <div class="pkg-price">BDT 250<span>/month</span></div>
+            <div class="pkg-price">BDT 15,000<span>/month</span></div>
             
             <ul class="pkg-features">
                 <li><strong>1 Primary Platform</strong> (IG/FB/LI)</li>
                 <li>12 Static Creatives</li>
-                <li>3 Motion Graphics (short animations)</li>
-                <li>2 Infographics</li>
+                <li>2 Simple Motion Creatives</li>
+                <li>1 Infographics/ Audience guesses/ Puzzle post</li>
                 <li>Platform-optimized captions</li>
+                <li>Basic Hashtag Set</li>
                 <li>Posting, Scheduling & Community Mgmt</li>
-                <li>1x Monthly Strategy Call</li>
+                <li>Content Boosting</li>
+                <li>30-Day Content Calendar</li>
+                <li>Basic Engagement Analytics</li>
+                <li>1x Monthly Strategy Meeting</li>
+                <li>Adobe/Editable Files</li>
             </ul>
-            <button style="margin-top: auto;" class="tier-btn" data-pkg-id="1" onclick="selectStrategyPkg(1, 'Standard', 250)">Select Plan</button>
+            <button style="margin-top: auto;" class="tier-btn" data-pkg-id="1" onclick="selectStrategyPkg(1, 'Essential', '15,000')">Select Plan</button>
         </div>
 
         <div class="package-card" id="pkg-card-2">
             <h3 class="pkg-name">Growth</h3>
             <div class="tier-target">Growing brands and SMEs that need consistent visibility, engagement, and momentum across multiple platforms.</div>
-            <div class="pkg-price">BDT 400<span>/month</span></div>
+            <div class="pkg-price">BDT 25,000<span>/month</span></div>
             
             <ul class="pkg-features">
-                <li><strong>2 Platforms</strong> (e.g. IG + FB)</li>
-                <li>20 Static Creatives</li>
-                <li>6 Motion Graphics (Reels/Shorts)</li>
-                <li>4 High-Impact Infographics</li>
+                <li>24 Static Creatives</li>
+                <li>4 Motion Graphics</li>
+                <li>2 Infographics/ Audience guesses/ Puzzle post</li>
                 <li>Conversion-focused captions</li>
+                <li>Hashtag Set</li>
                 <li>Active Community Mgmt & Optimization</li>
-                <li>2x Strategy & Optimization Calls</li>
+                <li>30-Day Content Calendar</li>
+                <li>Adobe/Editable Files</li>
+                <li>Platform-Specific Exports</li>
+                <li>Content Boosting</li>
+                <li>Standard Engagement Analytics</li>
+                <li>Competitor Visual Benchmark</li>
+                <li>Brand Style Audit</li>
+                <li>2x Strategy & Optimization Meeting</li>
             </ul>
-            <button style="margin-top: auto;" class="tier-btn" data-pkg-id="2" onclick="selectStrategyPkg(2, 'Growth', 400)">Select Plan</button>
+            <button style="margin-top: auto;" class="tier-btn" data-pkg-id="2" onclick="selectStrategyPkg(2, 'Growth', '25,000')">Select Plan</button>
         </div>
 
         <div class="package-card customize-card" id="pkg-card-3">
-            <h3 class="pkg-name">Customize</h3>
-            <div class="tier-target">Demo: This card is a placeholder for custom pricing and a tailored scope.</div>
-            <a href="#contact-footer" id="formDown" class="tier-btn" style="margin-top: auto;">Ask for Quotation</a>
+            <h3 class="pkg-name">Authority</h3>
+            <div class="tier-target">Established brands requiring comprehensive social media dominance and high-end production.</div>
+            
+            <ul class="pkg-features">
+                <li>Primary Platform (IG/FB/LI)</li>
+                <li>Static Creatives</li>
+                <li>Simple Motion Creatives</li>
+                <li>Motion Graphics</li>
+                <li>Infographics/ Audience guesses/ Puzzle post</li>
+                <li>Platform-optimized captions</li>
+                <li>Conversion-focused captions</li>
+                <li>Basic Hashtag Set</li>
+                <li>Posting, Scheduling & Community Mgmt</li>
+                <li>Active Community Mgmt & Optimization</li>
+                <li>Content Boosting</li>
+                <li>30-Day Content Calendar</li>
+                <li>On demand Strategy Meeting</li>
+                <li>Competitor Visual Benchmark</li>
+                <li>Brand Style Audit</li>
+                <li>Adobe/Editable Files</li>
+                <li>Platform-Specific Exports</li>
+                <li>Campaign planning, design and optimization</li>
+                <li>Conversion and engagement analysis</li>
+            </ul>
+            <button style="margin-top: auto;" class="tier-btn" data-pkg-id="3" onclick="selectStrategyPkg(3, 'Authority', 'Ask for Quotation')">Ask for Quotation</button>
         </div>
     </div>
 
@@ -489,100 +523,84 @@
             <thead>
                 <tr>
                     <th>Feature</th>
-                    <th id="head-strat-1">Standard</th>
+                    <th id="head-strat-1">Essential</th>
                     <th id="head-strat-2">Growth</th>
-                    
+                    <th id="head-strat-3">Authority</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Platforms</td>
-                    <td class="col-strat-1">1</td>
-                    <td class="col-strat-2">2</td>
-                    
-                </tr>
-                <tr>
                     <td>Static Creatives</td>
                     <td class="col-strat-1">12</td>
-                    <td class="col-strat-2">20</td>
-                    
+                    <td class="col-strat-2">24</td>
+                    <td class="col-strat-3">Custom</td>
                 </tr>
                 <tr>
-                    <td>Motion Graphics</td>
-                    <td class="col-strat-1">3</td>
-                    <td class="col-strat-2">6</td>
-                    
+                    <td>Motion Creatives</td>
+                    <td class="col-strat-1">2 Simple</td>
+                    <td class="col-strat-2">4 Full</td>
+                    <td class="col-strat-3">Full Suite</td>
                 </tr>
                 <tr>
-                    <td>Infographics</td>
-                    <td class="col-strat-1">2</td>
-                    <td class="col-strat-2">4</td>
-                    
+                    <td>Infographics/Puzzle</td>
+                    <td class="col-strat-1">1</td>
+                    <td class="col-strat-2">2</td>
+                    <td class="col-strat-3">Custom</td>
                 </tr>
                 <tr>
-                    <td>Captions Included</td>
-                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    
-                </tr>
-                <tr>
-                    <td>Hashtag Research</td>
-                    <td>Basic</td>
-                    <td>Advanced</td>
-                    
+                    <td>Captions</td>
+                    <td class="col-strat-1">Optimized</td>
+                    <td class="col-strat-2">Conversion-Focused</td>
+                    <td class="col-strat-3">Conversion-Focused</td>
                 </tr>
                  <tr>
-                    <td>Posting & Management</td>
-                    <td></td>
-                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    
-                </tr>
-                <tr>
                     <td>Community Mgmt</td>
-                    <td>Basic</td>
-                    <td>Active</td>
-                    
-                </tr>
-                <tr>
-                    <td>Analytics Depth</td>
-                    <td>Basic</td>
-                    <td>Advanced</td>
-                    
-                </tr>
-                <tr>
-                    <td>Brand Audit</td>
-                    <td>�</td>
-                    <td></td>
-                    
-                </tr>
-                <tr>
-                    <td>Competitor Analysis</td>
-                    <td>�</td>
-                    <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    
-                </tr>
-                 <tr>
-                    <td>Strategy Calls</td>
-                    <td class="col-strat-1">Monthly</td>
-                    <td class="col-strat-2">Bi-weekly</td>
-                    
+                    <td class="col-strat-1">Posting/Sched.</td>
+                    <td class="col-strat-2">Active</td>
+                    <td class="col-strat-3">Active</td>
                 </tr>
                 <tr>
                     <td>Content Calendar</td>
+                    <td class="col-strat-1">30-Day</td>
+                    <td class="col-strat-2">30-Day</td>
+                    <td class="col-strat-3">30-Day</td>
+                </tr>
+                <tr>
+                    <td>Strategy Meeting</td>
+                    <td class="col-strat-1">1x Monthly</td>
+                    <td class="col-strat-2">2x Optimization</td>
+                    <td class="col-strat-3">On Demand</td>
+                </tr>
+                <tr>
+                    <td>Analytics</td>
                     <td class="col-strat-1">Basic</td>
-                    <td class="col-strat-2">Strategic</td>
-                    
+                    <td class="col-strat-2">Standard</td>
+                    <td class="col-strat-3">Conversion & Engagement</td>
+                </tr>
+                 <tr>
+                    <td>Competitor/Brand Audit</td>
+                    <td class="col-strat-1">-</td>
+                    <td class="col-strat-2"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td class="col-strat-3"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                </tr>
+                 <tr>
+                    <td>Platform Exports</td>
+                    <td class="col-strat-1">-</td>
+                    <td class="col-strat-2"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td class="col-strat-3"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
                 </tr>
                 
                 <tr>
                     <td></td>
                     <td class="col-strat-1">
-                        <button class="tier-btn" data-pkg-id="1" onclick="selectStrategyPkg(1, 'Standard', 250)">Select</button>
+                        <button class="tier-btn" data-pkg-id="1" onclick="selectStrategyPkg(1, 'Essential', '15,000')">Select</button>
                     </td>
                     <td class="col-strat-2">
-                        <button class="tier-btn" data-pkg-id="2" onclick="selectStrategyPkg(2, 'Growth', 400)">Select</button>
+                        <button class="tier-btn" data-pkg-id="2" onclick="selectStrategyPkg(2, 'Growth', '25,000')">Select</button>
                     </td>
-                    
+                    <td class="col-strat-3">
+                        <button class="tier-btn" data-pkg-id="3" onclick="selectStrategyPkg(3, 'Authority', 'Ask for Quotation')">Quote</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -616,12 +634,16 @@
         document.querySelectorAll('.tier-btn').forEach(btn => {
             btn.classList.remove('active-btn');
             // Restore original text based on context
+            const btnId = btn.getAttribute('data-pkg-id');
+            
             if(btn.closest('table')) {
-                 btn.innerText = "Select";
+                 if(btnId == '3') btn.innerText = "Quote";
+                 else btn.innerText = "Select";
             } else if (btn.tagName === 'A') {
                  // Do nothing for links
             } else {
-                 btn.innerText = "Select Plan";
+                 if(btnId == '3') btn.innerText = "Ask for Quotation";
+                 else btn.innerText = "Select Plan";
             }
         });
         
@@ -643,10 +665,15 @@
             // Update Total Bar
             document.getElementById('motion-total-bar').style.display = 'block';
             document.getElementById('motion-summary-text').innerText = tierName;
-            document.getElementById('motion-display-total').innerText = "BDT " + price;
+            
+            let displayPrice = price;
+            if(!String(price).includes('Ask') && !String(price).includes('Quote')) {
+                 displayPrice = "BDT " + price;
+            }
+            document.getElementById('motion-display-total').innerText = displayPrice;
 
             // Update Form
-            updateContentForm(`Management Package: ${tierName} (BDT ${price})`);
+            updateContentForm(`Management Package: ${tierName} (${displayPrice})`);
 
             // Visual Update - Set Active Buttons
             document.querySelectorAll(`.tier-btn[data-pkg-id="${id}"]`).forEach(btn => {
@@ -677,6 +704,7 @@
         }
     }
 </script>
+
 
 
 
