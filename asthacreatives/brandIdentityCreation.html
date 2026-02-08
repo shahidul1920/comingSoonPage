@@ -1,4 +1,4 @@
-<style>
+ï»¿<style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
     /* --- GLOBAL CONTAINER --- */
@@ -123,14 +123,9 @@
         .customize-card {
         background: rgba(92, 26, 236, 0.08);
         border-color: #e6ddff;
-        padding: 22px;
-        min-height: 220px;
-        align-self: start;
     }
 
-    .customize-card .pkg-sub {
-        font-size: 18px;
-    }
+    /* .customize-card .pkg-sub removed to match other cards */
 
     .customize-note {
         font-size: 12px;
@@ -231,9 +226,9 @@
     }
     
     .pkg-features li::before {
-        content: "•";
+        content: "\2022";
         color: #5C1AEC;
-        font-weight: bold;
+        
         margin-right: 10px;
         line-height: 1.5;
         position: static;
@@ -322,7 +317,7 @@
         color: #333;
         padding-left: 25px;
     }
-    /* .check { color: #5C1AEC; font-weight: bold; } */
+    /* .check { color: #5C1AEC;  } */
     /* .cross { color: #ccc; } */
 
     /* --- BUTTONS --- */
@@ -390,11 +385,11 @@
     <div style="text-align:left; margin-bottom:60px; padding:30px; border:1px dashed #5C1AEC; border-radius:12px; background:#fdfdfd;">
         <h3 style="margin-bottom:15px; color:#222;">Deliverables & What Clients Receive</h3>
         <ul style="padding:0; margin:0; list-style:none;">
-             <li style="margin-bottom:8px;">? Editable source files</li>
-             <li style="margin-bottom:8px;">? Print-ready & web-ready formats</li>
-             <li style="margin-bottom:8px;">? Brand guideline document</li>
-             <li style="margin-bottom:8px;">? Ownership rights</li>
-             <li>? Post-delivery support (optional)</li>
+             <li style="margin-bottom:8px;"><span style="color: #5C1AEC; ">&#10003;</span> Editable source files</li>
+             <li style="margin-bottom:8px;"><span style="color: #5C1AEC; ">&#10003;</span> Print-ready & web-ready formats</li>
+             <li style="margin-bottom:8px;"><span style="color: #5C1AEC; ">&#10003;</span> Brand guideline document</li>
+             <li style="margin-bottom:8px;"><span style="color: #5C1AEC; ">&#10003;</span> Ownership rights</li>
+             <li><span style="color: #5C1AEC; ">&#10003;</span> Post-delivery support (optional)</li>
         </ul>
     </div>
 
@@ -434,7 +429,7 @@
 
             <div class="package-card customize-card" id="pkg-card-3">
                 <span class="pkg-sub">Elite Package</span>
-                <div class="customize-note">Full scale identity for established scaling brands requiring deep strategy.</div>
+                <div class="pkg-desc">Full scale identity for established scaling brands requiring deep strategy.</div>
                 <div class="pkg-cost">BDT 40,000</div>
                 <ul class="pkg-features">
                     <li><strong>Everything in "Signature"</strong></li>
@@ -472,70 +467,70 @@
                 <tr>
                     <td>Secondary Logos</td>
                     <td>Vertical, horizontal & monogram</td>
-                    <td>Included</td>
-                    <td>Included</td>
+                    <td><span style="color: #5C1AEC;  font-size: 1.2em;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC;  font-size: 1.2em;">&#10003;</span></td>
                     
                 </tr>
                 <tr>
                     <td>Color Palette</td>
                     <td>HEX / RGB / CMYK codes</td>
-                    <td>Included</td>
-                    <td>Included</td>
+                    <td><span style="color: #5C1AEC;  font-size: 1.2em;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC;  font-size: 1.2em;">&#10003;</span></td>
                     
                 </tr>
                 <tr>
                     <td>Typography</td>
                     <td>Header & Body fonts</td>
-                    <td>Included</td>
-                    <td>Included</td>
+                    <td><span style="color: #5C1AEC;  font-size: 1.2em;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC;  font-size: 1.2em;">&#10003;</span></td>
                     
                 </tr>
                 <tr>
                     <td>Favicon</td>
                     <td>Branded app/browser icon</td>
-                    <td>Included</td>
-                    <td>Included</td>
+                    <td><span style="color: #5C1AEC;  font-size: 1.2em;">&#10003;</span></td>
+                    <td><span style="color: #5C1AEC;  font-size: 1.2em;">&#10003;</span></td>
                     
                 </tr>
                 <tr>
                     <td>Brand Book</td>
-                    <td>—</td>
+                    <td><span style="color: red;  font-size: 1.2em;">&#10007;</span></td>
                     <td>15-page standard guidelines</td>
                     <td>40+ Pages detailed</td>
                     
                 </tr>
                 <tr>
                     <td>Social Media Kit</td>
-                    <td>—</td>
+                    <td><span style="color: red;  font-size: 1.2em;">&#10007;</span></td>
                     <td>Avatars, Highlights, 3 Templates</td>
-                    <td>Included</td>
+                    <td><span style="color: #5C1AEC;  font-size: 1.2em;">&#10003;</span></td>
                     
                 </tr>
                 <tr>
                     <td>Stationery Suite</td>
-                    <td>—</td>
+                    <td><span style="color: red;  font-size: 1.2em;">&#10007;</span></td>
                     <td>Card, Letterhead, Envelope</td>
-                    <td>Included</td>
+                    <td><span style="color: #5C1AEC;  font-size: 1.2em;">&#10003;</span></td>
                     
                 </tr>
                 <tr>
                     <td>Brand Pattern</td>
-                    <td>—</td>
+                    <td><span style="color: red;  font-size: 1.2em;">&#10007;</span></td>
                     <td>Custom background/texture</td>
-                    <td>Included</td>
+                    <td><span style="color: #5C1AEC;  font-size: 1.2em;">&#10003;</span></td>
                     
                 </tr>
                 <tr>
                     <td>Deep Strategy</td>
-                    <td>—</td>
-                    <td>—</td>
+                    <td><span style="color: red;  font-size: 1.2em;">&#10007;</span></td>
+                    <td><span style="color: red;  font-size: 1.2em;">&#10007;</span></td>
                     <td>Brand Voice & Audit</td>
                     
                 </tr>
                 <tr>
                     <td>Packaging / UI Kit</td>
-                    <td>—</td>
-                    <td>—</td>
+                    <td><span style="color: red;  font-size: 1.2em;">&#10007;</span></td>
+                    <td><span style="color: red;  font-size: 1.2em;">&#10007;</span></td>
                     <td>Custom Add-ons</td>
                     
                 </tr>
@@ -640,6 +635,9 @@
         }
     }
 </script>
+
+
+
 
 
 

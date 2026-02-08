@@ -1,0 +1,64 @@
+<style>
+    /* 1. Hide the form by default */
+    #contact-footer {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.4s ease-in-out;
+    }
+
+    /* Animation class for showing */
+    #contact-footer.show-form {
+        display: block;
+        opacity: 1;
+        animation: slideUpFade 0.5s ease forwards;
+    }
+
+    @keyframes slideUpFade {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // 1. Find the hidden input field used by your pricing tables
+    const triggerInput = document.querySelector("input[name='input_text']");
+    
+    // 2. Find the Form Container using the ID you added in Elementor
+    const formSection = document.getElementById('contact-footer');
+
+    if (triggerInput && formSection) {
+        
+        // 3. Watch for changes to the input field
+        triggerInput.addEventListener('input', function() {
+            
+            // Check if value is not empty and doesn't just contain default label text
+            // Adjust logic: If there is a price ($) or specific text, show form.
+            if (triggerInput.value.trim() !== "" && triggerInput.value.includes("$")) {
+                
+                // SHOW FORM
+                if (formSection.style.display !== 'block') {
+                    formSection.style.display = 'block';
+                    // Small delay to allow display:block to render before opacity transition
+                    setTimeout(() => {
+                        formSection.classList.add('show-form');
+                        // Smooth scroll to the form so they see it appeared
+                        formSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 10);
+                }
+
+            } else {
+                
+                // HIDE FORM (Deselected)
+                formSection.classList.remove('show-form');
+                setTimeout(() => {
+                     formSection.style.display = 'none';
+                }, 400); // Wait for fade out
+            }
+        });
+    } else {
+        console.log("Form Toggler: Could not find input_text or #contact-footer ID");
+    }
+});
+</script>

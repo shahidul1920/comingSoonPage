@@ -1,4 +1,4 @@
-<style>
+ï»¿<style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
     .content-packages-wrapper {
@@ -167,14 +167,9 @@
         .customize-card {
         background: rgba(92, 26, 236, 0.08);
         border-color: #e6ddff;
-        padding: 22px;
-        min-height: 220px;
-        align-self: start;
     }
 
-    .customize-card .pkg-name {
-        font-size: 20px;
-    }
+    /* .customize-card .pkg-name removed */
 
     .customize-note {
         font-size: 12px;
@@ -259,7 +254,7 @@
     }
     
     .pkg-features li::before {
-        content: "•";
+        content: "\2022";
         color: #5C1AEC;
         font-weight: bold;
         margin-right: 10px;
@@ -459,7 +454,7 @@
                 <li>Brand Style Audit</li>
                 <li>Brand Guideline</li>
             </ul>
-            <a href="#contact-footer" id="formDown" class="tier-btn" style="margin-top: auto;">Ask for Quotation</a>
+            <button style="margin-top: auto;" class="tier-btn" data-pkg-id="3" onclick="selectTier(3, 'Customize', 'Ask for Quotation')">Ask for Quotation</button>
         </div>
     </div>
 
@@ -479,13 +474,6 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Monthly Price</td>
-                    <td class="col-content-1">BDT 10,000</td>
-                    <td class="col-content-2">BDT 20,000</td>
-                    <td class="col-content-3">Ask for Quotation</td>
-                    
-                </tr>
                 <tr>
                     <td>Static Creatives</td>
                     <td class="col-content-1">12</td>
@@ -509,9 +497,9 @@
                 </tr>
                 <tr>
                     <td>SEO-Optimized Captions</td>
-                    <td class="col-content-1"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    <td class="col-content-2"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    <td class="col-content-3"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td class="col-content-1"><span style="color: #5C1AEC; font-size: 1.2em;">&#10003;</span></td>
+                    <td class="col-content-2"><span style="color: #5C1AEC; font-size: 1.2em;">&#10003;</span></td>
+                    <td class="col-content-3"><span style="color: #5C1AEC; font-size: 1.2em;">&#10003;</span></td>
                     
                 </tr>
                                 <tr>
@@ -530,37 +518,37 @@
                 </tr>
                 <tr>
                     <td>Adobe/Editable Files</td>
-                    <td class="col-content-1"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    <td class="col-content-2"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    <td class="col-content-3"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td class="col-content-1"><span style="color: #5C1AEC; font-size: 1.2em;">&#10003;</span></td>
+                    <td class="col-content-2"><span style="color: #5C1AEC; font-size: 1.2em;">&#10003;</span></td>
+                    <td class="col-content-3"><span style="color: #5C1AEC; font-size: 1.2em;">&#10003;</span></td>
                     
                 </tr>
                 <tr>
                     <td>Platform-Specific Exports</td>
-                    <td class="col-content-1">—</td>
-                    <td class="col-content-2"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    <td class="col-content-3"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td class="col-content-1"><span style="color: red; font-size: 1.2em;">&#10007;</span></td>
+                    <td class="col-content-2"><span style="color: #5C1AEC; font-size: 1.2em;">&#10003;</span></td>
+                    <td class="col-content-3"><span style="color: #5C1AEC; font-size: 1.2em;">&#10003;</span></td>
                     
                 </tr>
                 <tr>
                     <td>Competitor Visual Benchmark</td>
-                    <td class="col-content-1">—</td>
-                    <td class="col-content-2"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    <td class="col-content-3"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td class="col-content-1"><span style="color: red; font-size: 1.2em;">&#10007;</span></td>
+                    <td class="col-content-2"><span style="color: #5C1AEC; font-size: 1.2em;">&#10003;</span></td>
+                    <td class="col-content-3"><span style="color: #5C1AEC; font-size: 1.2em;">&#10003;</span></td>
                     
                 </tr>
                  <tr>
                     <td>Brand Style Audit</td>
-                    <td class="col-content-1">—</td>
-                    <td class="col-content-2"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    <td class="col-content-3"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td class="col-content-1"><span style="color: red; font-size: 1.2em;">&#10007;</span></td>
+                    <td class="col-content-2"><span style="color: #5C1AEC; font-size: 1.2em;">&#10003;</span></td>
+                    <td class="col-content-3"><span style="color: #5C1AEC; font-size: 1.2em;">&#10003;</span></td>
                     
                 </tr>
                 <tr>
                     <td>Brand Guideline</td>
-                    <td class="col-content-1">—</td>
-                    <td class="col-content-2">—</td>
-                    <td class="col-content-3"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td class="col-content-1"><span style="color: red; font-size: 1.2em;">&#10007;</span></td>
+                    <td class="col-content-2"><span style="color: red; font-size: 1.2em;">&#10007;</span></td>
+                    <td class="col-content-3"><span style="color: #5C1AEC; font-size: 1.2em;">&#10003;</span></td>
                     
                 </tr>
                 <tr>
@@ -572,7 +560,7 @@
                         <button class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 20000)">Select</button>
                     </td>
                     <td class="col-content-3">
-                        <a href="#contact-footer" class="tier-btn">Ask for Quotation</a>
+                        <button class="tier-btn" data-pkg-id="3" onclick="selectTier(3, 'Customize', 'Ask for Quotation')">Ask for Quotation</button>
                     </td>
                     
                 </tr>
@@ -614,11 +602,15 @@
         
         document.querySelectorAll('.tier-btn').forEach(btn => {
             btn.classList.remove('active-btn');
-            // Restore original text
-            if(btn.closest('table')) {
-                btn.innerText = "Select";
-            } else if (btn.tagName === 'A') {
-                // Do nothing for links
+            // Restore original text logic
+            
+            if(btn.dataset.pkgId == "3" && !btn.closest('table')) {
+                 btn.innerText = "Ask for Quotation";
+            } else if(btn.closest('table')) {
+                 // Table buttons always usually 'Select' or 'Ask for Quotation' if custom?
+                 // Let's stick to 'Select' for table consistency or reset based on ID
+                 if(btn.dataset.pkgId == "3") btn.innerText = "Select"; // or "Ask for Quotation"? Let's use Select for table compactness if preferred, but user said "Ask for Quotation" button...
+                 else btn.innerText = "Select";
             } else {
                  btn.innerText = "Select Plan";
             }
@@ -645,10 +637,22 @@
             // Update Total Bar
             document.getElementById('social-total-bar').style.display = 'block';
             document.getElementById('social-summary-text').innerText = tierName;
-            document.getElementById('social-display-total').innerText = "BDT " + formatBDT(price);
+            
+            let displayPrice = "";
+            let formPrice = "";
+            
+            if (typeof price === 'number') {
+                displayPrice = "BDT " + formatBDT(price);
+                formPrice = displayPrice;
+            } else {
+                displayPrice = price; // Expecting string like "Custom Quote"
+                formPrice = price;
+            }
+
+            document.getElementById('social-display-total').innerText = displayPrice;
             
             // Update Form
-            updateForm(`Submitted From: Social Content _${tierName} (BDT ${formatBDT(price)})`);
+            updateForm(`Submitted From: Social Content _${tierName} (${formPrice})`);
             
             // SMOOTH SCROLL TO FORM
             const formSection = document.getElementById('contact-footer');
@@ -672,10 +676,4 @@
         }
     }
 </script>
-
-
-
-
-
-
 
