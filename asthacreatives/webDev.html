@@ -1,4 +1,4 @@
-ï»¿<style>
+<style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
     /* --- GLOBAL CONTAINER --- */
@@ -336,7 +336,7 @@
     .stack-txt { font-size: 14px; color: #555; margin-bottom: 15px; line-height: 1.6; }
     .stack-list { list-style: none; padding: 0; margin: 0; }
     .stack-list li { margin-bottom: 8px; color: #555; font-size: 13px; position: relative; padding-left: 15px; }
-    .stack-list li::before { content: "â€¢"; color: #5C1AEC; font-weight: bold; position: absolute; left: 0; font-size: 18px; line-height: 1; }
+    .stack-list li::before { content: "•"; color: #5C1AEC; font-weight: bold; position: absolute; left: 0; font-size: 18px; line-height: 1; }
     .process-section { margin-bottom: 60px; padding: 0 20px; }
     .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin-top: 30px; align-items: center; }
     .step-item { background: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px solid #eee; width: 100%; text-align: center; display: flex; flex-direction: column; justify-content: center; height: 100%; }
@@ -410,7 +410,7 @@
     <div class="tiers-section">
         <div class="tiers-grid">
             <div class="package-card" id="tier-1">
-                <div class="tier-name">Launch</div>
+                <div class="tier-name">Standard</div>
                 <div class="tier-target">
                     <strong>Best For:</strong> Startups, entrepreneurs, and small businesses.<br><br>
                     <strong>Value Proposition</strong> Perfect for new businesses launching their digital presence or running marketing campaigns.
@@ -427,7 +427,7 @@
                     <li>Speed optimization</li>
                     <li>7 days post-launch support</li>
                 </ul>
-                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Launch', 'BDT 250')">Select Package</button>
+                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Standard', 'BDT 250')">Select Package</button>
             </div>
 
             <div class="package-card" id="tier-2">
@@ -453,9 +453,9 @@
             </div>
 
             <div class="package-card customize-card" id="tier-3">
-                <div class="tier-name">Customize Your Plan</div>
+                <div class="tier-name">Customize</div>
                 <div class="customize-note">Demo: This card is a placeholder for custom pricing and a tailored scope.</div>
-                <a href="#contact-footer" id="formDown" class="tier-btn" style="margin-top: auto;">Contact Us</a>
+                <a href="#contact-footer" id="formDown" class="tier-btn" style="margin-top: auto;">Ask for Quotation</a>
 
             </div>
         </div>
@@ -468,7 +468,7 @@
                 <thead>
                     <tr>
                         <th>Feature</th>
-                        <th>Launch</th>
+                        <th>Standard</th>
                         <th>Growth</th>
                         
                     </tr>
@@ -500,7 +500,7 @@
                     </tr>
                     <tr>
                         <td>E-commerce / Database</td>
-                        <td>â€”</td>
+                        <td>—</td>
                         <td>Optional</td>
                         
                     </tr>
@@ -518,7 +518,7 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td><button class="tier-btn" onclick="selectTier('Launch', 'BDT 250')">Select Package</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Standard', 'BDT 250')">Select Package</button></td>
                         <td><button class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button></td>
                         
                     </tr>
@@ -616,5 +616,6 @@
         }
     }
 </script>
+
 
 

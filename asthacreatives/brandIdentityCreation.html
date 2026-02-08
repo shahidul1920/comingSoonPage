@@ -1,4 +1,4 @@
-﻿<style>
+<style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
     /* --- GLOBAL CONTAINER --- */
@@ -231,7 +231,7 @@
     }
     
     .pkg-features li::before {
-        content: "•";
+        content: "�";
         color: #5C1AEC;
         font-weight: bold;
         margin-right: 10px;
@@ -390,11 +390,11 @@
     <div style="text-align:left; margin-bottom:60px; padding:30px; border:1px dashed #5C1AEC; border-radius:12px; background:#fdfdfd;">
         <h3 style="margin-bottom:15px; color:#222;">Deliverables & What Clients Receive</h3>
         <ul style="padding:0; margin:0; list-style:none;">
-             <li style="margin-bottom:8px;">✔ Editable source files</li>
-             <li style="margin-bottom:8px;">✔ Print-ready & web-ready formats</li>
-             <li style="margin-bottom:8px;">✔ Brand guideline document</li>
-             <li style="margin-bottom:8px;">✔ Ownership rights</li>
-             <li>✔ Post-delivery support (optional)</li>
+             <li style="margin-bottom:8px;">? Editable source files</li>
+             <li style="margin-bottom:8px;">? Print-ready & web-ready formats</li>
+             <li style="margin-bottom:8px;">? Brand guideline document</li>
+             <li style="margin-bottom:8px;">? Ownership rights</li>
+             <li>? Post-delivery support (optional)</li>
         </ul>
     </div>
 
@@ -403,7 +403,7 @@
         <div class="package-grid">
             
             <div class="package-card" id="pkg-card-1">
-                <span class="pkg-sub">Launch Package</span>
+                <span class="pkg-sub">Standard Package</span>
                 <div class="pkg-desc">Quick-start identity for rapid launches and MVP brands. Best for startups & solo-preneurs.</div>
                 <div class="pkg-cost">BDT 200</div>
                 
@@ -414,7 +414,7 @@
                     <li><strong>Typography:</strong> Header & Body fonts</li>
                     <li><strong>Favicon:</strong> Branded app/browser icon</li>
                 </ul>
-                <button style="margin-top: auto;" class="tier-btn" data-pkg-id="1" onclick="selectBrandPkg(1, 'Launch', 200)">Select Plan</button>
+                <button style="margin-top: auto;" class="tier-btn" data-pkg-id="1" onclick="selectBrandPkg(1, 'Standard', 200)">Select Plan</button>
             </div>
 
             <div class="package-card" id="pkg-card-2">
@@ -423,7 +423,7 @@
                 <div class="pkg-cost">BDT 350</div>
                 
                 <ul class="pkg-features">
-                    <li><strong>Everything in "Launch"</strong></li>
+                    <li><strong>Everything in "Standard"</strong></li>
                     <li><strong>Brand Book:</strong> 15-page standard guidelines</li>
                     <li><strong>Social Media Kit:</strong> Avatars, Highlights, 3 Templates</li>
                     <li><strong>Stationery Suite:</strong> Card, Letterhead, Envelope</li>
@@ -433,9 +433,9 @@
             </div>
 
             <div class="package-card customize-card" id="pkg-card-3">
-                <span class="pkg-sub">Customize Your Plan</span>
+                <span class="pkg-sub">Customize</span>
                 <div class="customize-note">Demo: This card is a placeholder for custom pricing and a tailored scope.</div>
-                <a href="#contact-footer" id="formDown" class="tier-btn" style="margin-top: auto;">Contact Us</a>
+                <a href="#contact-footer" id="formDown" class="tier-btn" style="margin-top: auto;">Ask for Quotation</a>
             </div>
 
         </div>
@@ -447,7 +447,7 @@
             <thead>
                 <tr>
                     <th>Feature</th>
-                    <th>Launch</th>
+                    <th>Standard</th>
                     <th>Growth</th>
                     
                 </tr>
@@ -473,32 +473,32 @@
                 </tr>
                 <tr>
                     <td>Brand Guidelines</td>
-                    <td><span class="cross">❌</span></td>
+                    <td><span class="cross">?</span></td>
                     <td>Standard (15p)</td>
                     
                 </tr>
                 <tr>
                     <td>Social Media Kit</td>
-                    <td><span class="cross">❌</span></td>
+                    <td><span class="cross">?</span></td>
                     <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
                     
                 </tr>
                 <tr>
                     <td>Print Stationery</td>
-                    <td><span class="cross">❌</span></td>
+                    <td><span class="cross">?</span></td>
                     <td></td>
                     
                 </tr>
                 <tr>
                     <td>Brand Voice & Strategy</td>
-                    <td><span class="cross">❌</span></td>
-                    <td><span class="cross">❌</span></td>
+                    <td><span class="cross">?</span></td>
+                    <td><span class="cross">?</span></td>
                     
                 </tr>
                 <tr>
                     <td>Packaging & UI Kit</td>
-                    <td><span class="cross">❌</span></td>
-                    <td><span class="cross">❌</span></td>
+                    <td><span class="cross">?</span></td>
+                    <td><span class="cross">?</span></td>
                     
                 </tr>
                 <tr>
@@ -509,7 +509,7 @@
                 </tr>
                 <tr style="border-bottom:none;">
                     <td></td>
-                    <td style="padding:20px;"><button class="tier-btn" data-pkg-id="1" onclick="selectBrandPkg(1, 'Launch', 200)">Select Plan</button></td>
+                    <td style="padding:20px;"><button class="tier-btn" data-pkg-id="1" onclick="selectBrandPkg(1, 'Standard', 200)">Select Plan</button></td>
                     <td style="padding:20px;"><button class="tier-btn" data-pkg-id="2" onclick="selectBrandPkg(2, 'Growth', 350)">Select Plan</button></td>
                     
                 </tr>
@@ -600,5 +600,6 @@
         }
     }
 </script>
+
 
 

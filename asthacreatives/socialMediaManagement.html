@@ -1,4 +1,4 @@
-﻿<style>
+<style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
     .content-packages-wrapper {
@@ -103,7 +103,7 @@
     }
 
     .check-list li::before {
-        content: "✓";
+        content: "?";
         color: #5C1AEC;
         font-weight: 700;
         position: absolute;
@@ -126,7 +126,7 @@
     }
     
     .cross-list li::before {
-        content: "✕";
+        content: "?";
         color: #5C1AEC;
         font-weight: 700;
         position: absolute;
@@ -233,7 +233,7 @@
     }
     
     .pkg-features li::before {
-        content: "•";
+        content: "�";
         color: #5C1AEC;
         font-weight: bold;
         margin-right: 10px;
@@ -447,7 +447,7 @@
 
     <div class="tiers-grid">
         <div class="package-card" id="pkg-card-1">
-            <h3 class="pkg-name">Launch</h3>
+            <h3 class="pkg-name">Standard</h3>
             <div class="tier-target">Professionals, local brands, consultants, and startups who need a credible, consistent, and well-managed presence on one key platform.</div>
             <div class="pkg-price">BDT 250<span>/month</span></div>
             
@@ -460,7 +460,7 @@
                 <li>Posting, Scheduling & Community Mgmt</li>
                 <li>1x Monthly Strategy Call</li>
             </ul>
-            <button style="margin-top: auto;" class="tier-btn" data-pkg-id="1" onclick="selectStrategyPkg(1, 'Launch', 250)">Select Plan</button>
+            <button style="margin-top: auto;" class="tier-btn" data-pkg-id="1" onclick="selectStrategyPkg(1, 'Standard', 250)">Select Plan</button>
         </div>
 
         <div class="package-card" id="pkg-card-2">
@@ -481,9 +481,9 @@
         </div>
 
         <div class="package-card customize-card" id="pkg-card-3">
-            <h3 class="pkg-name">Customize Your Plan</h3>
+            <h3 class="pkg-name">Customize</h3>
             <div class="customize-note">Demo: This card is a placeholder for custom pricing and a tailored scope.</div>
-            <a href="#contact-footer" id="formDown" class="tier-btn" style="margin-top: auto;">Contact Us</a>
+            <a href="#contact-footer" id="formDown" class="tier-btn" style="margin-top: auto;">Ask for Quotation</a>
         </div>
     </div>
 
@@ -494,7 +494,7 @@
             <thead>
                 <tr>
                     <th>Feature</th>
-                    <th id="head-strat-1">Launch</th>
+                    <th id="head-strat-1">Standard</th>
                     <th id="head-strat-2">Growth</th>
                     
                 </tr>
@@ -556,13 +556,13 @@
                 </tr>
                 <tr>
                     <td>Brand Audit</td>
-                    <td>—</td>
+                    <td>�</td>
                     <td></td>
                     
                 </tr>
                 <tr>
                     <td>Competitor Analysis</td>
-                    <td>—</td>
+                    <td>�</td>
                     <td><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
                     
                 </tr>
@@ -582,7 +582,7 @@
                 <tr>
                     <td></td>
                     <td class="col-strat-1">
-                        <button class="tier-btn" data-pkg-id="1" onclick="selectStrategyPkg(1, 'Launch', 250)">Select</button>
+                        <button class="tier-btn" data-pkg-id="1" onclick="selectStrategyPkg(1, 'Standard', 250)">Select</button>
                     </td>
                     <td class="col-strat-2">
                         <button class="tier-btn" data-pkg-id="2" onclick="selectStrategyPkg(2, 'Growth', 400)">Select</button>
@@ -682,5 +682,6 @@
         }
     }
 </script>
+
 
 

@@ -1,4 +1,4 @@
-Ôªø<style>
+<style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
     .content-packages-wrapper {
@@ -104,7 +104,7 @@
     }
 
     .check-list li::before {
-        content: "‚úì";
+        content: "?";
         color: #5C1AEC;
         font-weight: 700;
         position: absolute;
@@ -127,7 +127,7 @@
     }
     
     .cross-list li::before {
-        content: "‚úï";
+        content: "?";
         color: #d32f2f;
         font-weight: 700;
         position: absolute;
@@ -259,7 +259,7 @@
     }
     
     .pkg-features li::before {
-        content: "‚Ä¢";
+        content: "ï";
         color: #5C1AEC;
         font-weight: bold;
         margin-right: 10px;
@@ -406,45 +406,60 @@
 
 <div class="content-packages-wrapper">
 
-    <div class="package-grid">
+        <div class="package-grid">
         <div class="package-card" id="pkg-card-1">
-            <h3 class="pkg-name">Launch</h3>
+            <h3 class="pkg-name">Standard</h3>
             <div class="pkg-desc">Professional visuals to establish credibility and consistency fast.</div>
-            <div class="pkg-price">BDT 200<span>/month</span></div>
+            <div class="pkg-price">BDT 10,000<span>/month</span></div>
             
             <ul class="pkg-features">
                 <li><strong>12 Static Creatives</strong></li>
                 <li>2 Simple Motion Creatives</li>
-                <li>2 Lightweight Infographics</li>
+                <li>1 Infographics/ Audience guesses/ Puzzle post</li>
                 <li>SEO-Optimized Captions</li>
                 <li>Basic Hashtag Set</li>
                 <li>30-Day Content Calendar</li>
                 <li>Adobe/Editable Files</li>
             </ul>
-            <button style="margin-top: auto;" class="tier-btn" data-pkg-id="1" onclick="selectTier(1, 'Launch', 200)">Select Plan</button>
+            <button style="margin-top: auto;" class="tier-btn" data-pkg-id="1" onclick="selectTier(1, 'Standard', 10000)">Select Plan</button>
         </div>
 
         <div class="package-card" id="pkg-card-2">
             <h3 class="pkg-name">Growth</h3>
             <div class="pkg-desc">A structured content engine designed to improve engagement and recall.</div>
-            <div class="pkg-price">BDT 350<span>/month</span></div>
+            <div class="pkg-price">BDT 20,000<span>/month</span></div>
             
             <ul class="pkg-features">
-                <li><strong>20 Static Creatives</strong></li>
-                <li>6 Motion Graphics</li>
-                <li>4 High-Impact Infographics</li>
-                <li>Strategic Content Calendar</li>
+                <li><strong>24 Static Creatives</strong></li>
+                <li>4 Motion Graphics</li>
+                <li>2 Infographics/ Audience guesses/ Puzzle post</li>
+                <li>SEO-Optimized Captions</li>
+                <li>Hashtag Set</li>
+                <li>30-Day Content Calendar</li>
+                <li>Adobe/Editable Files</li>
                 <li>Platform-Specific Exports</li>
                 <li>Competitor Visual Benchmark</li>
                 <li><strong>Bonus:</strong> Brand Style Audit</li>
             </ul>
-            <button style="margin-top: auto;" class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 350)">Select Plan</button>
+            <button style="margin-top: auto;" class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 20000)">Select Plan</button>
         </div>
 
         <div class="package-card customize-card" id="pkg-card-3">
-            <h3 class="pkg-name">Customize Your Plan</h3>
-            <div class="customize-note">Demo: This card is a placeholder for custom pricing and a tailored scope.</div>
-            <a href="#contact-footer" id="formDown" class="tier-btn" style="margin-top: auto;">Contact Us</a>
+            <h3 class="pkg-name">Customize</h3>
+            <div class="customize-note">Tailored scope and pricing based on your exact needs.</div>
+            <ul class="pkg-features">
+                <li>Motion Graphics</li>
+                <li>Infographics/ Audience guesses/ Puzzle post</li>
+                <li>SEO-Optimized Captions</li>
+                <li>Hashtag Set</li>
+                <li>Monthly/ Quarterly Content Calendar</li>
+                <li>Adobe/Editable Files</li>
+                <li>Platform-Specific Exports</li>
+                <li>Competitor Visual Benchmark</li>
+                <li>Brand Style Audit</li>
+                <li>Brand Guideline</li>
+            </ul>
+            <a href="#contact-footer" id="formDown" class="tier-btn" style="margin-top: auto;">Ask for Quotation</a>
         </div>
     </div>
 
@@ -452,79 +467,112 @@
         <div class="section-title">Package Comparison</div>
     </div>
     
-    <div class="comp-table-wrapper">
+        <div class="comp-table-wrapper">
         <table class="comp-table" id="content-pricing-table">
             <thead>
                 <tr>
                     <th>Feature</th>
-                    <th id="head-content-1">Launch</th>
+                    <th id="head-content-1">Standard</th>
                     <th id="head-content-2">Growth</th>
+                    <th id="head-content-3">Customize</th>
                     
                 </tr>
             </thead>
             <tbody>
                 <tr>
+                    <td>Monthly Price</td>
+                    <td class="col-content-1">BDT 10,000</td>
+                    <td class="col-content-2">BDT 20,000</td>
+                    <td class="col-content-3">Ask for Quotation</td>
+                    
+                </tr>
+                <tr>
                     <td>Static Creatives</td>
                     <td class="col-content-1">12</td>
-                    <td class="col-content-2">20</td>
+                    <td class="col-content-2">24</td>
+                    <td class="col-content-3">Custom</td>
                     
                 </tr>
                 <tr>
                     <td>Motion Graphics</td>
                     <td class="col-content-1">2</td>
-                    <td class="col-content-2">6</td>
-                    
-                </tr>
-                 <tr>
-                    <td>Infographics</td>
-                    <td class="col-content-1">2</td>
                     <td class="col-content-2">4</td>
-                    
-                </tr>
-                <tr>
-                    <td>Captions Included</td>
-                    <td class="col-content-1"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    <td class="col-content-2"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    
-                </tr>
-                <tr>
-                    <td>Hashtag Research</td>
-                    <td class="col-content-1">Basic</td>
-                    <td class="col-content-2">Advanced</td>
-                    
-                </tr>
-                <tr>
-                    <td>Content Calendar</td>
-                    <td class="col-content-1">Basic</td>
-                    <td class="col-content-2">Strategic</td>
-                    
-                </tr>
-                <tr>
-                    <td>Competitor Analysis</td>
-                    <td class="col-content-1">‚Äî</td>
-                    <td class="col-content-2"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td class="col-content-3">Custom</td>
                     
                 </tr>
                  <tr>
-                    <td>Editable Files</td>
-                    <td class="col-content-1"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
-                    <td class="col-content-2"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td>Infographics/ Audience guesses/ Puzzle post</td>
+                    <td class="col-content-1">1</td>
+                    <td class="col-content-2">2</td>
+                    <td class="col-content-3">Custom</td>
                     
                 </tr>
                 <tr>
-                    <td>Posting & Management</td>
-                    <td class="col-content-1">‚ùå</td>
-                    <td class="col-content-2">‚ùå</td>
+                    <td>SEO-Optimized Captions</td>
+                    <td class="col-content-1"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td class="col-content-2"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td class="col-content-3"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
                     
                 </tr>
-                
+                                <tr>
+                    <td>Hashtag Set</td>
+                    <td class="col-content-1">Basic</td>
+                    <td class="col-content-2">Included</td>
+                    <td class="col-content-3">Included</td>
+                    
+                </tr>
+                                <tr>
+                    <td>Content Calendar</td>
+                    <td class="col-content-1">30-Day</td>
+                    <td class="col-content-2">30-Day</td>
+                    <td class="col-content-3">Monthly/ Quarterly</td>
+                    
+                </tr>
+                <tr>
+                    <td>Adobe/Editable Files</td>
+                    <td class="col-content-1"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td class="col-content-2"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td class="col-content-3"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    
+                </tr>
+                <tr>
+                    <td>Platform-Specific Exports</td>
+                    <td class="col-content-1">ó</td>
+                    <td class="col-content-2"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td class="col-content-3"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    
+                </tr>
+                <tr>
+                    <td>Competitor Visual Benchmark</td>
+                    <td class="col-content-1">ó</td>
+                    <td class="col-content-2"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td class="col-content-3"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    
+                </tr>
+                 <tr>
+                    <td>Brand Style Audit</td>
+                    <td class="col-content-1">ó</td>
+                    <td class="col-content-2"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    <td class="col-content-3"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    
+                </tr>
+                <tr>
+                    <td>Brand Guideline</td>
+                    <td class="col-content-1">ó</td>
+                    <td class="col-content-2">ó</td>
+                    <td class="col-content-3"><span style="color: #5C1AEC; font-weight: 900;">&#10003;</span></td>
+                    
+                </tr>
                 <tr>
                     <td></td>
                     <td class="col-content-1">
-                        <button class="tier-btn" data-pkg-id="1" onclick="selectTier(1, 'Launch', 200)">Select</button>
+                        <button class="tier-btn" data-pkg-id="1" onclick="selectTier(1, 'Standard', 10000)">Select</button>
                     </td>
                     <td class="col-content-2">
-                        <button class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 350)">Select</button>
+                        <button class="tier-btn" data-pkg-id="2" onclick="selectTier(2, 'Growth', 20000)">Select</button>
+                    </td>
+                    <td class="col-content-3">
+                        <a href="#contact-footer" class="tier-btn">Ask for Quotation</a>
                     </td>
                     
                 </tr>
@@ -552,6 +600,9 @@
     });
 
     let currentTier = null;
+    function formatBDT(amount) {
+        return Number(amount).toLocaleString('en-US');
+    }
 
     function selectTier(id, tierName, price) {
         // Toggle Selection
@@ -594,10 +645,10 @@
             // Update Total Bar
             document.getElementById('social-total-bar').style.display = 'block';
             document.getElementById('social-summary-text').innerText = tierName;
-            document.getElementById('social-display-total').innerText = "BDT " + price;
+            document.getElementById('social-display-total').innerText = "BDT " + formatBDT(price);
             
             // Update Form
-            updateForm(`Submitted From: Social Content _${tierName} (BDT ${price})`);
+            updateForm(`Submitted From: Social Content _${tierName} (BDT ${formatBDT(price)})`);
             
             // SMOOTH SCROLL TO FORM
             const formSection = document.getElementById('contact-footer');
@@ -621,5 +672,10 @@
         }
     }
 </script>
+
+
+
+
+
 
 
