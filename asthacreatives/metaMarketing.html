@@ -502,9 +502,7 @@
         <div class="package-card">
             <h3 class="pkg-name">Launch</h3>
             <div class="pkg-desc">Professional Social Presence with Measurable Traction</div>
-            <div class="pkg-price">$499<span>/month</span></div>
-            
-            <button class="btn-select" onclick="selectGrowthPkg(1, 499)">Select Plan</button>
+            <div class="pkg-price">BDT 20,000<span>/month</span></div>
             
             <ul class="pkg-features">
                 <li><strong>1 Platform</strong> (FB / IG / TikTok / LI)</li>
@@ -515,6 +513,7 @@
                 <li>Basic A/B Testing</li>
                 <li>Monthly Reporting</li>
             </ul>
+             <button class="btn-select" onclick="selectGrowthPkg(1, 20000)">Select Plan</button>
         </div>
 
         <!-- 2: Growth Engine -->
@@ -522,9 +521,7 @@
             
             <h3 class="pkg-name">Growth</h3>
             <div class="pkg-desc">Scalable Social Media & Paid Ads for Consistent ROI</div>
-            <div class="pkg-price">$699<span>/month</span></div>
-            
-            <button class="btn-select" onclick="selectGrowthPkg(2, 699)">Select Plan</button>
+            <div class="pkg-price">BDT 30,000<span>/month</span></div>
             
             <ul class="pkg-features">
                 <li><strong>2 Platforms</strong> (Strategy per channel)</li>
@@ -535,15 +532,13 @@
                 <li>Funnel Mapping (Full Funnel)</li>
                 <li>Bi-weekly Reporting & Calls</li>
             </ul>
+             <button class="btn-select" onclick="selectGrowthPkg(2, 30000)">Select Plan</button>
         </div>
 
         <!-- 3: Market Dominator -->
         <div class="package-card">
             <h3 class="pkg-name">Enterprise</h3>
             <div class="pkg-desc">Full-Funnel Social & Paid Advertising at Enterprise Level</div>
-            <div class="pkg-price">$899<span>/month</span></div>
-            
-            <button class="btn-select" onclick="selectGrowthPkg(3, 899)">Select Plan</button>
             
             <ul class="pkg-features">
                 <li><strong>3 Platforms</strong> (Fully Integrated)</li>
@@ -554,6 +549,7 @@
                 <li>Deep Audience Segmentation</li>
                 <li>Weekly Reporting & Calls</li>
             </ul>
+             <button class="btn-select" onclick="selectGrowthPkg(3, 'Ask for Quotation')">Ask for Quotation</button>
         </div>
     </div>
 
@@ -638,13 +634,13 @@
                 <tr>
                     <td></td>
                     <td class="col-grow-1">
-                        <button class="btn-select" onclick="selectGrowthPkg(1, 499)">Select</button>
+                        <button class="btn-select" onclick="selectGrowthPkg(1, 20000)">Select</button>
                     </td>
                     <td class="col-grow-2">
-                        <button class="btn-select" onclick="selectGrowthPkg(2, 699)">Select</button>
+                        <button class="btn-select" onclick="selectGrowthPkg(2, 30000)">Select</button>
                     </td>
                     <td class="col-grow-3">
-                        <button class="btn-select" onclick="selectGrowthPkg(3, 899)">Select</button>
+                        <button class="btn-select" onclick="selectGrowthPkg(3, 'Ask for Quotation')">Ask for Quotation</button>
                     </td>
                 </tr>
             </tbody>
@@ -725,7 +721,15 @@
         // 4. Show Total Bar
         totalBar.style.display = 'block';
         document.getElementById('growth-summary-text').innerText = currentGrowthPkg;
-        document.getElementById('growth-display-total').innerText = "$" + growthPrice;
+        
+        let displayPrice = "";
+        if (typeof growthPrice === 'number') {
+            displayPrice = "BDT " + growthPrice.toLocaleString();
+        } else {
+            displayPrice = growthPrice;
+        }
+
+        document.getElementById('growth-display-total').innerText = displayPrice;
 
         updateGrowthForm();
     }
