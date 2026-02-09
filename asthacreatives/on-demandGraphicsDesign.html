@@ -1,0 +1,305 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    .package-auto-fill {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    /* --- WRAPPER --- */
+    .demand-wrapper {
+        font-family: 'Poppins', sans-serif;
+        color: #333;
+        line-height: 1.6;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        background-color: #fafafa;
+    }
+
+    /* --- HERO TEXT --- */
+    .demand-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .demand-title {
+        font-size: 32px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 15px;
+    }
+    .demand-sub {
+        font-size: 16px;
+        color: #666;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    /* --- GRID --- */
+    .demand-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        align-items: stretch;
+    }
+
+    @media(min-width: 1024px) {
+        .demand-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    /* --- CARD STYLE (Matching your screenshot) --- */
+    .demand-card {
+        background: #fff;
+        border: 1px solid #eee; /* Subtle border */
+        border-radius: 12px;
+        padding: 40px 30px;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+    }
+
+    .demand-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(92, 26, 236, 0.1); /* Purple shadow hint */
+        border-color: #5C1AEC;
+    }
+
+    /* Active State */
+    .demand-card.active-card {
+        border: 2px solid #222;
+        background-color: #fff;
+    }
+
+    /* Icon Area */
+    .d-icon {
+        font-size: 40px;
+        margin-bottom: 20px;
+        color: #5C1AEC; /* Astha Purple */
+    }
+
+    /* Title */
+    .d-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 15px;
+    }
+
+    /* Description */
+    .d-desc {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 20px;
+        flex-grow: 1; /* Pushes button down */
+    }
+
+    /* Price Tag */
+    .d-price {
+        font-size: 18px;
+        font-weight: 600;
+        color: #5C1AEC;
+        margin-bottom: 25px;
+        padding-top: 15px;
+        border-top: 1px solid #f0f0f0;
+    }
+    .d-price span {
+        font-size: 12px;
+        color: #888;
+        font-weight: 400;
+    }
+
+    /* Button (Dark default, Purple hover) */
+    .d-btn {
+        background-color: #222; 
+        color: #fff;
+        text-align: center;
+        padding: 12px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
+        width: 100%;
+        display: block;
+    }
+
+    .d-btn:hover {
+        background-color: #5C1AEC;
+        transform: translateY(-2px);
+    }
+
+    .d-btn.active-btn {
+        background-color: #5C1AEC;
+    }
+
+    /* --- TOTAL BAR (Optional Visual Feedback) --- */
+    #demand-total-bar {
+        display: none;
+        margin-top: 30px;
+        padding: 15px;
+        text-align: center;
+        background: #222;
+        color: #fff;
+        border-radius: 8px;
+        animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+</style>
+
+<div class="demand-wrapper">
+
+    <div class="demand-header">
+        <h1 class="demand-title">Professional Design, On Demand</h1>
+        <p class="demand-sub">Need a quick flyer, a pitch deck polish, or a social media banner? Just select what you need, and we’ll get it done fast.</p>
+    </div>
+
+    <div class="demand-grid">
+
+        <div class="demand-card" id="card-d1">
+            <div class="d-icon">📄</div> <h3 class="d-title">Marketing Materials</h3>
+            <p class="d-desc">
+                High-quality print or digital assets. Includes Flyers, Brochures, Posters, or One-Pagers.
+                <br><br>
+                <strong>Includes:</strong> Print-ready files + Source file.
+            </p>
+            
+            <button class="d-btn" onclick="selectDemand('Marketing Material', 'card-d1')">Select Service</button>
+        </div>
+
+        <div class="demand-card" id="card-d2">
+            <div class="d-icon">🎨</div>
+            <h3 class="d-title">Social Media Creative</h3>
+            <p class="d-desc">
+                Stand out in the feed. Single static banner, carousel (up to 5 slides), or cover art.
+                <br><br>
+                <strong>Includes:</strong> Optimized resizing for IG/FB/LinkedIn.
+            </p>
+            
+            <button class="d-btn" onclick="selectDemand('Social Media Creative', 'card-d2')">Select Service</button>
+        </div>
+
+        <div class="demand-card" id="card-d3">
+            <div class="d-icon">📊</div>
+            <h3 class="d-title">Presentation Design</h3>
+            <p class="d-desc">
+                Turn boring slides into a persuasive pitch deck. We clean up layout, typography, and visuals.
+                <br><br>
+                <strong>Includes:</strong> up to 10 slides redesign.
+            </p>
+            
+            <button class="d-btn" onclick="selectDemand('Presentation Design', 'card-d3')">Select Service</button>
+        </div>
+
+        <div class="demand-card" id="card-d4">
+            <div class="d-icon">✨</div>
+            <h3 class="d-title">Logo & Brand Elements</h3>
+            <p class="d-desc">
+                Need a logo refresh, a vector trace, or a specific brand icon set?
+                <br><br>
+                <strong>Includes:</strong> Vector files (SVG/AI/EPS) & PNG.
+            </p>
+            
+            <button class="d-btn" onclick="selectDemand('Logo/Brand Element', 'card-d4')">Select Service</button>
+        </div>
+
+        <div class="demand-card" id="card-d5">
+            <div class="d-icon">🎬</div>
+            <h3 class="d-title">Single Motion Ad</h3>
+            <p class="d-desc">
+                One 15-second animated ad or motion graphic for social media stories/reels.
+                <br><br>
+                <strong>Includes:</strong> MP4 file + Music licensing.
+            </p>
+            
+            <button class="d-btn" onclick="selectDemand('Motion Ad', 'card-d5')">Select Service</button>
+        </div>
+
+        <div class="demand-card" id="card-d6" style="background:#222; border-color:#222;">
+            <div class="d-icon" style="color:#fff;">🚀</div>
+            <h3 class="d-title" style="color:#fff;">Custom Request</h3>
+            <p class="d-desc" style="color:#ccc;">
+                Have a unique project or need a designer for a full day? Let us know what you need.
+                <br><br>
+                <strong>Best for:</strong> Urgent bulk work or unique ideas.
+            </p>
+            
+            <button class="d-btn" style="background:#fff; color:#222;" onclick="selectDemand('Custom Request', 'card-d6')">Contact Us</button>
+        </div>
+
+    </div>
+
+    <div id="demand-total-bar">
+        Selected: <span id="demand-selected-name" style="color:#5C1AEC; font-weight:700;"></span> 
+        <span style="font-size:12px; color:#aaa; margin-left:10px;">(Scroll down to submit)</span>
+    </div>
+
+</div>
+
+<script>
+    // Initialize
+    document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(function() {
+            updateDemandForm(""); 
+        }, 500);
+    });
+
+    function selectDemand(serviceName, cardId) {
+        
+        // 1. Visual Cleanup (Remove active states)
+        document.querySelectorAll('.demand-card').forEach(c => {
+            // Keep the custom dark card dark, reset others
+            if(c.id !== 'card-d6') c.style.borderColor = '#eee'; 
+        });
+        
+        document.querySelectorAll('.d-btn').forEach(b => {
+             // Reset text
+            if(b.innerText !== "Contact Us") b.innerText = "Select Service";
+        });
+
+        // 2. Highlight Selected
+        const card = document.getElementById(cardId);
+        const btn = card.querySelector('.d-btn');
+        
+        if(cardId !== 'card-d6') {
+            card.style.borderColor = '#222'; // Highlight border
+        }
+        
+        btn.innerText = "Selected";
+
+        // 3. Update Feedback Bar
+        document.getElementById('demand-total-bar').style.display = 'block';
+        document.getElementById('demand-selected-name').innerText = serviceName;
+
+        // 4. Update Form Logic
+        // Appending ' $' for none-form.html compatibility
+        updateDemandForm(`Submitted From: On-Demand Design _${serviceName} (Requesting Quote) $`);
+
+        // 5. Scroll to Form (Triggers the separate Form Toggler script)
+        const formSection = document.getElementById('contact-footer');
+        if(formSection) {
+            formSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    function updateDemandForm(textValue) {
+        // Find SureForms input via class
+        let formField = document.querySelector(".package-auto-fill input");
+        
+        if (formField) {
+            formField.value = textValue;
+            // Dispatch events so the separate Toggler script sees the change
+            formField.dispatchEvent(new Event('input', { bubbles: true }));
+            formField.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+    }
+</script>
