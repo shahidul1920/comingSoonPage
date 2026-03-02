@@ -1,0 +1,63 @@
+<style>
+    /* 1. Hide the form by default */
+    #contact-footer {
+        display: none;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    /* 2. Reveal Animation Class */
+    #contact-footer.show-form {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // A. Find the SureForms input that gets updated by the pricing table
+    const triggerInput = document.querySelector(".package-auto-fill input");
+    
+    // B. Find the Container you want to show/hide
+    const formSection = document.getElementById('contact-footer');
+
+    if (triggerInput && formSection) {
+        
+        // C. Listen for changes to the input field
+        triggerInput.addEventListener('input', function() {
+            
+            // Get the value (e.g., "Submitted From: VideoEditing _Standard...")
+            const val = triggerInput.value;
+            
+            // Logic: If the value looks like a selection, SHOW the form
+            if (val && (val.includes("BDT") || val.includes("Price") || val.includes("Quote"))) {
+                
+                if (!formSection.classList.contains('show-form')) {
+                    formSection.style.display = 'block'; // Make it exist in DOM
+                    
+                    // Small delay for CSS transition to catch the change
+                    setTimeout(() => {
+                        formSection.classList.add('show-form');
+                        // Auto-scroll to it
+                        formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 50);
+                }
+
+            } else {
+                // If value is empty or generic, HIDE the form
+                formSection.classList.remove('show-form');
+                setTimeout(() => {
+                     if(!formSection.classList.contains('show-form')) {
+                        formSection.style.display = 'none';
+                     }
+                }, 600); 
+            }
+        });
+    } else {
+        console.log("Form Toggler: Waiting for user interaction...");
+    }
+});
+</script>

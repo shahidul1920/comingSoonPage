@@ -397,6 +397,25 @@
         color: #fff !important;
         border-color: #5C1AEC !important;
     }
+
+    /* 1. Hide the form by default */
+    #contact-footer {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.4s ease-in-out;
+    }
+
+    /* Animation class for showing */
+    #contact-footer.show-form {
+        display: block;
+        opacity: 1;
+        animation: slideUpFade 0.5s ease forwards;
+    }
+
+    @keyframes slideUpFade {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
 </style>
 
 <div class="content-packages-wrapper">
@@ -604,13 +623,8 @@
             btn.classList.remove('active-btn');
             // Restore original text logic
             
-            if(btn.dataset.pkgId == "3" && !btn.closest('table')) {
-                 btn.innerText = "Ask for Quotation";
-            } else if(btn.closest('table')) {
-                 // Table buttons always usually 'Select' or 'Ask for Quotation' if custom?
-                 // Let's stick to 'Select' for table consistency or reset based on ID
-                 if(btn.dataset.pkgId == "3") btn.innerText = "Select"; // or "Ask for Quotation"? Let's use Select for table compactness if preferred, but user said "Ask for Quotation" button...
-                 else btn.innerText = "Select";
+            if(btn.closest('table')) {
+                 btn.innerText = "Select";
             } else {
                  btn.innerText = "Select Plan";
             }
@@ -652,7 +666,8 @@
             document.getElementById('social-display-total').innerText = displayPrice;
             
             // Update Form
-            updateForm(`Submitted From: Social Content _${tierName} (${formPrice})`);
+            // Appending '$' to ensure compatibility with ../none-form.html trigger logic
+            updateForm(`Submitted From: Social Content _${tierName} (${formPrice}) $`);
             
             // SMOOTH SCROLL TO FORM
             const formSection = document.getElementById('contact-footer');
@@ -666,8 +681,8 @@
         let textToSend = subjectText || "Submitted From: Social Content _General Inquiry";
         
         // --- SUREFORMS SELECTOR ---
-        // Looks for the field with class 'package-auto-fill'
-        let formField = document.querySelector(".package-auto-fill input");
+        // Try both selectors to ensure compatibility with different form setups
+        let formField = document.querySelector(".package-auto-fill input") || document.querySelector("input[name='input_text']");
 
         if (formField) {
             formField.value = textToSend;
@@ -675,5 +690,47 @@
             formField.dispatchEvent(new Event('input', { bubbles: true }));
         }
     }
+
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // 1. Find the hidden input field used by your pricing tables
+    const triggerInput = document.querySelector("input[name='input_text']") || document.querySelector(".package-auto-fill input");
+    
+    // 2. Find the Form Container using the ID you added in Elementor
+    const formSection = document.getElementById('contact-footer');
+
+    if (triggerInput && formSection) {
+        
+        // 3. Watch for changes to the input field
+        triggerInput.addEventListener('input', function() {
+            
+            // Check if value is not empty and doesn't just contain default label text
+            // Adjust logic: If there is a price ($) or specific text, show form.
+            if (triggerInput.value.trim() !== "" && triggerInput.value.includes("$")) {
+                
+                // SHOW FORM
+                if (formSection.style.display !== 'block') {
+                    formSection.style.display = 'block';
+                    // Small delay to allow display:block to render before opacity transition
+                    setTimeout(() => {
+                        formSection.classList.add('show-form');
+                        // Smooth scroll to the form so they see it appeared
+                        formSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 10);
+                }
+
+            } else {
+                
+                // HIDE FORM (Deselected)
+                formSection.classList.remove('show-form');
+                setTimeout(() => {
+                     formSection.style.display = 'none';
+                }, 400); // Wait for fade out
+            }
+        });
+    } else {
+        console.log("Form Toggler: Could not find input_text or #contact-footer ID");
+    }
+});
 </script>
 

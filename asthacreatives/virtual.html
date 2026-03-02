@@ -305,13 +305,13 @@
     <div class="tiers-section">
         <div class="tiers-grid">
             <div class="package-card" id="tier-1">
-                <div class="tier-name">Standard</div>
+                <div class="tier-name">Launch</div>
                 <div class="tier-target">
                     <strong>Best For:</strong> Solopreneurs and small teams hosting webinars or workshops (Up to 100 participants).<br><br>
                     Ensure a seamless, professional event with essential setup, security, and support.
                 </div>
 
-                <div class="tier-price">BDT 199<span>/month</span></div>
+                <div class="tier-price">BDT 5,000<span>/month</span></div>
                 
                 <ul class="tier-features">
                     <li>Platform Setup & Configuration: Complete technical setup (Zoom/Teams/etc.).</li>
@@ -321,7 +321,7 @@
                     <li>Dedicated Attendee Support: Real-time technical help for attendees.</li>
                     <li>Duration: Support for up to 90 minutes.</li>
                 </ul>
-                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Standard', 'BDT 199')">Select Package</button>
+                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Launch', 'BDT 5,000')">Select Package</button>
             </div>
 
             <div class="package-card" id="tier-2">
@@ -331,10 +331,10 @@
                     Level up your events with breakout rooms, branded materials, and post-event analytics.
                 </div>
 
-                <div class="tier-price">BDT 399<span>/month</span></div>
+                <div class="tier-price">BDT 10,000<span>/month</span></div>
                 
                 <ul class="tier-features">
-                    <li>Everything in Standard: Plus advanced management features.</li>
+                    <li>Everything in Launch: Plus advanced management features.</li>
                     <li>Strategic Planning: Advanced planning and run-of-show creation.</li>
                     <li>Breakout Rooms: Setup and management for targeted discussions.</li>
                     <li>Branded Slides & Workbooks: Up to 25 branded slides and digital materials.</li>
@@ -342,14 +342,28 @@
                     <li>Post-Event Analytics: Detailed attendance and engagement reports.</li>
                     <li>Recording Editing: Professional editing of the session recording.</li>
                 </ul>
-                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button>
+                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Growth', 'BDT 10,000')">Select Package</button>
             </div>
 
-            <div class="package-card customize-card" id="tier-3">
-                <div class="tier-name">Customize</div>
-                <div class="customize-note">Demo: This card is a placeholder for custom pricing and a tailored scope.</div>
-                <a href="#contact-footer" class="tier-btn" style="margin-top: auto; text-align:center; text-decoration:none; display:flex; align-items:center; justify-content:center; line-height:1; box-sizing: border-box;">Ask for Quotation</a>
-tier-target
+            <div class="package-card" id="tier-3">
+                <div class="tier-name">Enterprise</div>
+                <div class="tier-target">
+                    <strong>Best For:</strong> Corporates and large conferences requiring broadcast-quality production (1,000+ participants).<br><br>
+                    <strong>Value Proposition:</strong> Full-scale production with custom branding, multi-camera streaming.
+                </div>
+
+                <!-- Price removed for Enterprise -->
+                
+                <ul class="tier-features">
+                    <li>Everything in Growth: Plus broadcast-grade production.</li>
+                    <li>Full-Scale Broadcast: Multi-platform streaming with multi-camera switching.</li>
+                    <li>Custom Branding: Fully custom slides, backgrounds, and overlays.</li>
+                    <li>Breakout Facilitators: Dedicated staff for breakout rooms.</li>
+                    <li>Transcription & Summary: Full text records and executive summaries.</li>
+                    <li>Cyber-Security Enterprise: Advanced encryption and backup systems.</li>
+                    <li>Help Desk: Dedicated support line for large audiences.</li>
+                </ul>
+                <button style="margin-top: auto;" class="tier-btn" onclick="selectTier('Enterprise', 'Ask for Quotation')">Ask for Quotation</button>
             </div>
         </div>
     </div>
@@ -361,83 +375,71 @@ tier-target
                 <thead>
                     <tr>
                         <th>Feature</th>
-                        <th>Standard</th>
+                        <th>Launch</th>
                         <th>Growth</th>
-                        
+                        <th>Enterprise</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Meeting Duration</td>
-                        <td>Up to 90 min</td>
-                        <td>Up to 3 hours</td>
-                        
-                    </tr>
-                    <tr>
                         <td>Participants</td>
                         <td>Up to 100</td>
                         <td>Up to 300</td>
-                        
+                        <td>1,000+</td>
                     </tr>
                     <tr>
                         <td>Platform Setup</td>
                         <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
                         <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                        
+                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Cyber Security</td>
+                        <td>Basic</td>
+                        <td>Basic</td>
+                        <td>Advanced</td>
                     </tr>
                     <tr>
                         <td>Breakout Rooms</td>
-                        <td>�</td>
+                        <td>—</td>
                         <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                        
+                        <td>+ Facilitators</td>
                     </tr>
                     <tr>
                         <td>Branded Slides</td>
-                        <td>Up to 10</td>
+                        <td>—</td>
                         <td>Up to 25</td>
-                        
+                        <td>Fully Custom</td>
                     </tr>
                     <tr>
-                        <td>Digital Workbooks</td>
-                        <td>�</td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                        
+                        <td>Speaker Prep</td>
+                        <td>Green Room (1)</td>
+                        <td>Dry Runs</td>
+                        <td>Full Rehearsals</td>
                     </tr>
                     <tr>
-                        <td>Speaker Green Room</td>
-                        <td>1 Speaker</td>
-                        <td>Up to 3</td>
-                        
+                        <td>Broadcast Production</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>Multi-Cam Streaming</td>
                     </tr>
                     <tr>
-                        <td>Live Streaming</td>
-                        <td>�</td>
-                        <td>�</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Edited Recordings</td>
-                        <td>�</td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Post-Event Analytics</td>
-                        <td>�</td>
-                        <td><span style="color: #5C1AEC !important; font-weight: bold;">&#10003;</span></td>
-                        
+                        <td>Post-Event</td>
+                        <td>—</td>
+                        <td>Analytics & Editing</td>
+                        <td>Transcription & Summary</td>
                     </tr>
                     <tr>
                         <td>Support</td>
                         <td>Dedicated</td>
                         <td>Dedicated</td>
-                        
+                        <td>Help Desk</td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td><button class="tier-btn" onclick="selectTier('Standard', 'BDT 199')">Select Package</button></td>
-                        <td><button class="tier-btn" onclick="selectTier('Growth', 'BDT 399')">Select Package</button></td>
-                        
+                        <td><button class="tier-btn" onclick="selectTier('Launch', 'BDT 5,000')">Select Package</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Growth', 'BDT 10,000')">Select Package</button></td>
+                        <td><button class="tier-btn" onclick="selectTier('Enterprise', 'Ask for Quotation')">Ask for Quotation</button></td>
                     </tr>
                 </tbody>
             </table>
