@@ -1,6 +1,6 @@
 <form action="/" method="GET" style="display: flex; gap: 15px; flex-wrap: wrap; width: 100%;">
 
-<select name="find_service" style="flex: 1; padding: 0 12px; height: 45px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 5px;">
+<select name="find_service" style="flex: 1; min-width: 250px; padding: 0 12px; height: 45px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 5px;">
 <option value="">Select Service...</option>
 <option value="plumber">Plumber</option>
 <option value="hvac-repair">HVAC repair</option>
@@ -14,112 +14,83 @@
 <option value="lawn-care">Lawn care</option>
 </select>
 
-<input list="locations-list" name="find_location" placeholder="Type Zip or City..." style="flex: 1; padding: 0 12px; height: 45px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 5px;">
+<div style="flex: 1; min-width: 250px; position: relative;">
+    <input type="text" name="find_location" id="location-input" placeholder="Type Zip or City..." autocomplete="off" style="width: 100%; padding: 0 12px; height: 45px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 5px;">
+    <ul id="suggestions-list" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #ccc; border-radius: 0 0 5px 5px; max-height: 200px; overflow-y: auto; list-style: none; padding: 0; margin: 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"></ul>
+</div>
 
-<datalist id="locations-list">
-<option value="08701 - Lakewood">
-<option value="77494 - Katy">
-<option value="77449 - Katy">
-<option value="11368 - Corona (Queens)">
-<option value="78660 - Pflugerville">
-<option value="90011 - Los Angeles">
-<option value="11385 - Ridgewood">
-<option value="77084 - Houston">
-<option value="11208 - Brooklyn">
-<option value="79936 - El Paso">
-<option value="60629 - Chicago">
-<option value="90650 - Norwalk">
-<option value="77433 - Cypress">
-<option value="91331 - Pacoima">
-<option value="11236 - Brooklyn">
-<option value="10467 - Bronx">
-<option value="37013 - Antioch">
-<option value="11373 - Elmhurst">
-<option value="94565 - Pittsburg">
-<option value="90044 - Los Angeles">
-<option value="90003 - Los Angeles">
-<option value="90201 - Bell Gardens">
-<option value="90250 - Hawthorne">
-<option value="90280 - South Gate">
-<option value="92335 - Fontana">
-<option value="78521 - Brownsville">
-<option value="78572 - Mission">
-<option value="60618 - Chicago">
-<option value="60617 - Chicago">
-<option value="11207 - Brooklyn">
-<option value="10456 - Bronx">
-<option value="11226 - Brooklyn">
-<option value="11212 - Brooklyn">
-<option value="10453 - Bronx">
-<option value="10458 - Bronx">
-<option value="11220 - Brooklyn">
-<option value="11355 - Flushing">
-<option value="11377 - Woodside">
-<option value="11372 - Jackson Heights">
-<option value="11219 - Brooklyn">
-<option value="11230 - Brooklyn">
-<option value="11234 - Brooklyn">
-<option value="11221 - Brooklyn">
-<option value="11233 - Brooklyn">
-<option value="11206 - Brooklyn">
-<option value="11214 - Brooklyn">
-<option value="11229 - Brooklyn">
-<option value="11203 - Brooklyn">
-<option value="10462 - Bronx">
-<option value="10452 - Bronx">
-<option value="10457 - Bronx">
-<option value="10463 - Bronx">
-<option value="10466 - Bronx">
-<option value="10469 - Bronx">
-<option value="10472 - Bronx">
-<option value="10473 - Bronx">
-<option value="11354 - Flushing">
-<option value="11365 - Fresh Meadows">
-<option value="11374 - Rego Park">
-<option value="11375 - Forest Hills">
-<option value="11379 - Middle Village">
-<option value="11432 - Jamaica">
-<option value="11434 - Jamaica">
-<option value="11435 - Jamaica">
-<option value="11436 - Jamaica">
-<option value="60632 - Chicago">
-<option value="60639 - Chicago">
-<option value="60623 - Chicago">
-<option value="60647 - Chicago">
-<option value="60619 - Chicago">
-<option value="60620 - Chicago">
-<option value="60640 - Chicago">
-<option value="60641 - Chicago">
-<option value="60628 - Chicago">
-<option value="77036 - Houston">
-<option value="77083 - Houston">
-<option value="77072 - Houston">
-<option value="77099 - Houston">
-<option value="77095 - Houston">
-<option value="77082 - Houston">
-<option value="77074 - Houston">
-<option value="77063 - Houston">
-<option value="77088 - Houston">
-<option value="77093 - Houston">
-<option value="77090 - Houston">
-<option value="77015 - Houston">
-<option value="77407 - Richmond">
-<option value="77406 - Richmond">
-<option value="77478 - Sugar Land">
-<option value="77479 - Sugar Land">
-<option value="77459 - Missouri City">
-<option value="77573 - League City">
-<option value="75052 - Grand Prairie">
-<option value="75067 - Lewisville">
-<option value="75070 - McKinney">
-<option value="75023 - Plano">
-<option value="75025 - Plano">
-<option value="75035 - Frisco">
-<option value="75034 - Frisco">
-</datalist>
-
-<button type="submit" style="padding: 0 25px; height: 45px; box-sizing: border-box; background:#2a64f6; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">
+<button type="submit" style="flex: 1; min-width: 150px; padding: 0 25px; height: 45px; box-sizing: border-box; background:#2a64f6; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">
 Find Pros
 </button>
+
+<script>
+    const locations = [
+        "08701 - Lakewood", "77494 - Katy", "77449 - Katy", "11368 - Corona (Queens)", "78660 - Pflugerville", 
+        "90011 - Los Angeles", "11385 - Ridgewood", "77084 - Houston", "11208 - Brooklyn", "79936 - El Paso", 
+        "60629 - Chicago", "90650 - Norwalk", "77433 - Cypress", "91331 - Pacoima", "11236 - Brooklyn", 
+        "10467 - Bronx", "37013 - Antioch", "11373 - Elmhurst", "94565 - Pittsburg", "90044 - Los Angeles", 
+        "90003 - Los Angeles", "90201 - Bell Gardens", "90250 - Hawthorne", "90280 - South Gate", 
+        "92335 - Fontana", "78521 - Brownsville", "78572 - Mission", "60618 - Chicago", "60617 - Chicago", 
+        "11207 - Brooklyn", "10456 - Bronx", "11226 - Brooklyn", "11212 - Brooklyn", "10453 - Bronx", 
+        "10458 - Bronx", "11220 - Brooklyn", "11355 - Flushing", "11377 - Woodside", "11372 - Jackson Heights", 
+        "11219 - Brooklyn", "11230 - Brooklyn", "11234 - Brooklyn", "11221 - Brooklyn", "11233 - Brooklyn", 
+        "11206 - Brooklyn", "11214 - Brooklyn", "11229 - Brooklyn", "11203 - Brooklyn", "10462 - Bronx", 
+        "10452 - Bronx", "10457 - Bronx", "10463 - Bronx", "10466 - Bronx", "10469 - Bronx", "10472 - Bronx", 
+        "10473 - Bronx", "11354 - Flushing", "11365 - Fresh Meadows", "11374 - Rego Park", "11375 - Forest Hills", 
+        "11379 - Middle Village", "11432 - Jamaica", "11434 - Jamaica", "11435 - Jamaica", "11436 - Jamaica", 
+        "60632 - Chicago", "60639 - Chicago", "60623 - Chicago", "60647 - Chicago", "60619 - Chicago", 
+        "60620 - Chicago", "60640 - Chicago", "60641 - Chicago", "60628 - Chicago", "77036 - Houston", 
+        "77083 - Houston", "77072 - Houston", "77099 - Houston", "77095 - Houston", "77082 - Houston", 
+        "77074 - Houston", "77063 - Houston", "77088 - Houston", "77093 - Houston", "77090 - Houston", 
+        "77015 - Houston", "77407 - Richmond", "77406 - Richmond", "77478 - Sugar Land", "77479 - Sugar Land", 
+        "77459 - Missouri City", "77573 - League City", "75052 - Grand Prairie", "75067 - Lewisville", 
+        "75070 - McKinney", "75023 - Plano", "75025 - Plano", "75035 - Frisco", "75034 - Frisco", "10025 - New York"
+    ];
+
+    const input = document.getElementById('location-input');
+    const list = document.getElementById('suggestions-list');
+
+    input.addEventListener('focus', showSuggestions);
+    input.addEventListener('input', showSuggestions);
+
+    function showSuggestions() {
+        const value = input.value.toLowerCase();
+        list.innerHTML = '';
+        const filtered = locations.filter(loc => loc.toLowerCase().includes(value));
+        
+        if (filtered.length > 0) {
+            filtered.forEach(loc => {
+                const li = document.createElement('li');
+                li.textContent = loc;
+                li.style.padding = '10px';
+                li.style.cursor = 'pointer';
+                li.style.borderBottom = '1px solid #eee';
+                li.style.fontSize = '14px';
+                li.style.color = '#333';
+                
+                li.onmouseover = () => li.style.background = '#f0f0f0';
+                li.onmouseout = () => li.style.background = 'white';
+                
+                li.onmousedown = (e) => {
+                    e.preventDefault(); // Prevent blur before click
+                    input.value = loc;
+                    list.style.display = 'none';
+                };
+                
+                list.appendChild(li);
+            });
+            list.style.display = 'block';
+        } else {
+            list.style.display = 'none';
+        }
+    }
+
+    // Hide when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!input.contains(e.target) && !list.contains(e.target)) {
+            list.style.display = 'none';
+        }
+    });
+</script>
 
 </form>
