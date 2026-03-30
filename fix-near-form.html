@@ -1,0 +1,105 @@
+<form action="/search-results/" method="GET" style="display: flex; gap: 15px; flex-wrap: wrap; width: 100%;">
+
+<select name="find_service" style="flex: 1; min-width: 250px; padding: 0 12px; height: 45px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 5px;">
+    <option value="">Select Service...</option>
+    <option value="plumber">Plumber</option>
+    <option value="hvac_repair">HVAC repair</option>
+    <option value="electrician">Electrician</option>
+    <option value="locksmith">Locksmith</option>
+    <option value="auto_repair">Auto repair</option>
+    <option value="house_cleaning">House cleaning</option>
+    <option value="pest_control">Pest control</option>
+    <option value="roofing_repair">Roofing repair</option>
+    <option value="cell_phone_repair">Cell phone repair</option>
+    <option value="lawn_care">Lawn care</option>
+</select>
+
+<div style="flex: 1; min-width: 250px; position: relative;">
+    <input type="text" name="find_location" id="location-input" placeholder="Type Zip or City..." autocomplete="off" style="width: 100%; padding: 0 12px; height: 45px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 5px;">
+    <ul id="suggestions-list" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #ccc; border-radius: 0 0 5px 5px; max-height: 200px; overflow-y: auto; list-style: none; padding: 0; margin: 0; z-index: 1000; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"></ul>
+</div>
+
+<!--<button type="submit" style="flex: 1; min-width: 150px; padding: 0 25px; height: 45px; box-sizing: border-box; background:#2a64f6; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">-->
+<!--    Find Pros-->
+<!--</button>-->
+<button type="submit" onclick="trackSearchClick()" style="flex: 1; min-width: 150px; padding: 0 25px; height: 45px; box-sizing: border-box; background:#2a64f6; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">
+    Find Pros
+</button>
+
+<script>
+    // --- GOOGLE ANALYTICS CLICK TRACKER ---
+function trackSearchClick() {
+    // Check if Google Analytics is loaded on the page
+    if (typeof gtag === 'function') {
+        gtag('event', 'find_pros_clicked', {
+            'event_category': 'button_click',
+            'button_name': 'Find Pros Main Button'
+        });
+    }
+}
+    const locations = [
+        "77494 - Katy", "08701 - Lakewood", "77449 - Katy", "78660 - Pflugerville", "77433 - Cypress", "77084 - Houston", "60629 - Chicago", "11368 - Corona", "92336 - Fontana", "11208 - Brooklyn", "37013 - Antioch", "78130 - New Braunfels", "79936 - El Paso", "11385 - Ridgewood", "30044 - Lawrenceville", "34787 - Winter Garden", "94565 - Pittsburg", "90011 - Los Angeles", "90650 - Norwalk", "78641 - Leander", "79938 - El Paso", "11373 - Elmhurst", "77573 - League City", "91331 - Pacoima", "92335 - Fontana", "75052 - Grand Prairie", "10467 - Bronx", "77429 - Cypress", "78245 - San Antonio", "11226 - Brooklyn", "90044 - Los Angeles", "11219 - Brooklyn", "10314 - Staten Island", "90250 - Hawthorne", "85142 - Queen Creek", "91342 - Sylmar", "11207 - Brooklyn", "10025 - New York", "11206 - Brooklyn", "90201 - Bell Gardens", "90805 - Long Beach", "00926 - San Juan", "77479 - Sugar Land", "60618 - Chicago", "11221 - Brooklyn", "90280 - South Gate", "77584 - Pearland", "73099 - Yukon", "11220 - Brooklyn", "78613 - Cedar Park", "92683 - Westminster", "75035 - Frisco", "78542 - Edinburg", "11214 - Brooklyn", "60632 - Chicago", "11212 - Brooklyn", "92345 - Hesperia", "78666 - San Marcos", "92503 - Riverside", "84043 - Lehi", "77407 - Richmond", "30024 - Suwanee", "11236 - Brooklyn", "30043 - Lawrenceville", "37042 - Clarksville", "10456 - Bronx", "78521 - Brownsville", "99301 - Pasco", "11230 - Brooklyn", "34953 - Port Saint Lucie", "79928 - El Paso", "93722 - Fresno", "93307 - Bakersfield", "91911 - Chula Vista", "77379 - Spring", "75217 - Dallas", "75126 - Forney", "60647 - Chicago", "92376 - Rialto", "60639 - Chicago", "77459 - Missouri City", "93727 - Fresno", "95747 - Roseville", "96706 - Ewa Beach", "95823 - Sacramento", "92804 - Anaheim", "11234 - Brooklyn", "27587 - Wake Forest", "95076 - Watsonville", "60804 - Cicero", "76063 - Mansfield", "30040 - Cumming", "92704 - Santa Ana", "11233 - Brooklyn", "28027 - Concord", "11377 - Woodside", "22193 - Woodbridge", "76028 - Burleson", "27610 - Raleigh", "60623 - Chicago"
+    ];
+
+    const input = document.getElementById('location-input');
+    const list = document.getElementById('suggestions-list');
+
+    // --- NEW MEMORY SCRIPT ---
+    // This checks the URL parameters and pre-fills the form so the user doesn't lose their inputs
+    window.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const serviceParam = urlParams.get('find_service');
+        const locationParam = urlParams.get('find_location');
+
+        if (serviceParam) {
+            document.querySelector('select[name="find_service"]').value = serviceParam;
+        }
+        if (locationParam) {
+            input.value = locationParam;
+        }
+    });
+    // -------------------------
+
+    input.addEventListener('focus', showSuggestions);
+    input.addEventListener('input', showSuggestions);
+
+    function showSuggestions() {
+        const value = input.value.toLowerCase();
+        list.innerHTML = '';
+        const filtered = locations.filter(loc => loc.toLowerCase().includes(value));
+        
+        if (filtered.length > 0) {
+            filtered.forEach(loc => {
+                const li = document.createElement('li');
+                li.textContent = loc;
+                li.style.padding = '10px';
+                li.style.cursor = 'pointer';
+                li.style.borderBottom = '1px solid #eee';
+                li.style.fontSize = '14px';
+                li.style.color = '#333';
+                
+                li.onmouseover = () => li.style.background = '#f0f0f0';
+                li.onmouseout = () => li.style.background = 'white';
+                
+                li.onmousedown = (e) => {
+                    e.preventDefault(); 
+                    input.value = loc;
+                    list.style.display = 'none';
+                };
+                
+                list.appendChild(li);
+            });
+            list.style.display = 'block';
+        } else {
+            list.style.display = 'none';
+        }
+    }
+
+    document.addEventListener('click', function(e) {
+        if (!input.contains(e.target) && !list.contains(e.target)) {
+            list.style.display = 'none';
+        }
+    });
+</script>
+
+</form>
